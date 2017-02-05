@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Brandon Quakkelaar">
+    
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    <title>ASP.NET MVC Compared to Django &middot; Quakkels.com</title>
+    <link rel="shortcut icon" href="http://quakkels.com/images/favicon.ico">
+    <link rel="stylesheet" href="http://quakkels.com/css/style.css">
+    <base href="http://quakkels.com/">
+    <link rel="canonical" href="http://quakkels.com/posts/asp-net-mvc-compared-to-dango/">
+    <link href="" rel="alternate" type="application/rss+xml" title="Quakkels.com" />
+</head>
+<body lang="en">
+<nav id="main-nav">
+    <div class="mobile-menu">
+        
+        
+        <div id="hamburger"><span></span></div>
+    </div>
+    <a href="http://quakkels.com/">Quakkels.com</a>
+    <a href="http://quakkels.com/projects">Projects</a>
+    <a href="http://quakkels.com/about">About</a>
+    <a class="rss" href="">RSS Feed</a>
+</nav>
+<header id="home-header">
+    <h1>ASP.NET MVC Compared to Django</h1>
+    
+    <h2>Jan, 13, 2013</h2>
+    
+    
+    
+    <p>
+            <a href="http://quakkels.com/tags/python">Python</a>
+        
+            <a href="http://quakkels.com/tags/aspnet-mvc">ASPNET MVC</a>
+        
+    </p>
+    
+</header>
+<div class="main">
+<section class="wrapper">
+
+
+<p>The MVC pattern is widely used in web development today. Regardless of whether
+you develop in C#, PHP, Python, Java, JavaScript, or Ruby, you won’t have any
+trouble finding a popular MVC pattern for your language of choice.</p>
+
+<p>Being primarily a C# developer, I’ve been using ASP.NET MVC since version 1.
+It’s a great framework. It can be very good at getting a project off the ground
+quickly, especially when coupled with a good ORM such as NHibernate, or Entity
+Framework.</p>
+
+<p>For a side project, I decided to set aside the familiar ASP.NET MVC framework in
+favor of learning a new language and a new corresponding framework. After a
+period of time spent deliberating over the virtues and drawbacks of each
+language, I chose Python for the language, and Django for the framework&hellip; and
+there was much rejoicing.</p>
+
+<p>As I learned the language and read the Django docs, it became apparent to me
+that the MVC pattern can be implemented in various ways. MVC is not just
+whatever Microsoft says it is. The pattern (as with almost everything) is open
+to a little interpretation. So I needed to come to terms with the absence of
+some tools that I was used to having in ASP.NET MVC, as well as the unfamiliar
+terminology in the Django framework.</p>
+
+<h2 id="introducing-django-it-is-not-a-cms">Introducing Django (it is not a CMS)</h2>
+
+<p>The first thing I would like to point out, is that Django is not a CMS. Django
+is to Python as ASP.NET MVC is to C#. I was surprised to find that out. My first impression of Django was that it was like Drupal, or Wordpress. I thought it was more like a CMS than a framework.</p>
+
+<p>Having said that, Django’s administration scaffolding is amazing. Almost to the point that it could appear to be a pre-built CMS. Django is literally capable of generating an entire administration section that allows you to manage data in your database as defined by your MVC models. That is something that ASP.NET MVC is capable of doing to a certain degree, when an application uses Entity Framework, but they do it a little differently. ASP.NET MVC Scaffolding is completely dependant on Visual Studio’s ability to read your models and then generate code for your controllers. Though, in my experience I often have to go back and rewrite most of the generated code, and many-to-many relationships are sketchy, if they’re generated at all.</p>
+
+<p>That isn’t the case for Django, which has it’s own built in ORM. Django is capable of complete scaffolding of many-to-many relationships, image and file uploaders, field validation, as well as basic input fields.</p>
+
+<h2 id="mvc-actually-stands-for-model-template-view">MVC actually stands for Model Template View</h2>
+
+<p>It’s semantics, I know. Read on.</p>
+
+<h2 id="django-controllers-aren-t-called-controllers">Django Controllers Aren’t Called Controllers</h2>
+
+<p>To fulfill the MVC pattern, Django uses three primary divisions of code, the Model, the View, and the Template. Notice that there is no Controller.</p>
+
+<p>Since I come from and ASP.NET MVC background, I was expecting code divisions that are labeled Model, View, and Controller (hence MVC). But no, this is not the case in Django. This fact caused some initial confusion for me as I was learning Django, but it doesn’t need to be confusing. If you’re familiar with ASP.NET MVC, then we just need to associate the Model, View, Controller concepts to the correct labels in Django.</p>
+
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th>Model</th>
+<th>View</th>
+<th>Controller</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="right"><strong>ASP.NET MVC Term</strong></td>
+<td>Model</td>
+<td>View</td>
+<td>Controller</td>
+</tr>
+
+<tr>
+<td align="right"><strong>Django Term</strong></td>
+<td>Model</td>
+<td>Template</td>
+<td>View</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="django-s-views-are-not-asp-net-mvc-views">Django’s Views are not ASP.NET MVC Views</h2>
+
+<p>When I think of Views in MVC, I think of the presentation layer which consists of markup, CSS, JavaScript, and some server-side scripting for basic display logic. That’s not what Views are in Django. Rather, Django’s Views do the equivalent job of the Controller in ASP.NET MVC.
+Templates are the Real Views</p>
+
+<p>ASP.NET MVC uses the term &lsquo;View&rsquo; to describe their presentation layer. HTML markup, css styles and JavaScript come together in a View file with help from Razor. Razor is very powerful and it is easy to pick up because it allows C# syntax directly in the view file to render a complete webpage. In my experience, this can also lead to an unbalanced View that has too much logic embedded in the View file instead of in the controller.</p>
+
+<p>Django uses the term “Template&rsquo; to describe their presentation layer. It also brings HTML markup, css styles, and JavaScript together. Though, it uses it’s own template rendering system. Whereas ASP.NET has the power of Razor that leverages C# syntax, Django’s template rendering syntax is unique, and it introduces a steeper learning curve than Razor.</p>
+
+<h2 id="if-you-re-looking-for-partial-views-in-django">If You’re Looking for Partial Views in Django&hellip;</h2>
+
+<p>&hellip;You’re probably not going to find them. There is nothing called &ldquo;Partial Template&rdquo; in Django, though you can accomplish similar functionality.</p>
+
+<p>Let’s say you have a data driven navigation bar that you want to display on all your template pages. You don’t want to write all your views to explicitly query that data, create the nav object for the template, and then have the navigation markup located in each template. Rather, you would like to just have located in your template file a reference to a &ldquo;Partial View&rsquo; which would do all that for you and it is independent of View-specific processes. In ASP.NET, this can be accomplished with Partial Views. In Django, this can be accomplished with Template Tags. It seems to me to be more cumbersome than a Partial View concept, but that could just be because I am still relatively new to the Django framework.
+Models are Pretty Much What You Would Expect</p>
+
+<p>Django has its own built in ORM. This allows you to define database tables, fields, validation, and relationships using Python classes. When you make changes to you Model’s classes, Django provides a simple command to sync the database:</p>
+
+<pre><code>$ python manage.py syncdb
+</code></pre>
+
+<p>These Model classes are editable through Django’s excellent scaffolding in the admin area, and they are queryable from Views for displaying in templates.</p>
+
+<h2 id="is-django-better-than-asp-net-mvc">Is Django Better than ASP.NET MVC?</h2>
+
+<p>No, not really. Neither is ASP.NET better than Django. ASP.NET MVC and Django both have their weaknesses. They need to be selected based on the project specs. Also, familiarity is huge when considering what technology to use when starting a new project. I was looking for a low cost learning experience with my project, Python + Django was perfect for that. The project is now done, or perhaps more accurately described as ‘abandoned’, and I am glad that I explored it. I would probably use Django again, if the situation called for it. Though, I think first exploring other Python frameworks would be a good idea.</p>
+
+</section>
+</div>
+<div id="footer">
+    <div class="wrapper">
+        <img class="avatar" src="http://quakkels.com/images/avatar.png">
+        My name is Brandon Quakkelaar. I like to program, blog, and learn.
+    </div>
+</div>
+<script src="http://quakkels.com/js/site.js"></script>
+<script>
+var navElement = document.getElementById("main-nav");
+var menuButton = document.getElementById("hamburger");
+var mobileSize = 768;
+var menu = new Menu(window, navElement, menuButton, mobileSize);
+</script>
