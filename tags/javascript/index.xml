@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on Quakkels.com</title>
+    <link>http://quakkels.com/tags/javascript/index.xml</link>
+    <description>Recent content in Javascript on Quakkels.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://quakkels.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Learn Insertion Sort with Video Game Discs</title>
+      <link>http://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</link>
+      <pubDate>Sat, 09 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</guid>
+      <description>
+
+&lt;p&gt;I think you could say I have an average number of video game discs. It&amp;rsquo;s not a huge number of games, but it is enough that it can be difficult to find a particular game if they&amp;rsquo;re not organized in a predictable way.&lt;/p&gt;
+
+&lt;p&gt;Enter insertion sort. Insertion sort is in the same family as the bubble sort in that its worst case complexity is O(n2). But in practice, it is usually a faster sort.&lt;/p&gt;
+
+&lt;p&gt;So we start with a few game discs that we want to sort. To simplify this demonstration each game is numbered.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/insertionSort01.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The sort begins by comparing the first two discs with each other, and ordering them appropriately. We see that the 4 is moved to before the 27.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/insertionSort02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At this point, the insertion sort looks remarkably similar to the bubble sort. the interesting part will be shown soon. First we move onto the next game disc. The 42 gets compared to the 27 and stays where it is because it is already in order relative to the 27.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/insertionSort03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now comes the interesting part. The 21 is goes before the 42 and before the 27. So our insertion sort technique inserts the 21 into the correct spot.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/insertionSort04.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then we get to the last game disc. An 8. This gets inserted after the 4 and before the 21.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/insertionSort05.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now the entire list of game discs has been sorted. We see the process working, but now we need to translate this process into a computer algorithm.&lt;/p&gt;
+
+&lt;h2 id=&#34;insertion-sort-example-in-javascript&#34;&gt;Insertion Sort Example in JavaScript&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;// set up the array with random values
+var sortMe = new Array();
+var arrayLength = 5;
+var i = 0;
+for(; i &amp;lt; arrayLength; i++) {
+    sortMe[i] = Math.floor((Math.random()*20)+1);
+}
+
+var logText = &amp;quot;&amp;quot;;
+i = 0;
+for(; i &amp;lt; arrayLength; i++) {
+    logText += sortMe[i] + &amp;quot;, &amp;quot;;
+}
+console.log(&amp;quot;Starting Values: \t&amp;quot; + logText);
+
+// begin insertion sort
+i = 1;
+var j, temp, k;
+
+for(; i &amp;lt; arrayLength; i++) {
+    temp = sortMe[i];
+    j = i;
+    while(j &amp;gt; 0 &amp;amp;&amp;amp; sortMe[j-1] &amp;gt; temp) {
+        sortMe[j] = sortMe[j-1];
+        j--;
+    }
+    sortMe[j] = temp;
+
+    logText = &amp;quot;New Order:\t\t&amp;quot;;
+    k=0;
+    for(; k &amp;lt; arrayLength; k++) {
+        logText += sortMe[k] + &amp;quot;, &amp;quot;;
+    }
+    console.log(logText);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a link to the &lt;a href=&#34;http://quakkels.com/files/InsertionSort.html&#34;&gt;working example&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Learn Bubble Sort with Playing Cards</title>
+      <link>http://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</link>
+      <pubDate>Tue, 22 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</guid>
+      <description>
+
+&lt;p&gt;Let&amp;rsquo;s say you have an unordered list of numbers and you wanted to put them in order from lowest to highest value. How would you do that? You&amp;rsquo;re probably thinking that you would just look at all the numbers, find the lowest number and put it at the beginning of your list. Then you would find the next largest number and put it in the second spot in the list, and so on until you&amp;rsquo;ve ordered the entire list of numbers. It&amp;rsquo;s simple, basic, and not very exciting. Now, let&amp;rsquo;s say that instead of ordering the list yourself, you decide it&amp;rsquo;s a better idea to write a computer program to order the list for you. Now you don&amp;rsquo;t have to deal with moving the numbers around, you just need to tell your program how to move the numbers, and then let the program handle any list you give it.&lt;/p&gt;
+
+&lt;p&gt;So how do you write your program to order the list? One of the most basic techniques for putting lists in order is the Bubble Sort algorithm. To understand how a Bubble Sort works, let&amp;rsquo;s use it on a few random playing cards to get them in order. after we walk through the algorithm with cards, we&amp;rsquo;ll take a look at a Bubble Sort implemented in code.&lt;/p&gt;
+
+&lt;h2 id=&#34;let-s-sort-some-playing-cards&#34;&gt;Let&amp;rsquo;s Sort Some Playing Cards&lt;/h2&gt;
+
+&lt;p&gt;The image below shows we have five cards (with unknown values) that we need to put in order using a Bubble Sort.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort01.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The first step in a Bubble Sort is to compare the first two values with each other. Here we see the first two values are an Ace (1) and a Queen (12). They are in order, so we move on to the next card.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we compare the Queen with nine.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Since the Queen is a larger value, it trades places with the nine, as seen below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort04.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we move on to the next card value. Since the Queen is a larger value than the two, they trade places.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort05.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort06.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, we move on to the last card in the list. The Ace is less than the Queen, so once again the cards trade places.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort07.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort08.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort09.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At this point, each card in this list has been compared to a neighboring card at least once. The result is that the largest value among these five cards has &amp;ldquo;bubbled&amp;rdquo; to the end of the list. But, we&amp;rsquo;re not done yet. After only one pass through we can only be sure that the last card is in the correct position. So let&amp;rsquo;s run the the cards again.&lt;/p&gt;
+
+&lt;p&gt;Starting at the beginning with the first two cards, Ace is compared with 9. Since Ace is less than nine, there is no change in position.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort10.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The next card, the two of hearts, is less than nine. So they trade places.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort11.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort12.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, nine is compared with an Ace. Since nine is greater than the Ace, they switch positions.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort13.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort14.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort15.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;With this second pass, we can now be sure that the final two cards are correct. You should be starting to see a pattern here. We continue the process until all the cards are in order.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort16.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort17.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort18.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort19.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort20.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;implement-bubble-sort-in-javascript&#34;&gt;Implement Bubble Sort in JavaScript&lt;/h2&gt;
+
+&lt;p&gt;Now that we understand the Bubble Sort process from the playing card demonstration, let&amp;rsquo;s implement it. Let&amp;rsquo;s use JavaScript for a simple example.&lt;/p&gt;
+
+&lt;p&gt;The script begins by creating an array that holds 5 values, and assigning random numbers to the array. Once the array is created and populated, we print the array and values to the console.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var sortMe = new Array();
+var arrayLength = 5;
+var i = 0;
+for(; i &amp;lt; arrayLength; i++) {
+    sortMe[i] = Math.floor((Math.random()*20)+1);
+}
+
+var logText = &amp;quot;&amp;quot;;
+i = 0;
+for(; i &amp;lt; arrayLength; i++) {
+    logText += sortMe[i] + &amp;quot;, &amp;quot;;
+}
+console.log(&amp;quot;Starting Values: \t&amp;quot; + logText);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we need to sort the array. The sort is done by using two loops and an if statement.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;i = 0;
+var didSwap = true;
+var temp;
+for(; i &amp;lt; arrayLength &amp;amp;&amp;amp; didSwap; i++) {
+    didSwap = false;
+    var j = 0;
+    for(; j &amp;lt; (arrayLength - 1); j++) {
+        if(sortMe[j] &amp;gt; sortMe[j+1]) {
+            temp = sortMe[j];
+            sortMe[j] = sortMe[j+1];
+            sortMe[j+1] = temp;
+            didSwap = true;
+        }    
+    }
+
+    logText = &amp;quot;New Order:\t\t&amp;quot;;
+    k=0;
+    for(; k &amp;lt; arrayLength; k++) {
+        logText += sortMe[k] + &amp;quot;, &amp;quot;;
+    }
+    console.log(logText);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When this script is executed, it will log to the console the original unmodified array, then it will print the modified array after each pass. Here are the log messages I got when I ran this code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Starting Values:    7, 9, 2, 16, 4,
+New Order:      7, 2, 9, 4, 16,
+New Order:      2, 7, 4, 9, 16,
+New Order:      2, 4, 7, 9, 16,
+New Order:      2, 4, 7, 9, 16, 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that the first pass through the starting values put 16 at the end of the list (just like the playing cards example). Then each pass after that &amp;ldquo;bubbled&amp;rdquo; the next highest number up. &lt;a href=&#34;http://quakkels.com/files/BubbleSort.html&#34;&gt;Here&lt;/a&gt; is the complete example.&lt;/p&gt;
+
+&lt;h2 id=&#34;problems-with-bubble-sort&#34;&gt;Problems with Bubble Sort&lt;/h2&gt;
+
+&lt;p&gt;Great. We now have a way to get our computer program to put lists of numbers in order for us. It&amp;rsquo;s automatic and it works. However, there are problems with Bubble Sort. That problem is that when confronted with a worst case scenario (long, long lists with lots of numbers that need to be moved) it is slow! More numbers in the list and more numbers that need to be moved increase the complexity of the Bubble Sort. The more complex it gets, the slower it gets. Now, this is true for any sorting algorithm. The problem with the Bubble Sort is that it gets very complex very quickly.&lt;/p&gt;
+
+&lt;p&gt;To describe the worst case complexity for an algorithm, computer science generally uses something called Big Oh Notation. The notation for the worst case Bubble Sort is O(n2). I&amp;rsquo;m not going to go into Big Oh Notation in detail here. If you&amp;rsquo;re interested in learning more about it, this &lt;a href=&#34;http://stackoverflow.com/questions/487258/what-is-a-plain-english-explanation-of-big-o-notation/487278#487278&#34;&gt;StackOverflow.com answer&lt;/a&gt; does a great job of explaing it in plain language. For the purposes if this article, it&amp;rsquo;s good to understand that Bubble Sort gets complex (and therefore slow) very quickly. There are other algorithms that do a better job of sorting numbers, but the Bubble Sort is one that is often taught to computer science students first.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

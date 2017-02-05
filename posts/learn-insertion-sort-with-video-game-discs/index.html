@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Brandon Quakkelaar">
+    
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    <title>Learn Insertion Sort with Video Game Discs &middot; Quakkels.com</title>
+    <link rel="shortcut icon" href="http://quakkels.com/images/favicon.ico">
+    <link rel="stylesheet" href="http://quakkels.com/css/style.css">
+    <base href="http://quakkels.com/">
+    <link rel="canonical" href="http://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/">
+    <link href="" rel="alternate" type="application/rss+xml" title="Quakkels.com" />
+</head>
+<body lang="en">
+<nav id="main-nav">
+    <div class="mobile-menu">
+        
+        
+        <div id="hamburger"><span></span></div>
+    </div>
+    <a href="http://quakkels.com/">Quakkels.com</a>
+    <a href="http://quakkels.com/projects">Projects</a>
+    <a href="http://quakkels.com/about">About</a>
+    <a class="rss" href="">RSS Feed</a>
+</nav>
+<header id="home-header">
+    <h1>Learn Insertion Sort with Video Game Discs</h1>
+    
+    <h2>Feb, 9, 2013</h2>
+    
+    
+    
+    <p>
+            <a href="http://quakkels.com/tags/javascript">Javascript</a>
+        
+            <a href="http://quakkels.com/tags/algorithms">Algorithms</a>
+        
+            <a href="http://quakkels.com/tags/tutorial">Tutorial</a>
+        
+    </p>
+    
+</header>
+<div class="main">
+<section class="wrapper">
+
+
+<p>I think you could say I have an average number of video game discs. It&rsquo;s not a huge number of games, but it is enough that it can be difficult to find a particular game if they&rsquo;re not organized in a predictable way.</p>
+
+<p>Enter insertion sort. Insertion sort is in the same family as the bubble sort in that its worst case complexity is O(n2). But in practice, it is usually a faster sort.</p>
+
+<p>So we start with a few game discs that we want to sort. To simplify this demonstration each game is numbered.</p>
+
+<p><img src="/images/insertionSort01.jpg" alt="" /></p>
+
+<p>The sort begins by comparing the first two discs with each other, and ordering them appropriately. We see that the 4 is moved to before the 27.</p>
+
+<p><img src="/images/insertionSort02.jpg" alt="" /></p>
+
+<p>At this point, the insertion sort looks remarkably similar to the bubble sort. the interesting part will be shown soon. First we move onto the next game disc. The 42 gets compared to the 27 and stays where it is because it is already in order relative to the 27.</p>
+
+<p><img src="/images/insertionSort03.jpg" alt="" /></p>
+
+<p>Now comes the interesting part. The 21 is goes before the 42 and before the 27. So our insertion sort technique inserts the 21 into the correct spot.</p>
+
+<p><img src="/images/insertionSort04.jpg" alt="" /></p>
+
+<p>Then we get to the last game disc. An 8. This gets inserted after the 4 and before the 21.</p>
+
+<p><img src="/images/insertionSort05.jpg" alt="" /></p>
+
+<p>Now the entire list of game discs has been sorted. We see the process working, but now we need to translate this process into a computer algorithm.</p>
+
+<h2 id="insertion-sort-example-in-javascript">Insertion Sort Example in JavaScript</h2>
+
+<pre><code>// set up the array with random values
+var sortMe = new Array();
+var arrayLength = 5;
+var i = 0;
+for(; i &lt; arrayLength; i++) {
+    sortMe[i] = Math.floor((Math.random()*20)+1);
+}
+
+var logText = &quot;&quot;;
+i = 0;
+for(; i &lt; arrayLength; i++) {
+    logText += sortMe[i] + &quot;, &quot;;
+}
+console.log(&quot;Starting Values: \t&quot; + logText);
+
+// begin insertion sort
+i = 1;
+var j, temp, k;
+
+for(; i &lt; arrayLength; i++) {
+    temp = sortMe[i];
+    j = i;
+    while(j &gt; 0 &amp;&amp; sortMe[j-1] &gt; temp) {
+        sortMe[j] = sortMe[j-1];
+        j--;
+    }
+    sortMe[j] = temp;
+
+    logText = &quot;New Order:\t\t&quot;;
+    k=0;
+    for(; k &lt; arrayLength; k++) {
+        logText += sortMe[k] + &quot;, &quot;;
+    }
+    console.log(logText);
+}
+</code></pre>
+
+<p>Here&rsquo;s a link to the <a href="/files/InsertionSort.html">working example</a>.</p>
+
+</section>
+</div>
+<div id="footer">
+    <div class="wrapper">
+        <img class="avatar" src="http://quakkels.com/images/avatar.png">
+        My name is Brandon Quakkelaar. Programming, blogging, and learning are some of my favorite ways to spend my time.
+    </div>
+</div>
+<script src="http://quakkels.com/js/site.js"></script>
+<script>
+var navElement = document.getElementById("main-nav");
+var menuButton = document.getElementById("hamburger");
+var mobileSize = 768;
+var menu = new Menu(window, navElement, menuButton, mobileSize);
+</script>

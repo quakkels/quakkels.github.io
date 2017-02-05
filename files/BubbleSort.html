@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head><title>JavaScript Bubble Sort</title></head>
+<body>
+	<p>To see the Bubble Sort output, open the web developer tools for your browser (usually by pressing F12) and look at the console panel.</p>
+	<script type="text/javascript">
+
+var sortMe = new Array();
+var arrayLength = 5;
+var i = 0;
+for(; i < arrayLength; i++) {
+	sortMe[i] = Math.floor((Math.random()*20)+1);
+}
+
+var logText = "";
+i = 0;
+for(; i < arrayLength; i++) {
+	logText += sortMe[i] + ", ";
+}
+console.log("Starting Values: \t" + logText);
+
+i = 0;
+var didSwap = true;
+var temp;
+for(; i < arrayLength && didSwap; i++) {
+	didSwap = false;
+	var j = 0;
+	for(; j < (arrayLength - 1); j++) {
+		if(sortMe[j] > sortMe[j+1]) {
+			temp = sortMe[j];
+			sortMe[j] = sortMe[j+1];
+			sortMe[j+1] = temp;
+			didSwap = true;
+		}	
+	}
+
+	logText = "New Order:\t\t";
+	k=0;
+	for(; k < arrayLength; k++) {
+		logText += sortMe[k] + ", ";
+	}
+	console.log(logText);
+}	
+	</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://quakkels.com/posts/frameworks-and-when-to-avoid-them/</loc>
+    <lastmod>2017-01-28T07:41:18-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/projects/pointing-online/</loc>
+    <lastmod>2017-01-27T14:36:35-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/projects/roast-it/</loc>
+    <lastmod>2017-01-27T14:36:35-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/posts/what-happens-when-you-login/</loc>
+    <lastmod>2013-02-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</loc>
+    <lastmod>2013-02-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</loc>
+    <lastmod>2013-01-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/posts/lets-talk-to-a-sqlite-database-with-python/</loc>
+    <lastmod>2013-01-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/posts/asp-net-mvc-compare-to-dango/</loc>
+    <lastmod>2013-01-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/tags/algorithms/</loc>
+    <lastmod>2013-02-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/tags/aspnet-mvc/</loc>
+    <lastmod>2013-01-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/projects/</loc>
+    <lastmod>2017-01-27T14:36:35-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/tags/javascript/</loc>
+    <lastmod>2013-02-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/posts/</loc>
+    <lastmod>2017-01-28T07:41:18-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/tags/practices/</loc>
+    <lastmod>2017-01-28T07:41:18-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/tags/python/</loc>
+    <lastmod>2013-01-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/</loc>
+    <lastmod>2017-01-28T07:41:18-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/tags/security/</loc>
+    <lastmod>2013-02-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/tags/sqlite/</loc>
+    <lastmod>2013-01-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/tags/tutorial/</loc>
+    <lastmod>2013-02-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

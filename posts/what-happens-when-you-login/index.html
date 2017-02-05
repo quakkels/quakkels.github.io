@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Brandon Quakkelaar">
+    
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    <title>What Happens When You Login? &middot; Quakkels.com</title>
+    <link rel="shortcut icon" href="http://quakkels.com/images/favicon.ico">
+    <link rel="stylesheet" href="http://quakkels.com/css/style.css">
+    <base href="http://quakkels.com/">
+    <link rel="canonical" href="http://quakkels.com/posts/what-happens-when-you-login/">
+    <link href="" rel="alternate" type="application/rss+xml" title="Quakkels.com" />
+</head>
+<body lang="en">
+<nav id="main-nav">
+    <div class="mobile-menu">
+        
+        
+        <div id="hamburger"><span></span></div>
+    </div>
+    <a href="http://quakkels.com/">Quakkels.com</a>
+    <a href="http://quakkels.com/projects">Projects</a>
+    <a href="http://quakkels.com/about">About</a>
+    <a class="rss" href="">RSS Feed</a>
+</nav>
+<header id="home-header">
+    <h1>What Happens When You Login?</h1>
+    
+    <h2>Feb, 23, 2013</h2>
+    
+    
+    
+    <p>
+            <a href="http://quakkels.com/tags/security">Security</a>
+        
+    </p>
+    
+</header>
+<div class="main">
+<section class="wrapper">
+
+
+<p>Your favorite website is asking you for your username and password.</p>
+
+<p>Username? Password? Sure, you&rsquo;ve got those. [You enter your username] then [you enter your password] then [you press enter] then boom, you&rsquo;re logged into the website.</p>
+
+<p>What actually just happened? Well, assuming that you entered correct login credentials, you can now access whatever members only area that site offers to those credentials. But before that, in the split seconds after you clicked login and before you saw your profile, the website had to verify that the credentials you entered were correct. It had to make sure that it knew the username you entered and it had to make sure that your password belonged with that username. That process is called <em>authentication</em>.</p>
+
+<h2 id="what-does-authentication-mean">What Does Authentication Mean?</h2>
+
+<p>It is common for online applications (like websites) to want to identify their users. Take Facebook as an example. Facebook cannot operate unless it is able to reliably identify its users. So, Facebook provides a registration process for new users to create accounts. That registration asks the user to give login credentials. In Facebook&rsquo;s case the credentials consist of an email address and a password. When a registered user visits Facebook, they can enter their credentials and Facebook knows who they are because they have registration information for those credentials. Being able correctly identify a returning user is called authentication. Described another way, a user with correct login credentials is authentic.</p>
+
+<p>Sounds pretty straightforward&hellip; right?</p>
+
+<p>Well, no. Well, it should be. The problem is when online applications do a poor job of keeping your credentials safe.</p>
+
+<h2 id="sending-your-login-credentials">Sending Your Login Credentials</h2>
+
+<p>First of all, when you enter your username and password into a website that does not use an encrypted SSL connection, it is possible (dare I say easy?) for a hacker to read your username and password as it is sent to the website. If a website is really concerned about their user&rsquo;s security then login forms should always use an SSL connection.</p>
+
+<h2 id="storing-user-login-credentials">Storing User Login Credentials</h2>
+
+<p>In order for sites to authenticate returning users, they need to store the user&rsquo;s credentials. Usually the credentials are stored in a database. The most important thing to recognize about login credentials is that they are the keys to a person&rsquo;s online identity. Therefore, it is extremely important to store login credentials in a very secure way. The most basic level of security is to make sure that the database is not publicly accessible. But, even if the public doesn&rsquo;t have direct access to the database, there are other measures that should be taken to keep login credentials as secure as possible.</p>
+
+<h2 id="a-no-good-horrible-irresponsible-wrong-wrong-wrong-way-of-storing-user-credentials">A no-good, horrible, irresponsible, wrong, wrong, WRONG way of storing user credentials</h2>
+
+<p>Some irresponsible sites have stored credentials like this:</p>
+
+<h3 id="a-bad-users-database-table">A Bad Users Database Table</h3>
+
+<table>
+<thead>
+<tr>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Username</th>
+<th>Password</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Brandon</td>
+<td>Quakkelaar</td>
+<td>bq2013</td>
+<td>guessme</td>
+</tr>
+
+<tr>
+<td>Jane</td>
+<td>Doe</td>
+<td>jdOnline</td>
+<td>password</td>
+</tr>
+
+<tr>
+<td>Bob</td>
+<td>Smith</td>
+<td>bsmith</td>
+<td>secret</td>
+</tr>
+</tbody>
+</table>
+
+<p>This is dangerous for a couple of reasons. The first and most glaring reason it is dangerous is because of the passwords are stored in plain text. This means that anyone who has access to this database (such as an employee of the website) can look up Jane Doe and find her password, Thereby allowing that person to steal Jane&rsquo;s identity on that site. On top of that, if Jane has used the same password on other sites (like an online banking site) she is now vulnerable to identity theft there as well.</p>
+
+<h2 id="a-slightly-better-way-of-storing-user-credentials">A slightly better way of storing user credentials</h2>
+
+<p>Some sites that are more concerned with security store credentials a bit differently. They actually encrypt user&rsquo;s password before storing them in the database.</p>
+
+<h3 id="users-database-table-with-encrypted-passwords">Users Database Table with Encrypted Passwords</h3>
+
+<table>
+<thead>
+<tr>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Username</th>
+<th>EncryptedPassword</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Brandon</td>
+<td>Quakkelaar</td>
+<td>bq2013</td>
+<td>hRnAQlrCPXFSGsS4cXDWh+vFLVWSlJka1YWBPTrpImI=</td>
+</tr>
+
+<tr>
+<td>Jane</td>
+<td>Doe</td>
+<td>jdOnline</td>
+<td>3ookjok1lRzkDBXTYr2PPGigEM+U7mnCJ/Uxof7nPgI=</td>
+</tr>
+
+<tr>
+<td>Bob</td>
+<td>Smith</td>
+<td>bsmith</td>
+<td>SKAbxUcdUOmqkP9TXJElrHkaZoIFwhGfzbcmy26QgN8=</td>
+</tr>
+</tbody>
+</table>
+
+<p>Now the passwords are stored encrypted instead of stored as plain text. This is better, but this is still bad. The problem is that this particular encryption is reversible. This means that if an employee of the website wanted to, she could decrypt all the passwords. Not only that, but if someone gets ahold of Bob&rsquo;s decrypted password, then they can hack into Bob&rsquo;s account and Bob would never know about it until after something significant happens.</p>
+
+<h2 id="passwords-should-be-stored-as-a-one-way-hash-with-salt">Passwords should be stored as a one-way hash with salt</h2>
+
+<p>When a person registers on a website, the website should do at least three things to ensure security.</p>
+
+<ol>
+<li>Send all credential information over an SSL</li>
+<li>Use a one-way hashing algorithm</li>
+<li>Use a Salt for each password</li>
+</ol>
+
+<p>Hashing passwords with a one-way hashing algorithm is similar to encrypting passwords. The difference is that once the password is hashed, it cannot be converted back to the original value. This is important and it is a weakness of systems that just encrypt their passwords.</p>
+
+<p>For example, let&rsquo;s say I use the password &ldquo;4mazingPa55word&rdquo;. If I encrypted that password using the key &ldquo;key&rdquo;, then &ldquo;4mazingpa55word&rdquo; becomes &ldquo;B0csjGFQtvfg+05Ufr6gJBiZPWe1s77krk4oSF0FlWo=&rdquo;. The problem is that using that key, I can decrypt the encrypted password back to plain text. Whenever a password can be obtained in it plain text form, that is a bad thing. that means that a disgruntled employee with access to the database could decrypt passwords and log into people&rsquo;s accounts <strong>without them ever realizing that their password has been compromised</strong>.</p>
+
+<p>The scary thing is that well known companies have been caught storing passwords in a way that allows the plain text version to be retrieved. <a href="https://plus.google.com/+AmberYust/posts/NGV5xQwJywf">In September of 2012, Pandora.com was caught doing this very thing</a>.</p>
+
+<p>Now, let&rsquo;s consider a password stored using a one-way hash.</p>
+
+<h3 id="users-database-table-with-salted-and-hashed-passwords">Users Database Table with Salted and Hashed Passwords</h3>
+
+<table>
+<thead>
+<tr>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Username</th>
+<th>Salt</th>
+<th>HashedPassword</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Brandon</td>
+<td>Quakkelaar</td>
+<td>bq2013</td>
+<td>123abc</td>
+<td>jLg+RKUYydfcFmvuAD9DxXEaevk=</td>
+</tr>
+
+<tr>
+<td>Jane</td>
+<td>Doe</td>
+<td>jdOnline</td>
+<td>qweasd</td>
+<td>IpVoLHy0+QqENEEmByVevHzoUUU=</td>
+</tr>
+
+<tr>
+<td>Bob</td>
+<td>Smith</td>
+<td>bsmith</td>
+<td>poiqwe</td>
+<td>SYMTwSQi8+XtKAAtkJvXON8IQoY=</td>
+</tr>
+</tbody>
+</table>
+
+<p>This way of storing passwords is more secure than just encrypting passwords, and it&rsquo;s much more secure than just storing passwords in plain text.</p>
+
+<h2 id="what-is-the-salt-for">What is the Salt For?</h2>
+
+<p>The salt is a value that is randomly generated by the website when a user registers. It is added to the user supllied password before is gets hashed. This means that if your password is a common password, the hash will be more difficult to crack because the system automatically adds a random value to it. This protects against attacks using <a href="https://en.wikipedia.org/wiki/Rainbow_table">Rainbow tables</a>.</p>
+
+<p>So <em>please</em>, if you are ever in the position to write user authentication software, please Salt and one-way hash your password over an SSL!</p>
+
+<h2 id="additional-reading">Additional Reading</h2>
+
+<ul>
+<li><a href="https://plus.google.com/+AmberYust/posts/NGV5xQwJywf">Pandora Password Weakness Exposed</a></li>
+<li><a href="https://codingkilledthecat.wordpress.com/2012/09/04/some-best-practices-for-web-app-authentication/">Some Best Practices for Web App Authentication</a></li>
+<li><a href="https://blog.codinghorror.com/youre-probably-storing-passwords-incorrectly/">You&rsquo;re Probably storing Password Incorrectly</a></li>
+</ul>
+
+</section>
+</div>
+<div id="footer">
+    <div class="wrapper">
+        <img class="avatar" src="http://quakkels.com/images/avatar.png">
+        My name is Brandon Quakkelaar. Programming, blogging, and learning are some of my favorite ways to spend my time.
+    </div>
+</div>
+<script src="http://quakkels.com/js/site.js"></script>
+<script>
+var navElement = document.getElementById("main-nav");
+var menuButton = document.getElementById("hamburger");
+var mobileSize = 768;
+var menu = new Menu(window, navElement, menuButton, mobileSize);
+</script>

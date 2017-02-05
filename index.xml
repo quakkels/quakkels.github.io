@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quakkels.com</title>
+    <link>http://quakkels.com/index.xml</link>
+    <description>Recent content on Quakkels.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Jan 2017 07:41:18 -0600</lastBuildDate>
+    <atom:link href="http://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Frameworks and When to Avoid Them</title>
+      <link>http://quakkels.com/posts/frameworks-and-when-to-avoid-them/</link>
+      <pubDate>Sat, 28 Jan 2017 07:41:18 -0600</pubDate>
+      
+      <guid>http://quakkels.com/posts/frameworks-and-when-to-avoid-them/</guid>
+      <description>&lt;p&gt;Frameworks can help jump-start productivity on projects. But be careful.
+Relying too much on frameworks could also limit it in the long run.&lt;/p&gt;
+
+&lt;p&gt;Whenever the opportunity presents itself, programmers should carefully consider
+whether using a framework is beneficial. It may provide immediate benefits, but
+there should be no magic happening that isn&amp;rsquo;t understood by the programmer.&lt;/p&gt;
+
+&lt;p&gt;Years ago, I learned how to make websites with C#. I had help from many books,
+tutorials, and co-workers. With those resources I used the ASP.NET MVC 1
+framework to build websites in a way I had never done before. While building my
+sample MVC sites, the code I wrote was there just because that&amp;rsquo;s how it was
+written in a tutorial somewhere. But, I had very little understanding of how
+the internals worked. I didn&amp;rsquo;t understand how routing worked, or how reflection
+worked, or how factories fit in, or anything about what a view engine did, or
+model binding. It was all just magic that I accepted and had faith in.&lt;/p&gt;
+
+&lt;p&gt;I was able to build a working website with C# and ASP.NET MVC, and I did it
+fairly quickly. It was done faster than it would have been without the
+framework. Achieving results while learning a technology is important for any
+beginner. The experience of finishing is valuable for the sense of
+accomplishment and for the lessons that are learned along the way. But, it&amp;rsquo;s
+important to understand that once a project is finished, the learning should
+not stop. Understanding the building blocks of any framework is the foundation
+for every solid programmer.&lt;/p&gt;
+
+&lt;p&gt;In my case, it was very important that I continued to build up my foundation of
+understanding. That&amp;rsquo;s because projects in the real world don&amp;rsquo;t just end. They
+live on. Real projects will continue to receive feature requests. New
+requirements will appear. Technology will change. Eventually, the chosen
+framework might lose support, or might not keep up with requirements. When that
+happens knowledge of how the framework functions is imperative. Without that
+understanding programmers are at the mercy of tutorials and the framework
+creators. But with that foundation programmers are equipped to continue
+building and shipping their project.&lt;/p&gt;
+
+&lt;p&gt;The bottom line is this: frameworks can be wielded much more effectively
+&lt;em&gt;after&lt;/em&gt; the programmer understands enough of the language and design concepts
+so that the framework&amp;rsquo;s behavior isn&amp;rsquo;t magic anymore. Programmers equipped with
+such understanding will know where to look for seams in the execution pipeline,
+and they will be able to add customizations where appropriate.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Pointing-online</title>
+      <link>http://quakkels.com/projects/pointing-online/</link>
+      <pubDate>Fri, 27 Jan 2017 14:36:35 -0600</pubDate>
+      
+      <guid>http://quakkels.com/projects/pointing-online/</guid>
+      <description>&lt;p&gt;Pointing-online is a .Net Core project written in C# that was inspired by real
+world needs of distributed teams practicing Agile Scrum.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Roast.it</title>
+      <link>http://quakkels.com/projects/roast-it/</link>
+      <pubDate>Fri, 27 Jan 2017 14:36:35 -0600</pubDate>
+      
+      <guid>http://quakkels.com/projects/roast-it/</guid>
+      <description>&lt;p&gt;Roast.it is a simple JavaScript unit testing library designed for providing a
+fast feedback loop with minimal fuss. There are no frills here. No unnecessary
+dependencies. This will run unit tests for you from &lt;code&gt;npm test&lt;/code&gt;. It will not get
+in your way.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What Happens When You Login?</title>
+      <link>http://quakkels.com/posts/what-happens-when-you-login/</link>
+      <pubDate>Sat, 23 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/what-happens-when-you-login/</guid>
+      <description>
+
+&lt;p&gt;Your favorite website is asking you for your username and password.&lt;/p&gt;
+
+&lt;p&gt;Username? Password? Sure, you&amp;rsquo;ve got those. [You enter your username] then [you enter your password] then [you press enter] then boom, you&amp;rsquo;re logged into the website.&lt;/p&gt;
+
+&lt;p&gt;What actually just happened? Well, assuming that you entered correct login credentials, you can now access whatever members only area that site offers to those credentials. But before that, in the split seconds after you clicked login and before you saw your profile, the website had to verify that the credentials you entered were correct. It had to make sure that it knew the username you entered and it had to make sure that your password belonged with that username. That process is called &lt;em&gt;authentication&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-does-authentication-mean&#34;&gt;What Does Authentication Mean?&lt;/h2&gt;
+
+&lt;p&gt;It is common for online applications (like websites) to want to identify their users. Take Facebook as an example. Facebook cannot operate unless it is able to reliably identify its users. So, Facebook provides a registration process for new users to create accounts. That registration asks the user to give login credentials. In Facebook&amp;rsquo;s case the credentials consist of an email address and a password. When a registered user visits Facebook, they can enter their credentials and Facebook knows who they are because they have registration information for those credentials. Being able correctly identify a returning user is called authentication. Described another way, a user with correct login credentials is authentic.&lt;/p&gt;
+
+&lt;p&gt;Sounds pretty straightforward&amp;hellip; right?&lt;/p&gt;
+
+&lt;p&gt;Well, no. Well, it should be. The problem is when online applications do a poor job of keeping your credentials safe.&lt;/p&gt;
+
+&lt;h2 id=&#34;sending-your-login-credentials&#34;&gt;Sending Your Login Credentials&lt;/h2&gt;
+
+&lt;p&gt;First of all, when you enter your username and password into a website that does not use an encrypted SSL connection, it is possible (dare I say easy?) for a hacker to read your username and password as it is sent to the website. If a website is really concerned about their user&amp;rsquo;s security then login forms should always use an SSL connection.&lt;/p&gt;
+
+&lt;h2 id=&#34;storing-user-login-credentials&#34;&gt;Storing User Login Credentials&lt;/h2&gt;
+
+&lt;p&gt;In order for sites to authenticate returning users, they need to store the user&amp;rsquo;s credentials. Usually the credentials are stored in a database. The most important thing to recognize about login credentials is that they are the keys to a person&amp;rsquo;s online identity. Therefore, it is extremely important to store login credentials in a very secure way. The most basic level of security is to make sure that the database is not publicly accessible. But, even if the public doesn&amp;rsquo;t have direct access to the database, there are other measures that should be taken to keep login credentials as secure as possible.&lt;/p&gt;
+
+&lt;h2 id=&#34;a-no-good-horrible-irresponsible-wrong-wrong-wrong-way-of-storing-user-credentials&#34;&gt;A no-good, horrible, irresponsible, wrong, wrong, WRONG way of storing user credentials&lt;/h2&gt;
+
+&lt;p&gt;Some irresponsible sites have stored credentials like this:&lt;/p&gt;
+
+&lt;h3 id=&#34;a-bad-users-database-table&#34;&gt;A Bad Users Database Table&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;First Name&lt;/th&gt;
+&lt;th&gt;Last Name&lt;/th&gt;
+&lt;th&gt;Username&lt;/th&gt;
+&lt;th&gt;Password&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Brandon&lt;/td&gt;
+&lt;td&gt;Quakkelaar&lt;/td&gt;
+&lt;td&gt;bq2013&lt;/td&gt;
+&lt;td&gt;guessme&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Jane&lt;/td&gt;
+&lt;td&gt;Doe&lt;/td&gt;
+&lt;td&gt;jdOnline&lt;/td&gt;
+&lt;td&gt;password&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Bob&lt;/td&gt;
+&lt;td&gt;Smith&lt;/td&gt;
+&lt;td&gt;bsmith&lt;/td&gt;
+&lt;td&gt;secret&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;This is dangerous for a couple of reasons. The first and most glaring reason it is dangerous is because of the passwords are stored in plain text. This means that anyone who has access to this database (such as an employee of the website) can look up Jane Doe and find her password, Thereby allowing that person to steal Jane&amp;rsquo;s identity on that site. On top of that, if Jane has used the same password on other sites (like an online banking site) she is now vulnerable to identity theft there as well.&lt;/p&gt;
+
+&lt;h2 id=&#34;a-slightly-better-way-of-storing-user-credentials&#34;&gt;A slightly better way of storing user credentials&lt;/h2&gt;
+
+&lt;p&gt;Some sites that are more concerned with security store credentials a bit differently. They actually encrypt user&amp;rsquo;s password before storing them in the database.&lt;/p&gt;
+
+&lt;h3 id=&#34;users-database-table-with-encrypted-passwords&#34;&gt;Users Database Table with Encrypted Passwords&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;First Name&lt;/th&gt;
+&lt;th&gt;Last Name&lt;/th&gt;
+&lt;th&gt;Username&lt;/th&gt;
+&lt;th&gt;EncryptedPassword&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Brandon&lt;/td&gt;
+&lt;td&gt;Quakkelaar&lt;/td&gt;
+&lt;td&gt;bq2013&lt;/td&gt;
+&lt;td&gt;hRnAQlrCPXFSGsS4cXDWh+vFLVWSlJka1YWBPTrpImI=&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Jane&lt;/td&gt;
+&lt;td&gt;Doe&lt;/td&gt;
+&lt;td&gt;jdOnline&lt;/td&gt;
+&lt;td&gt;3ookjok1lRzkDBXTYr2PPGigEM+U7mnCJ/Uxof7nPgI=&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Bob&lt;/td&gt;
+&lt;td&gt;Smith&lt;/td&gt;
+&lt;td&gt;bsmith&lt;/td&gt;
+&lt;td&gt;SKAbxUcdUOmqkP9TXJElrHkaZoIFwhGfzbcmy26QgN8=&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Now the passwords are stored encrypted instead of stored as plain text. This is better, but this is still bad. The problem is that this particular encryption is reversible. This means that if an employee of the website wanted to, she could decrypt all the passwords. Not only that, but if someone gets ahold of Bob&amp;rsquo;s decrypted password, then they can hack into Bob&amp;rsquo;s account and Bob would never know about it until after something significant happens.&lt;/p&gt;
+
+&lt;h2 id=&#34;passwords-should-be-stored-as-a-one-way-hash-with-salt&#34;&gt;Passwords should be stored as a one-way hash with salt&lt;/h2&gt;
+
+&lt;p&gt;When a person registers on a website, the website should do at least three things to ensure security.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Send all credential information over an SSL&lt;/li&gt;
+&lt;li&gt;Use a one-way hashing algorithm&lt;/li&gt;
+&lt;li&gt;Use a Salt for each password&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Hashing passwords with a one-way hashing algorithm is similar to encrypting passwords. The difference is that once the password is hashed, it cannot be converted back to the original value. This is important and it is a weakness of systems that just encrypt their passwords.&lt;/p&gt;
+
+&lt;p&gt;For example, let&amp;rsquo;s say I use the password &amp;ldquo;4mazingPa55word&amp;rdquo;. If I encrypted that password using the key &amp;ldquo;key&amp;rdquo;, then &amp;ldquo;4mazingpa55word&amp;rdquo; becomes &amp;ldquo;B0csjGFQtvfg+05Ufr6gJBiZPWe1s77krk4oSF0FlWo=&amp;rdquo;. The problem is that using that key, I can decrypt the encrypted password back to plain text. Whenever a password can be obtained in it plain text form, that is a bad thing. that means that a disgruntled employee with access to the database could decrypt passwords and log into people&amp;rsquo;s accounts &lt;strong&gt;without them ever realizing that their password has been compromised&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The scary thing is that well known companies have been caught storing passwords in a way that allows the plain text version to be retrieved. &lt;a href=&#34;https://plus.google.com/+AmberYust/posts/NGV5xQwJywf&#34;&gt;In September of 2012, Pandora.com was caught doing this very thing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, let&amp;rsquo;s consider a password stored using a one-way hash.&lt;/p&gt;
+
+&lt;h3 id=&#34;users-database-table-with-salted-and-hashed-passwords&#34;&gt;Users Database Table with Salted and Hashed Passwords&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;First Name&lt;/th&gt;
+&lt;th&gt;Last Name&lt;/th&gt;
+&lt;th&gt;Username&lt;/th&gt;
+&lt;th&gt;Salt&lt;/th&gt;
+&lt;th&gt;HashedPassword&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Brandon&lt;/td&gt;
+&lt;td&gt;Quakkelaar&lt;/td&gt;
+&lt;td&gt;bq2013&lt;/td&gt;
+&lt;td&gt;123abc&lt;/td&gt;
+&lt;td&gt;jLg+RKUYydfcFmvuAD9DxXEaevk=&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Jane&lt;/td&gt;
+&lt;td&gt;Doe&lt;/td&gt;
+&lt;td&gt;jdOnline&lt;/td&gt;
+&lt;td&gt;qweasd&lt;/td&gt;
+&lt;td&gt;IpVoLHy0+QqENEEmByVevHzoUUU=&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Bob&lt;/td&gt;
+&lt;td&gt;Smith&lt;/td&gt;
+&lt;td&gt;bsmith&lt;/td&gt;
+&lt;td&gt;poiqwe&lt;/td&gt;
+&lt;td&gt;SYMTwSQi8+XtKAAtkJvXON8IQoY=&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;This way of storing passwords is more secure than just encrypting passwords, and it&amp;rsquo;s much more secure than just storing passwords in plain text.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-is-the-salt-for&#34;&gt;What is the Salt For?&lt;/h2&gt;
+
+&lt;p&gt;The salt is a value that is randomly generated by the website when a user registers. It is added to the user supllied password before is gets hashed. This means that if your password is a common password, the hash will be more difficult to crack because the system automatically adds a random value to it. This protects against attacks using &lt;a href=&#34;https://en.wikipedia.org/wiki/Rainbow_table&#34;&gt;Rainbow tables&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So &lt;em&gt;please&lt;/em&gt;, if you are ever in the position to write user authentication software, please Salt and one-way hash your password over an SSL!&lt;/p&gt;
+
+&lt;h2 id=&#34;additional-reading&#34;&gt;Additional Reading&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://plus.google.com/+AmberYust/posts/NGV5xQwJywf&#34;&gt;Pandora Password Weakness Exposed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://codingkilledthecat.wordpress.com/2012/09/04/some-best-practices-for-web-app-authentication/&#34;&gt;Some Best Practices for Web App Authentication&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.codinghorror.com/youre-probably-storing-passwords-incorrectly/&#34;&gt;You&amp;rsquo;re Probably storing Password Incorrectly&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Learn Insertion Sort with Video Game Discs</title>
+      <link>http://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</link>
+      <pubDate>Sat, 09 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</guid>
+      <description>
+
+&lt;p&gt;I think you could say I have an average number of video game discs. It&amp;rsquo;s not a huge number of games, but it is enough that it can be difficult to find a particular game if they&amp;rsquo;re not organized in a predictable way.&lt;/p&gt;
+
+&lt;p&gt;Enter insertion sort. Insertion sort is in the same family as the bubble sort in that its worst case complexity is O(n2). But in practice, it is usually a faster sort.&lt;/p&gt;
+
+&lt;p&gt;So we start with a few game discs that we want to sort. To simplify this demonstration each game is numbered.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/insertionSort01.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The sort begins by comparing the first two discs with each other, and ordering them appropriately. We see that the 4 is moved to before the 27.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/insertionSort02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At this point, the insertion sort looks remarkably similar to the bubble sort. the interesting part will be shown soon. First we move onto the next game disc. The 42 gets compared to the 27 and stays where it is because it is already in order relative to the 27.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/insertionSort03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now comes the interesting part. The 21 is goes before the 42 and before the 27. So our insertion sort technique inserts the 21 into the correct spot.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/insertionSort04.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then we get to the last game disc. An 8. This gets inserted after the 4 and before the 21.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/insertionSort05.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now the entire list of game discs has been sorted. We see the process working, but now we need to translate this process into a computer algorithm.&lt;/p&gt;
+
+&lt;h2 id=&#34;insertion-sort-example-in-javascript&#34;&gt;Insertion Sort Example in JavaScript&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;// set up the array with random values
+var sortMe = new Array();
+var arrayLength = 5;
+var i = 0;
+for(; i &amp;lt; arrayLength; i++) {
+    sortMe[i] = Math.floor((Math.random()*20)+1);
+}
+
+var logText = &amp;quot;&amp;quot;;
+i = 0;
+for(; i &amp;lt; arrayLength; i++) {
+    logText += sortMe[i] + &amp;quot;, &amp;quot;;
+}
+console.log(&amp;quot;Starting Values: \t&amp;quot; + logText);
+
+// begin insertion sort
+i = 1;
+var j, temp, k;
+
+for(; i &amp;lt; arrayLength; i++) {
+    temp = sortMe[i];
+    j = i;
+    while(j &amp;gt; 0 &amp;amp;&amp;amp; sortMe[j-1] &amp;gt; temp) {
+        sortMe[j] = sortMe[j-1];
+        j--;
+    }
+    sortMe[j] = temp;
+
+    logText = &amp;quot;New Order:\t\t&amp;quot;;
+    k=0;
+    for(; k &amp;lt; arrayLength; k++) {
+        logText += sortMe[k] + &amp;quot;, &amp;quot;;
+    }
+    console.log(logText);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a link to the &lt;a href=&#34;http://quakkels.com/files/InsertionSort.html&#34;&gt;working example&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Learn Bubble Sort with Playing Cards</title>
+      <link>http://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</link>
+      <pubDate>Tue, 22 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</guid>
+      <description>
+
+&lt;p&gt;Let&amp;rsquo;s say you have an unordered list of numbers and you wanted to put them in order from lowest to highest value. How would you do that? You&amp;rsquo;re probably thinking that you would just look at all the numbers, find the lowest number and put it at the beginning of your list. Then you would find the next largest number and put it in the second spot in the list, and so on until you&amp;rsquo;ve ordered the entire list of numbers. It&amp;rsquo;s simple, basic, and not very exciting. Now, let&amp;rsquo;s say that instead of ordering the list yourself, you decide it&amp;rsquo;s a better idea to write a computer program to order the list for you. Now you don&amp;rsquo;t have to deal with moving the numbers around, you just need to tell your program how to move the numbers, and then let the program handle any list you give it.&lt;/p&gt;
+
+&lt;p&gt;So how do you write your program to order the list? One of the most basic techniques for putting lists in order is the Bubble Sort algorithm. To understand how a Bubble Sort works, let&amp;rsquo;s use it on a few random playing cards to get them in order. after we walk through the algorithm with cards, we&amp;rsquo;ll take a look at a Bubble Sort implemented in code.&lt;/p&gt;
+
+&lt;h2 id=&#34;let-s-sort-some-playing-cards&#34;&gt;Let&amp;rsquo;s Sort Some Playing Cards&lt;/h2&gt;
+
+&lt;p&gt;The image below shows we have five cards (with unknown values) that we need to put in order using a Bubble Sort.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort01.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The first step in a Bubble Sort is to compare the first two values with each other. Here we see the first two values are an Ace (1) and a Queen (12). They are in order, so we move on to the next card.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we compare the Queen with nine.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Since the Queen is a larger value, it trades places with the nine, as seen below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort04.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we move on to the next card value. Since the Queen is a larger value than the two, they trade places.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort05.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort06.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, we move on to the last card in the list. The Ace is less than the Queen, so once again the cards trade places.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort07.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort08.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort09.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At this point, each card in this list has been compared to a neighboring card at least once. The result is that the largest value among these five cards has &amp;ldquo;bubbled&amp;rdquo; to the end of the list. But, we&amp;rsquo;re not done yet. After only one pass through we can only be sure that the last card is in the correct position. So let&amp;rsquo;s run the the cards again.&lt;/p&gt;
+
+&lt;p&gt;Starting at the beginning with the first two cards, Ace is compared with 9. Since Ace is less than nine, there is no change in position.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort10.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The next card, the two of hearts, is less than nine. So they trade places.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort11.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort12.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, nine is compared with an Ace. Since nine is greater than the Ace, they switch positions.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort13.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort14.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort15.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;With this second pass, we can now be sure that the final two cards are correct. You should be starting to see a pattern here. We continue the process until all the cards are in order.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/bubbleSort16.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort17.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort18.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort19.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://quakkels.com/images/bubbleSort20.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;implement-bubble-sort-in-javascript&#34;&gt;Implement Bubble Sort in JavaScript&lt;/h2&gt;
+
+&lt;p&gt;Now that we understand the Bubble Sort process from the playing card demonstration, let&amp;rsquo;s implement it. Let&amp;rsquo;s use JavaScript for a simple example.&lt;/p&gt;
+
+&lt;p&gt;The script begins by creating an array that holds 5 values, and assigning random numbers to the array. Once the array is created and populated, we print the array and values to the console.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var sortMe = new Array();
+var arrayLength = 5;
+var i = 0;
+for(; i &amp;lt; arrayLength; i++) {
+    sortMe[i] = Math.floor((Math.random()*20)+1);
+}
+
+var logText = &amp;quot;&amp;quot;;
+i = 0;
+for(; i &amp;lt; arrayLength; i++) {
+    logText += sortMe[i] + &amp;quot;, &amp;quot;;
+}
+console.log(&amp;quot;Starting Values: \t&amp;quot; + logText);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we need to sort the array. The sort is done by using two loops and an if statement.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;i = 0;
+var didSwap = true;
+var temp;
+for(; i &amp;lt; arrayLength &amp;amp;&amp;amp; didSwap; i++) {
+    didSwap = false;
+    var j = 0;
+    for(; j &amp;lt; (arrayLength - 1); j++) {
+        if(sortMe[j] &amp;gt; sortMe[j+1]) {
+            temp = sortMe[j];
+            sortMe[j] = sortMe[j+1];
+            sortMe[j+1] = temp;
+            didSwap = true;
+        }    
+    }
+
+    logText = &amp;quot;New Order:\t\t&amp;quot;;
+    k=0;
+    for(; k &amp;lt; arrayLength; k++) {
+        logText += sortMe[k] + &amp;quot;, &amp;quot;;
+    }
+    console.log(logText);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When this script is executed, it will log to the console the original unmodified array, then it will print the modified array after each pass. Here are the log messages I got when I ran this code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Starting Values:    7, 9, 2, 16, 4,
+New Order:      7, 2, 9, 4, 16,
+New Order:      2, 7, 4, 9, 16,
+New Order:      2, 4, 7, 9, 16,
+New Order:      2, 4, 7, 9, 16, 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that the first pass through the starting values put 16 at the end of the list (just like the playing cards example). Then each pass after that &amp;ldquo;bubbled&amp;rdquo; the next highest number up. &lt;a href=&#34;http://quakkels.com/files/BubbleSort.html&#34;&gt;Here&lt;/a&gt; is the complete example.&lt;/p&gt;
+
+&lt;h2 id=&#34;problems-with-bubble-sort&#34;&gt;Problems with Bubble Sort&lt;/h2&gt;
+
+&lt;p&gt;Great. We now have a way to get our computer program to put lists of numbers in order for us. It&amp;rsquo;s automatic and it works. However, there are problems with Bubble Sort. That problem is that when confronted with a worst case scenario (long, long lists with lots of numbers that need to be moved) it is slow! More numbers in the list and more numbers that need to be moved increase the complexity of the Bubble Sort. The more complex it gets, the slower it gets. Now, this is true for any sorting algorithm. The problem with the Bubble Sort is that it gets very complex very quickly.&lt;/p&gt;
+
+&lt;p&gt;To describe the worst case complexity for an algorithm, computer science generally uses something called Big Oh Notation. The notation for the worst case Bubble Sort is O(n2). I&amp;rsquo;m not going to go into Big Oh Notation in detail here. If you&amp;rsquo;re interested in learning more about it, this &lt;a href=&#34;http://stackoverflow.com/questions/487258/what-is-a-plain-english-explanation-of-big-o-notation/487278#487278&#34;&gt;StackOverflow.com answer&lt;/a&gt; does a great job of explaing it in plain language. For the purposes if this article, it&amp;rsquo;s good to understand that Bubble Sort gets complex (and therefore slow) very quickly. There are other algorithms that do a better job of sorting numbers, but the Bubble Sort is one that is often taught to computer science students first.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Let&#39;s talk to a SQLite database with Python</title>
+      <link>http://quakkels.com/posts/lets-talk-to-a-sqlite-database-with-python/</link>
+      <pubDate>Sun, 20 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/lets-talk-to-a-sqlite-database-with-python/</guid>
+      <description>
+
+&lt;p&gt;As I write this, it&amp;rsquo;s the weekend. My wonderful wife brought home some amazing Jet Fuel XBold Dark Roast Coffee that is sure to keep me wired for the next several hours. Now what should I do? Let&amp;rsquo;s explore Python a little more by using it to talk to a database.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/JetFuel.png&#34; alt=&#34;Turning caffeine into code!&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re a long way from my bread and butter. My goto technologies for database interaction are .NET, C# and Entity Framework CodeFirst with SQL Server &lt;sup&gt;2005&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2008&lt;/sub&gt;. These technologies lend themselves to enterprise level web and application development. They require a fair amount of software licenses and infrastructure to get rolling. In contrast, SQLite (as you may have guessed) is a very lightweight implementation of a relational database. It is completely self contained. There is no SQLite server or configuration requirements. You just make a database and boom! You&amp;rsquo;re in business. Because of this light footprint and its ease of use, it is a very common database to use in mobile applications.&lt;/p&gt;
+
+&lt;p&gt;First, let&amp;rsquo;s create a SQLite database file. I&amp;rsquo;m going to call my database &amp;ldquo;Blog.sqlite&amp;rdquo;. You can do this from the command line with Python, or if you prefer a graphical interface, you can use a snappy little Firefox add-on called &lt;a href=&#34;https://addons.mozilla.org/en-us/firefox/addon/sqlite-manager/&#34;&gt;SQLite Manager&lt;/a&gt;. It runs inside Firefox and offers a simple interface for interacting with SQLite databases. And, since it runs in Firefox, it works on any platform that runs Firefox (E.G. MacOS, Windows, Linux).&lt;/p&gt;
+
+&lt;p&gt;Once we have our database created, then we need to make a table. Once again, we can do this using straight SQL and Python from the command line, but I prefer to use the SQLite Manager add-on in Firefox.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/CreatePostsTableResized.png&#34; alt=&#34;Screenshot of creating a table with SQLite Manager.&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note that the Id field is an auto incremented integer value and a primary key.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, let&amp;rsquo;s dive into code. What will this application do? Well, since this project is in the spirit of exploration, the application we&amp;rsquo;re going to build won&amp;rsquo;t be very useful. Instead it will have an academic focus. Let&amp;rsquo;s just perform basic CRUD operations (Create, Read, Update, Delete) and then exit. We won&amp;rsquo;t worry about user interaction or GUI or web. This is going to just be a console app.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;This should go without saying, but this won&amp;rsquo;t work without installing Python first. I&amp;rsquo;m using Python3.2.3. Don&amp;rsquo;t worry about downloading SQLite. There is no SQLite server, remember? If you have Python, you can use SQLite.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In the same folder as the Blog.sqlite database, create your Python file using your favorite text editor. I called mine sqliteConnect.py. Once you have your file, you can run it from the command line by first browsing to the folder where you saved the file, then just enter the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ python3 sqliteConnect.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That will run the Python script. Though, nothing will happen until we put some code in there.&lt;/p&gt;
+
+&lt;h2 id=&#34;connecting-to-your-sqlite-database-from-python&#34;&gt;Connecting to Your SQLite Database from Python&lt;/h2&gt;
+
+&lt;p&gt;To perform CRUD functionality, first we need to establish a connection with the database, and then create what&amp;rsquo;s known as a cursor which will allow us to execute commands.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import sqlite3
+
+conn = sqlite3.connect(&#39;Blog.sqlite&#39;)
+cursor = conn.cursor()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;creating-a-record&#34;&gt;Creating a Record&lt;/h2&gt;
+
+&lt;p&gt;Now that we have our open connection and our cursor, we can insert data into the Posts table.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cursor.execute(&#39;insert into Posts (Headline, Body) values (?, ?)&#39;, (&#39;This is my Headline&#39;, &#39;This is the body of my blog post.&#39;))
+firstPostId = cursor.lastrowid
+
+cursor.execute(&#39;insert into Posts (Headline, Body) values (?, ?)&#39;, (&#39;Jet Fuel XBold Coffee&#39;, &#39;Jet Fuel XBold Dark Roast Coffee will make you code like a madman.&#39;))
+conn.commit()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here, we call &lt;code&gt;cursor.execute()&lt;/code&gt; and pass it two parameters. A SQL command with placeholders for the data (the question marks), and a sequence containing the data to be inserted. Since we are hard-coding the insert, we could have just placed our data directly into the SQL. But in the real world, we could be inserting user generated input. In that case, we would want to use this parameterized technique to keep the SQL query safe and keep our database safe from SQL Injection style hacking attempts.&lt;/p&gt;
+
+&lt;p&gt;We have explicitly inserted the data for Headline and Body while ignoring the value for the Id field. This is purposeful because when we created the Posts table, we defined Id to be an auto-incrementing integer value. This is good because it saves us from having to generate a unique identifier ourselves. However, we are going to be editing this same record later in our application. In order to be able to get the same record, we need to know the auto generated Id value.&lt;/p&gt;
+
+&lt;p&gt;The last inserted row id is stored in &lt;code&gt;cursor.lastrowid&lt;/code&gt;. So, when our insert is complete, if we want to grab the new Id value, we just need to assign &lt;code&gt;cursor.lastrowid&lt;/code&gt; to our &lt;code&gt;firstPostId&lt;/code&gt; variable.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s worth noting here, calling &lt;code&gt;cursor.execute()&lt;/code&gt; will execute the command on the database. But, we need to commit any changes by calling conn.commit(). If we don&amp;rsquo;t call conn.commit() before the connection is closed, then our changes will be undone as if they never happened.&lt;/p&gt;
+
+&lt;h2 id=&#34;reading-our-new-records&#34;&gt;Reading Our New Records&lt;/h2&gt;
+
+&lt;p&gt;Now that we have some data inserted into the database table, let&amp;rsquo;s read it out.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cursor.execute(&#39;select * from Posts&#39;)
+
+print(&#39;Current records: &#39;)
+for row in cursor.fetchall():
+    print(&#39;\t&#39;, row)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We are using the same &lt;code&gt;cursor.execute()&lt;/code&gt; method to run a select query on the table. Then we can print each row by using &lt;code&gt;cursor.fetchall()&lt;/code&gt; in a for loop.&lt;/p&gt;
+
+&lt;h2 id=&#34;update-that-first-record&#34;&gt;Update That First Record&lt;/h2&gt;
+
+&lt;p&gt;Now, let&amp;rsquo;s make some changes to the record we inserted first. This is when the &lt;code&gt;firstPostId&lt;/code&gt; comes in handy.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cursor.execute(&#39;update Posts set Headline=?, Body=? where Id=?&#39;, (&#39;This is my NEW Headline&#39;, &#39;This is the NEW body of my blog post.&#39;, firstPostId))
+conn.commit()
+
+print(&#39;Records after update: &#39;)
+cursor.execute(&#39;select * from Posts&#39;)
+for row in cursor.fetchall():
+    print(&#39;\t&#39;, row)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now when we print our read results, we can see that the first record has been updated with new data.&lt;/p&gt;
+
+&lt;h2 id=&#34;delete-everything&#34;&gt;Delete Everything&lt;/h2&gt;
+
+&lt;p&gt;You don&amp;rsquo;t have to delete everything, but that&amp;rsquo;s what I&amp;rsquo;m going to do.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cursor.close()
+conn.close()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, when we print our query results, we see nothing.&lt;/p&gt;
+
+&lt;h2 id=&#34;wrapping-up-closing-down&#34;&gt;Wrapping Up, Closing Down&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;cursor.close()
+conn.close()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Since we&amp;rsquo;re done with our cursor and connection, we can close them down.&lt;/p&gt;
+
+&lt;h2 id=&#34;complete-code&#34;&gt;Complete Code&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;import sqlite3
+
+conn = sqlite3.connect(&#39;Blog.sqlite&#39;)
+cursor = conn.cursor()
+
+# (C)reate a new blog post
+cursor.execute(&#39;insert into Posts (Headline, Body) values (?, ?)&#39;, (&#39;This is my Headline&#39;, &#39;This is the body of my blog post.&#39;))
+firstPostId = cursor.lastrowid
+
+cursor.execute(&#39;insert into Posts (Headline, Body) values (?, ?)&#39;, (&#39;Jet Fuel XBold Coffee&#39;, &#39;Jet Fuel XBold Dark Roast Coffee will make you code like a madman.&#39;))
+conn.commit()
+
+# (R)ead our new posts
+cursor.execute(&#39;select * from Posts&#39;)
+
+print(&#39;Current records: &#39;)
+for row in cursor.fetchall():
+    print(&#39;\t&#39;, row)
+
+# (U)pdate the first post
+cursor.execute(&#39;update Posts set Headline=?, Body=? where Id=?&#39;, (&#39;This is my NEW Headline&#39;, &#39;This is the NEW body of my blog post.&#39;, firstPostId))
+conn.commit()
+
+print(&#39;Records after update: &#39;)
+cursor.execute(&#39;select * from Posts&#39;)
+for row in cursor.fetchall():
+    print(&#39;\t&#39;, row)
+
+# (D)elete all the records
+cursor.execute(&#39;delete from Posts&#39;)
+
+print(&#39;Records after delete: &#39;)
+cursor.execute(&#39;select * from Posts&#39;)
+for row in cursor.fetchall():
+    print(&#39;\t&#39;, row)
+
+conn.commit()
+cursor.close()
+conn.close()
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET MVC Compared to Django</title>
+      <link>http://quakkels.com/posts/asp-net-mvc-compare-to-dango/</link>
+      <pubDate>Sun, 13 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/asp-net-mvc-compare-to-dango/</guid>
+      <description>
+
+&lt;p&gt;The MVC pattern is widely used in web development today. Regardless of whether
+you develop in C#, PHP, Python, Java, JavaScript, or Ruby, you won’t have any
+trouble finding a popular MVC pattern for your language of choice.&lt;/p&gt;
+
+&lt;p&gt;Being primarily a C# developer, I’ve been using ASP.NET MVC since version 1.
+It’s a great framework. It can be very good at getting a project off the ground
+quickly, especially when coupled with a good ORM such as NHibernate, or Entity
+Framework.&lt;/p&gt;
+
+&lt;p&gt;For a side project, I decided to set aside the familiar ASP.NET MVC framework in
+favor of learning a new language and a new corresponding framework. After a
+period of time spent deliberating over the virtues and drawbacks of each
+language, I chose Python for the language, and Django for the framework&amp;hellip; and
+there was much rejoicing.&lt;/p&gt;
+
+&lt;p&gt;As I learned the language and read the Django docs, it became apparent to me
+that the MVC pattern can be implemented in various ways. MVC is not just
+whatever Microsoft says it is. The pattern (as with almost everything) is open
+to a little interpretation. So I needed to come to terms with the absence of
+some tools that I was used to having in ASP.NET MVC, as well as the unfamiliar
+terminology in the Django framework.&lt;/p&gt;
+
+&lt;h2 id=&#34;introducing-django-it-is-not-a-cms&#34;&gt;Introducing Django (it is not a CMS)&lt;/h2&gt;
+
+&lt;p&gt;The first thing I would like to point out, is that Django is not a CMS. Django
+is to Python as ASP.NET MVC is to C#. I was surprised to find that out. My first impression of Django was that it was like Drupal, or Wordpress. I thought it was more like a CMS than a framework.&lt;/p&gt;
+
+&lt;p&gt;Having said that, Django’s administration scaffolding is amazing. Almost to the point that it could appear to be a pre-built CMS. Django is literally capable of generating an entire administration section that allows you to manage data in your database as defined by your MVC models. That is something that ASP.NET MVC is capable of doing to a certain degree, when an application uses Entity Framework, but they do it a little differently. ASP.NET MVC Scaffolding is completely dependant on Visual Studio’s ability to read your models and then generate code for your controllers. Though, in my experience I often have to go back and rewrite most of the generated code, and many-to-many relationships are sketchy, if they’re generated at all.&lt;/p&gt;
+
+&lt;p&gt;That isn’t the case for Django, which has it’s own built in ORM. Django is capable of complete scaffolding of many-to-many relationships, image and file uploaders, field validation, as well as basic input fields.&lt;/p&gt;
+
+&lt;h2 id=&#34;mvc-actually-stands-for-model-template-view&#34;&gt;MVC actually stands for Model Template View&lt;/h2&gt;
+
+&lt;p&gt;It’s semantics, I know. Read on.&lt;/p&gt;
+
+&lt;h2 id=&#34;django-controllers-aren-t-called-controllers&#34;&gt;Django Controllers Aren’t Called Controllers&lt;/h2&gt;
+
+&lt;p&gt;To fulfill the MVC pattern, Django uses three primary divisions of code, the Model, the View, and the Template. Notice that there is no Controller.&lt;/p&gt;
+
+&lt;p&gt;Since I come from and ASP.NET MVC background, I was expecting code divisions that are labeled Model, View, and Controller (hence MVC). But no, this is not the case in Django. This fact caused some initial confusion for me as I was learning Django, but it doesn’t need to be confusing. If you’re familiar with ASP.NET MVC, then we just need to associate the Model, View, Controller concepts to the correct labels in Django.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;right&#34;&gt;&lt;/th&gt;
+&lt;th&gt;Model&lt;/th&gt;
+&lt;th&gt;View&lt;/th&gt;
+&lt;th&gt;Controller&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;strong&gt;ASP.NET MVC Term&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Model&lt;/td&gt;
+&lt;td&gt;View&lt;/td&gt;
+&lt;td&gt;Controller&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;strong&gt;Django Term&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Model&lt;/td&gt;
+&lt;td&gt;Template&lt;/td&gt;
+&lt;td&gt;View&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;django-s-views-are-not-asp-net-mvc-views&#34;&gt;Django’s Views are not ASP.NET MVC Views&lt;/h2&gt;
+
+&lt;p&gt;When I think of Views in MVC, I think of the presentation layer which consists of markup, CSS, JavaScript, and some server-side scripting for basic display logic. That’s not what Views are in Django. Rather, Django’s Views do the equivalent job of the Controller in ASP.NET MVC.
+Templates are the Real Views&lt;/p&gt;
+
+&lt;p&gt;ASP.NET MVC uses the term &amp;lsquo;View&amp;rsquo; to describe their presentation layer. HTML markup, css styles and JavaScript come together in a View file with help from Razor. Razor is very powerful and it is easy to pick up because it allows C# syntax directly in the view file to render a complete webpage. In my experience, this can also lead to an unbalanced View that has too much logic embedded in the View file instead of in the controller.&lt;/p&gt;
+
+&lt;p&gt;Django uses the term “Template&amp;rsquo; to describe their presentation layer. It also brings HTML markup, css styles, and JavaScript together. Though, it uses it’s own template rendering system. Whereas ASP.NET has the power of Razor that leverages C# syntax, Django’s template rendering syntax is unique, and it introduces a steeper learning curve than Razor.&lt;/p&gt;
+
+&lt;h2 id=&#34;if-you-re-looking-for-partial-views-in-django&#34;&gt;If You’re Looking for Partial Views in Django&amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;&amp;hellip;You’re probably not going to find them. There is nothing called &amp;ldquo;Partial Template&amp;rdquo; in Django, though you can accomplish similar functionality.&lt;/p&gt;
+
+&lt;p&gt;Let’s say you have a data driven navigation bar that you want to display on all your template pages. You don’t want to write all your views to explicitly query that data, create the nav object for the template, and then have the navigation markup located in each template. Rather, you would like to just have located in your template file a reference to a &amp;ldquo;Partial View&amp;rsquo; which would do all that for you and it is independent of View-specific processes. In ASP.NET, this can be accomplished with Partial Views. In Django, this can be accomplished with Template Tags. It seems to me to be more cumbersome than a Partial View concept, but that could just be because I am still relatively new to the Django framework.
+Models are Pretty Much What You Would Expect&lt;/p&gt;
+
+&lt;p&gt;Django has its own built in ORM. This allows you to define database tables, fields, validation, and relationships using Python classes. When you make changes to you Model’s classes, Django provides a simple command to sync the database:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ python manage.py syncdb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;These Model classes are editable through Django’s excellent scaffolding in the admin area, and they are queryable from Views for displaying in templates.&lt;/p&gt;
+
+&lt;h2 id=&#34;is-django-better-than-asp-net-mvc&#34;&gt;Is Django Better than ASP.NET MVC?&lt;/h2&gt;
+
+&lt;p&gt;No, not really. Neither is ASP.NET better than Django. ASP.NET MVC and Django both have their weaknesses. They need to be selected based on the project specs. Also, familiarity is huge when considering what technology to use when starting a new project. I was looking for a low cost learning experience with my project, Python + Django was perfect for that. The project is now done, or perhaps more accurately described as ‘abandoned’, and I am glad that I explored it. I would probably use Django again, if the situation called for it. Though, I think first exploring other Python frameworks would be a good idea.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

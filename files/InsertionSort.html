@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head><title>JavaScript Insertion Sort</title></head>
+<body>
+	<p>To see the Insertion Sort output, open the web developer tools for your browser (usually by pressing F12) and look at the console panel.</p>
+	<script type="text/javascript">
+
+// set up the array with random values
+var sortMe = new Array();
+var arrayLength = 5;
+var i = 0;
+for(; i < arrayLength; i++) {
+	sortMe[i] = Math.floor((Math.random()*20)+1);
+}
+
+var logText = "";
+i = 0;
+for(; i < arrayLength; i++) {
+	logText += sortMe[i] + ", ";
+}
+console.log("Starting Values: \t" + logText);
+
+// begin insertion sort
+i = 1;
+var j, temp, k;
+
+for(; i < arrayLength; i++) {
+	temp = sortMe[i];
+	j = i;
+	while(j > 0 && sortMe[j-1] > temp) {
+		sortMe[j] = sortMe[j-1];
+		j--;
+	}
+	sortMe[j] = temp;
+
+	logText = "New Order:\t\t";
+	k=0;
+	for(; k < arrayLength; k++) {
+		logText += sortMe[k] + ", ";
+	}
+	console.log(logText);
+}	
+	</script>
+</body>
+</html>

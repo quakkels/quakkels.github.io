@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Check Out My Projects on Quakkels.com</title>
+    <link>http://quakkels.com/projects/index.xml</link>
+    <description>Recent content in Check Out My Projects on Quakkels.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Jan 2017 14:36:35 -0600</lastBuildDate>
+    <atom:link href="http://quakkels.com/projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Pointing-online</title>
+      <link>http://quakkels.com/projects/pointing-online/</link>
+      <pubDate>Fri, 27 Jan 2017 14:36:35 -0600</pubDate>
+      
+      <guid>http://quakkels.com/projects/pointing-online/</guid>
+      <description>&lt;p&gt;Pointing-online is a .Net Core project written in C# that was inspired by real
+world needs of distributed teams practicing Agile Scrum.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Roast.it</title>
+      <link>http://quakkels.com/projects/roast-it/</link>
+      <pubDate>Fri, 27 Jan 2017 14:36:35 -0600</pubDate>
+      
+      <guid>http://quakkels.com/projects/roast-it/</guid>
+      <description>&lt;p&gt;Roast.it is a simple JavaScript unit testing library designed for providing a
+fast feedback loop with minimal fuss. There are no frills here. No unnecessary
+dependencies. This will run unit tests for you from &lt;code&gt;npm test&lt;/code&gt;. It will not get
+in your way.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

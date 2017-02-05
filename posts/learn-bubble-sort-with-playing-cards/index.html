@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Brandon Quakkelaar">
+    
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    <title>Learn Bubble Sort with Playing Cards &middot; Quakkels.com</title>
+    <link rel="shortcut icon" href="http://quakkels.com/images/favicon.ico">
+    <link rel="stylesheet" href="http://quakkels.com/css/style.css">
+    <base href="http://quakkels.com/">
+    <link rel="canonical" href="http://quakkels.com/posts/learn-bubble-sort-with-playing-cards/">
+    <link href="" rel="alternate" type="application/rss+xml" title="Quakkels.com" />
+</head>
+<body lang="en">
+<nav id="main-nav">
+    <div class="mobile-menu">
+        
+        
+        <div id="hamburger"><span></span></div>
+    </div>
+    <a href="http://quakkels.com/">Quakkels.com</a>
+    <a href="http://quakkels.com/projects">Projects</a>
+    <a href="http://quakkels.com/about">About</a>
+    <a class="rss" href="">RSS Feed</a>
+</nav>
+<header id="home-header">
+    <h1>Learn Bubble Sort with Playing Cards</h1>
+    
+    <h2>Jan, 22, 2013</h2>
+    
+    
+    
+    <p>
+            <a href="http://quakkels.com/tags/javascript">Javascript</a>
+        
+            <a href="http://quakkels.com/tags/algorithms">Algorithms</a>
+        
+            <a href="http://quakkels.com/tags/tutorial">Tutorial</a>
+        
+    </p>
+    
+</header>
+<div class="main">
+<section class="wrapper">
+
+
+<p>Let&rsquo;s say you have an unordered list of numbers and you wanted to put them in order from lowest to highest value. How would you do that? You&rsquo;re probably thinking that you would just look at all the numbers, find the lowest number and put it at the beginning of your list. Then you would find the next largest number and put it in the second spot in the list, and so on until you&rsquo;ve ordered the entire list of numbers. It&rsquo;s simple, basic, and not very exciting. Now, let&rsquo;s say that instead of ordering the list yourself, you decide it&rsquo;s a better idea to write a computer program to order the list for you. Now you don&rsquo;t have to deal with moving the numbers around, you just need to tell your program how to move the numbers, and then let the program handle any list you give it.</p>
+
+<p>So how do you write your program to order the list? One of the most basic techniques for putting lists in order is the Bubble Sort algorithm. To understand how a Bubble Sort works, let&rsquo;s use it on a few random playing cards to get them in order. after we walk through the algorithm with cards, we&rsquo;ll take a look at a Bubble Sort implemented in code.</p>
+
+<h2 id="let-s-sort-some-playing-cards">Let&rsquo;s Sort Some Playing Cards</h2>
+
+<p>The image below shows we have five cards (with unknown values) that we need to put in order using a Bubble Sort.</p>
+
+<p><img src="/images/bubbleSort01.jpg" alt="" /></p>
+
+<p>The first step in a Bubble Sort is to compare the first two values with each other. Here we see the first two values are an Ace (1) and a Queen (12). They are in order, so we move on to the next card.</p>
+
+<p><img src="/images/bubbleSort02.jpg" alt="" /></p>
+
+<p>Now we compare the Queen with nine.</p>
+
+<p><img src="/images/bubbleSort03.jpg" alt="" /></p>
+
+<p>Since the Queen is a larger value, it trades places with the nine, as seen below.</p>
+
+<p><img src="/images/bubbleSort04.jpg" alt="" /></p>
+
+<p>Now we move on to the next card value. Since the Queen is a larger value than the two, they trade places.</p>
+
+<p><img src="/images/bubbleSort05.jpg" alt="" /></p>
+
+<p><img src="/images/bubbleSort06.jpg" alt="" /></p>
+
+<p>Now, we move on to the last card in the list. The Ace is less than the Queen, so once again the cards trade places.</p>
+
+<p><img src="/images/bubbleSort07.jpg" alt="" />
+<img src="/images/bubbleSort08.jpg" alt="" />
+<img src="/images/bubbleSort09.jpg" alt="" /></p>
+
+<p>At this point, each card in this list has been compared to a neighboring card at least once. The result is that the largest value among these five cards has &ldquo;bubbled&rdquo; to the end of the list. But, we&rsquo;re not done yet. After only one pass through we can only be sure that the last card is in the correct position. So let&rsquo;s run the the cards again.</p>
+
+<p>Starting at the beginning with the first two cards, Ace is compared with 9. Since Ace is less than nine, there is no change in position.</p>
+
+<p><img src="/images/bubbleSort10.jpg" alt="" /></p>
+
+<p>The next card, the two of hearts, is less than nine. So they trade places.</p>
+
+<p><img src="/images/bubbleSort11.jpg" alt="" />
+<img src="/images/bubbleSort12.jpg" alt="" /></p>
+
+<p>Next, nine is compared with an Ace. Since nine is greater than the Ace, they switch positions.</p>
+
+<p><img src="/images/bubbleSort13.jpg" alt="" />
+<img src="/images/bubbleSort14.jpg" alt="" />
+<img src="/images/bubbleSort15.jpg" alt="" /></p>
+
+<p>With this second pass, we can now be sure that the final two cards are correct. You should be starting to see a pattern here. We continue the process until all the cards are in order.</p>
+
+<p><img src="/images/bubbleSort16.jpg" alt="" />
+<img src="/images/bubbleSort17.jpg" alt="" />
+<img src="/images/bubbleSort18.jpg" alt="" />
+<img src="/images/bubbleSort19.jpg" alt="" />
+<img src="/images/bubbleSort20.jpg" alt="" /></p>
+
+<h2 id="implement-bubble-sort-in-javascript">Implement Bubble Sort in JavaScript</h2>
+
+<p>Now that we understand the Bubble Sort process from the playing card demonstration, let&rsquo;s implement it. Let&rsquo;s use JavaScript for a simple example.</p>
+
+<p>The script begins by creating an array that holds 5 values, and assigning random numbers to the array. Once the array is created and populated, we print the array and values to the console.</p>
+
+<pre><code>var sortMe = new Array();
+var arrayLength = 5;
+var i = 0;
+for(; i &lt; arrayLength; i++) {
+    sortMe[i] = Math.floor((Math.random()*20)+1);
+}
+
+var logText = &quot;&quot;;
+i = 0;
+for(; i &lt; arrayLength; i++) {
+    logText += sortMe[i] + &quot;, &quot;;
+}
+console.log(&quot;Starting Values: \t&quot; + logText);
+</code></pre>
+
+<p>Now we need to sort the array. The sort is done by using two loops and an if statement.</p>
+
+<pre><code>i = 0;
+var didSwap = true;
+var temp;
+for(; i &lt; arrayLength &amp;&amp; didSwap; i++) {
+    didSwap = false;
+    var j = 0;
+    for(; j &lt; (arrayLength - 1); j++) {
+        if(sortMe[j] &gt; sortMe[j+1]) {
+            temp = sortMe[j];
+            sortMe[j] = sortMe[j+1];
+            sortMe[j+1] = temp;
+            didSwap = true;
+        }    
+    }
+
+    logText = &quot;New Order:\t\t&quot;;
+    k=0;
+    for(; k &lt; arrayLength; k++) {
+        logText += sortMe[k] + &quot;, &quot;;
+    }
+    console.log(logText);
+}
+</code></pre>
+
+<p>When this script is executed, it will log to the console the original unmodified array, then it will print the modified array after each pass. Here are the log messages I got when I ran this code:</p>
+
+<pre><code>Starting Values:    7, 9, 2, 16, 4,
+New Order:      7, 2, 9, 4, 16,
+New Order:      2, 7, 4, 9, 16,
+New Order:      2, 4, 7, 9, 16,
+New Order:      2, 4, 7, 9, 16, 
+</code></pre>
+
+<p>Notice that the first pass through the starting values put 16 at the end of the list (just like the playing cards example). Then each pass after that &ldquo;bubbled&rdquo; the next highest number up. <a href="/files/BubbleSort.html">Here</a> is the complete example.</p>
+
+<h2 id="problems-with-bubble-sort">Problems with Bubble Sort</h2>
+
+<p>Great. We now have a way to get our computer program to put lists of numbers in order for us. It&rsquo;s automatic and it works. However, there are problems with Bubble Sort. That problem is that when confronted with a worst case scenario (long, long lists with lots of numbers that need to be moved) it is slow! More numbers in the list and more numbers that need to be moved increase the complexity of the Bubble Sort. The more complex it gets, the slower it gets. Now, this is true for any sorting algorithm. The problem with the Bubble Sort is that it gets very complex very quickly.</p>
+
+<p>To describe the worst case complexity for an algorithm, computer science generally uses something called Big Oh Notation. The notation for the worst case Bubble Sort is O(n2). I&rsquo;m not going to go into Big Oh Notation in detail here. If you&rsquo;re interested in learning more about it, this <a href="http://stackoverflow.com/questions/487258/what-is-a-plain-english-explanation-of-big-o-notation/487278#487278">StackOverflow.com answer</a> does a great job of explaing it in plain language. For the purposes if this article, it&rsquo;s good to understand that Bubble Sort gets complex (and therefore slow) very quickly. There are other algorithms that do a better job of sorting numbers, but the Bubble Sort is one that is often taught to computer science students first.</p>
+
+</section>
+</div>
+<div id="footer">
+    <div class="wrapper">
+        <img class="avatar" src="http://quakkels.com/images/avatar.png">
+        My name is Brandon Quakkelaar. Programming, blogging, and learning are some of my favorite ways to spend my time.
+    </div>
+</div>
+<script src="http://quakkels.com/js/site.js"></script>
+<script>
+var navElement = document.getElementById("main-nav");
+var menuButton = document.getElementById("hamburger");
+var mobileSize = 768;
+var menu = new Menu(window, navElement, menuButton, mobileSize);
+</script>
