@@ -64,7 +64,7 @@ code {
     background: #ddd;
     color: black;
     border-radius: 4px;
-    display:inline-block;
+    display:inline;
     padding: 0 4px;
     font-size: 0.9em;
 }
