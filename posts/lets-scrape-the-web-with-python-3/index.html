@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Brandon Quakkelaar">
+    
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    <title>Let&#39;s Scrape the Web with Python 3 &middot; Quakkels.com</title>
+    <link rel="shortcut icon" href="http://quakkels.com/images/favicon.ico">
+    <link rel="stylesheet" href="http://quakkels.com/css/style.css">
+    <base href="http://quakkels.com/">
+    <link rel="canonical" href="http://quakkels.com/posts/lets-scrape-the-web-with-python-3/">
+    <link href="" rel="alternate" type="application/rss+xml" title="Quakkels.com" />
+</head>
+<body lang="en">
+<nav id="main-nav">
+    <div class="mobile-menu">
+        
+        
+        <div id="hamburger"><span></span></div>
+    </div>
+    <a href="http://quakkels.com/">Quakkels.com</a>
+    <a href="http://quakkels.com/projects">Projects</a>
+    <a href="http://quakkels.com/about">About</a>
+    <a class="rss" href="">RSS Feed</a>
+</nav>
+<header id="home-header">
+    <h1>Let&#39;s Scrape the Web with Python 3</h1>
+    
+    <h2>Mar, 10, 2013</h2>
+    
+    
+    
+    <p>
+            <a href="http://quakkels.com/tags/python">Python</a>
+        
+            <a href="http://quakkels.com/tags/tutorial">Tutorial</a>
+        
+    </p>
+    
+</header>
+<div class="main">
+<section class="wrapper">
+
+
+<p><img src="/images/pythonWebScrapeCover.jpg" alt="" /></p>
+
+<p>In the back of my mind I&rsquo;ve always been intrigued by writing an application that can retrieve web pages over HTTP. It&rsquo;s a fairly simple thing to do. We have a myriad of web browsers that do it for us. But there is just something about writing an application that operates independently of a browser and reaches out to touch the internet that I find fun and intriguing. So let&rsquo;s do it&hellip; in Python.</p>
+
+<p>First let&rsquo;s define some specifications for this project. Basically we&rsquo;re going to &ldquo;scrape&rdquo; Craigslist.org listings and display them in our terminal (command line). It should be able to scrape any (or nearly any) of Craigslist&rsquo;s regions and categories.</p>
+
+<ul>
+<li>Will be a command line application</li>
+<li>Will read and display posts from Craigslist.org</li>
+<li>Will be able to define desired Craigslist.org subdomain and path from the command line</li>
+<li>Will display results to the terminal</li>
+</ul>
+
+<h2 id="separating-the-web-scraper-into-pieces">Separating the Web Scraper into Pieces</h2>
+
+<p>As I see it, there are three pieces to this application:</p>
+
+<ol>
+<li>The user interface which handles input and displays ouput</li>
+<li>The HTTP client which actually accesses the HTML page and gets the information therein</li>
+<li>The HTML parser which reads the HTML and collects the parts we want to keep</li>
+</ol>
+
+<p>Now that the application&rsquo;s functionality is defined and it is broken down into pieces. We can start thinking about the project&rsquo;s name and structure. Let&rsquo;s just call it MyScrape and let&rsquo;s structure in the following folder and files.</p>
+
+<ul>
+<li>MyScrape/ (the application folder)
+
+<ul>
+<li>MyHttp.py (This will be responsible for the HTTP client that gets the web pages)</li>
+<li>MyParser.py (To read the HTML and collect the good parts)</li>
+<li>MyScrape.py (This will be the executable that handles user input and displays the results from MyParser)</li>
+</ul></li>
+</ul>
+
+<h2 id="the-http-client-and-python-3">The HTTP Client and Python 3</h2>
+
+<p>Python 3 has a handly little module that we can use to make our lives easy. We&rsquo;re going to import http.client into our MyHttp.py file and use it in our class.</p>
+
+<pre><code>import http.client
+</code></pre>
+
+<p>Now that we imported http.client, we can create our class to handle a page. Let&rsquo;s keep things simple and just call this class Page. Page just needs to connect to a server, request a page using a path, and provide the result to the application. Here is the complete MyHttp.py file:</p>
+
+<pre><code>'''GET a webpage using http.'''
+
+import http.client
+
+class Page:
+
+    def __init__(self, servername, path):
+        '''This initialize function sets the servername and path'''
+        self.set_target(servername, path)
+
+    def set_target(self, servername, path):
+        '''This is a utility function that will reset the servername and the path'''
+        self.servername = servername
+        self.path = path
+
+    def __get_page(self):
+        '''This is a private function that actually goes out 
+        and gets the response from the server'''
+
+        server = http.client.HTTPConnection(self.servername)
+        server.putrequest('GET', self.path)
+        server.putheader('Accept', 'text/html')
+        server.endheaders()
+
+        return server.getresponse()        
+
+    def get_as_string(self):
+        '''This function provides the webpage as a string'''
+        page = ''
+        reply = self.__get_page() # gets the page
+
+        if reply.status != 200:
+            page = 'Error sending request {0} {1}'.format(reply.status, reply.reason)
+        else:
+            data = reply.readlines()
+            reply.close()
+            for line in data:
+                page += line.decode('utf-8')
+        return page
+</code></pre>
+
+<p>Now that we have our class, we need to make sure it works by testing it. We can do that by using the Python interpreter to execute our code for us. First, start the Python interpreter by sending the command:</p>
+
+<pre><code>$ python3
+</code></pre>
+
+<p>to the shell prompt (or the command prompt if you&rsquo;re on Windows). This should give you a prompt that looks like this:</p>
+
+<pre><code>&gt;&gt;&gt;
+</code></pre>
+
+<p>To exit the interpreter, just enter exit() and press enter. <em>Note: More information about the Python interpreter can be found <a href="http://docs.python.org/3.3/tutorial/interpreter.html">here</a> on the Python.org website</em>.</p>
+
+<p>To test our code in the Python interpreter, first navigate to the MyScrape folder that has the MyHttp.py file in it.</p>
+
+<pre><code>$ cd path/to/your/MyScrape
+</code></pre>
+
+<p>Then start the interpreter and enter the following code:</p>
+
+<pre><code>&gt;&gt;&gt; import MyHttp
+&gt;&gt;&gt; page = MyHttp.Page('quakkels.com', '')
+&gt;&gt;&gt; print(page.get_as_string())
+</code></pre>
+
+<p>You should now see the HTML source code for quakkels.com in your terminal. It works!</p>
+
+<h2 id="html-parsing-and-python-3">HTML Parsing and Python 3</h2>
+
+<p>The next part of this project we need to write is the HTML parser that allows us to identify the pieces of the Craigslist page that we want to keep. There are several different techniques for doing this including: regular expression matching (don&rsquo;t use this technique), <a href="https://developer.mozilla.org/en-US/docs/DOM">DOM</a>, and <a href="http://sax.sourceforge.net/">SAX</a> parsing.
+The DOM (Document Object Model) technique basically involves navigating an XML or HTML document through a tree of nodes. The SAX (Simple API for XML) technique does not involve navigating like the DOM technique does. Rather, it reads the file through once, sending information to the application as the file is read. This means it&rsquo;s pretty quick, but because there is no navigation the application will need to keep track of the state of the document as the SAX style parser reads it. Our MyParser.py file is going to execute a SAX style parser using the html.parser module.</p>
+
+<p>Python 3 has a handy module called html.parser that we&rsquo;ll use in our application. Our parser class is going to be designed to just read Cragslist.com listings. I&rsquo;m going to name the parser class ClParser. ClParser will need to inherit from HTMLParser (which is in the html.parse module) so that we can override the methods that get executed as the file is read in a SAX manner.</p>
+
+<p>Here&rsquo;s the complete MyParser.py file:</p>
+
+<pre><code>'''
+Parse html from craigslist
+'''
+
+from html.parser import HTMLParser
+
+class ClParser(HTMLParser):
+
+    # parser state
+    # These variables store the current state of the parser as it reads the file
+    date = ''           # The date for the current listing
+
+    title = ''          # The title of the current listing
+
+    link = ''           # The link to the current listing's details
+
+    collectFor = None   # will use this to keep track of what kind of data we 
+                        # are currently collecting for. valid options are:
+                        # 'date', 'title', and 'link'
+
+    insideRow = False   # This flag keeps track of whether we are inside a &quot;row&quot;
+                        # &quot;rows&quot; have listing information
+
+    # parser output
+    results = ''        # the parser's output will be stored here
+
+    def handle_starttag(self, tag, attrs):
+        '''This function gets called when the parser encounters a start tag'''
+        if tag == 'a' and self.insideRow:
+            self.collectFor = 'title'
+
+        for key, value in attrs:
+
+            if(self.collectFor == 'title' 
+                and key == 'href'
+                and not self.link): # and not self.link makes sure it doesn't overwrite a preexisting value
+                self.link = value
+
+            if key == 'class':
+                if value == 'row':
+                    self.insideRow = True
+                if value == 'ban':
+                    self.collectFor = 'date'
+
+    def handle_endtag(self,tag):
+        '''This function is called when the parser encounters an end tag'''
+        if tag == 'p':
+            self.insideRow = False
+
+            # is there data to output?
+            if self.title + self.link:
+                self.results += &quot;\nDate: \t{0}\nTitle:\t{1}\nLink:\t{2}\n&quot;.format(
+                    self.date, 
+                    self.title, 
+                    self.link)
+            self.__reset_row()
+
+    def handle_data(self, data):
+        '''This function is called when the parser encounters data inside to tags'''        
+        if self.collectFor == 'date':
+            self.date = data
+        if self.collectFor == 'title' and not self.title:
+            self.title = data
+
+        self.collectFor = None # when we're done collecting the data, reset this flag
+
+    def __reset_row(self):
+        '''This is a utility function to reset the parser's state after a row'''
+        self.title = ''
+        self.link = ''
+        self.summary = ''
+        self.collectFor = None
+        self.insideRow = False
+</code></pre>
+
+<p>The HTMLParser class that we are inheriting from has a feed(string argument) function that has been applied to our ClParser class. To execute our parser, we just need to make an instance of the class and call the feed(string argument) function.</p>
+
+<p>We can test this in the Python interpreter in the same way that we tested MyHttp. In the interpreter enter the following code:</p>
+
+<pre><code>&gt;&gt;&gt; import MyHttp, MyParser
+&gt;&gt;&gt; page = MyHttp.Page('milwaukee.craigslist.org', '/sya/')
+&gt;&gt;&gt; parser = MyParser.ClParser()
+&gt;&gt;&gt; parser.feed(page.get_as_string())
+&gt;&gt;&gt; print(parser.results)
+</code></pre>
+
+<p>This should print a list of nicely formatted Craiglist listings for computers in the Milwaukee area. We&rsquo;re almost done!</p>
+
+<h2 id="the-last-piece">The Last Piece!</h2>
+
+<p>Alright, we have two of our three pieces built. The last thing to do is handle user input and display results. We&rsquo;re going to implement these features in the MyScrape.py file. Here&rsquo;s the whole MyScrape.py file:</p>
+
+<pre><code>import sys, MyParser, MyHttp
+
+# try to assign the subdomain and path values
+# if the assignment fails, just use default values
+try:
+    subdomain, path = sys.argv[1:]
+except:
+    subdomain, path = 'milwaukee', '/sya/'
+
+# instantiate the parser
+parser = MyParser.ClParser()
+
+# instantiate the page
+page = MyHttp.Page(subdomain + '.craigslist.org', path)
+
+# get the page and feed it to the parser
+parser.feed(page.get_as_string())
+
+# display the results
+print('################\n    Results:\n################\n', parser.results)
+</code></pre>
+
+<p>There you have it. MyScrape.py is the entry point to our application. It allows the user to set a subdomain and a path when calling the script. It brings the MyHttp and MyParser modules together. and it displays results to the screen. To use this application, enter the following command in your shell or command prompt:</p>
+
+<pre><code>$ python3 MyScrape.py
+</code></pre>
+
+<p>&hellip;or&hellip;</p>
+
+<pre><code>$ python3 MyScrape.py sierravista /ata/
+</code></pre>
+
+<p>You can download the entire source <a href="/files/MyScrape.zip">here</a>.</p>
+
+<h2 id="improving-the-scrape">Improving the Scrape</h2>
+
+<p>Feel free to take this code and experiment with it. Expand on it. Make it spider sub pages. Make it return a list of dictionaries instead of a string. Save the data in a sqlite database, or to a text file. Maybe make it into a web service. Do whatever you want with it. (Keep it legal.)</p>
+
+</section>
+</div>
+<div id="footer">
+    <div class="wrapper">
+        <img class="avatar" src="http://quakkels.com/images/avatar.png">
+        My name is Brandon Quakkelaar. I like to program, blog, and learn.
+    </div>
+</div>
+<script src="http://quakkels.com/js/site.js"></script>
+<script>
+var navElement = document.getElementById("main-nav");
+var menuButton = document.getElementById("hamburger");
+var mobileSize = 768;
+var menu = new Menu(window, navElement, menuButton, mobileSize);
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91443661-1', 'auto');
+  ga('send', 'pageview');
+
+</script>

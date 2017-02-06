@@ -37,6 +37,11 @@
   </url>
   
   <url>
+    <loc>http://quakkels.com/posts/lets-scrape-the-web-with-python-3/</loc>
+    <lastmod>2013-03-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://quakkels.com/posts/what-happens-when-you-login/</loc>
     <lastmod>2013-02-23T00:00:00+00:00</lastmod>
   </url>
@@ -104,7 +109,7 @@
   
   <url>
     <loc>http://quakkels.com/tags/python/</loc>
-    <lastmod>2013-01-20T00:00:00+00:00</lastmod>
+    <lastmod>2013-03-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -139,7 +144,7 @@
   
   <url>
     <loc>http://quakkels.com/tags/tutorial/</loc>
-    <lastmod>2013-02-09T00:00:00+00:00</lastmod>
+    <lastmod>2013-03-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
