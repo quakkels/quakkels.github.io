@@ -55,15 +55,17 @@ p, h1, h2, h3, h4 {
 
 pre {
     overflow: auto;
-    background: #ddd;
+    background: #f8f8f8;
+    border: 1px solid #ddd;
     border-radius: 12px;
     padding: 12px;
 }
 
 code {
-    background: #ddd;
+    background: #f8f8f8;
     color: black;
     border-radius: 4px;
+    border:1px solid #ddd;
     display:inline;
     padding: 0 4px;
     font-size: 0.9em;
@@ -71,6 +73,7 @@ code {
 pre code {
     padding: initial;
     background: initial;
+    border: none;
 }
 
 /* navigation */
