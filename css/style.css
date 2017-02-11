@@ -79,7 +79,7 @@ pre code {
 /* navigation */
 #main-nav {
     text-align: right;
-    background: white;
+    background:black;
     position: fixed;
     top:0;
     width: 100%;
@@ -94,21 +94,20 @@ pre code {
     
     text-decoration: none;
     font-size: 0.9em;
-    color:#222;
+    color:#6DC2FF;
 }
 
 #main-nav a.rss {
     color:white;
-    background: #6DC2FF;
+    background: #0094FF;
 }
 #main-nav a.rss:hover {
     color: white;
-    background: #0094FF;
+    background: #6DC2FF;
     text-decoration: none;
 }
 #main-nav a:hover {
-    color: #0094FF;
-    text-decoration-line: underline;
+    color: white;
 }
 
 /* header */
@@ -163,6 +162,9 @@ pre code {
     }
 
     /* responsive navigation */
+    .mobile-menu {
+        height: 56px
+    }
     #hamburger {
         position: relative;
         display:block;
@@ -170,6 +172,7 @@ pre code {
         height: 32px;
         cursor: pointer;
         margin: 16px;
+        float: right;
     }
     
     #hamburger span {
@@ -200,7 +203,7 @@ pre code {
     }
     #main-nav a {
         display:none;
-        background: #ccc;
+        background: #333;
     }
     #main-nav.open a {
         display: block;
