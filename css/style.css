@@ -43,6 +43,7 @@ a:hover {
 
 h1, h2, h3, h4 {
     font-weight: 400;
+    line-height: 1em;
 }
 
 h1 {
@@ -157,8 +158,17 @@ pre code {
 
 /* responsive */
 @media only screen and (max-width: 767px) {
-    .wrapper {
-        width: 320px;
+    .main .wrapper {
+        max-width: 288px;
+    }
+    
+    .main .wrapper img {
+        max-width: 288px;
+    }
+
+    .home-list li aside.dates {
+        margin-top: initial;
+        float: initial;
     }
 
     /* responsive navigation */
