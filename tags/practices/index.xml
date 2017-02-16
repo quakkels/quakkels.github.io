@@ -9,6 +9,82 @@
     <atom:link href="http://quakkels.com/tags/practices/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Identify Valid Standards</title>
+      <link>http://quakkels.com/posts/identify-valid-standards/</link>
+      <pubDate>Thu, 16 Feb 2017 07:26:36 -0600</pubDate>
+      
+      <guid>http://quakkels.com/posts/identify-valid-standards/</guid>
+      <description>
+
+&lt;p&gt;I can&amp;rsquo;t tell you how many times I&amp;rsquo;ve been in software planning meetings when an engineer addressed the team and claimed that we should use {insert technology here} because it&amp;rsquo;s the &amp;ldquo;Industry Standard.&amp;rdquo; I also can&amp;rsquo;t tell you how many times I&amp;rsquo;ve done the same thing. I&amp;rsquo;ve gone into my boss&amp;rsquo;s office and claimed that we should use a particular stack or technology because it&amp;rsquo;s an &amp;ldquo;industry standard.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;This reasoning is attractive because on the surface it seems valid. I mean, it
+must be an industry standard for a reason. Right? We&amp;rsquo;d be silly not to use it
+as well. Doesn&amp;rsquo;t that make sense?&lt;/p&gt;
+
+&lt;h2 id=&#34;hype-mentality&#34;&gt;Hype mentality&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&amp;ldquo;Hey coach, I think we should run screens because it&amp;rsquo;s the league standard.
+Everyone runs screens. If we want our team to win, we need to be
+running screens all the time.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Choosing technology based on popularity is easy. As programmers, it&amp;rsquo;s important
+to us to stay current and not let any good technology get past us. As a result,
+there are many ways that we can be influenced; industry publications, surveys,
+Blogs, Twitter, Reddit, even chatter in the break room. However, we need to be
+careful to weigh arguments based on technical merit and not succumb to the
+subliminal effects of hype.&lt;/p&gt;
+
+&lt;h2 id=&#34;hair-on-fire-mentality&#34;&gt;Hair-on-fire mentality&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&amp;ldquo;Hey coach, I think we should stop using back-shoulder passes down the field. We should remove them from our playbook entirely. Last time we ran a back-shoulder pass, we went three and out.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;When bugs that appear in staging (or even worse&amp;#151;production)  people will look for a root cause for why it occurred. This is good to do and it&amp;rsquo;s definitely the correct response. But those investigating should be sure to focus on the root cause of the bug. If they find a bug in code that relies on a third party library, there is a temptation to question the decisions of the team that added the library. This is usually due to a misplaced concern that the bug is a result of using a less popular (or non-standard) library. Instead, the investigation should focus on things like logic errors, syntax errors, and whether behavior is unit tested.&lt;/p&gt;
+
+&lt;p&gt;Sweeping rules dictating which libraries engineering teams must use are not the answer. Such a reaction result in standards that halt progress, stifle problem solving, and impede innovation.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-standards-help&#34;&gt;How standards help&lt;/h2&gt;
+
+&lt;p&gt;When programming systems, standards should exist around the parts that need ‘glue’. Anytime there are two applications that need to talk to each other, they should follow a contract to ease communication between them. Examples of these kinds of standards include specifications for protocols such as HTTP, SAML, and OAuth.&lt;/p&gt;
+
+&lt;p&gt;Another area that benefits from industry standards is when describing languages. There must be a standard for what an &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; represents in HTML, and for how a CSS rule such as &lt;code&gt;h1 { color: red; }&lt;/code&gt; affects it. I wouldn&amp;rsquo;t be very productive in a language if when I wrote &lt;code&gt;string&lt;/code&gt; it would treat it like a &lt;code&gt;float&lt;/code&gt;. So having a language standard that defines the expected behavior of syntax and types is very helpful.&lt;/p&gt;
+
+&lt;p&gt;The key to these standards is that they are &lt;em&gt;defining expected behavior for a given tool&lt;/em&gt;. These standards do not dictate which tool to use.&lt;/p&gt;
+
+&lt;h2 id=&#34;picking-the-right-tool-for-a-job&#34;&gt;Picking the right tool for a job&lt;/h2&gt;
+
+&lt;p&gt;Some may claim that one software framework or language is an “industry standard”. Often, this is a result of the person seeing it used by others or featured in articles. So, they conclude that they should use it on every project. If there is even a vague similarity between their current project and the tool’s stated goals, then some people assume they’ve found the best tool for their job. More should be considered when choosing tools.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Good reasons to use a tool:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;It is stable&lt;/li&gt;
+&lt;li&gt;It does what we need&lt;/li&gt;
+&lt;li&gt;It is well supported&lt;/li&gt;
+&lt;li&gt;Ease of use&lt;/li&gt;
+&lt;li&gt;Compatible with existing system&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Bad reasons to use a tool:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;It&amp;rsquo;s popular&lt;/li&gt;
+&lt;li&gt;It&amp;rsquo;s new&lt;/li&gt;
+&lt;li&gt;It&amp;rsquo;s been trending on Blogs and industry news sources.&lt;/li&gt;
+&lt;li&gt;The current tool is boring. We could use a change.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;don-t-flippantly-swing-the-industry-standard-club&#34;&gt;Don’t flippantly swing the “Industry Standard” club&lt;/h2&gt;
+
+&lt;p&gt;Promoting a tool by claiming that it&amp;rsquo;s an industry standard, rather than because it adheres to standards, is a mistake. There is a key difference between adhering to standards and being a standard. Industry standards are most effective when describing protocols and languages. We should select our tools based on how well they adhere to standards.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Don&#39;t Take Frameworks for Granted</title>
       <link>http://quakkels.com/posts/dont-take-frameworks-for-granted/</link>
       <pubDate>Sat, 28 Jan 2017 07:41:18 -0600</pubDate>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Brandon Quakkelaar">
+    
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    <title>Identify Valid Standards &middot; Quakkels.com</title>
+    <link rel="shortcut icon" href="http://quakkels.com/images/favicon.ico">
+    <link rel="stylesheet" href="http://quakkels.com/css/style.css">
+    <base href="http://quakkels.com/">
+    <link rel="canonical" href="http://quakkels.com/posts/identify-valid-standards/">
+    <link href="" rel="alternate" type="application/rss+xml" title="Quakkels.com" />
+</head>
+<body lang="en">
+<nav id="main-nav">
+    <div class="mobile-menu">
+        
+        
+        <div id="hamburger"><span></span></div>
+    </div>
+    <a href="http://quakkels.com/">Quakkels.com</a>
+    <a href="http://quakkels.com/projects">Projects</a>
+    <a href="http://quakkels.com/about">About</a>
+    <a class="rss" href="">RSS Feed</a>
+</nav>
+<header id="home-header">
+    <h1>Identify Valid Standards</h1>
+    
+    <h2>Feb 16, 2017</h2>
+    
+    
+    
+    <p>
+            <a href="http://quakkels.com/tags/practices">Practices</a>
+        
+    </p>
+    
+    
+    <h3>By: Brandon Quakkelaar</h3>
+    
+</header>
+<div class="main">
+<section class="wrapper">
+
+
+<p>I can&rsquo;t tell you how many times I&rsquo;ve been in software planning meetings when an engineer addressed the team and claimed that we should use {insert technology here} because it&rsquo;s the &ldquo;Industry Standard.&rdquo; I also can&rsquo;t tell you how many times I&rsquo;ve done the same thing. I&rsquo;ve gone into my boss&rsquo;s office and claimed that we should use a particular stack or technology because it&rsquo;s an &ldquo;industry standard.&rdquo;</p>
+
+<p>This reasoning is attractive because on the surface it seems valid. I mean, it
+must be an industry standard for a reason. Right? We&rsquo;d be silly not to use it
+as well. Doesn&rsquo;t that make sense?</p>
+
+<h2 id="hype-mentality">Hype mentality</h2>
+
+<blockquote>
+<p><em>&ldquo;Hey coach, I think we should run screens because it&rsquo;s the league standard.
+Everyone runs screens. If we want our team to win, we need to be
+running screens all the time.&rdquo;</em></p>
+</blockquote>
+
+<p>Choosing technology based on popularity is easy. As programmers, it&rsquo;s important
+to us to stay current and not let any good technology get past us. As a result,
+there are many ways that we can be influenced; industry publications, surveys,
+Blogs, Twitter, Reddit, even chatter in the break room. However, we need to be
+careful to weigh arguments based on technical merit and not succumb to the
+subliminal effects of hype.</p>
+
+<h2 id="hair-on-fire-mentality">Hair-on-fire mentality</h2>
+
+<blockquote>
+<p><em>&ldquo;Hey coach, I think we should stop using back-shoulder passes down the field. We should remove them from our playbook entirely. Last time we ran a back-shoulder pass, we went three and out.&rdquo;</em></p>
+</blockquote>
+
+<p>When bugs that appear in staging (or even worse&#151;production)  people will look for a root cause for why it occurred. This is good to do and it&rsquo;s definitely the correct response. But those investigating should be sure to focus on the root cause of the bug. If they find a bug in code that relies on a third party library, there is a temptation to question the decisions of the team that added the library. This is usually due to a misplaced concern that the bug is a result of using a less popular (or non-standard) library. Instead, the investigation should focus on things like logic errors, syntax errors, and whether behavior is unit tested.</p>
+
+<p>Sweeping rules dictating which libraries engineering teams must use are not the answer. Such a reaction result in standards that halt progress, stifle problem solving, and impede innovation.</p>
+
+<h2 id="how-standards-help">How standards help</h2>
+
+<p>When programming systems, standards should exist around the parts that need ‘glue’. Anytime there are two applications that need to talk to each other, they should follow a contract to ease communication between them. Examples of these kinds of standards include specifications for protocols such as HTTP, SAML, and OAuth.</p>
+
+<p>Another area that benefits from industry standards is when describing languages. There must be a standard for what an <code>&lt;h1&gt;</code> represents in HTML, and for how a CSS rule such as <code>h1 { color: red; }</code> affects it. I wouldn&rsquo;t be very productive in a language if when I wrote <code>string</code> it would treat it like a <code>float</code>. So having a language standard that defines the expected behavior of syntax and types is very helpful.</p>
+
+<p>The key to these standards is that they are <em>defining expected behavior for a given tool</em>. These standards do not dictate which tool to use.</p>
+
+<h2 id="picking-the-right-tool-for-a-job">Picking the right tool for a job</h2>
+
+<p>Some may claim that one software framework or language is an “industry standard”. Often, this is a result of the person seeing it used by others or featured in articles. So, they conclude that they should use it on every project. If there is even a vague similarity between their current project and the tool’s stated goals, then some people assume they’ve found the best tool for their job. More should be considered when choosing tools.</p>
+
+<p><strong>Good reasons to use a tool:</strong></p>
+
+<ol>
+<li>It is stable</li>
+<li>It does what we need</li>
+<li>It is well supported</li>
+<li>Ease of use</li>
+<li>Compatible with existing system</li>
+</ol>
+
+<p><strong>Bad reasons to use a tool:</strong></p>
+
+<ol>
+<li>It&rsquo;s popular</li>
+<li>It&rsquo;s new</li>
+<li>It&rsquo;s been trending on Blogs and industry news sources.</li>
+<li>The current tool is boring. We could use a change.</li>
+</ol>
+
+<h2 id="don-t-flippantly-swing-the-industry-standard-club">Don’t flippantly swing the “Industry Standard” club</h2>
+
+<p>Promoting a tool by claiming that it&rsquo;s an industry standard, rather than because it adheres to standards, is a mistake. There is a key difference between adhering to standards and being a standard. Industry standards are most effective when describing protocols and languages. We should select our tools based on how well they adhere to standards.</p>
+
+</section>
+</div>
+<div id="footer">
+    <div class="wrapper">
+        <img class="avatar" src="http://quakkels.com/images/avatar.png">
+        My name is Brandon Quakkelaar. I like to program, blog, and learn.
+    </div>
+</div>
+<script src="http://quakkels.com/js/site.js"></script>
+<script>
+var navElement = document.getElementById("main-nav");
+var menuButton = document.getElementById("hamburger");
+var mobileSize = 768;
+var menu = new Menu(window, navElement, menuButton, mobileSize);
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91443661-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
