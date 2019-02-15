@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://quakkels.com/posts/configure-headless-raspberry-pi-for-wifi-and-ssh-before-turning-it-on/</loc>
+    <lastmod>2019-02-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://quakkels.com/posts/identify-valid-standards/</loc>
     <lastmod>2017-02-16T07:26:36-06:00</lastmod>
   </url>
@@ -102,7 +107,7 @@
   
   <url>
     <loc>http://quakkels.com/posts/</loc>
-    <lastmod>2017-02-16T07:26:36-06:00</lastmod>
+    <lastmod>2019-02-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -120,7 +125,13 @@
   
   <url>
     <loc>http://quakkels.com/</loc>
-    <lastmod>2017-02-16T07:26:36-06:00</lastmod>
+    <lastmod>2019-02-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/tags/raspberry-pi/</loc>
+    <lastmod>2019-02-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
