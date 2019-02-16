@@ -17,7 +17,7 @@
       <guid>http://quakkels.com/posts/configure-headless-raspberry-pi-for-wifi-and-ssh/</guid>
       <description>
 
-&lt;p&gt;Raspberry Pis are great little computers. Wonderful for running hobby services. But, whenever I start a new RPi project, I dislike needing to dig out my spare HDMI monitor and USB keyboard. I don&amp;rsquo;t like having to take up room, connect all that hardware, just to enable SSH and Wifi so I don&amp;rsquo;t need any of that equipment I just finished setting up.&lt;/p&gt;
+&lt;p&gt;Raspberry Pis are great little computers. Wonderful for running hobby services. But, whenever I start a new RPi project, I dislike needing to dig out my spare HDMI monitor and USB keyboard. I don&amp;rsquo;t like having to take up room and connect all that hardware to just enable SSH and Wifi which renders all that equipment unnecessary.&lt;/p&gt;
 
 &lt;p&gt;Recently I learned how to flash a new micro SD card and configure it to connect to my Wifi network and enable SSH before even turning on the RPi for the first time.&lt;/p&gt;
 
