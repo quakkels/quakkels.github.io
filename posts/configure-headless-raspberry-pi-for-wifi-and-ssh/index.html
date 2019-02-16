@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Brandon Quakkelaar">
+    
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    <title>Raspberry Pis are great little computers. Wonderful for running hobby services. But, whenever I start a new RPi project, I dislike needing to dig out my spare HDMI monitor and USB keyboard. I don&#39;t like having to take up room, connect all that hardware, just to enable SSH and Wifi so I don&#39;t need any of that equipment I just finished setting up. &middot; Quakkels.com</title>
+    <link rel="shortcut icon" href="http://quakkels.com/images/favicon.ico">
+    <link rel="stylesheet" href="http://quakkels.com/css/style.css">
+    <base href="http://quakkels.com/">
+    <link rel="canonical" href="http://quakkels.com/posts/configure-headless-raspberry-pi-for-wifi-and-ssh/">
+    <link href="" rel="alternate" type="application/rss+xml" title="Quakkels.com" />
+</head>
+<body lang="en">
+<nav id="main-nav">
+    <div class="mobile-menu">
+        
+        
+        <div id="hamburger"><span></span></div>
+    </div>
+    <a href="http://quakkels.com/">Quakkels.com</a>
+    <a href="http://quakkels.com/projects">Projects</a>
+    <a href="http://quakkels.com/about">About</a>
+    <a class="rss" href="">RSS Feed</a>
+</nav>
+<header id="home-header">
+    <h1>Raspberry Pis are great little computers. Wonderful for running hobby services. But, whenever I start a new RPi project, I dislike needing to dig out my spare HDMI monitor and USB keyboard. I don&#39;t like having to take up room, connect all that hardware, just to enable SSH and Wifi so I don&#39;t need any of that equipment I just finished setting up.</h1>
+    
+    <h2>Feb 16, 2019</h2>
+    
+    
+    
+    <p>
+            <a href="http://quakkels.com/tags/raspberry-pi">Raspberry Pi</a>
+        
+    </p>
+    
+    
+    <h3>By: Brandon Quakkelaar</h3>
+    
+</header>
+<div class="main">
+<section class="wrapper">
+
+
+<p>Raspberry Pis are great little computers. Wonderful for running hobby services. But, whenever I start a new RPi project, I dislike needing to dig out my spare HDMI monitor and USB keyboard. I don&rsquo;t like having to take up room, connect all that hardware, just to enable SSH and Wifi so I don&rsquo;t need any of that equipment I just finished setting up.</p>
+
+<p>Recently I learned how to flash a new micro SD card and configure it to connect to my Wifi network and enable SSH before even turning on the RPi for the first time.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<ul>
+<li>Raspberry Pi (mine is an RPi 3 Model B V1.2)</li>
+<li>Micro USB charge cable</li>
+<li>A powered USB hub or wall charger to plug the USB cable into</li>
+<li>Micro SD card</li>
+<li>Wifi network (and credentials to sign in to the router)</li>
+<li>A computer that&rsquo;s on previously mentioned network</li>
+</ul>
+
+<h2 id="steps">Steps</h2>
+
+<ol>
+<li>Download <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Lite</a>. This version is stripped down and doesn&rsquo;t include things like a graphical desktop.
+
+<ul>
+<li>Save the zip file to disk, and unzip. You should see the image file.</li>
+</ul></li>
+<li><a href="https://www.raspberrypi.org/documentation/installation/installing-images/windows.md">Flash</a> the Micro SD card with Raspbian Lite. I used Etcher.</li>
+<li><a href="https://www.raspberrypi.org/documentation/remote-access/ssh/">Enable SSH</a> by saving an empty file called <code>ssh</code> to the new boot partition on the SD card.</li>
+<li><em>Now this is the magic ingredient.</em> <a href="https://foxrow.com/raspberry-pi-headless-wifi-config">Add a configuration file containing your Wifi information</a> to the boot partition so that raspbian can connect on startup.</li>
+</ol>
+
+<p>At this point, if you&rsquo;ve followed the previous steps correctly, you can eject the SD card from your reader and place it in you RPi and plug it in.</p>
+
+<p>After waiting a minute or two for the RPi to boot (for the first time) you can log into your router and you will be able to find it in the list of connected devices. That list should have the IP address shown so you can use it to SSH into it.</p>
+
+<p>Execute <code>ssh {IpAddress} -l pi</code> and use the password <code>raspberry</code> to login.</p>
+
+</section>
+</div>
+<div id="footer">
+    <div class="wrapper">
+        <img class="avatar" src="http://quakkels.com/images/avatar.png">
+        My name is Brandon Quakkelaar. I like to program, blog, and learn.
+    </div>
+</div>
+<script src="http://quakkels.com/js/site.js"></script>
+<script>
+var navElement = document.getElementById("main-nav");
+var menuButton = document.getElementById("hamburger");
+var mobileSize = 768;
+var menu = new Menu(window, navElement, menuButton, mobileSize);
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91443661-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
