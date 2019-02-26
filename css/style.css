@@ -26,7 +26,7 @@ body {
 
 /* typography */
 a {
-    color: #0094FF;
+    color: #ce1f1c;
     text-decoration: none;
 
 	-webkit-transition: all 0.15s ease;
@@ -95,16 +95,16 @@ pre code {
     
     text-decoration: none;
     font-size: 0.9em;
-    color:#6DC2FF;
+    color:#ce1f1c;
 }
 
 #main-nav a.rss {
     color:white;
-    background: #0094FF;
+    background: #ce1f1c;
 }
 #main-nav a.rss:hover {
     color: white;
-    background: #6DC2FF;
+    background: #0094FF;
     text-decoration: none;
 }
 #main-nav a:hover {
