@@ -9,6 +9,132 @@
     <atom:link href="http://quakkels.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Gogs on Raspberry PI</title>
+      <link>http://quakkels.com/posts/gogs-on-raspberry-pi/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/gogs-on-raspberry-pi/</guid>
+      <description>
+
+&lt;p&gt;In a previous article &lt;a href=&#34;http://quakkels.com/posts/configure-headless-raspberry-pi-for-wifi-and-ssh/&#34;&gt;I configured a headless Raspberry Pi for Wifi and SSH&lt;/a&gt;. Next, I&amp;rsquo;ll set up a personal Gogs server on it.&lt;/p&gt;
+
+&lt;h2 id=&#34;change-the-password&#34;&gt;Change the Password&lt;/h2&gt;
+
+&lt;p&gt;First things first, change the password for the &lt;code&gt;pi&lt;/code&gt; user to something different than &lt;code&gt;raspberry&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ passwd
+Changing password for pi.
+(current) UNIX password:
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Please tweet your new password to @quakkels /s&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;arrange-the-prerequisites&#34;&gt;Arrange the Prerequisites&lt;/h2&gt;
+
+&lt;p&gt;Next, I&amp;rsquo;ll make sure the &lt;a href=&#34;https://gogs.io/docs/installation&#34;&gt;prerequisites&lt;/a&gt; are set up. Since Raspbian is based on Debian I can use the Debian/Ubuntu commands. I&amp;rsquo;m skipping the database step because I&amp;rsquo;m happy with this Gogs instance using SQLite3.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo apt-get update
+$ sudo apt-get install git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Before proceeding farther, I&amp;rsquo;m going to create a brand new user specifically for Gogs. This new user will be everything Gogs.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo adduser iamgogs 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Note: If I were a more experienced Gogs administrator I would have created a user named &lt;code&gt;git&lt;/code&gt; since that&amp;rsquo;s Gogs&amp;rsquo; best practice and it&amp;rsquo;s less work later on. Scripts and default configuration use &lt;code&gt;git&lt;/code&gt; as the Gogs user by default.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Be prepared to have a password ready for the new &lt;code&gt;iamgogs&lt;/code&gt; user.&lt;/p&gt;
+
+&lt;p&gt;Add the &lt;code&gt;iamgogs&lt;/code&gt; user to the sudo group.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo usermod -aG sudo iamgogs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now switch to the &lt;code&gt;iamgogs&lt;/code&gt; user with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ su - iamgogs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And test the sudo ability by running any command as sudo:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo pwd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;install-gogs-from-binary&#34;&gt;Install Gogs from Binary&lt;/h2&gt;
+
+&lt;p&gt;From here, I could install Go and proceed to install from source. But instead, to keep the number of steps to a minimum, I&amp;rsquo;m going to &lt;a href=&#34;https://gogs.io/docs/installation/install_from_binary&#34;&gt;install from binary&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Being currently logged in as the &lt;code&gt;iamgogs&lt;/code&gt; user, I&amp;rsquo;ll use the &lt;code&gt;wget&lt;/code&gt; command to download the Raspberry PI build from &lt;a href=&#34;https://gogs.io/docs/installation/install_from_binary&#34;&gt;this download page&lt;/a&gt;. Use &lt;code&gt;wget&lt;/code&gt; with the url for the binary built specifically for Raspberry PI.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ wget {raspberrypibinaryurl}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now that I&amp;rsquo;ve got it downloaded, I can unzip it using the &lt;code&gt;unzip&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ unzip {gogszipfilename}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you run the &lt;code&gt;ls&lt;/code&gt; command you should see the new &lt;code&gt;gogs&lt;/code&gt; folder that was extracted into the &lt;code&gt;iamgogs&lt;/code&gt; home directory.&lt;/p&gt;
+
+&lt;p&gt;And now for something completely expected&amp;hellip;&lt;/p&gt;
+
+&lt;h2 id=&#34;configuring-and-running-gogs-on-raspberry-pi&#34;&gt;Configuring and Running Gogs on Raspberry PI&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gogs.io/docs/installation/configuration_and_run.html&#34;&gt;Running and configuring the Gogs server&lt;/a&gt; is handled by the Gogs install process. There&amp;rsquo;s lots of information online about manually creating and editing custom app.ini configuration file, but it looks like (for the most recent versions of Gogs) all I need to do is run the &lt;code&gt;gogs&lt;/code&gt; executable from the &lt;code&gt;$HOME/gogs&lt;/code&gt; folder with the &lt;code&gt;web&lt;/code&gt; parameter.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd $HOME/gogs
+$ ./gogs web
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I saw server information appear in the console. Since my Raspberry Pi is set up for headless operation, I don&amp;rsquo;t have the benefit of being able to access Gogs via a graphical web browser over localhost. So, from my windows machine, I navigated to {IpAddressOfRPi}:3000 and was greeted by a pleasant installation form which I filled out. Upon submitting the form, I had an admin account and a functioning Gogs server.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m nearing the end of this Gogs journey, but I still need to set this up as a service running in the background. Otherwise I&amp;rsquo;m stuck with this SSH session running Gogs forever.&lt;/p&gt;
+
+&lt;p&gt;I was able to find some &lt;a href=&#34;https://blog.meinside.dev/Gogs-on-Raspberry-Pi/#2-for-systemd&#34;&gt;instructions&lt;/a&gt; for configuring a Gogs service with systemd that seemed straightforward enough.&lt;/p&gt;
+
+&lt;p&gt;Copy the systemd service file from Gogs to the appropriate folder&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo cp /home/iamgogs/scripts/systemd/gogs.service /lib/systemd/system/gogs.service
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then I edited the new file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo nano /lib/systemd/system/gogs.service
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I updated the values for:
+- User
+- Group
+- WorkingDirectory
+- ExecStart
+- Environment&lt;/p&gt;
+
+&lt;p&gt;Since my Gogs user is &lt;code&gt;iamgogs&lt;/code&gt; rather than &lt;code&gt;git&lt;/code&gt; I needed to make sure the paths and users got updated accordingly. Once the file is updated and saved I tested to make sure it was working with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo systemctl start gogs.service
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After switching over to my windows machine and confirming the site loads in the browser, I returned to my ssh session to make sure systemd will automatically start the Gogs service on reboot.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo systemctl enable gogs.service
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And then a final test to make sure Gogs will start automatically when the RPi boots:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo reboot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Lo and behold, it works.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Identify Valid Standards</title>
       <link>http://quakkels.com/posts/identify-valid-standards/</link>
       <pubDate>Thu, 16 Feb 2017 07:26:36 -0600</pubDate>
