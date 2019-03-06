@@ -107,6 +107,8 @@
 &lt;p&gt;After waiting a minute or two for the RPi to boot (for the first time) you can log into your router and you will be able to find it in the list of connected devices. That list should have the IP address shown so you can use it to SSH into it.&lt;/p&gt;
 
 &lt;p&gt;Execute &lt;code&gt;ssh {IpAddress} -l pi&lt;/code&gt; and use the password &lt;code&gt;raspberry&lt;/code&gt; to login.&lt;/p&gt;
+
+&lt;p&gt;Now that we&amp;rsquo;ve got a functioning Raspberry Pi, &lt;a href=&#34;http://quakkels.com/posts/gogs-on-raspberry-pi/&#34;&gt;let&amp;rsquo;s do something useful with it&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

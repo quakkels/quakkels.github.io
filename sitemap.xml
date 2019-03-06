@@ -82,18 +82,6 @@
   </url>
   
   <url>
-    <loc>http://quakkels.com/tags/algorithms/</loc>
-    <lastmod>2013-02-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://quakkels.com/tags/aspnet-mvc/</loc>
-    <lastmod>2013-01-13T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://quakkels.com/projects/</loc>
     <lastmod>2017-01-27T14:36:35-06:00</lastmod>
   </url>
@@ -105,32 +93,14 @@
   </url>
   
   <url>
-    <loc>http://quakkels.com/tags/javascript/</loc>
-    <lastmod>2013-02-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://quakkels.com/tags/linux/</loc>
-    <lastmod>2015-08-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://quakkels.com/posts/</loc>
     <lastmod>2019-03-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://quakkels.com/tags/practices/</loc>
+    <loc>http://quakkels.com/tags/programming/</loc>
     <lastmod>2017-02-16T07:26:36-06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://quakkels.com/tags/python/</loc>
-    <lastmod>2013-03-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -141,20 +111,8 @@
   </url>
   
   <url>
-    <loc>http://quakkels.com/tags/raspberry-pi/</loc>
+    <loc>http://quakkels.com/tags/system-administration/</loc>
     <lastmod>2019-02-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://quakkels.com/tags/security/</loc>
-    <lastmod>2013-02-23T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://quakkels.com/tags/sqlite/</loc>
-    <lastmod>2013-01-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -164,14 +122,14 @@
   </url>
   
   <url>
-    <loc>http://quakkels.com/tags/tips/</loc>
-    <lastmod>2016-08-29T00:00:00+00:00</lastmod>
+    <loc>http://quakkels.com/tags/tutorial/</loc>
+    <lastmod>2019-02-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://quakkels.com/tags/tutorial/</loc>
-    <lastmod>2019-02-16T00:00:00+00:00</lastmod>
+    <loc>http://quakkels.com/tags/tutorials/</loc>
+    <lastmod>2016-08-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
