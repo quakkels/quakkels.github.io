@@ -80,6 +80,11 @@
 &lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; SHOW COLUMNS FROM newTable
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h3 id=&#34;execute-a-sql-script-from-file&#34;&gt;Execute a sql script from file&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; source /path/to/script.sql;
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;more-resources&#34;&gt;More Resources&lt;/h2&gt;
 
 &lt;ul&gt;
