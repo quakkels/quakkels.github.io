@@ -24,7 +24,7 @@
 &lt;p&gt;&lt;center&gt;
 &lt;img src=&#34;http://quakkels.com/images/exiting_vim_orly.jpeg&#34; alt=&#34;How to exit Vim&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;It&amp;rsquo;s an old meme, but it checks out. (&lt;code&gt;esc&lt;/code&gt;, &lt;code&gt;:&lt;/code&gt; then &lt;code&gt;q!&lt;/code&gt;, btw)&lt;/em&gt;
+&lt;p&gt;&lt;em&gt;It&amp;rsquo;s an old meme, but it checks out. (&lt;code&gt;esc&lt;/code&gt;, &lt;code&gt;:&lt;/code&gt; then &lt;code&gt;q!&lt;/code&gt; to quit without saving, btw)&lt;/em&gt;
 &lt;/center&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;configuring-vim-in-git-bash&#34;&gt;Configuring Vim in Git Bash&lt;/h2&gt;
