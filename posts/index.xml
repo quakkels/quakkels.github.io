@@ -6,8 +6,124 @@
     <description>Recent content in Posts on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Apr 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://quakkels.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Configuring Vim When Using Git Bash on Windows</title>
+      <link>http://quakkels.com/posts/configuring-vim-when-using-git-bash/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/configuring-vim-when-using-git-bash/</guid>
+      <description>
+
+&lt;p&gt;Occasionally I become enamored with the idea of becoming a Vim expert, or at least a competent Vim user. I work primarily in Windows environments so, though the desire exists, there aren&amp;rsquo;t many good opportunities to build Vim habits. There is a &lt;a href=&#34;https://www.vim.org/download.php/#pc&#34; target=&#34;_blank&#34;&gt;Vim on Windows release&lt;/a&gt; available. This has a GUI interface and an installer executable. Though if you have Git for Windows installed, then you already have Vim available. Git for Windows comes with the ever useful, Git Bash. And, lo! Git Bash has Vim.&lt;/p&gt;
+
+&lt;p&gt;Firing up a quick Git Bash session is simple enough. And firing up vim from there is straightforward. Thankfully, my previous experience with exiting Vim saved me from an embarrassing search query in my browser history.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;img src=&#34;http://quakkels.com/images/exiting_vim_orly.jpeg&#34; alt=&#34;How to exit Vim&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;It&amp;rsquo;s an old meme, but it checks out. (&lt;code&gt;esc&lt;/code&gt;, &lt;code&gt;:&lt;/code&gt; then &lt;code&gt;q!&lt;/code&gt;, btw)&lt;/em&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;configuring-vim-in-git-bash&#34;&gt;Configuring Vim in Git Bash&lt;/h2&gt;
+
+&lt;p&gt;Vim&amp;rsquo;s configuration can be customized with vimrc files. These files are scripts written in Vimscript. They run at initialization when Vim is opened. We can find out more information by using help commands inside Vim.&lt;/p&gt;
+
+&lt;p&gt;First, open a Git Bash terminal and then open &lt;code&gt;vim&lt;/code&gt;. Then, in &lt;a href=&#34;https://www.howtoforge.com/vim-basics&#34; target=&#34;_blank&#34;&gt;command mode&lt;/a&gt;, open the configuration help information with &lt;code&gt;:help vimrc&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;At this point we can see where Vim will look for custom vimrc files.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  Places for your personal initializations:
+    Unix            $HOME/.vimrc or $HOME/.vim/vimrc
+    OS/2            $HOME/.vimrc, $HOME/vimfiles/vimrc
+                    or $VIM/.vimrc (or _vimrc)
+    MS-Windows      $HOME/_vimrc, $HOME/vimfiles/vimrc
+                    or $VIM/_vimrc
+    Amiga           s:.vimrc, home:.vimrc, home:vimfiles:vimrc
+                    or $VIM/.vimrc
+
+  The files are searched in the order specified above and only the first
+  one that is found is read.
+
+  RECOMMENDATION: Put all your Vim configuration stuff in the
+  $HOME/.vim/ directory ($HOME/vimfiles/ for MS-Windows). That makes it
+  easy to copy it to another system.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Don&amp;rsquo;t be fooled. Since &lt;a href=&#34;https://github.com/git/git/commit/df5218b4c30b2fa1ba0d1ada4166ad85bc83be26&#34; target=&#34;_blank&#34;&gt;Git Bash uses msys2&lt;/a&gt; to imitate a Unixy/Linuxy style system, Vim running inside Git Bash will be following Unix&amp;rsquo;s Conventions, rather than MS-Windows&amp;rsquo;.&lt;/p&gt;
+
+&lt;p&gt;Also let&amp;rsquo;s follow Vim&amp;rsquo;s recommendation for using the &lt;code&gt;$HOME/.vim/&lt;/code&gt; directory for configuration files.&lt;/p&gt;
+
+&lt;p&gt;Make the directory:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ mkdir $HOME/.vim
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then create the vimrc file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ touch $HOME/.vim/vimrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;At this point, we have our empty initialization file for Vim. To make sure it&amp;rsquo;s working, I&amp;rsquo;ll add a command to turn on line numbering.&lt;/p&gt;
+
+&lt;p&gt;Open the vimrc file using Vim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vim $HOME/.vim/vimrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then, enter Insert Mode by pressing &lt;code&gt;i&lt;/code&gt; and enter three lines:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;quot; Custom Vim configuration
+
+set number
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Save these changes by pressing &lt;code&gt;esc&lt;/code&gt; to leave Insert Mode and then enter &lt;code&gt;:wq&lt;/code&gt; to write the changes and then quit Vim.&lt;/p&gt;
+
+&lt;p&gt;To check that it worked, open up the same file in Vim again and look for the line numbers.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/vim_line_numbers.png&#34; alt=&#34;Vim configured to show line numbers&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It worked!&lt;/p&gt;
+
+&lt;p&gt;There are many more configuration changes you can make. Be aware that Vim already has default configuration set that is targeted towards programmers. To find all scripts (remember that configuration is set via initialization scripts) you can use the command &lt;code&gt;:scriptnames&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;When I execute &lt;code&gt;:scriptnames&lt;/code&gt; in Vim running in Git Bash, I see &lt;code&gt;/etc/vimrc&lt;/code&gt; at the very top of the list. This makes sense since the &lt;code&gt;etc&lt;/code&gt; folder is where Linux systems place a lot of their configuration. However, since this is in Windows, we need to figure out where the &lt;code&gt;etc&lt;/code&gt; folder is. It&amp;rsquo;s not in &lt;code&gt;C:\&lt;/code&gt; nor in the &lt;code&gt;$HOME&lt;/code&gt; directory. But, since Git Bash is mimicking a Linux system, we should be able to find it along with the other Git Bash files.&lt;/p&gt;
+
+&lt;p&gt;Since I&amp;rsquo;m running the 64 bit version of Git, I found the etc folder in &lt;code&gt;C:\Program Files\Git&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Inside Git Bash, we can get there with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd c\&amp;quot;Program Files&amp;quot;\Git\etc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then, to take a quick peek at &lt;code&gt;vimrc&lt;/code&gt; just execute:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cat vimrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; I would &lt;em&gt;not&lt;/em&gt; recommend attempting to change anything in &lt;code&gt;etc&lt;/code&gt;. Instead modify Vim&amp;rsquo;s configuration using files in the &lt;code&gt;$HOME\.vim\&lt;/code&gt; folder.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Armed with this information there&amp;rsquo;s a lot of stuff you can now customize. Here are a few more resources:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://benmccormick.org/2014/07/14/learning-vim-in-2014-configuring-vim&#34; target=&#34;_blank&#34;&gt;Learning Vim in 2014: Configuring Vim&lt;/a&gt;&lt;br&gt;A few years old, but I really like how this author gets into the details rather than just telling you to copy/paste a &lt;code&gt;.vimrc&lt;/code&gt; file from GitHub.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://linuxhint.com/configure_vim_vimrc/&#34; target=&#34;_blank&#34;&gt;Configure Vim with vimrc&lt;/a&gt;&lt;br&gt;
+Similar to Learning Vim in 2014, but more recent. Also has Linux specific informmatin which you will want to ignore if you&amp;rsquo;re running in Windows.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://learnvimscriptthehardway.stevelosh.com/&#34; target=&#34;_blank&#34;&gt;Learn Vimscript the Hard Way&lt;/a&gt;&lt;br&gt; This ebook has an incredible amount of detail. It may be too much if you&amp;rsquo;re looking to just make quick changes. But it has a lot of great information if you want to dive into the deep end.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vim.rtorr.com/&#34; target=&#34;_blank&#34;&gt;Vim Cheat Sheet&lt;/a&gt;&lt;br&gt;Excellent for discovering all the Vim shortcuts that people love so much.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Don&amp;rsquo;t forget to do ridiculous things like to configure VSCode&amp;rsquo;s terminal to use Git Bash which allows you to open Vim from inside VSCode. ;-)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/vim_inside_vscode.png&#34; alt=&#34;Run Vim from inside VSCode on Windows&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>MySQL Quick Reference</title>
@@ -1564,111 +1680,6 @@ conn.commit()
 cursor.close()
 conn.close()
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ASP.NET MVC Compared to Django</title>
-      <link>http://quakkels.com/posts/asp-net-mvc-compared-to-dango/</link>
-      <pubDate>Sun, 13 Jan 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://quakkels.com/posts/asp-net-mvc-compared-to-dango/</guid>
-      <description>
-
-&lt;p&gt;The MVC pattern is widely used in web development today. Regardless of whether
-you develop in C#, PHP, Python, Java, JavaScript, or Ruby, you won’t have any
-trouble finding a popular MVC pattern for your language of choice.&lt;/p&gt;
-
-&lt;p&gt;Being primarily a C# developer, I’ve been using ASP.NET MVC since version 1.
-It’s a great framework. It can be very good at getting a project off the ground
-quickly, especially when coupled with a good ORM such as NHibernate, or Entity
-Framework.&lt;/p&gt;
-
-&lt;p&gt;For a side project, I decided to set aside the familiar ASP.NET MVC framework in
-favor of learning a new language and a new corresponding framework. After a
-period of time spent deliberating over the virtues and drawbacks of each
-language, I chose Python for the language, and Django for the framework&amp;hellip; and
-there was much rejoicing.&lt;/p&gt;
-
-&lt;p&gt;As I learned the language and read the Django docs, it became apparent to me
-that the MVC pattern can be implemented in various ways. MVC is not just
-whatever Microsoft says it is. The pattern (as with almost everything) is open
-to a little interpretation. So I needed to come to terms with the absence of
-some tools that I was used to having in ASP.NET MVC, as well as the unfamiliar
-terminology in the Django framework.&lt;/p&gt;
-
-&lt;h2 id=&#34;introducing-django-it-is-not-a-cms&#34;&gt;Introducing Django (it is not a CMS)&lt;/h2&gt;
-
-&lt;p&gt;The first thing I would like to point out, is that Django is not a CMS. Django
-is to Python as ASP.NET MVC is to C#. I was surprised to find that out. My first impression of Django was that it was like Drupal, or Wordpress. I thought it was more like a CMS than a framework.&lt;/p&gt;
-
-&lt;p&gt;Having said that, Django’s administration scaffolding is amazing. Almost to the point that it could appear to be a pre-built CMS. Django is literally capable of generating an entire administration section that allows you to manage data in your database as defined by your MVC models. That is something that ASP.NET MVC is capable of doing to a certain degree, when an application uses Entity Framework, but they do it a little differently. ASP.NET MVC Scaffolding is completely dependant on Visual Studio’s ability to read your models and then generate code for your controllers. Though, in my experience I often have to go back and rewrite most of the generated code, and many-to-many relationships are sketchy, if they’re generated at all.&lt;/p&gt;
-
-&lt;p&gt;That isn’t the case for Django, which has it’s own built in ORM. Django is capable of complete scaffolding of many-to-many relationships, image and file uploaders, field validation, as well as basic input fields.&lt;/p&gt;
-
-&lt;h2 id=&#34;mvc-actually-stands-for-model-template-view&#34;&gt;MVC actually stands for Model Template View&lt;/h2&gt;
-
-&lt;p&gt;It’s semantics, I know. Read on.&lt;/p&gt;
-
-&lt;h2 id=&#34;django-controllers-aren-t-called-controllers&#34;&gt;Django Controllers Aren’t Called Controllers&lt;/h2&gt;
-
-&lt;p&gt;To fulfill the MVC pattern, Django uses three primary divisions of code, the Model, the View, and the Template. Notice that there is no Controller.&lt;/p&gt;
-
-&lt;p&gt;Since I come from and ASP.NET MVC background, I was expecting code divisions that are labeled Model, View, and Controller (hence MVC). But no, this is not the case in Django. This fact caused some initial confusion for me as I was learning Django, but it doesn’t need to be confusing. If you’re familiar with ASP.NET MVC, then we just need to associate the Model, View, Controller concepts to the correct labels in Django.&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&#34;right&#34;&gt;&lt;/th&gt;
-&lt;th&gt;Model&lt;/th&gt;
-&lt;th&gt;View&lt;/th&gt;
-&lt;th&gt;Controller&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;strong&gt;ASP.NET MVC Term&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Model&lt;/td&gt;
-&lt;td&gt;View&lt;/td&gt;
-&lt;td&gt;Controller&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;strong&gt;Django Term&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Model&lt;/td&gt;
-&lt;td&gt;Template&lt;/td&gt;
-&lt;td&gt;View&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&#34;django-s-views-are-not-asp-net-mvc-views&#34;&gt;Django’s Views are not ASP.NET MVC Views&lt;/h2&gt;
-
-&lt;p&gt;When I think of Views in MVC, I think of the presentation layer which consists of markup, CSS, JavaScript, and some server-side scripting for basic display logic. That’s not what Views are in Django. Rather, Django’s Views do the equivalent job of the Controller in ASP.NET MVC.
-Templates are the Real Views&lt;/p&gt;
-
-&lt;p&gt;ASP.NET MVC uses the term &amp;lsquo;View&amp;rsquo; to describe their presentation layer. HTML markup, css styles and JavaScript come together in a View file with help from Razor. Razor is very powerful and it is easy to pick up because it allows C# syntax directly in the view file to render a complete webpage. In my experience, this can also lead to an unbalanced View that has too much logic embedded in the View file instead of in the controller.&lt;/p&gt;
-
-&lt;p&gt;Django uses the term “Template&amp;rsquo; to describe their presentation layer. It also brings HTML markup, css styles, and JavaScript together. Though, it uses it’s own template rendering system. Whereas ASP.NET has the power of Razor that leverages C# syntax, Django’s template rendering syntax is unique, and it introduces a steeper learning curve than Razor.&lt;/p&gt;
-
-&lt;h2 id=&#34;if-you-re-looking-for-partial-views-in-django&#34;&gt;If You’re Looking for Partial Views in Django&amp;hellip;&lt;/h2&gt;
-
-&lt;p&gt;&amp;hellip;You’re probably not going to find them. There is nothing called &amp;ldquo;Partial Template&amp;rdquo; in Django, though you can accomplish similar functionality.&lt;/p&gt;
-
-&lt;p&gt;Let’s say you have a data driven navigation bar that you want to display on all your template pages. You don’t want to write all your views to explicitly query that data, create the nav object for the template, and then have the navigation markup located in each template. Rather, you would like to just have located in your template file a reference to a &amp;ldquo;Partial View&amp;rsquo; which would do all that for you and it is independent of View-specific processes. In ASP.NET, this can be accomplished with Partial Views. In Django, this can be accomplished with Template Tags. It seems to me to be more cumbersome than a Partial View concept, but that could just be because I am still relatively new to the Django framework.
-Models are Pretty Much What You Would Expect&lt;/p&gt;
-
-&lt;p&gt;Django has its own built in ORM. This allows you to define database tables, fields, validation, and relationships using Python classes. When you make changes to you Model’s classes, Django provides a simple command to sync the database:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ python manage.py syncdb
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;These Model classes are editable through Django’s excellent scaffolding in the admin area, and they are queryable from Views for displaying in templates.&lt;/p&gt;
-
-&lt;h2 id=&#34;is-django-better-than-asp-net-mvc&#34;&gt;Is Django Better than ASP.NET MVC?&lt;/h2&gt;
-
-&lt;p&gt;No, not really. Neither is ASP.NET better than Django. ASP.NET MVC and Django both have their weaknesses. They need to be selected based on the project specs. Also, familiarity is huge when considering what technology to use when starting a new project. I was looking for a low cost learning experience with my project, Python + Django was perfect for that. The project is now done, or perhaps more accurately described as ‘abandoned’, and I am glad that I explored it. I would probably use Django again, if the situation called for it. Though, I think first exploring other Python frameworks would be a good idea.&lt;/p&gt;
 </description>
     </item>
     

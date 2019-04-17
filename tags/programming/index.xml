@@ -9,6 +9,122 @@
     <atom:link href="http://quakkels.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Configuring Vim When Using Git Bash on Windows</title>
+      <link>http://quakkels.com/posts/configuring-vim-when-using-git-bash/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/configuring-vim-when-using-git-bash/</guid>
+      <description>
+
+&lt;p&gt;Occasionally I become enamored with the idea of becoming a Vim expert, or at least a competent Vim user. I work primarily in Windows environments so, though the desire exists, there aren&amp;rsquo;t many good opportunities to build Vim habits. There is a &lt;a href=&#34;https://www.vim.org/download.php/#pc&#34; target=&#34;_blank&#34;&gt;Vim on Windows release&lt;/a&gt; available. This has a GUI interface and an installer executable. Though if you have Git for Windows installed, then you already have Vim available. Git for Windows comes with the ever useful, Git Bash. And, lo! Git Bash has Vim.&lt;/p&gt;
+
+&lt;p&gt;Firing up a quick Git Bash session is simple enough. And firing up vim from there is straightforward. Thankfully, my previous experience with exiting Vim saved me from an embarrassing search query in my browser history.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;img src=&#34;http://quakkels.com/images/exiting_vim_orly.jpeg&#34; alt=&#34;How to exit Vim&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;It&amp;rsquo;s an old meme, but it checks out. (&lt;code&gt;esc&lt;/code&gt;, &lt;code&gt;:&lt;/code&gt; then &lt;code&gt;q!&lt;/code&gt;, btw)&lt;/em&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;configuring-vim-in-git-bash&#34;&gt;Configuring Vim in Git Bash&lt;/h2&gt;
+
+&lt;p&gt;Vim&amp;rsquo;s configuration can be customized with vimrc files. These files are scripts written in Vimscript. They run at initialization when Vim is opened. We can find out more information by using help commands inside Vim.&lt;/p&gt;
+
+&lt;p&gt;First, open a Git Bash terminal and then open &lt;code&gt;vim&lt;/code&gt;. Then, in &lt;a href=&#34;https://www.howtoforge.com/vim-basics&#34; target=&#34;_blank&#34;&gt;command mode&lt;/a&gt;, open the configuration help information with &lt;code&gt;:help vimrc&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;At this point we can see where Vim will look for custom vimrc files.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  Places for your personal initializations:
+    Unix            $HOME/.vimrc or $HOME/.vim/vimrc
+    OS/2            $HOME/.vimrc, $HOME/vimfiles/vimrc
+                    or $VIM/.vimrc (or _vimrc)
+    MS-Windows      $HOME/_vimrc, $HOME/vimfiles/vimrc
+                    or $VIM/_vimrc
+    Amiga           s:.vimrc, home:.vimrc, home:vimfiles:vimrc
+                    or $VIM/.vimrc
+
+  The files are searched in the order specified above and only the first
+  one that is found is read.
+
+  RECOMMENDATION: Put all your Vim configuration stuff in the
+  $HOME/.vim/ directory ($HOME/vimfiles/ for MS-Windows). That makes it
+  easy to copy it to another system.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Don&amp;rsquo;t be fooled. Since &lt;a href=&#34;https://github.com/git/git/commit/df5218b4c30b2fa1ba0d1ada4166ad85bc83be26&#34; target=&#34;_blank&#34;&gt;Git Bash uses msys2&lt;/a&gt; to imitate a Unixy/Linuxy style system, Vim running inside Git Bash will be following Unix&amp;rsquo;s Conventions, rather than MS-Windows&amp;rsquo;.&lt;/p&gt;
+
+&lt;p&gt;Also let&amp;rsquo;s follow Vim&amp;rsquo;s recommendation for using the &lt;code&gt;$HOME/.vim/&lt;/code&gt; directory for configuration files.&lt;/p&gt;
+
+&lt;p&gt;Make the directory:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ mkdir $HOME/.vim
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then create the vimrc file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ touch $HOME/.vim/vimrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;At this point, we have our empty initialization file for Vim. To make sure it&amp;rsquo;s working, I&amp;rsquo;ll add a command to turn on line numbering.&lt;/p&gt;
+
+&lt;p&gt;Open the vimrc file using Vim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vim $HOME/.vim/vimrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then, enter Insert Mode by pressing &lt;code&gt;i&lt;/code&gt; and enter three lines:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;quot; Custom Vim configuration
+
+set number
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Save these changes by pressing &lt;code&gt;esc&lt;/code&gt; to leave Insert Mode and then enter &lt;code&gt;:wq&lt;/code&gt; to write the changes and then quit Vim.&lt;/p&gt;
+
+&lt;p&gt;To check that it worked, open up the same file in Vim again and look for the line numbers.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/vim_line_numbers.png&#34; alt=&#34;Vim configured to show line numbers&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It worked!&lt;/p&gt;
+
+&lt;p&gt;There are many more configuration changes you can make. Be aware that Vim already has default configuration set that is targeted towards programmers. To find all scripts (remember that configuration is set via initialization scripts) you can use the command &lt;code&gt;:scriptnames&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;When I execute &lt;code&gt;:scriptnames&lt;/code&gt; in Vim running in Git Bash, I see &lt;code&gt;/etc/vimrc&lt;/code&gt; at the very top of the list. This makes sense since the &lt;code&gt;etc&lt;/code&gt; folder is where Linux systems place a lot of their configuration. However, since this is in Windows, we need to figure out where the &lt;code&gt;etc&lt;/code&gt; folder is. It&amp;rsquo;s not in &lt;code&gt;C:\&lt;/code&gt; nor in the &lt;code&gt;$HOME&lt;/code&gt; directory. But, since Git Bash is mimicking a Linux system, we should be able to find it along with the other Git Bash files.&lt;/p&gt;
+
+&lt;p&gt;Since I&amp;rsquo;m running the 64 bit version of Git, I found the etc folder in &lt;code&gt;C:\Program Files\Git&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Inside Git Bash, we can get there with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd c\&amp;quot;Program Files&amp;quot;\Git\etc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then, to take a quick peek at &lt;code&gt;vimrc&lt;/code&gt; just execute:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cat vimrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; I would &lt;em&gt;not&lt;/em&gt; recommend attempting to change anything in &lt;code&gt;etc&lt;/code&gt;. Instead modify Vim&amp;rsquo;s configuration using files in the &lt;code&gt;$HOME\.vim\&lt;/code&gt; folder.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Armed with this information there&amp;rsquo;s a lot of stuff you can now customize. Here are a few more resources:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://benmccormick.org/2014/07/14/learning-vim-in-2014-configuring-vim&#34; target=&#34;_blank&#34;&gt;Learning Vim in 2014: Configuring Vim&lt;/a&gt;&lt;br&gt;A few years old, but I really like how this author gets into the details rather than just telling you to copy/paste a &lt;code&gt;.vimrc&lt;/code&gt; file from GitHub.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://linuxhint.com/configure_vim_vimrc/&#34; target=&#34;_blank&#34;&gt;Configure Vim with vimrc&lt;/a&gt;&lt;br&gt;
+Similar to Learning Vim in 2014, but more recent. Also has Linux specific informmatin which you will want to ignore if you&amp;rsquo;re running in Windows.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://learnvimscriptthehardway.stevelosh.com/&#34; target=&#34;_blank&#34;&gt;Learn Vimscript the Hard Way&lt;/a&gt;&lt;br&gt; This ebook has an incredible amount of detail. It may be too much if you&amp;rsquo;re looking to just make quick changes. But it has a lot of great information if you want to dive into the deep end.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vim.rtorr.com/&#34; target=&#34;_blank&#34;&gt;Vim Cheat Sheet&lt;/a&gt;&lt;br&gt;Excellent for discovering all the Vim shortcuts that people love so much.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Don&amp;rsquo;t forget to do ridiculous things like to configure VSCode&amp;rsquo;s terminal to use Git Bash which allows you to open Vim from inside VSCode. ;-)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/vim_inside_vscode.png&#34; alt=&#34;Run Vim from inside VSCode on Windows&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>MySQL Quick Reference</title>
       <link>http://quakkels.com/posts/mysql-quick-reference/</link>
       <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>

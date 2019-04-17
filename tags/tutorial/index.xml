@@ -9,6 +9,122 @@
     <atom:link href="http://quakkels.com/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Configuring Vim When Using Git Bash on Windows</title>
+      <link>http://quakkels.com/posts/configuring-vim-when-using-git-bash/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/configuring-vim-when-using-git-bash/</guid>
+      <description>
+
+&lt;p&gt;Occasionally I become enamored with the idea of becoming a Vim expert, or at least a competent Vim user. I work primarily in Windows environments so, though the desire exists, there aren&amp;rsquo;t many good opportunities to build Vim habits. There is a &lt;a href=&#34;https://www.vim.org/download.php/#pc&#34; target=&#34;_blank&#34;&gt;Vim on Windows release&lt;/a&gt; available. This has a GUI interface and an installer executable. Though if you have Git for Windows installed, then you already have Vim available. Git for Windows comes with the ever useful, Git Bash. And, lo! Git Bash has Vim.&lt;/p&gt;
+
+&lt;p&gt;Firing up a quick Git Bash session is simple enough. And firing up vim from there is straightforward. Thankfully, my previous experience with exiting Vim saved me from an embarrassing search query in my browser history.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;img src=&#34;http://quakkels.com/images/exiting_vim_orly.jpeg&#34; alt=&#34;How to exit Vim&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;It&amp;rsquo;s an old meme, but it checks out. (&lt;code&gt;esc&lt;/code&gt;, &lt;code&gt;:&lt;/code&gt; then &lt;code&gt;q!&lt;/code&gt;, btw)&lt;/em&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;configuring-vim-in-git-bash&#34;&gt;Configuring Vim in Git Bash&lt;/h2&gt;
+
+&lt;p&gt;Vim&amp;rsquo;s configuration can be customized with vimrc files. These files are scripts written in Vimscript. They run at initialization when Vim is opened. We can find out more information by using help commands inside Vim.&lt;/p&gt;
+
+&lt;p&gt;First, open a Git Bash terminal and then open &lt;code&gt;vim&lt;/code&gt;. Then, in &lt;a href=&#34;https://www.howtoforge.com/vim-basics&#34; target=&#34;_blank&#34;&gt;command mode&lt;/a&gt;, open the configuration help information with &lt;code&gt;:help vimrc&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;At this point we can see where Vim will look for custom vimrc files.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  Places for your personal initializations:
+    Unix            $HOME/.vimrc or $HOME/.vim/vimrc
+    OS/2            $HOME/.vimrc, $HOME/vimfiles/vimrc
+                    or $VIM/.vimrc (or _vimrc)
+    MS-Windows      $HOME/_vimrc, $HOME/vimfiles/vimrc
+                    or $VIM/_vimrc
+    Amiga           s:.vimrc, home:.vimrc, home:vimfiles:vimrc
+                    or $VIM/.vimrc
+
+  The files are searched in the order specified above and only the first
+  one that is found is read.
+
+  RECOMMENDATION: Put all your Vim configuration stuff in the
+  $HOME/.vim/ directory ($HOME/vimfiles/ for MS-Windows). That makes it
+  easy to copy it to another system.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Don&amp;rsquo;t be fooled. Since &lt;a href=&#34;https://github.com/git/git/commit/df5218b4c30b2fa1ba0d1ada4166ad85bc83be26&#34; target=&#34;_blank&#34;&gt;Git Bash uses msys2&lt;/a&gt; to imitate a Unixy/Linuxy style system, Vim running inside Git Bash will be following Unix&amp;rsquo;s Conventions, rather than MS-Windows&amp;rsquo;.&lt;/p&gt;
+
+&lt;p&gt;Also let&amp;rsquo;s follow Vim&amp;rsquo;s recommendation for using the &lt;code&gt;$HOME/.vim/&lt;/code&gt; directory for configuration files.&lt;/p&gt;
+
+&lt;p&gt;Make the directory:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ mkdir $HOME/.vim
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then create the vimrc file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ touch $HOME/.vim/vimrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;At this point, we have our empty initialization file for Vim. To make sure it&amp;rsquo;s working, I&amp;rsquo;ll add a command to turn on line numbering.&lt;/p&gt;
+
+&lt;p&gt;Open the vimrc file using Vim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vim $HOME/.vim/vimrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then, enter Insert Mode by pressing &lt;code&gt;i&lt;/code&gt; and enter three lines:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;quot; Custom Vim configuration
+
+set number
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Save these changes by pressing &lt;code&gt;esc&lt;/code&gt; to leave Insert Mode and then enter &lt;code&gt;:wq&lt;/code&gt; to write the changes and then quit Vim.&lt;/p&gt;
+
+&lt;p&gt;To check that it worked, open up the same file in Vim again and look for the line numbers.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/vim_line_numbers.png&#34; alt=&#34;Vim configured to show line numbers&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It worked!&lt;/p&gt;
+
+&lt;p&gt;There are many more configuration changes you can make. Be aware that Vim already has default configuration set that is targeted towards programmers. To find all scripts (remember that configuration is set via initialization scripts) you can use the command &lt;code&gt;:scriptnames&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;When I execute &lt;code&gt;:scriptnames&lt;/code&gt; in Vim running in Git Bash, I see &lt;code&gt;/etc/vimrc&lt;/code&gt; at the very top of the list. This makes sense since the &lt;code&gt;etc&lt;/code&gt; folder is where Linux systems place a lot of their configuration. However, since this is in Windows, we need to figure out where the &lt;code&gt;etc&lt;/code&gt; folder is. It&amp;rsquo;s not in &lt;code&gt;C:\&lt;/code&gt; nor in the &lt;code&gt;$HOME&lt;/code&gt; directory. But, since Git Bash is mimicking a Linux system, we should be able to find it along with the other Git Bash files.&lt;/p&gt;
+
+&lt;p&gt;Since I&amp;rsquo;m running the 64 bit version of Git, I found the etc folder in &lt;code&gt;C:\Program Files\Git&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Inside Git Bash, we can get there with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd c\&amp;quot;Program Files&amp;quot;\Git\etc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then, to take a quick peek at &lt;code&gt;vimrc&lt;/code&gt; just execute:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cat vimrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; I would &lt;em&gt;not&lt;/em&gt; recommend attempting to change anything in &lt;code&gt;etc&lt;/code&gt;. Instead modify Vim&amp;rsquo;s configuration using files in the &lt;code&gt;$HOME\.vim\&lt;/code&gt; folder.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Armed with this information there&amp;rsquo;s a lot of stuff you can now customize. Here are a few more resources:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://benmccormick.org/2014/07/14/learning-vim-in-2014-configuring-vim&#34; target=&#34;_blank&#34;&gt;Learning Vim in 2014: Configuring Vim&lt;/a&gt;&lt;br&gt;A few years old, but I really like how this author gets into the details rather than just telling you to copy/paste a &lt;code&gt;.vimrc&lt;/code&gt; file from GitHub.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://linuxhint.com/configure_vim_vimrc/&#34; target=&#34;_blank&#34;&gt;Configure Vim with vimrc&lt;/a&gt;&lt;br&gt;
+Similar to Learning Vim in 2014, but more recent. Also has Linux specific informmatin which you will want to ignore if you&amp;rsquo;re running in Windows.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://learnvimscriptthehardway.stevelosh.com/&#34; target=&#34;_blank&#34;&gt;Learn Vimscript the Hard Way&lt;/a&gt;&lt;br&gt; This ebook has an incredible amount of detail. It may be too much if you&amp;rsquo;re looking to just make quick changes. But it has a lot of great information if you want to dive into the deep end.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vim.rtorr.com/&#34; target=&#34;_blank&#34;&gt;Vim Cheat Sheet&lt;/a&gt;&lt;br&gt;Excellent for discovering all the Vim shortcuts that people love so much.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Don&amp;rsquo;t forget to do ridiculous things like to configure VSCode&amp;rsquo;s terminal to use Git Bash which allows you to open Vim from inside VSCode. ;-)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/vim_inside_vscode.png&#34; alt=&#34;Run Vim from inside VSCode on Windows&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Configure Headless Raspberry Pi for Wifi and SSH</title>
       <link>http://quakkels.com/posts/configure-headless-raspberry-pi-for-wifi-and-ssh/</link>
       <pubDate>Sat, 16 Feb 2019 00:00:00 +0000</pubDate>
@@ -51,6 +167,72 @@
 &lt;p&gt;Execute &lt;code&gt;ssh {IpAddress} -l pi&lt;/code&gt; and use the password &lt;code&gt;raspberry&lt;/code&gt; to login.&lt;/p&gt;
 
 &lt;p&gt;Now that we&amp;rsquo;ve got a functioning Raspberry Pi, &lt;a href=&#34;http://quakkels.com/posts/gogs-on-raspberry-pi/&#34;&gt;let&amp;rsquo;s do something useful with it&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>5 Slack Tricks that Changed My Life</title>
+      <link>http://quakkels.com/posts/5-slack-tricks-that-changed-my-life/</link>
+      <pubDate>Mon, 29 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/5-slack-tricks-that-changed-my-life/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/clickbait.png&#34; alt=&#34;&#34; /&gt;
+&lt;em&gt;Please excuse the &amp;ldquo;click-baity&amp;rdquo; title. Sometimes I like to exaggerate.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Slack plays a significant role in my daily communication. My team at work has been using Slack as our primary mode of textual communication for over a year. It is also used by developer communities in my local area. At first, it felt a little clumsy. No more clumsy than a typical chat program. But, channels started to accumulate. The number of Direct Message feeds grew. Navigating and filtering all the conversations became more cumbersome. The tricks I will discuss here have helped me to stay nimble in Slack&amp;rsquo;s user interface. At first, I looked at Slack as a swamp of messages that I needed to wade through. But, with these small tricks, Slack has become easier to use and it even plays more of a productivity role.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;ctrl+k&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If you are in a large Slack room with many channels, &lt;code&gt;ctrl+k&lt;/code&gt; can be a lifesaver! It gives you quick access to a list of channels that have new conversations. It also has an easy to use search feature that allows the user to navigate from their current conversation to a different channel or user. For someone like me, this is life changing. I love being able to use as much software as I can without needing to use my mouse.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;/remind&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;At first, I thought the &lt;code&gt;/remind&lt;/code&gt; feature was a gimmick that wasn&amp;rsquo;t useful. So it took me a few months to even try it out for the first time. Once I tried it, I became dependent on it. Some of the ways to use this include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Remind yourself to follow up with a colleague the next day.&lt;/li&gt;
+&lt;li&gt;Remind yourself to start or end work on a project.&lt;/li&gt;
+&lt;li&gt;Right before leaving work, you can remind yourself to run an errand on the way home.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;My favorite way to use &lt;code&gt;/remind&lt;/code&gt; is to set time-limits on periods of
+concentration. Outlook does a similar thing for meetings. About 15 minutes
+ahead of time, Outlook can pop up reminders that a meeting is approaching.
+I like to use &lt;code&gt;/remind&lt;/code&gt; in a similar way for things that aren&amp;rsquo;t on my calendar.&lt;/p&gt;
+
+&lt;p&gt;For example, I may need to switch concentration contexts midway through the
+day. I can use &lt;code&gt;/remind me to work on XyzProject in 2 hours&lt;/code&gt;. Once the
+reminder has been set, it&amp;rsquo;s easier for me to concentrate on the current
+task because I don&amp;rsquo;t need to keep project &amp;lsquo;XyzProject&amp;rsquo; in the back of my mind.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/remind&lt;/code&gt; is also useful for helping me remember the state a project was in
+when I left it. For example, I can say &lt;code&gt;/remind me to bind new service 
+implementations with Ninject on Monday at 8am&lt;/code&gt;. This has been a great tool
+to get me working on a project right where I left off.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Star important channels&lt;/p&gt;
+
+&lt;p&gt;This is a cool little trick the helps me group my highest priority channels together. At work, I have a handful of channels that are team specific. I like to star those so they all get prioritized at the top of the list. Then all the other channels, which are company-wide, get grouped below the starred channels. It&amp;rsquo;s the simplest thing, but works so well. Just select the channel and hover over the channel&amp;rsquo;s name at the top. Then a click-able star button will appear.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;/mute&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/mute&lt;/code&gt; has been useful for me at work where I&amp;rsquo;m in many channels. However, I don&amp;rsquo;t need constant notifications whenever someone has added a post. &lt;code&gt;/mute&lt;/code&gt; has been a great tool for alleviating the tsunami of push notifications that I would have otherwise received.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;/collapse&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If people are going nuts with &lt;code&gt;/giphy&lt;/code&gt; or posting URLs that automatically show previews, then use &lt;code&gt;/collapse&lt;/code&gt; to clean up that clutter in one giant swoop!&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;So those are my 5 Slack tips. But wait! There&amp;rsquo;s more. So here are a few bonus tips.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;up-arrow&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;I know I&amp;rsquo;ve made posts that have errors in them. You can use the up arrow key to edit your last post, or even delete it entirely. If editing, I recommend surrounding the part that was wrong with &lt;code&gt;~&lt;/code&gt; and then adding your new edit after that. This is good helps people see what has changed.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;ctrl+/&lt;/code&gt; brings up a help menu.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
