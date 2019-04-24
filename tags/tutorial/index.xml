@@ -16,9 +16,11 @@
       <guid>http://quakkels.com/posts/getting-started-python-django-vs-code/</guid>
       <description>
 
-&lt;p&gt;Django is a fun Python framework that I&amp;rsquo;ve written about before. I&amp;rsquo;ve &lt;a href=&#34;http://quakkels.com/posts/asp-net-mvc-compared-to-dango/&#34;&gt;compared Django to ASP.NET MVC&lt;/a&gt;. But, I didn&amp;rsquo;t go into much detail about how to actually use Django to create a data driven website. That&amp;rsquo;s what I&amp;rsquo;ll cover now.&lt;/p&gt;
+&lt;p&gt;Django is a Python framework that I&amp;rsquo;ve written about before. I&amp;rsquo;ve &lt;a href=&#34;http://quakkels.com/posts/asp-net-mvc-compared-to-dango/&#34;&gt;compared Django to ASP.NET MVC&lt;/a&gt;. But, I didn&amp;rsquo;t go into much detail about how to actually use Django to create a data driven website. That&amp;rsquo;s what I&amp;rsquo;ll cover now.&lt;/p&gt;
 
-&lt;p&gt;The goal for this &amp;lsquo;Getting Started&amp;rsquo; project is to get familiar with the basics of developing data driven web applications using Django, Models, Views, Templates, URLs, and Forms.&lt;/p&gt;
+&lt;p&gt;The goal for this &amp;lsquo;Getting Started&amp;rsquo; project is to get familiar with the basics of developing data driven web applications using Django, Models, Views, Templates, URLs, and Forms. By the end we&amp;rsquo;ll have a simple contact form that saves user submissions to the database, and displays that data to an administrator user. It will not be a completed site, but it will introduce basic the building blocks of website development in Django.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;d like to refer to the end goal of this article, you can &lt;a href=&#34;https://github.com/quakkels/companionresource_djangosite&#34; target=&#34;_blank&#34;&gt;find it on GitHub&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 
@@ -143,7 +145,7 @@ A migration will update the corresponding database table from previous versions 
 
 &lt;p&gt;Show migrations&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py showmigraitons
+&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py showmigrations
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Execute those migrations&lt;/p&gt;
@@ -269,7 +271,7 @@ def contactform(request):
 
 &lt;p&gt;Notice that the &lt;code&gt;render()&lt;/code&gt; function is used here instead of returning &lt;code&gt;HttpResponse()&lt;/code&gt; directly like the &amp;ldquo;Hello, World!&amp;rdquo; view does. The &lt;code&gt;render()&lt;/code&gt; function will use the template for the html.&lt;/p&gt;
 
-&lt;p&gt;To make the template visible from the browser, we need to route requests to the view based on the URL. The convention.&lt;/p&gt;
+&lt;p&gt;To make the template visible from the browser, we need to route requests to the view based on the URL.&lt;/p&gt;
 
 &lt;p&gt;Use VS Code to create a &lt;code&gt;urls.py&lt;/code&gt; file inside the &lt;code&gt;contactform&lt;/code&gt; folder. Put this code inside it.&lt;/p&gt;
 
@@ -298,7 +300,7 @@ urlpatterns = [
 ]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;code&gt;&#39;\^contactform&#39;&lt;/code&gt; is a regular expression that makes sure matching paths begin with &lt;code&gt;contactform&lt;/code&gt;. This is a prefix for everything in the contactform app. So the complete matching path will be &lt;code&gt;localhost:8000/contactform/contactform&lt;/code&gt;. For more information read the &lt;a href=&#34;https://docs.djangoproject.com/en/2.2/topics/http/urls/&#34; target=&#34;_blank&#34;&gt;Django documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&#39;^contactform/&#39;&lt;/code&gt; is a regular expression that makes sure matching paths begin with &lt;code&gt;contactform&lt;/code&gt;. This is a prefix for everything in the contactform app. So the complete matching path will be &lt;code&gt;localhost:8000/contactform/contactform&lt;/code&gt;. For more information read the &lt;a href=&#34;https://docs.djangoproject.com/en/2.2/topics/http/urls/&#34; target=&#34;_blank&#34;&gt;Django documentation&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id=&#34;create-a-form&#34;&gt;Create a Form&lt;/h1&gt;
 
@@ -313,7 +315,9 @@ class ContactFormForm(ModelForm):
         fields = (&#39;name&#39;, &#39;email&#39;, &#39;comments&#39;, &#39;how_did_you_hear_about_us&#39;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;It was at this time that I started regretting how the &lt;code&gt;ContactForm&lt;/code&gt; model was named. To stick with Django conventions, this form class will be the name of the model with &amp;ldquo;Form&amp;rdquo; appended to it. Hence; &lt;code&gt;ContactFormForm&lt;/code&gt;. Future me will not make this mistake.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;It was at this time that I started regretting how the &lt;code&gt;ContactForm&lt;/code&gt; model was named. To stick with Django conventions, this form class will be the name of the model with &amp;ldquo;Form&amp;rdquo; appended to it. Hence; &lt;code&gt;ContactFormForm&lt;/code&gt;. Future me will not make this mistake.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;Update &lt;code&gt;contactform\views.py&lt;/code&gt; so it will send the new form class as an object to the template.&lt;/p&gt;
 
@@ -348,6 +352,8 @@ def contactform(request):
     &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can find more details about how to properly use templates &lt;a href=&#34;https://docs.djangoproject.com/en/2.2/ref/templates/&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;. The code above has much room for improvement.&lt;/p&gt;
 
 &lt;p&gt;Two things worth noting here are &lt;code&gt;{% csrf_token %}&lt;/code&gt; and &lt;code&gt;{{ form }}&lt;/code&gt;. The code for CSRF Token prevents this page from being vulnerable to cross site request forgery attacks. The &lt;code&gt;form&lt;/code&gt; object is the &lt;code&gt;ContactFrom&lt;/code&gt; model converted to HTML form elements via the &lt;code&gt;ModelForm&lt;/code&gt; class.&lt;/p&gt;
 
@@ -384,14 +390,17 @@ def contactform(request):
 &lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
 
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/quakkels/companionresource_djangosite&#34; target=&#34;_blank&#34;&gt;Companion GitHub Repository&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sqlitebrowser.org/dl/&#34; target=&#34;_blank&#34;&gt;DB Browser for SQLite&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/&#34; target=&#34;_blank&#34;&gt;Django Documentation&lt;/a&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/ref/settings/#databases&#34; target=&#34;_blank&#34;&gt;Configure different database backends&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/topics/http/urls/&#34; target=&#34;_blank&#34;&gt;URL Dispatcher&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/ref/forms/&#34; target=&#34;_blank&#34;&gt;Forms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/topics/db/models/&#34; target=&#34;_blank&#34;&gt;Models&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/ref/templates/&#34; target=&#34;_blank&#34;&gt;Templates&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/topics/http/urls/&#34; target=&#34;_blank&#34;&gt;URL Dispatcher&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://sqlitebrowser.org/dl/&#34; target=&#34;_blank&#34;&gt;DB Browser for SQLite&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

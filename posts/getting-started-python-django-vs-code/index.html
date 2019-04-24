@@ -51,9 +51,11 @@
 <section class="wrapper">
 
 
-<p>Django is a fun Python framework that I&rsquo;ve written about before. I&rsquo;ve <a href="/posts/asp-net-mvc-compared-to-dango/">compared Django to ASP.NET MVC</a>. But, I didn&rsquo;t go into much detail about how to actually use Django to create a data driven website. That&rsquo;s what I&rsquo;ll cover now.</p>
+<p>Django is a Python framework that I&rsquo;ve written about before. I&rsquo;ve <a href="/posts/asp-net-mvc-compared-to-dango/">compared Django to ASP.NET MVC</a>. But, I didn&rsquo;t go into much detail about how to actually use Django to create a data driven website. That&rsquo;s what I&rsquo;ll cover now.</p>
 
-<p>The goal for this &lsquo;Getting Started&rsquo; project is to get familiar with the basics of developing data driven web applications using Django, Models, Views, Templates, URLs, and Forms.</p>
+<p>The goal for this &lsquo;Getting Started&rsquo; project is to get familiar with the basics of developing data driven web applications using Django, Models, Views, Templates, URLs, and Forms. By the end we&rsquo;ll have a simple contact form that saves user submissions to the database, and displays that data to an administrator user. It will not be a completed site, but it will introduce basic the building blocks of website development in Django.</p>
+
+<p>If you&rsquo;d like to refer to the end goal of this article, you can <a href="https://github.com/quakkels/companionresource_djangosite" target="_blank">find it on GitHub</a>.</p>
 
 <h2 id="prerequisites">Prerequisites</h2>
 
@@ -178,7 +180,7 @@ A migration will update the corresponding database table from previous versions 
 
 <p>Show migrations</p>
 
-<pre><code>(django-env)&gt; python manage.py showmigraitons
+<pre><code>(django-env)&gt; python manage.py showmigrations
 </code></pre>
 
 <p>Execute those migrations</p>
@@ -304,7 +306,7 @@ def contactform(request):
 
 <p>Notice that the <code>render()</code> function is used here instead of returning <code>HttpResponse()</code> directly like the &ldquo;Hello, World!&rdquo; view does. The <code>render()</code> function will use the template for the html.</p>
 
-<p>To make the template visible from the browser, we need to route requests to the view based on the URL. The convention.</p>
+<p>To make the template visible from the browser, we need to route requests to the view based on the URL.</p>
 
 <p>Use VS Code to create a <code>urls.py</code> file inside the <code>contactform</code> folder. Put this code inside it.</p>
 
@@ -333,7 +335,7 @@ urlpatterns = [
 ]
 </code></pre>
 
-<p><code>'\^contactform'</code> is a regular expression that makes sure matching paths begin with <code>contactform</code>. This is a prefix for everything in the contactform app. So the complete matching path will be <code>localhost:8000/contactform/contactform</code>. For more information read the <a href="https://docs.djangoproject.com/en/2.2/topics/http/urls/" target="_blank">Django documentation</a>.</p>
+<p><code>'^contactform/'</code> is a regular expression that makes sure matching paths begin with <code>contactform</code>. This is a prefix for everything in the contactform app. So the complete matching path will be <code>localhost:8000/contactform/contactform</code>. For more information read the <a href="https://docs.djangoproject.com/en/2.2/topics/http/urls/" target="_blank">Django documentation</a>.</p>
 
 <h1 id="create-a-form">Create a Form</h1>
 
@@ -348,7 +350,9 @@ class ContactFormForm(ModelForm):
         fields = ('name', 'email', 'comments', 'how_did_you_hear_about_us')
 </code></pre>
 
-<p>It was at this time that I started regretting how the <code>ContactForm</code> model was named. To stick with Django conventions, this form class will be the name of the model with &ldquo;Form&rdquo; appended to it. Hence; <code>ContactFormForm</code>. Future me will not make this mistake.</p>
+<blockquote>
+<p><em>It was at this time that I started regretting how the <code>ContactForm</code> model was named. To stick with Django conventions, this form class will be the name of the model with &ldquo;Form&rdquo; appended to it. Hence; <code>ContactFormForm</code>. Future me will not make this mistake.</em></p>
+</blockquote>
 
 <p>Update <code>contactform\views.py</code> so it will send the new form class as an object to the template.</p>
 
@@ -383,6 +387,8 @@ def contactform(request):
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
+
+<p>You can find more details about how to properly use templates <a href="https://docs.djangoproject.com/en/2.2/ref/templates/" target="_blank">here</a>. The code above has much room for improvement.</p>
 
 <p>Two things worth noting here are <code>{% csrf_token %}</code> and <code>{{ form }}</code>. The code for CSRF Token prevents this page from being vulnerable to cross site request forgery attacks. The <code>form</code> object is the <code>ContactFrom</code> model converted to HTML form elements via the <code>ModelForm</code> class.</p>
 
@@ -419,14 +425,17 @@ def contactform(request):
 <h2 id="resources">Resources</h2>
 
 <ul>
+<li><a href="https://github.com/quakkels/companionresource_djangosite" target="_blank">Companion GitHub Repository</a></li>
+<li><a href="https://sqlitebrowser.org/dl/" target="_blank">DB Browser for SQLite</a></li>
 <li><a href="https://docs.djangoproject.com/en/2.2/" target="_blank">Django Documentation</a>
 
 <ul>
 <li><a href="https://docs.djangoproject.com/en/2.2/ref/settings/#databases" target="_blank">Configure different database backends</a></li>
-<li><a href="https://docs.djangoproject.com/en/2.2/topics/http/urls/" target="_blank">URL Dispatcher</a></li>
 <li><a href="https://docs.djangoproject.com/en/2.2/ref/forms/" target="_blank">Forms</a></li>
+<li><a href="https://docs.djangoproject.com/en/2.2/topics/db/models/" target="_blank">Models</a></li>
+<li><a href="https://docs.djangoproject.com/en/2.2/ref/templates/" target="_blank">Templates</a></li>
+<li><a href="https://docs.djangoproject.com/en/2.2/topics/http/urls/" target="_blank">URL Dispatcher</a></li>
 </ul></li>
-<li><a href="https://sqlitebrowser.org/dl/" target="_blank">DB Browser for SQLite</a></li>
 </ul>
 
 </section>
