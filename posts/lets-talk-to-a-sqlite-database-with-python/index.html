@@ -137,8 +137,13 @@ for row in cursor.fetchall():
 
 <p>You don&rsquo;t have to delete everything, but that&rsquo;s what I&rsquo;m going to do.</p>
 
-<pre><code>cursor.close()
-conn.close()
+<pre><code>cursor.execute('delete from Posts')
+conn.commit()
+
+print('Records after delete: ')
+cursor.execute('select * from Posts')
+for row in cursor.fetchall():
+    print('\t', row)
 </code></pre>
 
 <p>Now, when we print our query results, we see nothing.</p>
@@ -183,13 +188,13 @@ for row in cursor.fetchall():
 
 # (D)elete all the records
 cursor.execute('delete from Posts')
+conn.commit()
 
 print('Records after delete: ')
 cursor.execute('select * from Posts')
 for row in cursor.fetchall():
     print('\t', row)
 
-conn.commit()
 cursor.close()
 conn.close()
 </code></pre>

@@ -158,7 +158,7 @@ pre code {
 
 /* responsive */
 @media only screen and (max-width: 767px) {
-    .main .wrapper {
+    .wrapper {
         max-width: 288px;
     }
     
