@@ -84,7 +84,7 @@
 &amp;lt;/ContentPage&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;A XAML &lt;code&gt;&amp;lt;ContentPage&amp;gt;&lt;/code&gt; can only have one object in it. But, the reason we are using the &lt;code&gt;&amp;lt;ContentPage.Contect&amp;gt;&lt;/code&gt; object is because it can contain multiple objects. The &lt;code&gt;&amp;lt;StackLayout&amp;gt;&lt;/code&gt; will literally stack objects either vertically (by default) or horizontally. The &lt;code&gt;&amp;lt;Label&amp;gt;&lt;/code&gt; object is easiest way to get text to display on screen.&lt;/p&gt;
+&lt;p&gt;A XAML &lt;code&gt;&amp;lt;ContentPage&amp;gt;&lt;/code&gt; can only have one object in it. But, the reason we are using the &lt;code&gt;&amp;lt;ContentPage.Content&amp;gt;&lt;/code&gt; object is because it can contain multiple objects. The &lt;code&gt;&amp;lt;StackLayout&amp;gt;&lt;/code&gt; will literally stack objects either vertically (by default) or horizontally. The &lt;code&gt;&amp;lt;Label&amp;gt;&lt;/code&gt; object is easiest way to get text to display on screen.&lt;/p&gt;
 
 &lt;p&gt;Save the file, then launch the debugger. The first time launching in the emulator may take some time&amp;hellip; maybe several minutes&amp;hellip; but eventually you will see it running.&lt;/p&gt;
 
