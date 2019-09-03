@@ -91,7 +91,6 @@
 &lt;p&gt;Log in to your server from your main workstation via SSH:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ ssh 192.168.1.11 -l quakkels
-password:
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Use your server&amp;rsquo;s local network IP address and your user&amp;rsquo;s username in the command above.&lt;/p&gt;
