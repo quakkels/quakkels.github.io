@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title"content="Run Plex on an Ubuntu Server at Home &middot; Quakkels.com" />
+    <meta property="og:description"content="This is how I set up a home media server with Plex, Ubuntu, and a home server tower." />
+    <meta name="author" content="Brandon Quakkelaar">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    <title>Run Plex on an Ubuntu Server at Home &middot; Quakkels.com</title>
+    <link rel="shortcut icon" href="http://quakkels.com/images/favicon.ico">
+    <link rel="stylesheet" href="http://quakkels.com/css/style.css">
+    <base href="http://quakkels.com/">
+    <link rel="canonical" href="http://quakkels.com/posts/run-plex-on-ubuntu-server-at-home/">
+    <link href="" rel="alternate" type="application/rss+xml" title="Quakkels.com" />
+</head>
+<body lang="en">
+<nav id="main-nav">
+    <div class="mobile-menu">
+        
+        
+        <div id="hamburger"><span></span></div>
+    </div>
+    <a href="http://quakkels.com/">Quakkels.com</a>
+    <a href="http://quakkels.com/projects">Projects</a>
+    <a href="http://quakkels.com/about">About</a>
+    <a class="rss" href="">RSS Feed</a>
+</nav>
+<header id="home-header">
+    <h1>Run Plex on an Ubuntu Server at Home</h1>
+    
+    <h2>Sep 3, 2019</h2>
+    
+    
+    
+    <p>
+            <a href="http://quakkels.com/tags/system-administration">System Administration</a>
+        
+            <a href="http://quakkels.com/tags/tutorial">Tutorial</a>
+        
+    </p>
+    
+    
+    <h3>By: Brandon Quakkelaar</h3>
+    
+</header>
+<div class="main">
+<section class="wrapper">
+
+
+<p>Recently I&rsquo;ve decided that having limited high quality entertainment choices is better than having endless choices that are of questionable quality. So my household decided to end our Netflix subscription. This decision motivated me to build a private streaming media server for our home. Here is how I created a home media server with Plex and a home server tower.</p>
+
+<h1 id="choosing-the-media-server">Choosing the Media Server</h1>
+
+<p>There are two popular software options for home media server. <a href="https://www.plex.tv/" target="_blank">Plex</a> and <a href="https://kodi.tv/" target="_blank">Kodi</a>. They are both free to use, though Plex does have a premium subscription option to unlock advanced features. These two media servers are very similar, and I believe they&rsquo;ve been forked from the same original open source project.</p>
+
+<p>I knew my household would be using our PS4 as a client of the media server. This ended up being the detail that helped me make the decision between the two. When I saw that <a href="https://kodi.onl/ps4/" target="_blank">Kodi recommended using the Plex app</a> for streaming on the PS4, I decided to use Plex directly.</p>
+
+<h1 id="choosing-the-hardware">Choosing the Hardware</h1>
+
+<p>This Plex media server will need some hardware to run on. In my case, this meant I&rsquo;d need to acquire new computers because everything I have are either not suited to the job (e.g. laptops), are already dedicated to something else (e.g. Raspberry Pi, PS4), or don&rsquo;t exist (i.e. I don&rsquo;t have any other computers).</p>
+
+<p>So, I needed to get a server, of some type, to run Plex on. I didn&rsquo;t want to spend the time building a server myself. Rather than dealing with potential hardware hiccups, I wanted to focus on the software and networking parts of this project. So I considered these three options:</p>
+
+<ol>
+<li>Raspberry Pi</li>
+<li>NAS</li>
+<li>Some kind of home server or PC</li>
+</ol>
+
+<p>The Raspberry Pi was initially the more attractive option. But, I doubt that the little ARM processor will be able to keep up. I could see it getting really bogged down if there&rsquo;s more than one stream, or if any transcoding is needed.</p>
+
+<p>Next to check out was a NAS. These seemed ideal at first. But their shine dimmed as I dug into prices and specifications. Price was the key factor. I could easily spend around four hundred dollars on an entry level NAS that had no hard disks.</p>
+
+<p>A quick web search for &ldquo;Home Server&rdquo; brought me to the Dell PowerEdge T30 on sale at Amazon for $376.20. This seemed like a good option. It came with a Intel Xeon E3-1225 v5 3.3GHz processor, 8GB of RAM, and a 1TB HD. This looked like a great value.</p>
+
+<p>To make sure the T30 would work, I started investigating <a href="https://support.plex.tv/articles/201774043-what-kind-of-cpu-do-i-need-for-my-server/?fbclid=IwAR3AqFt86n6IpsHazToGFNHzJtOFFfiUrnEP-Drf43GnpmvFQAAKvxBOCK0" target="_blank">CPU requirements in more depth</a>. I wanted my server to handle transcoding two 1080p video files simultaneously. Plex recommended that transcoding one 1080p (10Mbps, H.264) file would need a CPU with a 2000 PassMark score. So, getting a CPU with a 4000 score should theoretically be able to double that number to two. The Xeon E3-1225 v3 has a score of <a href="https://www.cpubenchmark.net/cpu_lookup.php?cpu=Intel+Xeon+E3-1225+v5+%40+3.30GHz&id=2707" target="_blank">7,830</a>. That meets my requirements and has plenty of cushion.</p>
+
+<p>The T30 had the processing power, had the 1TB disk, was budget friendly, and already built. It didn&rsquo;t need anything more. I just had to un-box it, plug in power and some initial peripherals (to handle OS installation) and connect it to my network via Ethernet.</p>
+
+<h1 id="choosing-the-operating-system">Choosing the Operating System</h1>
+
+<p>I didn&rsquo;t have any desire to mess with Windows for this project. I&rsquo;ve been using Linux for most of my recent projects and I&rsquo;d like to continue that trend. There&rsquo;s also nothing about Plex that requires Windows software.</p>
+
+<p>I settled on using Ubuntu Server. It&rsquo;s a widely used distribution of Linux that has a lot of documentation available.</p>
+
+<h1 id="install-ubuntu-server">Install Ubuntu Server</h1>
+
+<p>Download the ISO from <a href="https://ubuntu.com/download/server" target="_blank">their website</a>.</p>
+
+<p>Once it has finished downloading, make a boot disk with it. This is very simple with Windows 10.</p>
+
+<ol>
+<li>Place a write-able disk in your disk drive.</li>
+<li>Right click on the Ubuntu ISO file and select &ldquo;Burn disk image.&rdquo;</li>
+</ol>
+
+<p><img src="/images/plex01-image-dvd-on-windows.png" alt="" /></p>
+
+<p>Get the boot disk in to the DVD drive of your server. Then with the disk in the drive, turn on the server.</p>
+
+<p>As the server boots, smash that F12 key to enter BIOS to Boot from the DVD drive.</p>
+
+<blockquote>
+<p>Another option is to create a bootable thumb drive using a tool like Balena Etcher to image the drive. I used writeable DVDs because I have so many left over from the 2000s that I just might as well use them up.</p>
+</blockquote>
+
+<p>Ubuntu&rsquo;s documentation is very good. Follow these <a href="https://tutorials.ubuntu.com/tutorial/tutorial-install-ubuntu-server#0" target="_blank">directions for installing Ubuntu Server</a>. They have screenshots and instructions of their installation screens, so I&rsquo;m not going to go into too many details here.</p>
+
+<p>When asked, <strong>be sure to install SSH for remote access</strong>. This allows you to manage the server from your regular workstation. So you can put your server out of the way. And, you don&rsquo;t have to worry about connecting monitors or keyboards to work on it. Finish off the installation by restarting the box.</p>
+
+<p>Once you&rsquo;ve finished installing Ubuntu Server it should:</p>
+
+<ul>
+<li>Be connected to the network via Ethernet</li>
+<li>Have a Name (mine is named <code>media</code>)</li>
+<li>Have a User on the server (my user is <code>quakkels</code>)</li>
+<li>Have SSH installed</li>
+</ul>
+
+<p>So, now look in your router&rsquo;s connected devices to find your server&rsquo;s IP address on your network.</p>
+
+<p>Log in to your server from your main workstation via SSH:</p>
+
+<pre><code>$ ssh 192.168.1.11 -l quakkels
+password:
+</code></pre>
+
+<p>Use your server&rsquo;s local network IP address and your user&rsquo;s username in the command above.</p>
+
+<p>The next thing we need to do is install Samba on the server.</p>
+
+<h2 id="install-samba">Install Samba</h2>
+
+<p>I want to be able to access the media folder that&rsquo;s on my server from my laptop. I need Samba installed in Ubuntu to do that.</p>
+
+<pre><code>$ sudo apt-get install samba
+</code></pre>
+
+<p>Then add a user to Samba. I&rsquo;ll use the <code>quakkels</code> user.</p>
+
+<pre><code>$ sudo smbpasswd -a quakkels
+</code></pre>
+
+<p>Then, create a folder to share.</p>
+
+<pre><code>$ cd ~
+$ mkdir library
+</code></pre>
+
+<p>Now, edit the configuration file with your preferred editor. I&rsquo;m using Nano.</p>
+
+<pre><code>sudo nano /etc/samba/smb.conf
+</code></pre>
+
+<p>Scroll down to the end of the file and add these lines.</p>
+
+<pre><code>[library]
+   path = /home/quakkels/library
+   available = yes
+   valid users = quakkels
+   read only = no
+   browsable = yes
+   public = yes
+   writeable = yes
+</code></pre>
+
+<p>Replace <code>library</code> with the name of your own shared folder and <code>quakkels</code> with your own user.</p>
+
+<p>Save the file and exit the editor.</p>
+
+<p>Restart the smb daemon to apply the configuration changes.</p>
+
+<pre><code>sudo service smbd restart
+</code></pre>
+
+<p>So at this point the share should be working and accessible on your network. Use Windows File Explorer to test it.</p>
+
+<p>I navigated to \media\library and logged in with the Samba user <code>quakkels</code> and placed a file. Test succeeded!</p>
+
+<p><img src="/images/plex03-samba-network-share.png" alt="" /></p>
+
+<h1 id="install-the-plex-media-server">Install the Plex Media Server</h1>
+
+<p>Unfortunately, Plex is not available via <code>apt-get</code> in Ubuntu. But the Plex website does lay out a process for <a href="https://support.plex.tv/articles/200288586-installation/" target="_blank">installing the server on Linux</a>.</p>
+
+<p>Start by downloading the <code>.deb</code> file for Plex. I found the <code>.deb</code> file available here: <code>https://downloads.plex.tv/plex-media-server-new/1.16.5.1554-1e5ff713d/debian/plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb</code> and I&rsquo;ll be using that URL with <code>wget</code> in Ubuntu to download it directly to the server.</p>
+
+<pre><code>$ cd ~
+$ wget https://downloads.plex.tv/plex-media-server-new/1.16.5.1554-1e5ff713d/debian/plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb
+</code></pre>
+
+<p>Then, once the <code>.deb</code> packaged has finished downloading, we can install it with <code>dpkg</code>.</p>
+
+<pre><code>$ sudo dpkg -i plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb
+</code></pre>
+
+<p>Now you can navigate to the Plex web site from a computer on your network by going to <code>http://{your-servers-ip}:32400/web/</code>.</p>
+
+<p>Plex is now running. You can follow Plex documentation to add Plex repositories for future updates, and for adding your media to Plex libraries.</p>
+
+<p><img src="/images/plex04-web-site.png" alt="" /></p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+<li><a href="https://itsfoss.com/install-deb-files-ubuntu/" target="_blank">3 Ways to Install Deb Files on Ubuntu Linux</a></li>
+<li><a href="https://itsfoss.com/install-plex-ubuntu/" target="_blank">How to Install and Configure Plex on Ubuntu Linux</a></li>
+<li><a href="https://www.howtogeek.com/176471/how-to-share-files-between-windows-and-linux/" target="_blank">How to Share Files Between Windows and Linux</a>
+
+<ul>
+<li><a href="https://www.samba.org/" target="_blank">Samba</a></li>
+</ul></li>
+<li><a href="https://www.plex.tv/media-server-downloads/" target="_blank">Plex Media Server Downloads</a>
+
+<ul>
+<li><a href="https://support.plex.tv/articles/200288586-installation/" target="_blank">Plex Media Server Installation</a></li>
+</ul></li>
+</ul>
+
+</section>
+</div>
+<div id="footer">
+    <div class="wrapper">
+        <img class="avatar" src="http://quakkels.com/images/avatar-v2.png">
+        My name is Brandon Quakkelaar. I love my family. I work with code. And, I have fun by reading, learning, and building.
+    </div>
+</div>
+<script src="http://quakkels.com/js/site.js"></script>
+<script>
+var navElement = document.getElementById("main-nav");
+var menuButton = document.getElementById("hamburger");
+var mobileSize = 768;
+var menu = new Menu(window, navElement, menuButton, mobileSize);
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91443661-1', 'auto');
+  ga('send', 'pageview');
+
+</script>

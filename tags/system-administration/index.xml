@@ -9,6 +9,186 @@
     <atom:link href="http://quakkels.com/tags/system-administration/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Run Plex on an Ubuntu Server at Home</title>
+      <link>http://quakkels.com/posts/run-plex-on-ubuntu-server-at-home/</link>
+      <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/run-plex-on-ubuntu-server-at-home/</guid>
+      <description>
+
+&lt;p&gt;Recently I&amp;rsquo;ve decided that having limited high quality entertainment choices is better than having endless choices that are of questionable quality. So my household decided to end our Netflix subscription. This decision motivated me to build a private streaming media server for our home. Here is how I created a home media server with Plex and a home server tower.&lt;/p&gt;
+
+&lt;h1 id=&#34;choosing-the-media-server&#34;&gt;Choosing the Media Server&lt;/h1&gt;
+
+&lt;p&gt;There are two popular software options for home media server. &lt;a href=&#34;https://www.plex.tv/&#34; target=&#34;_blank&#34;&gt;Plex&lt;/a&gt; and &lt;a href=&#34;https://kodi.tv/&#34; target=&#34;_blank&#34;&gt;Kodi&lt;/a&gt;. They are both free to use, though Plex does have a premium subscription option to unlock advanced features. These two media servers are very similar, and I believe they&amp;rsquo;ve been forked from the same original open source project.&lt;/p&gt;
+
+&lt;p&gt;I knew my household would be using our PS4 as a client of the media server. This ended up being the detail that helped me make the decision between the two. When I saw that &lt;a href=&#34;https://kodi.onl/ps4/&#34; target=&#34;_blank&#34;&gt;Kodi recommended using the Plex app&lt;/a&gt; for streaming on the PS4, I decided to use Plex directly.&lt;/p&gt;
+
+&lt;h1 id=&#34;choosing-the-hardware&#34;&gt;Choosing the Hardware&lt;/h1&gt;
+
+&lt;p&gt;This Plex media server will need some hardware to run on. In my case, this meant I&amp;rsquo;d need to acquire new computers because everything I have are either not suited to the job (e.g. laptops), are already dedicated to something else (e.g. Raspberry Pi, PS4), or don&amp;rsquo;t exist (i.e. I don&amp;rsquo;t have any other computers).&lt;/p&gt;
+
+&lt;p&gt;So, I needed to get a server, of some type, to run Plex on. I didn&amp;rsquo;t want to spend the time building a server myself. Rather than dealing with potential hardware hiccups, I wanted to focus on the software and networking parts of this project. So I considered these three options:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Raspberry Pi&lt;/li&gt;
+&lt;li&gt;NAS&lt;/li&gt;
+&lt;li&gt;Some kind of home server or PC&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The Raspberry Pi was initially the more attractive option. But, I doubt that the little ARM processor will be able to keep up. I could see it getting really bogged down if there&amp;rsquo;s more than one stream, or if any transcoding is needed.&lt;/p&gt;
+
+&lt;p&gt;Next to check out was a NAS. These seemed ideal at first. But their shine dimmed as I dug into prices and specifications. Price was the key factor. I could easily spend around four hundred dollars on an entry level NAS that had no hard disks.&lt;/p&gt;
+
+&lt;p&gt;A quick web search for &amp;ldquo;Home Server&amp;rdquo; brought me to the Dell PowerEdge T30 on sale at Amazon for $376.20. This seemed like a good option. It came with a Intel Xeon E3-1225 v5 3.3GHz processor, 8GB of RAM, and a 1TB HD. This looked like a great value.&lt;/p&gt;
+
+&lt;p&gt;To make sure the T30 would work, I started investigating &lt;a href=&#34;https://support.plex.tv/articles/201774043-what-kind-of-cpu-do-i-need-for-my-server/?fbclid=IwAR3AqFt86n6IpsHazToGFNHzJtOFFfiUrnEP-Drf43GnpmvFQAAKvxBOCK0&#34; target=&#34;_blank&#34;&gt;CPU requirements in more depth&lt;/a&gt;. I wanted my server to handle transcoding two 1080p video files simultaneously. Plex recommended that transcoding one 1080p (10Mbps, H.264) file would need a CPU with a 2000 PassMark score. So, getting a CPU with a 4000 score should theoretically be able to double that number to two. The Xeon E3-1225 v3 has a score of &lt;a href=&#34;https://www.cpubenchmark.net/cpu_lookup.php?cpu=Intel+Xeon+E3-1225+v5+%40+3.30GHz&amp;id=2707&#34; target=&#34;_blank&#34;&gt;7,830&lt;/a&gt;. That meets my requirements and has plenty of cushion.&lt;/p&gt;
+
+&lt;p&gt;The T30 had the processing power, had the 1TB disk, was budget friendly, and already built. It didn&amp;rsquo;t need anything more. I just had to un-box it, plug in power and some initial peripherals (to handle OS installation) and connect it to my network via Ethernet.&lt;/p&gt;
+
+&lt;h1 id=&#34;choosing-the-operating-system&#34;&gt;Choosing the Operating System&lt;/h1&gt;
+
+&lt;p&gt;I didn&amp;rsquo;t have any desire to mess with Windows for this project. I&amp;rsquo;ve been using Linux for most of my recent projects and I&amp;rsquo;d like to continue that trend. There&amp;rsquo;s also nothing about Plex that requires Windows software.&lt;/p&gt;
+
+&lt;p&gt;I settled on using Ubuntu Server. It&amp;rsquo;s a widely used distribution of Linux that has a lot of documentation available.&lt;/p&gt;
+
+&lt;h1 id=&#34;install-ubuntu-server&#34;&gt;Install Ubuntu Server&lt;/h1&gt;
+
+&lt;p&gt;Download the ISO from &lt;a href=&#34;https://ubuntu.com/download/server&#34; target=&#34;_blank&#34;&gt;their website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once it has finished downloading, make a boot disk with it. This is very simple with Windows 10.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Place a write-able disk in your disk drive.&lt;/li&gt;
+&lt;li&gt;Right click on the Ubuntu ISO file and select &amp;ldquo;Burn disk image.&amp;rdquo;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/plex01-image-dvd-on-windows.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Get the boot disk in to the DVD drive of your server. Then with the disk in the drive, turn on the server.&lt;/p&gt;
+
+&lt;p&gt;As the server boots, smash that F12 key to enter BIOS to Boot from the DVD drive.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Another option is to create a bootable thumb drive using a tool like Balena Etcher to image the drive. I used writeable DVDs because I have so many left over from the 2000s that I just might as well use them up.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ubuntu&amp;rsquo;s documentation is very good. Follow these &lt;a href=&#34;https://tutorials.ubuntu.com/tutorial/tutorial-install-ubuntu-server#0&#34; target=&#34;_blank&#34;&gt;directions for installing Ubuntu Server&lt;/a&gt;. They have screenshots and instructions of their installation screens, so I&amp;rsquo;m not going to go into too many details here.&lt;/p&gt;
+
+&lt;p&gt;When asked, &lt;strong&gt;be sure to install SSH for remote access&lt;/strong&gt;. This allows you to manage the server from your regular workstation. So you can put your server out of the way. And, you don&amp;rsquo;t have to worry about connecting monitors or keyboards to work on it. Finish off the installation by restarting the box.&lt;/p&gt;
+
+&lt;p&gt;Once you&amp;rsquo;ve finished installing Ubuntu Server it should:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Be connected to the network via Ethernet&lt;/li&gt;
+&lt;li&gt;Have a Name (mine is named &lt;code&gt;media&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Have a User on the server (my user is &lt;code&gt;quakkels&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Have SSH installed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So, now look in your router&amp;rsquo;s connected devices to find your server&amp;rsquo;s IP address on your network.&lt;/p&gt;
+
+&lt;p&gt;Log in to your server from your main workstation via SSH:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh 192.168.1.11 -l quakkels
+password:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Use your server&amp;rsquo;s local network IP address and your user&amp;rsquo;s username in the command above.&lt;/p&gt;
+
+&lt;p&gt;The next thing we need to do is install Samba on the server.&lt;/p&gt;
+
+&lt;h2 id=&#34;install-samba&#34;&gt;Install Samba&lt;/h2&gt;
+
+&lt;p&gt;I want to be able to access the media folder that&amp;rsquo;s on my server from my laptop. I need Samba installed in Ubuntu to do that.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo apt-get install samba
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then add a user to Samba. I&amp;rsquo;ll use the &lt;code&gt;quakkels&lt;/code&gt; user.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo smbpasswd -a quakkels
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then, create a folder to share.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd ~
+$ mkdir library
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, edit the configuration file with your preferred editor. I&amp;rsquo;m using Nano.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo nano /etc/samba/smb.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Scroll down to the end of the file and add these lines.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[library]
+   path = /home/quakkels/library
+   available = yes
+   valid users = quakkels
+   read only = no
+   browsable = yes
+   public = yes
+   writeable = yes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Replace &lt;code&gt;library&lt;/code&gt; with the name of your own shared folder and &lt;code&gt;quakkels&lt;/code&gt; with your own user.&lt;/p&gt;
+
+&lt;p&gt;Save the file and exit the editor.&lt;/p&gt;
+
+&lt;p&gt;Restart the smb daemon to apply the configuration changes.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo service smbd restart
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So at this point the share should be working and accessible on your network. Use Windows File Explorer to test it.&lt;/p&gt;
+
+&lt;p&gt;I navigated to \media\library and logged in with the Samba user &lt;code&gt;quakkels&lt;/code&gt; and placed a file. Test succeeded!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/plex03-samba-network-share.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;install-the-plex-media-server&#34;&gt;Install the Plex Media Server&lt;/h1&gt;
+
+&lt;p&gt;Unfortunately, Plex is not available via &lt;code&gt;apt-get&lt;/code&gt; in Ubuntu. But the Plex website does lay out a process for &lt;a href=&#34;https://support.plex.tv/articles/200288586-installation/&#34; target=&#34;_blank&#34;&gt;installing the server on Linux&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Start by downloading the &lt;code&gt;.deb&lt;/code&gt; file for Plex. I found the &lt;code&gt;.deb&lt;/code&gt; file available here: &lt;code&gt;https://downloads.plex.tv/plex-media-server-new/1.16.5.1554-1e5ff713d/debian/plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb&lt;/code&gt; and I&amp;rsquo;ll be using that URL with &lt;code&gt;wget&lt;/code&gt; in Ubuntu to download it directly to the server.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd ~
+$ wget https://downloads.plex.tv/plex-media-server-new/1.16.5.1554-1e5ff713d/debian/plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then, once the &lt;code&gt;.deb&lt;/code&gt; packaged has finished downloading, we can install it with &lt;code&gt;dpkg&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo dpkg -i plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now you can navigate to the Plex web site from a computer on your network by going to &lt;code&gt;http://{your-servers-ip}:32400/web/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Plex is now running. You can follow Plex documentation to add Plex repositories for future updates, and for adding your media to Plex libraries.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/plex04-web-site.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://itsfoss.com/install-deb-files-ubuntu/&#34; target=&#34;_blank&#34;&gt;3 Ways to Install Deb Files on Ubuntu Linux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://itsfoss.com/install-plex-ubuntu/&#34; target=&#34;_blank&#34;&gt;How to Install and Configure Plex on Ubuntu Linux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.howtogeek.com/176471/how-to-share-files-between-windows-and-linux/&#34; target=&#34;_blank&#34;&gt;How to Share Files Between Windows and Linux&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.samba.org/&#34; target=&#34;_blank&#34;&gt;Samba&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.plex.tv/media-server-downloads/&#34; target=&#34;_blank&#34;&gt;Plex Media Server Downloads&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://support.plex.tv/articles/200288586-installation/&#34; target=&#34;_blank&#34;&gt;Plex Media Server Installation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Configuring Vim When Using Git Bash on Windows</title>
       <link>http://quakkels.com/posts/configuring-vim-when-using-git-bash/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
