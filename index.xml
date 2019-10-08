@@ -6,8 +6,100 @@
     <description>Recent content on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Oct 2019 07:14:44 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 08 Oct 2019 13:29:34 -0500</lastBuildDate>
     <atom:link href="http://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2</title>
+      <link>http://quakkels.com/training_log/0002/</link>
+      <pubDate>Tue, 08 Oct 2019 13:29:34 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0002/</guid>
+      <description>
+
+&lt;h1 id=&#34;deadlift-day&#34;&gt;Deadlift Day&lt;/h1&gt;
+
+&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Lift&lt;/th&gt;
+&lt;th&gt;Weight&lt;/th&gt;
+&lt;th&gt;Sets&lt;/th&gt;
+&lt;th&gt;Reps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Deadlift&lt;/td&gt;
+&lt;td&gt;365&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Ab Roller&lt;/td&gt;
+&lt;td&gt;bw&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Jumping Jacks&lt;/td&gt;
+&lt;td&gt;bw&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Notes:&lt;/strong&gt; Might adjust this volume on deadlifts. Want to lift heavy, but was really draggin&amp;rsquo; after the second round.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;superset-2&#34;&gt;Superset 2&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Lift&lt;/th&gt;
+&lt;th&gt;Weight&lt;/th&gt;
+&lt;th&gt;Sets&lt;/th&gt;
+&lt;th&gt;Reps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DB Floor Flies&lt;/td&gt;
+&lt;td&gt;25&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Pinch Block&lt;/td&gt;
+&lt;td&gt;45&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;One Legged Hip Thrust&lt;/td&gt;
+&lt;td&gt;bw&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Notes:&lt;/strong&gt;  First superset much harder the the second.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
     
     <item>
       <title>1</title>
@@ -1603,19 +1695,6 @@ The theme for this blog was written by myself and can be found
       <guid>http://quakkels.com/projects/pointing-online/</guid>
       <description>&lt;p&gt;Pointing-online is a .Net Core project written in C# that was inspired by real
 world needs of distributed teams practicing Agile Scrum.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Roast.it</title>
-      <link>http://quakkels.com/projects/roast-it/</link>
-      <pubDate>Fri, 27 Jan 2017 14:36:35 -0600</pubDate>
-      
-      <guid>http://quakkels.com/projects/roast-it/</guid>
-      <description>&lt;p&gt;Roast.it is a simple JavaScript unit testing library designed for providing a
-fast feedback loop with minimal fuss. There are no frills here. No unnecessary
-dependencies. This will run unit tests for you from &lt;code&gt;npm test&lt;/code&gt;. It will not get
-in your way.&lt;/p&gt;
 </description>
     </item>
     
