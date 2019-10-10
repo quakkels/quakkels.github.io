@@ -6,11 +6,97 @@
     <description>Recent content on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Oct 2019 13:29:34 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 10 Oct 2019 14:20:22 -0500</lastBuildDate>
     <atom:link href="http://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>2</title>
+      <title>3 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0003/</link>
+      <pubDate>Thu, 10 Oct 2019 14:20:22 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0003/</guid>
+      <description>
+
+&lt;h1 id=&#34;bench-day&#34;&gt;Bench Day&lt;/h1&gt;
+
+&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Lift&lt;/th&gt;
+&lt;th&gt;Weight&lt;/th&gt;
+&lt;th&gt;Sets&lt;/th&gt;
+&lt;th&gt;Reps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Bench&lt;/td&gt;
+&lt;td&gt;215&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Axle Pendlay Row&lt;/td&gt;
+&lt;td&gt;160&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Jumping Jacks&lt;/td&gt;
+&lt;td&gt;bw&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;superset-2&#34;&gt;Superset 2&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Lift&lt;/th&gt;
+&lt;th&gt;Weight&lt;/th&gt;
+&lt;th&gt;Sets&lt;/th&gt;
+&lt;th&gt;Reps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;18&amp;rdquo; Deadlift&lt;/td&gt;
+&lt;td&gt;405&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Isolation DB Curl&lt;/td&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;50&amp;rsquo; DB Suitcase Carr&lt;/td&gt;
+&lt;td&gt;80&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Today felt really good. 3x3 with heavy 18&amp;rdquo; deadlifts felt amazing. That&amp;rsquo;s a new 5RM PR. The Pendlay Rows were also a new 8RM PR.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2 (Persistence)</title>
       <link>http://quakkels.com/training_log/0002/</link>
       <pubDate>Tue, 08 Oct 2019 13:29:34 -0500</pubDate>
       
@@ -102,7 +188,7 @@
     </item>
     
     <item>
-      <title>1</title>
+      <title>1 (Persistence)</title>
       <link>http://quakkels.com/training_log/0001/</link>
       <pubDate>Mon, 07 Oct 2019 07:14:44 -0500</pubDate>
       
@@ -1684,17 +1770,6 @@ platform since 2013. This current version of my blog uses
 &lt;a href=&#34;http://golang.com&#34;&gt;Go&lt;/a&gt;. I host using &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt;.
 The theme for this blog was written by myself and can be found
 &lt;a href=&#34;https://github.com/quakkels/hugo-quakkels-theme&#34;&gt;on GitHub&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Pointing-online</title>
-      <link>http://quakkels.com/projects/pointing-online/</link>
-      <pubDate>Fri, 27 Jan 2017 14:36:35 -0600</pubDate>
-      
-      <guid>http://quakkels.com/projects/pointing-online/</guid>
-      <description>&lt;p&gt;Pointing-online is a .Net Core project written in C# that was inspired by real
-world needs of distributed teams practicing Agile Scrum.&lt;/p&gt;
 </description>
     </item>
     
