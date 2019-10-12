@@ -6,8 +6,51 @@
     <description>Recent content on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 11 Oct 2019 14:01:48 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 12 Oct 2019 12:45:48 -0500</lastBuildDate>
     <atom:link href="http://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>4b (Persistence)</title>
+      <link>http://quakkels.com/training_log/0004b/</link>
+      <pubDate>Sat, 12 Oct 2019 12:45:48 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0004b/</guid>
+      <description>
+
+&lt;h1 id=&#34;axle-press-day&#34;&gt;Axle Press Day&lt;/h1&gt;
+
+&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Lift&lt;/th&gt;
+&lt;th&gt;Weight&lt;/th&gt;
+&lt;th&gt;Sets&lt;/th&gt;
+&lt;th&gt;Reps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Axle Press&lt;/td&gt;
+&lt;td&gt;210&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Axle Press&lt;/td&gt;
+&lt;td&gt;230&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;This workout was just a little make-up day since I had to cut yesterday&amp;rsquo;s workout short. 210lbs for 2 and 230lbs for 1 are both personal records.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>4 (Persistence)</title>
@@ -1727,55 +1770,6 @@ subliminal effects of hype.&lt;/p&gt;
 &lt;h2 id=&#34;don-t-flippantly-swing-the-industry-standard-club&#34;&gt;Don’t flippantly swing the “Industry Standard” club&lt;/h2&gt;
 
 &lt;p&gt;Promoting a tool by claiming that it&amp;rsquo;s an industry standard, rather than because it adheres to standards, is a mistake. There is a key difference between adhering to standards and being a standard. Industry standards are most effective when describing protocols and language behavior. We should select our tools based on how well they adhere to standards.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Don&#39;t Take Frameworks for Granted</title>
-      <link>http://quakkels.com/posts/dont-take-frameworks-for-granted/</link>
-      <pubDate>Sat, 28 Jan 2017 07:41:18 -0600</pubDate>
-      
-      <guid>http://quakkels.com/posts/dont-take-frameworks-for-granted/</guid>
-      <description>&lt;p&gt;Frameworks can help jump-start productivity on projects. But be careful.
-Relying too much on frameworks could also limit yourself in the long run.&lt;/p&gt;
-
-&lt;p&gt;Whenever the opportunity presents itself, programmers should carefully consider
-whether using a framework is beneficial. It may provide immediate benefits, but
-there should be no magic happening that isn&amp;rsquo;t understood by the programmer.&lt;/p&gt;
-
-&lt;p&gt;Years ago, I learned how to make websites with C#. I had help from many books,
-tutorials, and co-workers. With those resources I used the ASP.NET MVC 1
-framework to build websites in a new way. However, while building my sample MVC
-sites, the code I wrote was there just because that&amp;rsquo;s how it was written in a
-tutorial somewhere. At the time, I had very little understanding of how the
-internals worked. I didn&amp;rsquo;t understand how routing worked, or how reflection
-worked, or how factories fit in, or anything about what a view engine did, or
-model binding. It was all just magic that I accepted and had faith in.&lt;/p&gt;
-
-&lt;p&gt;I was able to build a working website with C# and ASP.NET MVC, and I did it
-fairly quickly. It was certainly done faster than it would have been without the
-framework. This fact can&amp;rsquo;t be ignored. Learning a technology while achieving
-results is important for any beginner. The experience of finishing something
-is valuable for the sense of accomplishment and for the motivation to keep
-going. But, it&amp;rsquo;s important to understand that once a project is finished, the
-learning should not stop. Understanding the building blocks of any framework is
-the foundation for every solid programmer.&lt;/p&gt;
-
-&lt;p&gt;In my case, it was very important that I continued to build up my foundation of
-understanding. That&amp;rsquo;s because projects in the real world don&amp;rsquo;t just end like
-side projects could. They live on and they evolve. Real projects keep receiving
-feature requests. New requirements will appear. Technology will change.
-Eventually, the chosen framework might lose support, or might not keep up with
-requirements. When that happens, knowledge of how the framework functions is
-imperative. Without that knowledge, programmers are at the mercy of tutorial
-writers and the framework creators. But with a knowledgeable foundation,
-programmers are equipped to continue building and shipping their projects.&lt;/p&gt;
-
-&lt;p&gt;The bottom line is this: frameworks can be wielded much more effectively
-&lt;em&gt;after&lt;/em&gt; the programmer understands enough of the language and design concepts
-so that the framework&amp;rsquo;s behavior isn&amp;rsquo;t magic anymore. Programmers equipped with
-such understanding will know where to look for seams in the execution pipeline,
-and they will be able to add customizations where appropriate.&lt;/p&gt;
 </description>
     </item>
     
