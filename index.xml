@@ -6,8 +6,96 @@
     <description>Recent content on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Oct 2019 14:52:32 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 17 Oct 2019 13:00:11 -0500</lastBuildDate>
     <atom:link href="http://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>7 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0007/</link>
+      <pubDate>Thu, 17 Oct 2019 13:00:11 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0007/</guid>
+      <description>
+
+&lt;h1 id=&#34;bench-day&#34;&gt;Bench Day&lt;/h1&gt;
+
+&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Lift&lt;/th&gt;
+&lt;th&gt;LBs&lt;/th&gt;
+&lt;th&gt;Sets&lt;/th&gt;
+&lt;th&gt;Reps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Bench&lt;/td&gt;
+&lt;td&gt;220&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Axle Rows&lt;/td&gt;
+&lt;td&gt;160&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Jumping Jacks&lt;/td&gt;
+&lt;td&gt;bw&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;superset-2&#34;&gt;Superset 2&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Lift&lt;/th&gt;
+&lt;th&gt;Lbs&lt;/th&gt;
+&lt;th&gt;Sets&lt;/th&gt;
+&lt;th&gt;Reps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;18&amp;rdquo; Deadlift&lt;/td&gt;
+&lt;td&gt;405&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;DB Isolation Curl&lt;/td&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;50&amp;rsquo; DB Suitcase Carry&lt;/td&gt;
+&lt;td&gt;80&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;I kept the 18&amp;rdquo; Deadlifts at 405. Was rx&amp;rsquo;d to move up to 415, but that last warmup felt awful. I think it&amp;rsquo;s just because I didn&amp;rsquo;t have a rest day yesterday. Will go for 415 on this lift next week.&lt;/p&gt;
+
+&lt;p&gt;The 5x3 scheme is continuing to feel great.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>6 (Persistence)</title>
@@ -1770,63 +1858,6 @@ $ ./gogs web
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Lo and behold, it works.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Why I Prioritize Strength Training</title>
-      <link>http://quakkels.com/posts/why-i-prioritize-strength-training/</link>
-      <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://quakkels.com/posts/why-i-prioritize-strength-training/</guid>
-      <description>&lt;p&gt;Over the last few years, I&amp;rsquo;ve taken up a new hobby; strength training. It&amp;rsquo;s something I&amp;rsquo;ve really grown to love. Though, sometimes it&amp;rsquo;s hard to articulate exactly why strength training has taken such a permanent position in my weekly routine.&lt;/p&gt;
-
-&lt;p&gt;When I was a sedentary person my quality of life decreased every year. Even when I was in my mid 20s I was not &amp;ldquo;strong&amp;rdquo; and frequent back and shoulder pain would frustrate me for weeks at a time. Every year my bodyweight would creep up, my strength would diminish, and I&amp;rsquo;d be a little less capable.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;You don&amp;rsquo;t own anything in your life. You don&amp;rsquo;t own your fitness. You don&amp;rsquo;t own your health&amp;hellip; You&amp;rsquo;re always constantly needing to work at it&amp;hellip; If you don&amp;rsquo;t, you lose it. So, you&amp;rsquo;re &amp;ldquo;paying the man.&amp;rdquo; ― &lt;a href=&#34;https://www.youtube.com/watch?v=si_w5Jze-zg&amp;amp;t=330s&#34;&gt;Josh Bridges&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I was losing my physical liberty. I was getting slower, weaker, and less resilient to everyday life. I&amp;rsquo;d spend my time being anxious about whether my back pain would get unbearable if I sat in the wrong chair for too long. I&amp;rsquo;d wake up in the morning in pain because I slept on my shoulder the wrong way. Utterly miserable.&lt;/p&gt;
-
-&lt;p&gt;So this is why strength training is important. It &amp;ldquo;pays the man&amp;rdquo; so I can keep my physical liberty. It makes me more useful to my family and my community. It sets an example for my offspring that it important to be active and work hard.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Strong people are harder to kill than weak people and more useful in general.
-― &lt;a href=&#34;https://www.goodreads.com/quotes/432892-strong-people-are-harder-to-kill-than-weak-people-and&#34;&gt;Mark Rippetoe&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Muscular strength is inversely and independently associated with death from all causes and cancer in men, even after adjusting for cardiorespiratory fitness and other potential confounders. ― &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2453303/&#34;&gt;Association between muscular strength and mortality in men: prospective cohort study&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&#39;http://quakkels.com/images/first400plusdeadlift.png&#39; style=&#34;float:right;padding:5px&#34;&gt;Strength training is an exercise in success. A person who follows a strength program and is disciplined will see improvements in their strength. They will be able to lift more, move more, and do more. That success reinforces confidence in one&amp;rsquo;s ability.  The first time I deadlifted over 400 pounds was hard hard work paying off, and it felt great.&lt;/p&gt;
-
-&lt;p&gt;Finally, I have not seen anyone come up with a better list for &amp;ldquo;why train&amp;rdquo; than Jim Wendler:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;For physical and mental health.&lt;/li&gt;
-&lt;li&gt;For self-improvement.&lt;/li&gt;
-&lt;li&gt;To challenge yourself physically and mentally.&lt;/li&gt;
-&lt;li&gt;To develop the bite that may help you through difficult times.&lt;/li&gt;
-&lt;li&gt;To honor all the men who have fought before you; it is part of your DNA to fight.&lt;/li&gt;
-&lt;li&gt;To show/prove to yourself that you can change through will.&lt;/li&gt;
-&lt;li&gt;In a world of &amp;ldquo;easy&amp;rdquo;, it keeps your teeth sharp.&lt;/li&gt;
-&lt;li&gt;Because we don&amp;rsquo;t have to chop wood anymore.&lt;/li&gt;
-&lt;li&gt;Being stronger is ALWAYS better.&lt;/li&gt;
-&lt;li&gt;To understand that there is cause and effect to action; and inaction.&lt;/li&gt;
-&lt;li&gt;A stronger body can equal a stronger mind can equal a stronger body.&lt;/li&gt;
-&lt;li&gt;There is zero negative consequence to being a stronger man.&lt;/li&gt;
-&lt;li&gt;To be a great example to your children; fat, weak and ignorant is not a good role model.&lt;/li&gt;
-&lt;li&gt;To exhaust your body and mind so as to put up with weak fools and ignorant beggars who demand what you have earned.&lt;/li&gt;
-&lt;li&gt;To learn self-reliance.&lt;/li&gt;
-&lt;li&gt;To understand that compassion and empathy is noble but not given lightly.&lt;/li&gt;
-&lt;li&gt;Because a mentally and physically dangerous man will always be needed.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;― &lt;a href=&#34;https://jimwendler.com/blogs/jimwendler-com/what-is-the-reason-for-me-to-do-this&#34;&gt;Jim Wendler&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;That&amp;rsquo;s why I train strength.&lt;/p&gt;
 </description>
     </item>
     
