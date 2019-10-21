@@ -6,8 +6,94 @@
     <description>Recent content on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Oct 2019 13:03:08 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 21 Oct 2019 13:21:03 -0500</lastBuildDate>
     <atom:link href="http://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>9 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0009/</link>
+      <pubDate>Mon, 21 Oct 2019 13:21:03 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0009/</guid>
+      <description>
+
+&lt;h1 id=&#34;overhead-press-day&#34;&gt;Overhead Press Day&lt;/h1&gt;
+
+&lt;p&gt;Switching it up! Changing up the Persistence program from the first time I ran it. Instead of an upper and lower superset each day, I&amp;rsquo;m going to have an upper body day with two upper body supersets. Lower body days will have two lower body supersets. This hopefully will be easier to recover from.&lt;/p&gt;
+
+&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Lift&lt;/th&gt;
+&lt;th&gt;LBs&lt;/th&gt;
+&lt;th&gt;Sets&lt;/th&gt;
+&lt;th&gt;Reps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Overhead Press&lt;/td&gt;
+&lt;td&gt;160&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Lat Pulldown&lt;/td&gt;
+&lt;td&gt;166&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Jumping Jacks&lt;/td&gt;
+&lt;td&gt;bw&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;superset-2&#34;&gt;Superset 2&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Lift&lt;/th&gt;
+&lt;th&gt;LBs&lt;/th&gt;
+&lt;th&gt;Sets&lt;/th&gt;
+&lt;th&gt;Reps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DB Floor Fly&lt;/td&gt;
+&lt;td&gt;35&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Seated DB Press&lt;/td&gt;
+&lt;td&gt;50&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;50&amp;rsquo; DB Suitcase Carry&lt;/td&gt;
+&lt;td&gt;80&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
     
     <item>
       <title>8 (Persistence)</title>
@@ -1733,93 +1819,6 @@ Similar to Learning Vim in 2014, but more recent. Also has Linux specific inform
 &lt;p&gt;Don&amp;rsquo;t forget to do ridiculous things like to configure VSCode&amp;rsquo;s terminal to use Git Bash which allows you to open Vim from inside VSCode. ;-)&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/vim_inside_vscode.png&#34; alt=&#34;Run Vim from inside VSCode on Windows&#34; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>MySQL Quick Reference</title>
-      <link>http://quakkels.com/posts/mysql-quick-reference/</link>
-      <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://quakkels.com/posts/mysql-quick-reference/</guid>
-      <description>
-
-&lt;h2 id=&#34;shell-commands&#34;&gt;Shell Commands&lt;/h2&gt;
-
-&lt;h3 id=&#34;set-up-security-requirements&#34;&gt;Set up security requirements:&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo mysql_secure_installation
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;open-the-mysql-cli-client-and-login-using-a-password-and-the-specified-user&#34;&gt;Open the MySQL CLI client and login using a password and the specified user:&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo mysql -u {user} -p
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;mysql-queries-and-commands&#34;&gt;MySQL Queries and Commands&lt;/h2&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Note that MySQL will not execute anything until it encounters a semicolon &lt;code&gt;;&lt;/code&gt; which indicates the end of a statement. This allows us to enter multi-line statements.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&#34;create-user&#34;&gt;Create User&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; CREATE USER &#39;newuser&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39;;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;give-user-access-to-a-database&#34;&gt;Give User Access to a Database&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; GRANT ALL PRIVILEGES ON * . * TO &#39;newuser&#39;@&#39;localhost&#39;;
-&amp;gt; FLUSH PRIVILEGES;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;create-a-database-called-newstore&#34;&gt;Create a database called &lt;code&gt;newStore&lt;/code&gt;:&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; CREATE DATABASE IF NOT EXISTS newStore;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;create-a-new-table-in-a-database&#34;&gt;Create a new table in a database:&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; CREATE TABLE IF NOT EXISTS newTable (
-&amp;gt;   newTableID INT PRIMARY KEY AUTO_INCREMENT,
-&amp;gt;   firstName VARCHAR(255) not null,
-&amp;gt;   lastName VARCHAR(255) not null,
-&amp;gt;   email VARCHAR(255) not null
-&amp;gt; );
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;list-all-databases&#34;&gt;List all databases:&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; SHOW DATABASES;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;connect-to-a-database&#34;&gt;Connect to a database:&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; USE newStore;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;list-tables-in-a-database&#34;&gt;List tables in a database&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; SHOW TABLES;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;list-columns-in-a-table&#34;&gt;List columns in a table&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; SHOW COLUMNS FROM newTable
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;execute-a-sql-script-from-file&#34;&gt;Execute a sql script from file&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; source /path/to/script.sql;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;more-resources&#34;&gt;More Resources&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql&#34;&gt;How To Create a New User and Grant Permissions in MySQL&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://dev.mysql.com/doc/&#34;&gt;MySQL Documentation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://mariadb.com/kb/en/library/documentation/&#34;&gt;MariaDB Documentation&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
