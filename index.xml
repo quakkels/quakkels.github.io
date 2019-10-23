@@ -6,8 +6,92 @@
     <description>Recent content on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Oct 2019 13:40:06 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2019 13:17:47 -0500</lastBuildDate>
     <atom:link href="http://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>11 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0011/</link>
+      <pubDate>Wed, 23 Oct 2019 13:17:47 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0011/</guid>
+      <description>
+
+&lt;h1 id=&#34;bench-day&#34;&gt;Bench Day&lt;/h1&gt;
+
+&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Lift&lt;/th&gt;
+&lt;th&gt;LBs&lt;/th&gt;
+&lt;th&gt;Sets&lt;/th&gt;
+&lt;th&gt;Reps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Bench&lt;/td&gt;
+&lt;td&gt;225&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Axle Row&lt;/td&gt;
+&lt;td&gt;175&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Jumping Jacks&lt;/td&gt;
+&lt;td&gt;bw&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;superset-2&#34;&gt;Superset 2&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Lift&lt;/th&gt;
+&lt;th&gt;LBs&lt;/th&gt;
+&lt;th&gt;Sets&lt;/th&gt;
+&lt;th&gt;Reps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Axle Press&lt;/td&gt;
+&lt;td&gt;190&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Isolation DB Curl&lt;/td&gt;
+&lt;td&gt;35&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;50&amp;rsquo; DB Suitcase Carry&lt;/td&gt;
+&lt;td&gt;80&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
     
     <item>
       <title>10 (Persistence)</title>
@@ -1394,403 +1478,6 @@ namespace Lavender.ViewModels
 &lt;/ol&gt;
 
 &lt;p&gt;Things you can do with this include &lt;a href=&#34;https://youtu.be/MW5HfC5V_YI&#34; target=&#34;_blank&#34;&gt;Arm-Over-Arm Pulls&lt;/a&gt;, and &lt;a href=&#34;https://www.youtube.com/watch?v=KKEceC_t2bY&#34; target=&#34;_blank&#34;&gt;Reverse Sled Drag&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Getting Started with Django</title>
-      <link>http://quakkels.com/posts/getting-started-python-django-vs-code/</link>
-      <pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://quakkels.com/posts/getting-started-python-django-vs-code/</guid>
-      <description>
-
-&lt;p&gt;Django is a Python framework that I&amp;rsquo;ve written about before. I&amp;rsquo;ve &lt;a href=&#34;http://quakkels.com/posts/asp-net-mvc-compared-to-dango/&#34;&gt;compared Django to ASP.NET MVC&lt;/a&gt;. But, I didn&amp;rsquo;t go into much detail about how to actually use Django to create a data driven website. That&amp;rsquo;s what I&amp;rsquo;ll cover now.&lt;/p&gt;
-
-&lt;p&gt;The goal for this &amp;lsquo;Getting Started&amp;rsquo; project is to get familiar with the basics of developing data driven web applications using Django, Models, Views, Templates, URLs, and Forms. By the end we&amp;rsquo;ll have a simple contact form that saves user submissions to the database, and displays that data to an administrator user. It will not be a completed site, but it will introduce basic the building blocks of website development in Django.&lt;/p&gt;
-
-&lt;p&gt;If you&amp;rsquo;d like to refer to the end goal of this article, you can &lt;a href=&#34;https://github.com/quakkels/companionresource_djangosite&#34; target=&#34;_blank&#34;&gt;find it on GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Windows 10
-
-&lt;ul&gt;
-&lt;li&gt;Or your own favorite OS. But I&amp;rsquo;ll be writing from a Windows perspective.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Python 3.6 or above.&lt;/li&gt;
-&lt;li&gt;VS Code with Microsoft&amp;rsquo;s Python extension installed.
-
-&lt;ul&gt;
-&lt;li&gt;Or your own favorite Python IDE/editor, but I&amp;rsquo;ll be writing from the VS Code perspective&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;create-project&#34;&gt;Create Project&lt;/h2&gt;
-
-&lt;p&gt;Make the project directory and navigate inside.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; mkdir django-project &amp;amp;&amp;amp; cd django-project
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Create a Virtual Environment to isolate project specific dependencies.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; python -m venv django-env
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Activate the venv. (This is the Windows command.)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; django-env\Scripts\activate.bat
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Once inside an activated venv, you can leave it to work on other things by using the &lt;code&gt;deactivate&lt;/code&gt; command.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Install Django inside the active venv. (You don&amp;rsquo;t want to install packages globally. Make sure that the venv is active.)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; pip install django
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Use &lt;code&gt;django-admin&lt;/code&gt; to create the new Django application.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; django-admin startproject djangosite
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;That created a new folder called &lt;code&gt;djangosite&lt;/code&gt; and it placed boilerplate files inside. &lt;code&gt;manage.py&lt;/code&gt; is one of those files and it&amp;rsquo;s what will used from now on to run Django commands.&lt;/p&gt;
-
-&lt;p&gt;Run the development Django server from inside the site&amp;rsquo;s folder.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; cd djangosite
-(django-env)&amp;gt; python manage.py runserver
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Visit localhost:8000 to verify that it&amp;rsquo;s working. Then exit the server with Ctrl+Break.&lt;/p&gt;
-
-&lt;p&gt;When the Django server ran, Django automatically created a db.sqlite3 file in the project folder. &lt;a href=&#34;https://docs.djangoproject.com/en/2.2/ref/settings/#databases&#34; target=&#34;_blank&#34;&gt;Read more about configuring different database backends&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Use VS Code to open the &lt;code&gt;django-project&lt;/code&gt; folder that houses the virtual environment folder and the Django app folder. This can be done from the terminal, or manually inside VS Code.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; code ..\. 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Open &lt;code&gt;djangosite\urls.py&lt;/code&gt;. The imports for Django will probably be shown as missing modules because Django was installed in the venv and not globally. to fix this, press &lt;code&gt;ctrl+shift+p&lt;/code&gt; then execute the command &lt;code&gt;Python: Select Interpretter&lt;/code&gt;. Find &lt;code&gt;.\django-env\Scripts\python.exe&lt;/code&gt; from the list and select it. Then VS Code will stop showing the Django imports as errors.
-&amp;gt; For more VS Code information visit &lt;a href=&#34;https://code.visualstudio.com/docs/python/python-tutorial&#34; target=&#34;_blank&#34;&gt;Getting Started with Python in VS Code&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;add-a-custom-django-view&#34;&gt;Add a Custom Django View&lt;/h2&gt;
-
-&lt;p&gt;To add a &amp;lsquo;Hello World&amp;rsquo; page, create a new file in &lt;code&gt;django-project\djangosite\djangosite&lt;/code&gt; called &lt;code&gt;views.py&lt;/code&gt;. Add the following code.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.http import HttpResponse
-
-def welcome(request):
-  return HttpResponse(&amp;quot;Hello, World!&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To tell Django when to execute this welcome view, edit &lt;code&gt;urls.py&lt;/code&gt; so it looks like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.contrib import admin
-from django.urls import path, re_path
-
-from .views import welcome
-
-urlpatterns = [
-    path(&#39;admin/&#39;, admin.site.urls),
-    re_path(&#39;^$&#39;, welcome)
-]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Browse to localhost:8000 and see the custom message.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/python_django_hello_world.png&#34; alt=&#34;Django Hello World&#34; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Let&amp;rsquo;s take a quick break to go over some Django concepts.&lt;/p&gt;
-
-&lt;h3 id=&#34;app&#34;&gt;App&lt;/h3&gt;
-
-&lt;p&gt;A Django App is a python package that acts as a little web application of its own. With it&amp;rsquo;s own Models, Views, Templates, and URLs. Most Django sites use several apps. It is also possible to write an app such that it can be reused in other Django projects.&lt;/p&gt;
-
-&lt;h3 id=&#34;model&#34;&gt;Model&lt;/h3&gt;
-
-&lt;p&gt;A Django Model is a data model that maps to a database table. This introduces the concept of &lt;em&gt;Migrations&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;migrations&#34;&gt;Migrations&lt;/h3&gt;
-
-&lt;p&gt;The model will usually change as the site is developed.
-A migration will update the corresponding database table from previous versions to the new version of the code. As migrations get more complicated, there may be need to write custom migration scripts.&lt;/p&gt;
-
-&lt;h3 id=&#34;views&#34;&gt;Views&lt;/h3&gt;
-
-&lt;p&gt;Views in Django are like Controllers in ASP.NET MVC. They are what connect a model with a template.&lt;/p&gt;
-
-&lt;h3 id=&#34;templates&#34;&gt;Templates&lt;/h3&gt;
-
-&lt;p&gt;Templates in Django are like Views in ASP.NET MVC. They are the display layer; the HTML that will render in the browser.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;add-a-custom-django-model&#34;&gt;Add a Custom Django Model&lt;/h2&gt;
-
-&lt;p&gt;Show migrations&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py showmigrations
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Execute those migrations&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py migrate
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now create a new Django app. For this example, it will handle the functionality for a contact form.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py startapp contactform
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Move into the new &lt;code&gt;contactform&lt;/code&gt; directory and notice that Django has created a bunch of boilerplate code for us.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; cd contactform
-(django-env)&amp;gt; dir
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Add this new app to the Django site. Open &lt;code&gt;settings.py&lt;/code&gt; in the &lt;code&gt;djangosite&lt;/code&gt; folder, and add the &lt;code&gt;contactform&lt;/code&gt; app to the list of installed apps. &lt;code&gt;INSTALLED_APPS&lt;/code&gt; should look like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;INSTALLED_APPS = [
-    &#39;django.contrib.admin&#39;,
-    &#39;django.contrib.auth&#39;,
-    &#39;django.contrib.contenttypes&#39;,
-    &#39;django.contrib.sessions&#39;,
-    &#39;django.contrib.messages&#39;,
-    &#39;django.contrib.staticfiles&#39;,
-    &#39;contactform&#39;
-]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then, open the &lt;code&gt;models.py&lt;/code&gt; file in the contact form app and add the class that will represent the contact form.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.db import models
-
-class ContactForm(models.Model):
-    HOW_DID_YOU_HEAR_ABOUT_US_CHOICES = (
-        (&#39;SE&#39;, &#39;Search Engine&#39;),
-        (&#39;Q&#39;, &#39;Quakkels.com&#39;),
-        (&#39;F&#39;, &#39;From a friend&#39;),
-        (&#39;O&#39;, &#39;Other&#39;)
-    )
-
-    name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50)
-    comments = models.CharField(max_length=500)
-    how_did_you_hear_about_us = models.CharField(max_length=2, choices=HOW_DID_YOU_HEAR_ABOUT_US_CHOICES)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;More information about Django models can be found &lt;a href=&#34;https://docs.djangoproject.com/en/2.2/topics/db/models/&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;After the model is saved, create the new migration script.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py makemigrations
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Run the migration.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py migrate
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;If you&amp;rsquo;re curious about what the SQLite database tables look like, you can download something like &lt;a href=&#34;https://sqlitebrowser.org/dl/&#34; target=&#34;_blank&#34;&gt;DB Browser for SQLite&lt;/a&gt;. Table names will be named after the model with the app name as the prefix. So the table for ContactForm will be called &lt;code&gt;contactform_contactform&lt;/code&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;register-custom-model-in-admin&#34;&gt;Register Custom Model in Admin&lt;/h2&gt;
-
-&lt;p&gt;To make contact form submissions available to be read by a site administrator, &lt;code&gt;ContactForm&lt;/code&gt; needs to be registered in the admin area.&lt;/p&gt;
-
-&lt;p&gt;Open &lt;code&gt;contactform\admin.py&lt;/code&gt; and add this code to register the ContactForm model.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.contrib import admin
-from .models import ContactForm
-
-@admin.register(ContactForm)
-class ContactFormAdmin(admin.ModelAdmin):
-    list_display = (&#39;name&#39;, &#39;email&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Create a super user for logging into the site&amp;rsquo;s admin area.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py createsuperuser
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now when the development server runs, you&amp;rsquo;ll be able to view and edit ContactForms in the Admin area by navigating to localhost:8000/admin and using the new super user to log in.&lt;/p&gt;
-
-&lt;h2 id=&#34;create-a-custom-django-template&#34;&gt;Create a Custom Django Template&lt;/h2&gt;
-
-&lt;p&gt;Double check the terminal&amp;rsquo;s working directory is the &lt;code&gt;contactform&lt;/code&gt; folder inside of &lt;code&gt;djangosite&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; pwd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Switch to &lt;code&gt;contactform&lt;/code&gt; if it&amp;rsquo;s not the working directory.&lt;/p&gt;
-
-&lt;p&gt;Create a new folder for custom templates.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; mdkir templates
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In VS Code, create a file in the new templates folder called &lt;code&gt;contactform.html&lt;/code&gt; for the contact form. Put the following code in the file for now.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html&amp;gt;
-    &amp;lt;head&amp;gt;
-      &amp;lt;title&amp;gt;Contact Form&amp;lt;/title&amp;gt;
-    &amp;lt;/head&amp;gt;
-    &amp;lt;body&amp;gt;
-        &amp;lt;h1&amp;gt;Contact Form&amp;lt;/h1&amp;gt;
-    &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Next, update &lt;code&gt;contactform\views.py&lt;/code&gt; with this code.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.shortcuts import render
-
-def contactform(request):
-    return render(request, &amp;quot;contactform.html&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Notice that the &lt;code&gt;render()&lt;/code&gt; function is used here instead of returning &lt;code&gt;HttpResponse()&lt;/code&gt; directly like the &amp;ldquo;Hello, World!&amp;rdquo; view does. The &lt;code&gt;render()&lt;/code&gt; function will use the template for the html.&lt;/p&gt;
-
-&lt;p&gt;To make the template visible from the browser, we need to route requests to the view based on the URL.&lt;/p&gt;
-
-&lt;p&gt;Use VS Code to create a &lt;code&gt;urls.py&lt;/code&gt; file inside the &lt;code&gt;contactform&lt;/code&gt; folder. Put this code inside it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.urls import re_path
-
-from .views import contactform
-
-urlpatterns = [
-    re_path(&#39;contactform$&#39;, contactform)
-]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The &lt;code&gt;re_path()&lt;/code&gt; method uses a string as a regular expression. The &lt;code&gt;&#39;contactform$&#39;&lt;/code&gt; ensures that it only matches on paths that end in &lt;code&gt;contactform&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Since &lt;code&gt;djangosite\urls.py&lt;/code&gt; is what Django uses to route urls, it needs to be aware of the new &lt;code&gt;contactform\urls.py&lt;/code&gt;. Update it with this code.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.contrib import admin
-from django.urls import path, re_path, include
-
-from .views import welcome
-
-urlpatterns = [
-    path(&#39;admin/&#39;, admin.site.urls),
-    re_path(&#39;^contactform/&#39;, include(&#39;contactform.urls&#39;)),
-    path(&#39;&#39;, welcome),
-]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;&#39;^contactform/&#39;&lt;/code&gt; is a regular expression that makes sure matching paths begin with &lt;code&gt;contactform&lt;/code&gt;. This is a prefix for everything in the contactform app. So the complete matching path will be &lt;code&gt;localhost:8000/contactform/contactform&lt;/code&gt;. For more information read the &lt;a href=&#34;https://docs.djangoproject.com/en/2.2/topics/http/urls/&#34; target=&#34;_blank&#34;&gt;Django documentation&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id=&#34;create-a-form&#34;&gt;Create a Form&lt;/h1&gt;
-
-&lt;p&gt;Create a new file in &lt;code&gt;contactform&lt;/code&gt; called &lt;code&gt;forms.py&lt;/code&gt; and put this code in it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.forms import ModelForm
-from .models import ContactForm
-
-class ContactFormForm(ModelForm):
-    class Meta:
-        model = ContactForm
-        fields = (&#39;name&#39;, &#39;email&#39;, &#39;comments&#39;, &#39;how_did_you_hear_about_us&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;It was at this time that I started regretting how the &lt;code&gt;ContactForm&lt;/code&gt; model was named. To stick with Django conventions, this form class will be the name of the model with &amp;ldquo;Form&amp;rdquo; appended to it. Hence; &lt;code&gt;ContactFormForm&lt;/code&gt;. Future me will not make this mistake.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Update &lt;code&gt;contactform\views.py&lt;/code&gt; so it will send the new form class as an object to the template.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.shortcuts import render
-from django.http import HttpResponse
-from .forms import ContactFormForm
-from .models import ContactForm
-
-def contactform(request):
-    form = ContactFormForm()
-    context = { 
-        &#39;form&#39; : form,
-    }
-
-    return render(request, &amp;quot;contactform.html&amp;quot;, context)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Update the &lt;code&gt;contactform.html&lt;/code&gt; template to use the &lt;code&gt;form&lt;/code&gt; object in the &lt;code&gt;context&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html&amp;gt;
-    &amp;lt;head&amp;gt;
-      &amp;lt;title&amp;gt;Contact Form&amp;lt;/title&amp;gt;
-    &amp;lt;/head&amp;gt;
-    &amp;lt;body&amp;gt;
-        &amp;lt;h1&amp;gt;Contact Form&amp;lt;/h1&amp;gt;
-        &amp;lt;form method=&amp;quot;POST&amp;quot;&amp;gt;
-            {% csrf_token %} &amp;lt;!--this token is required in order to prevent CSRF attacks--&amp;gt;
-            {{ form }} &amp;lt;!-- the form object will render our FormModel --&amp;gt;
-            &amp;lt;button type=&amp;quot;submit&amp;quot;&amp;gt;Send&amp;lt;/button&amp;gt;
-        &amp;lt;/form&amp;gt;
-    &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You can find more details about how to properly use templates &lt;a href=&#34;https://docs.djangoproject.com/en/2.2/ref/templates/&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;. The code above has much room for improvement.&lt;/p&gt;
-
-&lt;p&gt;Two things worth noting here are &lt;code&gt;{% csrf_token %}&lt;/code&gt; and &lt;code&gt;{{ form }}&lt;/code&gt;. The code for CSRF Token prevents this page from being vulnerable to cross site request forgery attacks. The &lt;code&gt;form&lt;/code&gt; object is the &lt;code&gt;ContactFrom&lt;/code&gt; model converted to HTML form elements via the &lt;code&gt;ModelForm&lt;/code&gt; class.&lt;/p&gt;
-
-&lt;p&gt;Update the view to accept and save a Contact Form submission.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from .forms import ContactFormForm
-from .models import ContactForm
-
-def contactform(request):
-    form = ContactFormForm()
-    context = { &amp;quot;form&amp;quot; : form }
-
-    if request.method != &amp;quot;POST&amp;quot;:
-        return render(request, &amp;quot;contactform.html&amp;quot;, context)
-    
-    form = ContactFormForm(data=request.POST)
-
-    if not form.is_valid():
-        context[&amp;quot;form&amp;quot;] = form
-        return render(request, &amp;quot;contactform.html&amp;quot;, context)
-    
-    form.save()
-    return redirect(&amp;quot;/&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will render the form on first request. When the form is submitted it will check the values against what the model expects. If the values aren&amp;rsquo;t valid it will render the form again (ideally to inform the user there were problems and give them a chance to correct mistakes.) If the values are valid, then it will save a new record in the database which an admin will be able to see in Django&amp;rsquo;s administration section. Once the record is saved, the user gets redirected to the site root.&lt;/p&gt;
-
-&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
-
-&lt;p&gt;There&amp;rsquo;s a lot more to Django, but this is a fair amount of information to get started with it. What we wrote has an authenticated admin area, a &amp;lsquo;hello&amp;rsquo; home page, and a data driven form that persists data to a database. This isn&amp;rsquo;t a completed web application, but we did cover a lot of essential building blocks.&lt;/p&gt;
-
-&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/quakkels/companionresource_djangosite&#34; target=&#34;_blank&#34;&gt;Companion GitHub Repository&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://sqlitebrowser.org/dl/&#34; target=&#34;_blank&#34;&gt;DB Browser for SQLite&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/&#34; target=&#34;_blank&#34;&gt;Django Documentation&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/ref/settings/#databases&#34; target=&#34;_blank&#34;&gt;Configure different database backends&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/ref/forms/&#34; target=&#34;_blank&#34;&gt;Forms&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/topics/db/models/&#34; target=&#34;_blank&#34;&gt;Models&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/ref/templates/&#34; target=&#34;_blank&#34;&gt;Templates&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/topics/http/urls/&#34; target=&#34;_blank&#34;&gt;URL Dispatcher&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
