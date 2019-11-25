@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://quakkels.com/training_log/0022/</loc>
+    <lastmod>2019-11-25T13:42:11-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/training_log/0021/</loc>
+    <lastmod>2019-11-21T13:39:37-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://quakkels.com/training_log/0020/</loc>
     <lastmod>2019-11-19T12:51:21-06:00</lastmod>
   </url>
@@ -246,7 +256,7 @@
   
   <url>
     <loc>http://quakkels.com/</loc>
-    <lastmod>2019-11-19T12:51:21-06:00</lastmod>
+    <lastmod>2019-11-25T13:42:11-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -263,7 +273,7 @@
   
   <url>
     <loc>http://quakkels.com/training_log/</loc>
-    <lastmod>2019-11-19T12:51:21-06:00</lastmod>
+    <lastmod>2019-11-25T13:42:11-06:00</lastmod>
   </url>
   
   <url>
