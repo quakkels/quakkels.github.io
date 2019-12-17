@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title"content="Naming Things Clearly &middot; Quakkels.com" />
+    <meta property="og:description"content="Guidelines for professional programmers to help them write code that&#39;s as easy to understand as possible." />
+    <meta name="author" content="Brandon Quakkelaar">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    <title>Naming Things Clearly &middot; Quakkels.com</title>
+    <link rel="shortcut icon" href="http://quakkels.com/images/favicon.ico">
+    <link rel="stylesheet" href="http://quakkels.com/css/style.css">
+    <base href="http://quakkels.com/">
+    <link rel="canonical" href="http://quakkels.com/posts/clean-names/">
+    <link href="" rel="alternate" type="application/rss+xml" title="Quakkels.com" />
+</head>
+<body lang="en">
+<nav id="main-nav">
+    <div class="mobile-menu">
+        
+        
+        <div id="hamburger"><span></span></div>
+    </div>
+    <a href="http://quakkels.com/">Quakkels.com</a>
+    <a href="http://quakkels.com/projects">Projects</a>
+    <a href="http://quakkels.com/about">About</a>
+    <a href="http://quakkels.com/training_log">Training Log</a>
+    <a class="rss" href="">RSS Feed</a>
+</nav>
+<header id="home-header">
+    <h1>Naming Things Clearly</h1>
+    
+    <h2>Dec 17, 2019</h2>
+    
+    
+    
+    <p>
+            <a href="http://quakkels.com/tags/programming">Programming</a>
+        
+    </p>
+    
+    
+    <h3>By: Brandon Quakkelaar</h3>
+    
+</header>
+<div class="main">
+<section class="wrapper">
+
+
+<p><a href="https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882" target="_blank">Clean Code by Robert C. Martin</a> is one of my favorite programming texts. It has a chapter called Meaningful Names wherein principles for the clear and clean naming of code elements are explained.</p>
+
+<p>When we write code we should be considering the programmer who follows us. Sometimes it may be ourselves who have not touched the code for months or years. The programmer working in previously written code will need to study it to try and recognize the intention and systems of the original author. Making the code as easy to understand as possible is the author&rsquo;s responsibility. When writing professional code, resist urges to &lsquo;be clever&rsquo; or to sacrifice clarity for brevity.</p>
+
+<p>Use these good naming principles and the programmers who follow us will be grateful.</p>
+
+<h2 id="use-names-that-show-intent">Use Names That Show Intent</h2>
+
+<p>Name things so that we can identify them. Consider the variable declared below.</p>
+
+<pre><code>DateTime z;
+</code></pre>
+
+<p>We can clearly see there is a variable. We can tell it&rsquo;s a <code>DateTime</code>. Though, we can&rsquo;t tell what it&rsquo;s used for from just the name. A programmer may try to add clarity be adding a few more keystrokes to the names.</p>
+
+<pre><code>DateTime login;
+</code></pre>
+
+<p>This improves readability somewhat. But it the programmer still isn&rsquo;t clear about what purpose this variable is intended to serve. The name could be further improved by adding more details.</p>
+
+<pre><code>DateTime lastLoginUtc;
+</code></pre>
+
+<p>This is a better name because it communicates several things about the intent of the variable. It is intended to hold a UTC date representing the last time there was a login. The original name, <code>z</code>, communicated none of that intent. The program using <code>z</code> would have been harder to decipher.</p>
+
+<p>Here&rsquo;s a slightly more complex example.</p>
+
+<pre><code>public bool GetResult(Dictionary[string, string] a, string x, string y)
+{
+  if (a.HasKey(x)) 
+  {
+    if (compare(y, a[x]))
+    {
+      return true;
+    }
+  }
+  return false;
+}
+</code></pre>
+
+<p>This isn&rsquo;t doing anything complex, but it&rsquo;s not obvious what&rsquo;s happening. See how much cleaner things get when meaningful names are applied.</p>
+
+<pre><code>public bool ValidatePassword(Dictionary[string, string] credentials, string username, string password)
+{
+  if (credentials.HasKey(username)) 
+  {
+    if (CheckHash(password, credentials[username]))
+    {
+      return true;
+    }
+  }
+  return false;
+}
+</code></pre>
+
+<p>When names show intention we have a much better idea of the job this code performs.</p>
+
+<h2 id="avoid-false-clues">Avoid False Clues</h2>
+
+<p>Programmers should not use names that have common meanings which could mislead the reader from what the variable actually represents. For example <code>ee</code> is a bad variable name. Depending on the reader&rsquo;s background they may be led to believe it stands for Expected Error, Employee Experience, or just Employee.</p>
+
+<p>Similarly, if a variable refers to a collection of employees, avoid using <code>employeeList</code> unless it&rsquo;s actually a list. In fact, often it&rsquo;s preferable to not indicate data type in the variable&rsquo;s name. A pluralized name, such as <code>employees</code>, communicates that it can hold multiple employee objects.</p>
+
+<h2 id="avoid-noise">Avoid Noise</h2>
+
+<p>When attempting to write descriptive names, be careful to avoid meaningless noise. For example, words like &ldquo;info&rdquo; or &ldquo;detail&rdquo; can easily become noise. Consider the method name <code>GetUserClaims()</code>. Some may be inclined to name it <code>GetUserClaimsInfo()</code> or <code>GetUserClaimsDetail()</code> even though the extra words don&rsquo;t add any new information for the reader.</p>
+
+<h2 id="names-should-fit-in-conversation">Names Should Fit in Conversation</h2>
+
+<p>Abbreviating terms or using acronyms can produce names that are awkward to verbalize in regular conversation. Avoid difficult to pronounce names in favor of names that are easily said.</p>
+
+<p>Prefer <code>originalLoginDate</code> over <code>ogLgnDt</code>. Also prefer <code>EnableLongDescription</code> over <code>ENBLNGDESC</code>.</p>
+
+<h2 id="don-t-use-encodings">Don&rsquo;t Use Encodings</h2>
+
+<p>Names that use encodings often violate more than one of the previously recommended rules. They introduce an additional learning curve and require programmers to be subjected to unnecessary extra effort to decipher such names.</p>
+
+<p>The most egregious offenses I&rsquo;ve seen are names for database tables and columns in ERP software. From a real ERP we find this example, <code>CO00101</code>. The name provides next to no clues regarding the table&rsquo;s purpose. The programmer is expected to know that it refers to the table representing &ldquo;Document Attachment Master.&rdquo; Not only does this example use encodings, it also violates the principle that names should show intent. It&rsquo;s an unfortunate name on multiple levels.</p>
+
+<p>Hungarian Notation is an encoding scheme that has historically been popular. But it is a violation of this avoid-encodings rule. In some pioneering programming languages it was necessary to encode information about the variable within the variable name itself using mnemonics. Today our languages and IDEs are advanced enough to have nearly eliminate any need for Hungarian Notation style encodings.</p>
+
+<h3 id="don-t-use-encodings-exceptions-to-the-rule">Don&rsquo;t Use Encodings: Exceptions to the Rule</h3>
+
+<p>Using prefixes for names of class members is still a commonly encountered encoding technique. Uncle Bob  recommends avoiding member prefixes entirely. He writes:</p>
+
+<blockquote>
+<p>&hellip;people quickly learn to ignore the prefix (or suffix) to see the meaningful part of the name. The more we read the code, the less we see the prefixes. Eventually the prefixes become unseen clutter and a marker of older code.</p>
+
+<p>— Clean Code by Robert C. Martin (pp. 24)</p>
+</blockquote>
+
+<p>I haven&rsquo;t yet decided whether I agree with avoiding member prefixes. Consider this class with member prefixes:</p>
+
+<pre><code>public class User
+{
+  private string _username;
+
+  public User(string username)
+  {
+    _username = username;
+  }
+}
+</code></pre>
+
+<p>And compare it to a version without the member prefix:</p>
+
+<pre><code>public class User
+{
+  private string username;
+
+  public User(string username)
+  {
+    this.username = username;
+  }
+}
+</code></pre>
+
+<p>I&rsquo;m hard pressed to say one is superior to the other. Ultimately, I don&rsquo;t think this is a hill worth dying on. I would object to a more involved member prefix, such as <code>m_</code> instead of just <code>_</code>. But I think both versions of the <code>User</code> class are easy to read. However, I would advocate for either <code>this.username</code> or <code>_username</code> when assigning the field rather than <code>username = username</code>. While <code>username = username</code> does work in languages like C#, it appears redundant. And, it violates the &ldquo;avoid false clues&rdquo; rule.</p>
+
+<p>Another exception comes up when dealing with interfaces and concrete classes. If we have need for a configuration service with an interface and a concrete implementation, then how would the names be different between the two. It&rsquo;s common to use an <code>I</code> prefix to indicate an interface. So <code>IConfigurationService</code> and <code>ConfigurationService</code> for the concrete class implementation. But Uncle Bob prefers having the encoding on the concrete class, rather than on the interface. His reasoning for this is that the users of the configuration service interface have no need to know that they&rsquo;ve been given an interface. So, he&rsquo;d name them something like <code>ConfigurationService</code>, and <code>ConfigurationServiceImp</code>.</p>
+
+<h2 id="use-nouns-for-class-names">Use Nouns For Class Names</h2>
+
+<p>This is a straightforward rule. Classes and objects should be thought of as nouns. So, they should be named that way. They shouldn&rsquo;t have verbs.</p>
+
+<h2 id="use-verbs-for-method-names">Use Verbs For Method Names</h2>
+
+<p>Here&rsquo;s another straightforward rule. Methods are &ldquo;doers&rdquo; so their name should have a verb for what they are doing. <code>GetCredentials</code>, <code>ValidatePassword</code>, and <code>AddUser</code> are all good method names.</p>
+
+<h2 id="avoid-inside-jokes-references-and-general-cleverness">Avoid Inside Jokes, References, and General &ldquo;Cleverness&rdquo;</h2>
+
+<p>As fun as it might be, avoid using &ldquo;easter eggs&rdquo; or cultural references in your code. Instead, just be direct and write what you mean. Don&rsquo;t require the reader to resist a distraction and map a label to a concept while they&rsquo;re trying to understand your code.</p>
+
+<h3 id="exceptions-to-avoiding-jokes-and-references">Exceptions to Avoiding Jokes and References</h3>
+
+<p>There is a very specific exception to this rule. Cultural references and inside jokes <em>must</em> be encouraged whenever you&rsquo;re writing in the <a href="https://lhartikk.github.io/ArnoldC/" target="_blank">ArnoldC</a> language</p>
+
+<h2 id="pick-one-word-per-concept">Pick One Word Per Concept</h2>
+
+<p>Some words could be used interchangeably to use the same thing. In such scenarios settle on one word for each abstract concept. For example, using <code>Configuration</code> and <code>Settings</code> to represent the same concept could be confusing. Likewise, avoid using <code>Fetch</code> alongside <code>Get</code>. Having consistent terminology is very useful for teams working together. I&rsquo;ve been part of many conversations over the difference between a <code>UserManager</code> class and a <code>UserService</code> class. The important thing is to identify the concept, and settle on a single word to represent it.</p>
+
+<h2 id="don-t-pun">Don&rsquo;t Pun</h2>
+
+<p>Don&rsquo;t have one word mean more than one thing. Uncle Bob highlights that doing so is essentially making a pun. The example he gives is <code>Add</code>. A codebase may have many <code>Add</code> methods in it, and they all create a new value by adding or concatenating two values. A programmer may want to add a value to a collection, and for consistency&rsquo;s sake use the word <code>Add</code> as the method name, even though the operation being performed is different than every other use of the word. <code>Insert</code> or <code>Append</code> would be better choices for such a method.</p>
+
+<h2 id="use-solution-domain-names">Use Solution Domain Names</h2>
+
+<p>It&rsquo;s okay to use computer science terms, algorithm names, and so on, in our code. Our readers will be other programmers, so it&rsquo;s alright to expect them to know these things.</p>
+
+<h2 id="use-problem-domain-names">Use Problem Domain Names</h2>
+
+<p>Don&rsquo;t invent new terms to represent concepts in the problem domain. Instead use the terms that the problem domain experts use. This will aid in communication, and when someone takes maintains the code after you, they&rsquo;ll be able to ask questions using terminology that the problem domain expert will understand.</p>
+
+<h2 id="add-meaningful-context">Add Meaningful Context</h2>
+
+<p>Names usually require some amount of context to be meaningful. The context can be provided by well named classes inside of well names namespaces. For example, a <code>State</code> variable might not be immediately obvious as part of an address. But if it&rsquo;s a property on an <code>Address</code> class then what <code>Address.State</code> is becomes much clearer.</p>
+
+<h2 id="don-t-add-gratuitous-context">Don&rsquo;t Add Gratuitous Context</h2>
+
+<p>Most of the rules explored so far tend to lead us toward longer more descriptive names. But, a short name that is clear is always better than a longer name that is equally clear.</p>
+
+<h3 id="gratuitous-context-comments">Gratuitous Context: Comments</h3>
+
+<p>I submit that comments are a code smell that indicates poorly named code. Comments become stale easily because they&rsquo;re not subject to a compiler nor an interpreter. Following the previous rules will help reduce the need for comments because the code&rsquo;s intent and readability will be improved enough to eliminate the need for many of them.</p>
+
+<p>A general rule I like is to limit my comments to &ldquo;why&rsquo;s&rdquo;. Comments explaining what is happening or how it&rsquo;s happening are usually vestigial because the code itself should be communicating the &ldquo;what&rdquo; and &ldquo;how&rdquo;. However, the sometimes does a poor job of explaining the &ldquo;why&rdquo;. If you identify a section of your code that may be confusing because it&rsquo;s not obvious why it needs to be there then double check whether it&rsquo;s possible to refactor to make the code clearer. Then, if &ldquo;why&rdquo; is still a question, then a comment may be appropriate. Though it should be a very rare occurrence.</p>
+
+<h2 id="takeaways">Takeaways</h2>
+
+<p>Solving problems with code is the programmer&rsquo;s primary concern. But, a professional programmer also bears the responsibility of writing code that can be understood by others. If he fails at that task his code will rot, and eventually become too cumbersome to improve and use. Strive to infuse these previous guidelines into your code writing process. The results will be programs that are crafted together with a clarity that you, and those who follow you, will appreciate.</p>
+
+<blockquote>
+<p>Our goal, as authors, is to make our code as easy as possible to understand. We want our code to be a quick skim, not an intense study. We want to use the popular paperback model whereby the author is responsible for making himself clear and not the academic model where it is the scholar&rsquo;s job to dig the meaning out of the paper.</p>
+
+<p>— Clean Code by Robert C. Martin (pp. 27)</p>
+</blockquote>
+
+</section>
+</div>
+<div id="footer">
+    <div class="wrapper">
+        <img class="avatar" src="http://quakkels.com/images/avatar-v2.png">
+        My name is Brandon Quakkelaar. I love my family. I work with code. And, I have fun by reading, learning, and building.
+    </div>
+</div>
+<script src="http://quakkels.com/js/site.js"></script>
+<script>
+var navElement = document.getElementById("main-nav");
+var menuButton = document.getElementById("hamburger");
+var mobileSize = 768;
+var menu = new Menu(window, navElement, menuButton, mobileSize);
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91443661-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
