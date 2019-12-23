@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title"content="Functions for Documentation Instead of Comments &middot; Quakkels.com" />
+    <meta property="og:description"content="I’ve become convinced that comments are often worth avoiding. Comments aren’t subject to a compiler nor to an interpreter. Code may change and the corresponding comment often remains as it was. Except now the comment is misleading. This makes maintaining the code unnecessarily difficult." />
+    <meta name="author" content="Brandon Quakkelaar">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    <title>Functions for Documentation Instead of Comments &middot; Quakkels.com</title>
+    <link rel="shortcut icon" href="http://quakkels.com/images/favicon.ico">
+    <link rel="stylesheet" href="http://quakkels.com/css/style.css">
+    <base href="http://quakkels.com/">
+    <link rel="canonical" href="http://quakkels.com/posts/functions-for-documentation-instead-of-comments/">
+    <link href="" rel="alternate" type="application/rss+xml" title="Quakkels.com" />
+</head>
+<body lang="en">
+<nav id="main-nav">
+    <div class="mobile-menu">
+        
+        
+        <div id="hamburger"><span></span></div>
+    </div>
+    <a href="http://quakkels.com/">Quakkels.com</a>
+    <a href="http://quakkels.com/projects">Projects</a>
+    <a href="http://quakkels.com/about">About</a>
+    <a href="http://quakkels.com/training_log">Training Log</a>
+    <a class="rss" href="">RSS Feed</a>
+</nav>
+<header id="home-header">
+    <h1>Functions for Documentation Instead of Comments</h1>
+    
+    <h2>Dec 23, 2019</h2>
+    
+    
+    
+    <p>
+            <a href="http://quakkels.com/tags/programming">Programming</a>
+        
+    </p>
+    
+    
+    <h3>By: Brandon Quakkelaar</h3>
+    
+</header>
+<div class="main">
+<section class="wrapper">
+
+
+<p>Using good function naming and composition will decrease the need for gratuitous comments and increase your code’s readability.</p>
+
+<p>I&rsquo;ve become convinced that comments are often worth avoiding. Comments aren&rsquo;t subject to a compiler nor to an interpreter. Code may change and the corresponding comment often remains as it was. Except now the comment is misleading. This makes maintaining the code unnecessarily difficult.</p>
+
+<h2 id="use-function-names-to-document-code">Use Function Names to Document Code</h2>
+
+<p>Consider this code that determines the &ldquo;Day of the Programmer&rdquo;. The <code>GetDay</code> method (method being a function on an object) gets the date that represents the 256th day of the year. And, it accounts for when the calendar changed from Julian to Gregorian.</p>
+
+<pre><code>public static DayOfTheProgrammer 
+{
+  public static string GetDay(int year)
+  {
+    var september256Day = 13;
+
+    // Find whether the year is missing 14 days.
+    if (year == 1918)
+    {
+      september256Day = 26;
+    }
+    // Find whether it's a leap year
+    else if (year &gt;= 1918 &amp;&amp; (year % 400 == 0 || year % 4 == 0 &amp;&amp; year % 100 != 0) || year &lt; 1918 &amp;&amp; year % 4 == 0)
+    {
+      september256Day = 12;
+    }
+
+    return $&quot;{september256Day}.09.{year}&quot;;
+  }
+}
+</code></pre>
+
+<p>The above code works. But it is difficult to read. The programmer has considered future maintainers by adding explanations in comments above each <code>if</code> statement. That is a step in the right direction, however comments are particularly vulnerable to &ldquo;code rot&rdquo; since the compiler (or interpreter) is unaware of their content. As the code is maintained it&rsquo;s easy for neglected comments to have misleading or even false information in them. I prefer using descriptive names in lieu of comments.</p>
+
+<pre><code>public static class DayOfTheProgrammer
+{
+  public static string GetDay(int year)
+  {
+    var september256Day = 13;
+
+    if (IsMissing14Days(year))
+    {
+      september256Day = 26;
+    }
+    else if (IsLeapYear(year))
+    {
+      september256Day = 12;
+    }
+
+    return $&quot;{september256Day}.09.{year}&quot;;
+  }
+sxz
+  private static bool IsMissing14Days(int year)
+  {
+    return year == 1918;
+  }
+
+  private static bool IsLeapYear(int year)
+  {
+    return year &gt;= 1918 
+      &amp;&amp; (year % 400 == 0 || year % 4 == 0 &amp;&amp; year % 100 != 0) 
+      || year &lt; 1918 
+      &amp;&amp; year % 4 == 0;
+  }
+}
+</code></pre>
+
+<p>Refactoring the code into functions with meaningful names has eliminated the need for the original comments. The same information is being communicated in both versions of the code. However, the original is vulnerable to comment rot while the refactored code that uses descriptive names is easier to maintain.</p>
+
+<p>The programmer may decide to refactor further. The conditional statement in <code>IsLeapYear</code> is still pretty long and requires effort to read and understand. We can add documentation by using descriptive variable names.</p>
+
+<pre><code>private static bool IsLeapYear(int year)
+{
+  var isGregorianCalendar = year &gt;= 1918;
+  var isGregorianLeapYear = year % 400 == 0 || year % 4 == 0 &amp;&amp; year % 100 != 0;
+
+  if (isGregorianCalendar &amp;&amp; isGregorianLeapYear)
+  {
+    return true;
+  }
+
+  var isJulianCalendar = !isGregorianCalendar;
+  var isJulianLeapYear = year % 4 == 0;
+
+  return isJulianCalendar &amp;&amp; isJulianLeapYear;
+}
+</code></pre>
+
+<p>(For more information about the Day of the Programmer problem visit <a href="https://www.hackerrank.com/challenges/day-of-the-programmer/problem" target="_blank">HackerRank</a>.)</p>
+
+<h2 id="prefer-smaller-functions">Prefer Smaller Functions</h2>
+
+<p>Long functions typically suffer from multiple code flows, varying levels of abstraction, and they often have &ldquo;sections&rdquo; delineated by comments. If the programmer feels the need to use comments to separate a program into sections, that could be an opportunity to write smaller functions with descriptive names.</p>
+
+<blockquote>
+<p>The first rule of functions is that they should be small. The second rule of functions is that <em>they should be smaller than that.</em></p>
+
+<p>— Clean Code by Robert C. Martin (pp. 34)</p>
+</blockquote>
+
+<h2 id="useful-comments">Useful Comments</h2>
+
+<p>Though I believe that comments are often worth avoiding, there are times when comments are useful.</p>
+
+<p>Useful comments often fall into one of the following categories.</p>
+
+<h3 id="legal">Legal</h3>
+
+<p>Legal comments such as copyright and license information.</p>
+
+<h3 id="explanation-of-intent">Explanation of Intent</h3>
+
+<p>Good comments can explain the programmer&rsquo;s intention rather than explaining the implementation. Don&rsquo;t explain how it works, rather explain the reason why it works that way.</p>
+
+<h3 id="warning">Warning</h3>
+
+<p>Comments can be useful for communicating warnings about possible consequences. Things like <code>// takes a long time to run</code>, or <code>// not thread safe</code> are good to know and difficult to document without a brief comment.</p>
+
+<p>If a comment falls outside of the previous three categorizations, explore the idea of removing it. The message might be a good candidate for documenting with function names, or variable names.</p>
+
+</section>
+</div>
+<div id="footer">
+    <div class="wrapper">
+        <img class="avatar" src="http://quakkels.com/images/avatar-v2.png">
+        My name is Brandon Quakkelaar. I love my family. I work with code. And, I have fun by reading, learning, and building.
+    </div>
+</div>
+<script src="http://quakkels.com/js/site.js"></script>
+<script>
+var navElement = document.getElementById("main-nav");
+var menuButton = document.getElementById("hamburger");
+var mobileSize = 768;
+var menu = new Menu(window, navElement, menuButton, mobileSize);
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91443661-1', 'auto');
+  ga('send', 'pageview');
+
+</script>

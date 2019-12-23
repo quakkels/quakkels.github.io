@@ -6,8 +6,136 @@
     <description>Recent content on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Dec 2019 07:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 23 Dec 2019 07:00:00 -0500</lastBuildDate>
     <atom:link href="http://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Functions for Documentation Instead of Comments</title>
+      <link>http://quakkels.com/posts/functions-for-documentation-instead-of-comments/</link>
+      <pubDate>Mon, 23 Dec 2019 07:00:00 -0500</pubDate>
+      
+      <guid>http://quakkels.com/posts/functions-for-documentation-instead-of-comments/</guid>
+      <description>
+
+&lt;p&gt;Using good function naming and composition will decrease the need for gratuitous comments and increase your code’s readability.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve become convinced that comments are often worth avoiding. Comments aren&amp;rsquo;t subject to a compiler nor to an interpreter. Code may change and the corresponding comment often remains as it was. Except now the comment is misleading. This makes maintaining the code unnecessarily difficult.&lt;/p&gt;
+
+&lt;h2 id=&#34;use-function-names-to-document-code&#34;&gt;Use Function Names to Document Code&lt;/h2&gt;
+
+&lt;p&gt;Consider this code that determines the &amp;ldquo;Day of the Programmer&amp;rdquo;. The &lt;code&gt;GetDay&lt;/code&gt; method (method being a function on an object) gets the date that represents the 256th day of the year. And, it accounts for when the calendar changed from Julian to Gregorian.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public static DayOfTheProgrammer 
+{
+  public static string GetDay(int year)
+  {
+    var september256Day = 13;
+
+    // Find whether the year is missing 14 days.
+    if (year == 1918)
+    {
+      september256Day = 26;
+    }
+    // Find whether it&#39;s a leap year
+    else if (year &amp;gt;= 1918 &amp;amp;&amp;amp; (year % 400 == 0 || year % 4 == 0 &amp;amp;&amp;amp; year % 100 != 0) || year &amp;lt; 1918 &amp;amp;&amp;amp; year % 4 == 0)
+    {
+      september256Day = 12;
+    }
+
+    return $&amp;quot;{september256Day}.09.{year}&amp;quot;;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The above code works. But it is difficult to read. The programmer has considered future maintainers by adding explanations in comments above each &lt;code&gt;if&lt;/code&gt; statement. That is a step in the right direction, however comments are particularly vulnerable to &amp;ldquo;code rot&amp;rdquo; since the compiler (or interpreter) is unaware of their content. As the code is maintained it&amp;rsquo;s easy for neglected comments to have misleading or even false information in them. I prefer using descriptive names in lieu of comments.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public static class DayOfTheProgrammer
+{
+  public static string GetDay(int year)
+  {
+    var september256Day = 13;
+
+    if (IsMissing14Days(year))
+    {
+      september256Day = 26;
+    }
+    else if (IsLeapYear(year))
+    {
+      september256Day = 12;
+    }
+
+    return $&amp;quot;{september256Day}.09.{year}&amp;quot;;
+  }
+sxz
+  private static bool IsMissing14Days(int year)
+  {
+    return year == 1918;
+  }
+
+  private static bool IsLeapYear(int year)
+  {
+    return year &amp;gt;= 1918 
+      &amp;amp;&amp;amp; (year % 400 == 0 || year % 4 == 0 &amp;amp;&amp;amp; year % 100 != 0) 
+      || year &amp;lt; 1918 
+      &amp;amp;&amp;amp; year % 4 == 0;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Refactoring the code into functions with meaningful names has eliminated the need for the original comments. The same information is being communicated in both versions of the code. However, the original is vulnerable to comment rot while the refactored code that uses descriptive names is easier to maintain.&lt;/p&gt;
+
+&lt;p&gt;The programmer may decide to refactor further. The conditional statement in &lt;code&gt;IsLeapYear&lt;/code&gt; is still pretty long and requires effort to read and understand. We can add documentation by using descriptive variable names.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;private static bool IsLeapYear(int year)
+{
+  var isGregorianCalendar = year &amp;gt;= 1918;
+  var isGregorianLeapYear = year % 400 == 0 || year % 4 == 0 &amp;amp;&amp;amp; year % 100 != 0;
+
+  if (isGregorianCalendar &amp;amp;&amp;amp; isGregorianLeapYear)
+  {
+    return true;
+  }
+
+  var isJulianCalendar = !isGregorianCalendar;
+  var isJulianLeapYear = year % 4 == 0;
+
+  return isJulianCalendar &amp;amp;&amp;amp; isJulianLeapYear;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(For more information about the Day of the Programmer problem visit &lt;a href=&#34;https://www.hackerrank.com/challenges/day-of-the-programmer/problem&#34; target=&#34;_blank&#34;&gt;HackerRank&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;h2 id=&#34;prefer-smaller-functions&#34;&gt;Prefer Smaller Functions&lt;/h2&gt;
+
+&lt;p&gt;Long functions typically suffer from multiple code flows, varying levels of abstraction, and they often have &amp;ldquo;sections&amp;rdquo; delineated by comments. If the programmer feels the need to use comments to separate a program into sections, that could be an opportunity to write smaller functions with descriptive names.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The first rule of functions is that they should be small. The second rule of functions is that &lt;em&gt;they should be smaller than that.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;— Clean Code by Robert C. Martin (pp. 34)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;useful-comments&#34;&gt;Useful Comments&lt;/h2&gt;
+
+&lt;p&gt;Though I believe that comments are often worth avoiding, there are times when comments are useful.&lt;/p&gt;
+
+&lt;p&gt;Useful comments often fall into one of the following categories.&lt;/p&gt;
+
+&lt;h3 id=&#34;legal&#34;&gt;Legal&lt;/h3&gt;
+
+&lt;p&gt;Legal comments such as copyright and license information.&lt;/p&gt;
+
+&lt;h3 id=&#34;explanation-of-intent&#34;&gt;Explanation of Intent&lt;/h3&gt;
+
+&lt;p&gt;Good comments can explain the programmer&amp;rsquo;s intention rather than explaining the implementation. Don&amp;rsquo;t explain how it works, rather explain the reason why it works that way.&lt;/p&gt;
+
+&lt;h3 id=&#34;warning&#34;&gt;Warning&lt;/h3&gt;
+
+&lt;p&gt;Comments can be useful for communicating warnings about possible consequences. Things like &lt;code&gt;// takes a long time to run&lt;/code&gt;, or &lt;code&gt;// not thread safe&lt;/code&gt; are good to know and difficult to document without a brief comment.&lt;/p&gt;
+
+&lt;p&gt;If a comment falls outside of the previous three categorizations, explore the idea of removing it. The message might be a good candidate for documenting with function names, or variable names.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Naming Things Clearly</title>
@@ -823,56 +951,6 @@
 &lt;strong&gt;Barbell Row:&lt;/strong&gt; 225lbs for 3. Then 245lbs for 2x3 &lt;em&gt;(PR)&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;I am happy with the rowing. For the last several weeks I&amp;rsquo;ve used an axle bar. With an axle I end up being limited by grip. It was nice to see barbell rows being easier now. Happy to get the PR on an off day.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>13 (Persistence)</title>
-      <link>http://quakkels.com/training_log/0013/</link>
-      <pubDate>Tue, 29 Oct 2019 12:00:00 -0500</pubDate>
-      
-      <guid>http://quakkels.com/training_log/0013/</guid>
-      <description>
-
-&lt;h1 id=&#34;overhead-press-day&#34;&gt;Overhead Press Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Overhead Press&lt;/td&gt;
-&lt;td&gt;165&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Lat Pulldown&lt;/td&gt;
-&lt;td&gt;165&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Jumping Jacks&lt;/td&gt;
-&lt;td&gt;bw&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Didn&amp;rsquo;t have time to do the second superset.&lt;/p&gt;
 </description>
     </item>
     
