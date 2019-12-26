@@ -77,31 +77,27 @@
 
 <p>Here&rsquo;s a slightly more complex example.</p>
 
-<pre><code>public bool GetResult(Dictionary[string, string] a, string x, string y)
+<pre><code>public bool GetResult(Dictionary&lt;string, string&gt; a, string x, string y)
 {
-  if (a.HasKey(x)) 
+  if (!a.ContainsKey(x)) 
   {
-    if (compare(y, a[x]))
-    {
-      return true;
-    }
+    return false;
   }
-  return false;
+
+  return compare(y, a[x]);
 }
 </code></pre>
 
 <p>This isn&rsquo;t doing anything complex, but it&rsquo;s not obvious what&rsquo;s happening. See how much cleaner things get when meaningful names are applied.</p>
 
-<pre><code>public bool ValidatePassword(Dictionary[string, string] credentials, string username, string password)
+<pre><code>public bool ValidatePassword(Dictionary&lt;string, string&gt; credentials, string username, string password)
 {
-  if (credentials.HasKey(username)) 
+  if (!credentials.ContainsKey(username)) 
   {
-    if (CheckHash(password, credentials[username]))
-    {
-      return true;
-    }
+    return false;
   }
-  return false;
+
+  return CheckHash(password, credentials[username]);
 }
 </code></pre>
 

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title"content="Flat is Better Than Nested Versus Single Entry Single Exit &middot; Quakkels.com" />
+    <meta property="og:description"content="I examine why to avoid single exit and why to prefer flatter code rather than accepting more levels of nested code." />
+    <meta name="author" content="Brandon Quakkelaar">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    <title>Flat is Better Than Nested Versus Single Entry Single Exit &middot; Quakkels.com</title>
+    <link rel="shortcut icon" href="http://quakkels.com/images/favicon.ico">
+    <link rel="stylesheet" href="http://quakkels.com/css/style.css">
+    <base href="http://quakkels.com/">
+    <link rel="canonical" href="http://quakkels.com/posts/single-entry-single-exit/">
+    <link href="" rel="alternate" type="application/rss+xml" title="Quakkels.com" />
+</head>
+<body lang="en">
+<nav id="main-nav">
+    <div class="mobile-menu">
+        
+        
+        <div id="hamburger"><span></span></div>
+    </div>
+    <a href="http://quakkels.com/">Quakkels.com</a>
+    <a href="http://quakkels.com/projects">Projects</a>
+    <a href="http://quakkels.com/about">About</a>
+    <a href="http://quakkels.com/training_log">Training Log</a>
+    <a class="rss" href="">RSS Feed</a>
+</nav>
+<header id="home-header">
+    <h1>Flat is Better Than Nested Versus Single Entry Single Exit</h1>
+    
+    <h2>Dec 26, 2019</h2>
+    
+    
+    
+    <p>
+            <a href="http://quakkels.com/tags/programming">Programming</a>
+        
+    </p>
+    
+    
+    <h3>By: Brandon Quakkelaar</h3>
+    
+</header>
+<div class="main">
+<section class="wrapper">
+
+
+<p>As a program ages and receives updates, more and more features are built. Logic is added and the code becomes increasingly more complicated to read and understand. So programmers invent recommended practices to manage the complexity and to preserve the maintainability of their code. The goal being to keep the cognitive load to minimum levels so the programmer can work efficiently.</p>
+
+<p>One popular practice is to avoid nested code when possible. The concept that flat is better than nested has been widely adopted by Python programmers who have included it in their <a href= "https://www.python.org/dev/peps/pep-0020/" target="_blank">guidelines</a>. Python programmers aren&rsquo;t the only group to adopt this preference. Resharper, a code analysis tool popular among C# programmers, <a href="https://stackoverflow.com/q/268132" target="_blank">recommends coding styles that result in less nested code</a>.</p>
+
+<p>However, there&rsquo;s another recommended practice called Single Entry Single Exit (SE/SE). When applied in modern languages, it avoids exiting a program early with multiple return statements. This can be in direct opposition to &ldquo;Flatter is Better&rdquo; since an important flattening technique is to return early.</p>
+
+<pre><code>public bool ValidatePassword(CredentialService credentials, string username, string password)
+{
+  var isValid = false;
+
+  if (credentials.Exists(username))
+  {
+    if (!credentials.IsLockedOut(username))
+    {
+      if (credentials.IsHashValid(password, credentials.GetHashByUsername(username)))
+      {
+        LogValidPassword(username);
+        isValid = true;
+      }
+      else
+      {
+        LogInvalidPassword(username);
+      }
+    }
+    else
+    {
+      LogLockedOutUser(username);
+    }
+  }
+  else
+  {
+    LogMissingUsername(username);
+  }
+
+  return isValid;
+}
+</code></pre>
+
+<p>The above code is sound. But we can easily see that nested if/else statements quickly become difficult to read. And keep in mind that as this codebase matures it&rsquo;s very likely that additional features, checks, and logging will be required by business rules.</p>
+
+<p>Now, consider how easy it is to read the following code which uses multiple early returns to exit.</p>
+
+<pre><code>public bool ValidatePassword(CredentialService credentials, string username, string password)
+{
+  if (!credentials.Exists(username))
+  {
+    LogMissingUsername(username);
+    return false;
+  }
+
+  if (credentials.IsLockedOut(username))
+  {
+    LogLockedOutUser(username);
+    return false;
+  }
+
+  if (!credentials.IsHashValid(password, credentials.GetHashByUsername(username)))
+  {
+    LogInvalidPassword(username);
+    return false;
+  }
+      
+  LogValidPassword(username);
+  return true;
+}
+</code></pre>
+
+<p>My preference is to favor returning early. Composing functions such that there&rsquo;s just one final return statement results in code that has more <code>else</code> statements and multiple levels of nesting. I find these are characteristics of code that&rsquo;s difficult to read. A <code>return</code> is the end of function execution. When an early <code>return</code> is encountered then the final result is apparent. This is not the case when setting a result value which can be changed later in execution. So a programmer would need to handle the cognitive load of more scenarios with SE/SE than they would if early returns were adopted.</p>
+
+<h2 id="origins-of-single-entry-single-exit">Origins of Single Entry Single Exit</h2>
+
+<p>The history of SE/SE is rooted in a pioneering programming paradigm called Structured Programming. The term Structured Programming was <a href="https://www.cs.utexas.edu/users/EWD/ewd02xx/EWD249.PDF" target="_blank">coined by Edsger Dijkstra</a>. It&rsquo;s used to refer to programming with control structures like if/then/else, loops like for and while, and subroutines. This paradigm gained popularity thanks in part to a 1968 letter called <a href="https://www.cs.utexas.edu/users/EWD/ewd02xx/EWD215.PDF" target="_blank">Go-to Statement Considered Harmful</a> by Dijkstra.</p>
+
+<p>The argument for SE/SE has it&rsquo;s foundation in the argument against using <code>goto</code>. Essentially highlighting the benefits of avoiding flows that become tangled and obfuscated to the programmer. Such code is referred to as <a href="https://en.wikipedia.org/wiki/Spaghetti_code#Meaning" target="_blank">spaghetti code</a>. Bertrand Meyer criticizes returning early, and even advises against using <code>continue</code> and <code>break</code> in loops. He writes about it in his book called Touch of Class: Learning to Program Well with Objects and Contracts. Regarding <code>return</code>, <code>continue</code>, and <code>break</code> he says they &ldquo;are just the old goto in sheep&rsquo;s clothing.&rdquo; His opinion seems to be overly dogmatic to me because those three keywords always jump to the same place. A <code>return</code> will always exit the function. A <code>continue</code> will always jump to the top of the loop. A <code>break</code> will always exit a loop. Those behaviors are consistent and programmers have mental models for them and they&rsquo;re transferable to other programs. This is unlike <code>goto</code> which requires the programmer to hunt for the location that&rsquo;s being jumped to, and therefore they must create a new mental model for each flow.</p>
+
+<h2 id="final-thoughts">Final Thoughts</h2>
+
+<p>SE/SE was for a time when the programmer handled the structure of the function rather than just the logic of it. Languages that offered multiple points of entry to subroutines can certainly become confusing. I agree that multiple entry points is a practice to be avoided. But, modern languages offer greater protections than earlier ones. So the rule is less relevant today.</p>
+
+<p>My disagreement is specifically with the single exit rule. I think flat code is just easier to understand than nested. Now, there are cases where a single exit is important. Multiple exit points could certainly be an issue in languages like C which require you to clean up after yourself. But the rule is not nearly as useful for languages that have features like garbage collection, <code>try...finally</code>, and <code>using</code> blocks.</p>
+
+</section>
+</div>
+<div id="footer">
+    <div class="wrapper">
+        <img class="avatar" src="http://quakkels.com/images/avatar-v2.png">
+        My name is Brandon Quakkelaar. I love my family. I work with code. And, I have fun by reading, learning, and building.
+    </div>
+</div>
+<script src="http://quakkels.com/js/site.js"></script>
+<script>
+var navElement = document.getElementById("main-nav");
+var menuButton = document.getElementById("hamburger");
+var mobileSize = 768;
+var menu = new Menu(window, navElement, menuButton, mobileSize);
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91443661-1', 'auto');
+  ga('send', 'pageview');
+
+</script>

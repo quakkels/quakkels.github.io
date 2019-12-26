@@ -6,8 +6,99 @@
     <description>Recent content in Posts on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Dec 2019 07:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 26 Dec 2019 07:00:00 -0500</lastBuildDate>
     <atom:link href="http://quakkels.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Flat is Better Than Nested Versus Single Entry Single Exit</title>
+      <link>http://quakkels.com/posts/single-entry-single-exit/</link>
+      <pubDate>Thu, 26 Dec 2019 07:00:00 -0500</pubDate>
+      
+      <guid>http://quakkels.com/posts/single-entry-single-exit/</guid>
+      <description>
+
+&lt;p&gt;As a program ages and receives updates, more and more features are built. Logic is added and the code becomes increasingly more complicated to read and understand. So programmers invent recommended practices to manage the complexity and to preserve the maintainability of their code. The goal being to keep the cognitive load to minimum levels so the programmer can work efficiently.&lt;/p&gt;
+
+&lt;p&gt;One popular practice is to avoid nested code when possible. The concept that flat is better than nested has been widely adopted by Python programmers who have included it in their &lt;a href= &#34;https://www.python.org/dev/peps/pep-0020/&#34; target=&#34;_blank&#34;&gt;guidelines&lt;/a&gt;. Python programmers aren&amp;rsquo;t the only group to adopt this preference. Resharper, a code analysis tool popular among C# programmers, &lt;a href=&#34;https://stackoverflow.com/q/268132&#34; target=&#34;_blank&#34;&gt;recommends coding styles that result in less nested code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;However, there&amp;rsquo;s another recommended practice called Single Entry Single Exit (SE/SE). When applied in modern languages, it avoids exiting a program early with multiple return statements. This can be in direct opposition to &amp;ldquo;Flatter is Better&amp;rdquo; since an important flattening technique is to return early.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public bool ValidatePassword(CredentialService credentials, string username, string password)
+{
+  var isValid = false;
+
+  if (credentials.Exists(username))
+  {
+    if (!credentials.IsLockedOut(username))
+    {
+      if (credentials.IsHashValid(password, credentials.GetHashByUsername(username)))
+      {
+        LogValidPassword(username);
+        isValid = true;
+      }
+      else
+      {
+        LogInvalidPassword(username);
+      }
+    }
+    else
+    {
+      LogLockedOutUser(username);
+    }
+  }
+  else
+  {
+    LogMissingUsername(username);
+  }
+
+  return isValid;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The above code is sound. But we can easily see that nested if/else statements quickly become difficult to read. And keep in mind that as this codebase matures it&amp;rsquo;s very likely that additional features, checks, and logging will be required by business rules.&lt;/p&gt;
+
+&lt;p&gt;Now, consider how easy it is to read the following code which uses multiple early returns to exit.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public bool ValidatePassword(CredentialService credentials, string username, string password)
+{
+  if (!credentials.Exists(username))
+  {
+    LogMissingUsername(username);
+    return false;
+  }
+
+  if (credentials.IsLockedOut(username))
+  {
+    LogLockedOutUser(username);
+    return false;
+  }
+
+  if (!credentials.IsHashValid(password, credentials.GetHashByUsername(username)))
+  {
+    LogInvalidPassword(username);
+    return false;
+  }
+      
+  LogValidPassword(username);
+  return true;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;My preference is to favor returning early. Composing functions such that there&amp;rsquo;s just one final return statement results in code that has more &lt;code&gt;else&lt;/code&gt; statements and multiple levels of nesting. I find these are characteristics of code that&amp;rsquo;s difficult to read. A &lt;code&gt;return&lt;/code&gt; is the end of function execution. When an early &lt;code&gt;return&lt;/code&gt; is encountered then the final result is apparent. This is not the case when setting a result value which can be changed later in execution. So a programmer would need to handle the cognitive load of more scenarios with SE/SE than they would if early returns were adopted.&lt;/p&gt;
+
+&lt;h2 id=&#34;origins-of-single-entry-single-exit&#34;&gt;Origins of Single Entry Single Exit&lt;/h2&gt;
+
+&lt;p&gt;The history of SE/SE is rooted in a pioneering programming paradigm called Structured Programming. The term Structured Programming was &lt;a href=&#34;https://www.cs.utexas.edu/users/EWD/ewd02xx/EWD249.PDF&#34; target=&#34;_blank&#34;&gt;coined by Edsger Dijkstra&lt;/a&gt;. It&amp;rsquo;s used to refer to programming with control structures like if/then/else, loops like for and while, and subroutines. This paradigm gained popularity thanks in part to a 1968 letter called &lt;a href=&#34;https://www.cs.utexas.edu/users/EWD/ewd02xx/EWD215.PDF&#34; target=&#34;_blank&#34;&gt;Go-to Statement Considered Harmful&lt;/a&gt; by Dijkstra.&lt;/p&gt;
+
+&lt;p&gt;The argument for SE/SE has it&amp;rsquo;s foundation in the argument against using &lt;code&gt;goto&lt;/code&gt;. Essentially highlighting the benefits of avoiding flows that become tangled and obfuscated to the programmer. Such code is referred to as &lt;a href=&#34;https://en.wikipedia.org/wiki/Spaghetti_code#Meaning&#34; target=&#34;_blank&#34;&gt;spaghetti code&lt;/a&gt;. Bertrand Meyer criticizes returning early, and even advises against using &lt;code&gt;continue&lt;/code&gt; and &lt;code&gt;break&lt;/code&gt; in loops. He writes about it in his book called Touch of Class: Learning to Program Well with Objects and Contracts. Regarding &lt;code&gt;return&lt;/code&gt;, &lt;code&gt;continue&lt;/code&gt;, and &lt;code&gt;break&lt;/code&gt; he says they &amp;ldquo;are just the old goto in sheep&amp;rsquo;s clothing.&amp;rdquo; His opinion seems to be overly dogmatic to me because those three keywords always jump to the same place. A &lt;code&gt;return&lt;/code&gt; will always exit the function. A &lt;code&gt;continue&lt;/code&gt; will always jump to the top of the loop. A &lt;code&gt;break&lt;/code&gt; will always exit a loop. Those behaviors are consistent and programmers have mental models for them and they&amp;rsquo;re transferable to other programs. This is unlike &lt;code&gt;goto&lt;/code&gt; which requires the programmer to hunt for the location that&amp;rsquo;s being jumped to, and therefore they must create a new mental model for each flow.&lt;/p&gt;
+
+&lt;h2 id=&#34;final-thoughts&#34;&gt;Final Thoughts&lt;/h2&gt;
+
+&lt;p&gt;SE/SE was for a time when the programmer handled the structure of the function rather than just the logic of it. Languages that offered multiple points of entry to subroutines can certainly become confusing. I agree that multiple entry points is a practice to be avoided. But, modern languages offer greater protections than earlier ones. So the rule is less relevant today.&lt;/p&gt;
+
+&lt;p&gt;My disagreement is specifically with the single exit rule. I think flat code is just easier to understand than nested. Now, there are cases where a single exit is important. Multiple exit points could certainly be an issue in languages like C which require you to clean up after yourself. But the rule is not nearly as useful for languages that have features like garbage collection, &lt;code&gt;try...finally&lt;/code&gt;, and &lt;code&gt;using&lt;/code&gt; blocks.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Functions for Documentation Instead of Comments</title>
@@ -172,31 +263,27 @@ sxz
 
 &lt;p&gt;Here&amp;rsquo;s a slightly more complex example.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;public bool GetResult(Dictionary[string, string] a, string x, string y)
+&lt;pre&gt;&lt;code&gt;public bool GetResult(Dictionary&amp;lt;string, string&amp;gt; a, string x, string y)
 {
-  if (a.HasKey(x)) 
+  if (!a.ContainsKey(x)) 
   {
-    if (compare(y, a[x]))
-    {
-      return true;
-    }
+    return false;
   }
-  return false;
+
+  return compare(y, a[x]);
 }
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This isn&amp;rsquo;t doing anything complex, but it&amp;rsquo;s not obvious what&amp;rsquo;s happening. See how much cleaner things get when meaningful names are applied.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;public bool ValidatePassword(Dictionary[string, string] credentials, string username, string password)
+&lt;pre&gt;&lt;code&gt;public bool ValidatePassword(Dictionary&amp;lt;string, string&amp;gt; credentials, string username, string password)
 {
-  if (credentials.HasKey(username)) 
+  if (!credentials.ContainsKey(username)) 
   {
-    if (CheckHash(password, credentials[username]))
-    {
-      return true;
-    }
+    return false;
   }
-  return false;
+
+  return CheckHash(password, credentials[username]);
 }
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -1830,222 +1917,6 @@ to get me working on a project right where I left off.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;&lt;code&gt;ctrl+/&lt;/code&gt; brings up a help menu.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Into the Nether: Linux</title>
-      <link>http://quakkels.com/posts/into-the-nether-linux/</link>
-      <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://quakkels.com/posts/into-the-nether-linux/</guid>
-      <description>
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/Debian_FVWM_Green_1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The first movie I saw that really got me excited about computers was WarGames. The WOPR was an inanimate object that just sat there on screen. But, it was still a complete character all by itself. It reacted to the Matthew Broderick character&amp;rsquo;s commands and questions and became something more clever than just a boring piece of hardware. The fictional software running inside the WOPR and Broderick&amp;rsquo;s character&amp;rsquo;s ability to interface with it created a story that was incredibly mystical and exciting. It made computers seem exclusive. Only a few skilled people could understand them. People who had these skills were members of an exclusive club. They knew how things worked, and how to do the coolest tricks.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/wargames.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;WarGames&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Green and blue text on black screens became a symbol of those skills. Hackers didn&amp;rsquo;t need pictures or windowed interfaces. They were the best, and therefore didn&amp;rsquo;t need any extra ornamentation. The coolest interfaces were both simple and complex. Simple because it was text, and complex because of the heavy tasks these techno elites were accomplishing. Something as simple as &amp;ldquo;knock, knock, Neo.&amp;rdquo; blew my mind the first time I saw it, not because of flashy graphics. Rather, it was because I was immersed in that fictional universe. I believed that a hacker, at a keyboard somewhere in another dimension, that was talking directly to Mr. Anderson with the text on that black screen.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/matrix.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;The Matrix&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Around this same time I learned about real people that changed the world with their computer ninja skills. Language designers, operating system inventors, and application developers who changed how we live every day. These titans of technology all knew how to build things using a black screen and green text. So let&amp;rsquo;s follow suite, hey? Let&amp;rsquo;s swallow the red pill, drink the Cool-Aid, and nerd up!&lt;/p&gt;
-
-&lt;h2 id=&#34;enter-linux&#34;&gt;Enter Linux&lt;/h2&gt;
-
-&lt;p&gt;I&amp;rsquo;ve been led to believe there is a great big computing world out there with
-green text in the form of Linux. The amount of time I&amp;rsquo;ve already spent on
-tangents about awesome movies means that I won&amp;rsquo;t go into the history of Linux
-here. If you don&amp;rsquo;t know what Linux is, you should watch &lt;a href=&#34;https://www.youtube.com/watch?v=jw8K460vx1c&amp;amp;feature=youtu.be&#34;&gt;Revolution OS&lt;/a&gt;. It&amp;rsquo;s free. Do it now.&lt;/p&gt;
-
-&lt;h2 id=&#34;debian-linux-on-a-virtual-machine&#34;&gt;Debian Linux on a virtual machine&lt;/h2&gt;
-
-&lt;p&gt;I knew that installing Linux would involve climbing a learning curve. This can often lead to a little frustration. My frustration started early, but interestingly it was due to proprietary technology. Not due to Linux. I work in Windows 8.1 Pro for nearly all of my day to day development work. Windows 8.1 Pro includes Microsoft&amp;rsquo;s virtualization software called Hyper-V. From what I understand, Hyper-V can be very good. But it gave me a significant headache. My efforts to install Linux were derailed when I had trouble getting my Hyper-V VM to connect to my network. This was beyond frustrating. I eventually experienced the giant annoyance of breaking my host machine&amp;rsquo;s WiFi configuration. The only way my laptop could connect to the Internet was through a wired connection. I was beyond perturbed at this point, so once I restored my laptop&amp;rsquo;s networking settings I abandoned the idea of using Hyper-V in favor of virtualization software that I am much more familiar with: &lt;a href=&#34;https://www.virtualbox.org/&#34;&gt;VirtualBox&lt;/a&gt;. VirtualBox is probably a better choice for this anyway because it runs on more operating systems than Hyper-V, and it doesn&amp;rsquo;t cost anything.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; If you have turned on Hyper-V on your Windows machine and have since decided to use different virtualization software, turn it off in the &amp;ldquo;Turn Windows Features On/Off&amp;rdquo; section of the Control Panel. If you leave it on it will compete with your new virtualization software causing unusual behavior — such as being almost completely borked.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Once VirtualBox was installed, then I needed to choose a distribution of Linux
-to install. After asking around on IRC, I decided to use Debian Testing for
-this endeavor. Debian has three main releases. Stable, Testing, and Development.
-Stable is usually very, very stable. But, to be so stable, it sacrifices current
-software in favor of older software that has been tested for a longer period of
-time, as in &lt;em&gt;years&lt;/em&gt; longer. The development release is (shockingly) the version of
-Debian that is in development, thus it is the least stable version and prone to
-breaking. The Testing release is the &amp;ldquo;just right&amp;rdquo; flavor of Debian that strikes
-a balance between age and stability. Or so I&amp;rsquo;ve been told.&lt;/p&gt;
-
-&lt;p&gt;I had a hard time finding the download link for Debian Testing. With help from IRC, I eventually came across a &lt;a href=&#34;https://www.debian.org/releases/testing/&#34;&gt;page&lt;/a&gt; explaining that the Testing release of Debian (at this time) is code-named Stretch. I decided that the most likely link to download the release I&amp;rsquo;m looking for was on &lt;a href=&#34;https://www.debian.org/devel/debian-installer/&#34;&gt;this page&lt;/a&gt;. I chose a CD ISO image for netinst (perhaps standing for &amp;lsquo;Network Installer&amp;rsquo;) and the only reason I felt somewhat sure that I was downloading the right ISO is because &amp;ldquo;stretch&amp;rdquo; was in the file name. Seems this whole section of the Debian web site could be easily improved to be more user friendly. Maybe a site that is hard to use is just a hazing ritual people have to go through in order to join the ranks of the &amp;ldquo;green text elite&amp;rdquo; programmers. If so, okay. I&amp;rsquo;m willing to jump through a couple of hoops. Remember WarGames? That shit&amp;rsquo;s awesome.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;  The Debian devs seem to like Toy Story.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;After the ISO finished downloading, I created a new virtual machine in VirtualBox. It got 4GB of memory and 30GB for its hard drive. I called it Luke. The next VM I spin up will probably be called Leia. I like Star Wars. Part of being a programmer is naming your stuff whatever the hell you want. Yus!&lt;/p&gt;
-
-&lt;p&gt;Since the ISO I have is the network installer version, the networking configuration has to work, or it will not be able to get the rest of the packages it needs to finish installation. Luke was configured for Bridged networking. It should work, I won&amp;rsquo;t really know until I load the ISO as a fake CD into Luke&amp;rsquo;s fake CD drive and try to install Debian from the network. Use the network, Luke.&lt;/p&gt;
-
-&lt;p&gt;Installing Debian was pretty easy. Being in the United States, just about all the default settings were what I wanted. Really I just had to tell the installation process which timezone I wanted and to use the entire virtual hard drive for Linux. I did decide to not install any desktop or GUI. The typical desktop experience is not the goal here. Let&amp;rsquo;s start with just the essentials. A command terminal is essential. I think it&amp;rsquo;s important to use a terminal so I can feel comfortable working in most other Linux configurations. And, I should be able to SSH into a networked Linux machine to perform maintenance, programming, configuration adjustments, and any other task a programmer may want to perform.&lt;/p&gt;
-
-&lt;h2 id=&#34;it-s-installed-now-what&#34;&gt;It&amp;rsquo;s installed. Now what?&lt;/h2&gt;
-
-&lt;p&gt;After it finished booting up, Debian presented a nice login screen. Really simple and uncluttered. It was nice. The green text that I like so much wasn&amp;rsquo;t there, but it had a black background. At this point I&amp;rsquo;m thinking I can probably figure out how to configure green to be the default text color. But for now, I can&amp;rsquo;t help but feel pleased with myself.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/01loginscreen.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So I entered my username and my password and was greeted by a really nice, simple command prompt.&lt;/p&gt;
-
-&lt;h2 id=&#34;where-is-sudo&#34;&gt;Where is sudo?&lt;/h2&gt;
-
-&lt;p&gt;Apparently, some pretty standard items were missing from my current Debian setup. The obvious thing that is missing is any kind of desktop environment. I skipped that on purpose, so not a problem there. However, the plan was to install a very minimal window manager called &lt;a href=&#34;http://i3wm.org/&#34;&gt;i3wm&lt;/a&gt; that looked like it would be fun to use instead of a desktop environment that was just imitating Windows and OSX. i3 promised that it was really configurable, and the screenshots on their site had green and blue text on a black background. In short, it looked like an environment I would enjoy working in. But as I started trying to install the software I ran into problems.&lt;/p&gt;
-
-&lt;p&gt;One of the most basic operations to perform in Linux is installing software using a package manager. Windows doesn&amp;rsquo;t have a culture around package managers, so this might seem odd to you if you are coming from a Windows only world. But, in Linux world, package managers are one of the best ways to install new programs.&lt;/p&gt;
-
-&lt;p&gt;The package manager that Debian uses is called apt-get. This allows you to install software with a command that gets entered into the terminal. So if I wanted to install a program to be my window manager (like i3wm) I could install it like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ apt-get install i3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The thing is, that command only works of the user who is entering the command had permission to install software. A user like root would need to do that. The root user in Linux is like the equivalent of an Administrator account in Windows. Root has permission to install programs. However, there is a pretty big rule that you don&amp;rsquo;t usually want to log into Linux as root. It&amp;rsquo;s just safer to not be root when you use Linux. So the typical way to install software with apt-get changes to use another program called sudo. The modified command looks like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo apt-get install i3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The sudo command will temporarily changes your regular user&amp;rsquo;s permissions to root level so that the next command (apt-get) will be executed with elevated permissions. At least, that&amp;rsquo;s how it is supposed to be. But for me, it didn&amp;rsquo;t work!&lt;/p&gt;
-
-&lt;p&gt;Not sure why, but for some reason my Debian instance did not have sudo installed. &lt;strike&gt;Maybe it was somehow related to me not installing a desktop environment. I don&amp;rsquo;t know for sure. But it struck me as odd.&lt;/strike&gt; &lt;a href=&#34;https://www.reddit.com/r/linux/comments/3guj67/into_the_nether_linux/cu1suqk/&#34;&gt;It seems that the reason sudo wasn&amp;rsquo;t installed is because I set a root password during installation&lt;/a&gt;. So I used a series of commands to install sudo so I could use it for all software installs going forward. Here are the commands I ran:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ su root
-$ apt-get install sudo
-$ sudo adduser quakkels sudo
-$ su quakkels
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The su command (pronounced like soo) is the command to switch the current user to the user that is specified. Once I switched to root I was able to install sudo and add my regular user to the list of sudo-ers. Once that was completed, I switched back to my regular user account. Now I was able to install i3wm.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo apt-get install i3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I think it worked. Excellent!!! I sat there, looking at my screen. It didn&amp;rsquo;t change. I tried a reboot thinking that it would start up with i3wm working.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo reboot
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The same login screen came up as before. I logged in and then thought that maybe I need to run i3 in order to start the window manager.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ i3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now that definitely did not work.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo i3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;That also definitely did not work. But, thanks to some advice from IRC and &lt;a href=&#34;http://blog.erikd.org/&#34;&gt;this guy&lt;/a&gt;, I knew enough that i3 has a dependency on xorg. So let&amp;rsquo;s install that.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo apt-get install xorg
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This was all well and good. But, I still had no idea why i3 wasn&amp;rsquo;t managing my windows yet! Starting to get a little annoyed. I should be patient though. It&amp;rsquo;s all about the learning experience right now. So after some googling, I found &lt;a href=&#34;https://faq.i3wm.org/question/6126/how-do-i-start-i3/&#34;&gt;this on the i3 FAQ&lt;/a&gt;. That FAQ question described almost exactly what I was experiencing.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;From the FAQ:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The easiest way to get started is to edit (or create, if misisng) ~/.xinitrc. If it didn&amp;rsquo;t exist, simply put exec i3 in there. If it exists, check the bottom for some exec call, comment it out and put exec i3 instead.
-Once the file is saved, run startx from the TTY. This will start an X server, read the file and then start i3.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Also, note that the character ~ represents the current user&amp;rsquo;s home directory.&lt;/p&gt;
-
-&lt;p&gt;After following the advice in that FAQ answer, I was able to start the i3 window manager with the following command.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ startx
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;After I entered that command and pressed &amp;lsquo;enter&amp;rsquo; celebration ensued. Now I had a working i3 environment. A little google/bing/duckduckgo&amp;rsquo;ing revealed that I could open a new terminal using the keyboard shortcut alt+enter. If a user needs to launch a program that doesn&amp;rsquo;t run in a terminal, it can be started using a special prompt launched with the shortcut alt+d. Then the name of the program you want to type can be entered and launched. I quickly isntalled a few must have programs: an IRC client called irssi, and a web browser called Ice Weasel.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo apt-get install irssi
-$ sudo apt-get install iceweasel
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;02i3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;but-but-i-thought-there-would-be-a-black-background&#34;&gt;But, but — I thought there would be a black background?&lt;/h2&gt;
-
-&lt;p&gt;Things are going pretty well, so far. But I&amp;rsquo;m not going to hide that I felt a pang of disappointment when I opened a terminal in i3 and it had black text on a white background. That is unfortunate. When I use this VM I want to feel like I&amp;rsquo;m in the movies. I know that&amp;rsquo;s a totally shallow goal, but it&amp;rsquo;s still fun. And I&amp;rsquo;m a little stubborn. So I will have to figure this out sometime, but for now it is working.&lt;/p&gt;
-
-&lt;h2 id=&#34;a-little-vm-housekeeping&#34;&gt;A little VM housekeeping&lt;/h2&gt;
-
-&lt;p&gt;VirtualBox provides something called Guest Additions that can be installed in operating systems running in their VMs. Guest Additions are nice because it lets the guest machine interact with the host in a much more streamlined way. I installed it primarily because I wanted the Linux workspace to resize when I resized the VirtualBox window. There are a couple of websites out there that have decent instructions. The instructions I followed are &lt;a href=&#34;http://www.swiftsoftwaregroup.com/debian-wheezy-guest-windows-8-1-host-using-virtualbox/&#34;&gt;here&lt;/a&gt;. Configuring the VM and inserting the Guest Additions cd wasn&amp;rsquo;t an issue. But Linux has this concept of &amp;lsquo;mounting&amp;rsquo; a drive before you can use it. Maybe Windows and other OS&amp;rsquo;s have this concept too, but it may have been behind the scenes. I struggled with the mounting concept because it wasn&amp;rsquo;t in the step by step instructions that I followed. After pounding my head against the wall for way too long, I kind of stumbled on the &amp;lsquo;mount&amp;rsquo; command. The commands I used in Linux to install Guest Additions were these (executed in a root terminal):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ apt-get install module-assistant
-$ m-a prepare
-$ mount /media/cdrom
-$ sh /media/cdrom/VBoxLinuxAdditions.run
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;After a quick reboot, the desktop environment was working with Guest Additions nicely.&lt;/p&gt;
-
-&lt;h2 id=&#34;chasing-that-black-background&#34;&gt;Chasing that black background&lt;/h2&gt;
-
-&lt;p&gt;It was still important to me that the terminal in i3 had light text on a black (or dark) background. A simple command told me what terminal i3 used.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ echo $TERM
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;That printed out &amp;lsquo;xterm&amp;rsquo;. According to online search results, xterm is one of the older terminals that exist. And, it is configurable. So I got busy &lt;a href=&#34;http://scarygliders.net/2011/12/01/customize-xterm-the-original-and-best-terminal/&#34;&gt;configuring&lt;/a&gt; it according to my own tastes.&lt;/p&gt;
-
-&lt;p&gt;At that point, I started getting frustrated. My Linux VM had no ~/.Xresources file, so I went ahead and created one. That wasn&amp;rsquo;t a problem. The first problem was when I tried to copy and paste from my web browser into the Nano text editor that I was using to edit the new .Xresources file. Ctrl+c and Ctrl+v weren&amp;rsquo;t working for me. To avoid that issue in the short term, I decided to just manually edit two configuration settings: the foreground and background colors. My patience was starting to wear thin.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;xterm*foreground: rgb:4f/a3/43
-xterm*background: rgb:00/00/00
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I added those configuration settings to the file, closed the terminal, and opened a new terminal. Nothing changed. At this point I really was expecting the configuration file to take effect and overwrite the default settings. But it didn&amp;rsquo;t. I sat at my desk thinking about how it should have worked. It should have worked. Every other time I changed a config file it took effect as soon as the program restarted. Sure, cache might need to be cleared too. But this is how I understood computers to work. Adding or changing configuration should result in the program&amp;rsquo;s behavior changing to match. But it didn&amp;rsquo;t happen.&lt;/p&gt;
-
-&lt;p&gt;Reading further down the &lt;a href=&#34;http://scarygliders.net/2011/12/01/customize-xterm-the-original-and-best-terminal/&#34;&gt;instructions&lt;/a&gt; led me to a command that seemed to somehow &amp;lsquo;merge&amp;rsquo; the .Xresources file with the actual configuration. This seemed odd to me. But, okay. That&amp;rsquo;s just how this works I suppose. So I ran the command.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ xrdb -merge ~/.Xresources
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now we&amp;rsquo;re getting somewhere! I closed the terminal and reopened it. Success! I wrote a few words and then sat back in satisfaction. I ended the day feeling great about my new Linux environment.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/03greenonblack.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;the-next-day-losing-my-cool&#34;&gt;The next day, losing my cool&lt;/h2&gt;
-
-&lt;p&gt;What is this crap? This is some kind of messed up shit.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/04blackonwhite.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The terminal colors were wrong. I changed them the day before, but the original colors were back. I checked my .Xresources config file and it hadn&amp;rsquo;t changed from the way I left it the previous day. It still had the color settings. This ticked me off. Configuration settings shouldn&amp;rsquo;t just reset themselves like this. Apparently they do in in this case though. Bad. I was beyond annoyed.&lt;/p&gt;
-
-&lt;p&gt;Thanks to some help from this &lt;a href=&#34;http://www.linuxquestions.org/questions/slackware-14/xrdb-merge-xresources-how-can-i-get-rid-of-that-776844/#post3797806&#34;&gt;post&lt;/a&gt;,  I figured out that there is yet another step to configuring applications with .Xresources. So I added the line to my .xinitrc file and rebooted.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;xrdb -merge .Xresources
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;That did not work. Then I changed it again, and rebooted.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;xrdb -merge ~/.Xresources
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This did not work. What the Hell, man? Let me guess. I probably need to not only configure the .Xresources configuration file with .xinitrc. I probably need to configure the .xinitrc configuration file inside some other configuration file. It&amp;rsquo;s configuration-ception!&lt;/p&gt;
-
-&lt;p&gt;The actual fix was not that rage inducing as configuration-ception. Instead, there is a rational reason it isn&amp;rsquo;t working. Apparently, the .xinitrc is not a configuration file in the way that a typical XML or JSON file is a configuration file. The &amp;lsquo;rc&amp;rsquo; stands for &lt;a href=&#34;https://en.wikipedia.org/wiki/Run_commands&#34;&gt;run commands&lt;/a&gt;. The order of each line matters. I put the merge command at the end of the .xinitrc file. This means that the i3 window manager was starting before the .Xresources configuration file was merged in. So I updated the .xinitrc file.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;xrdb -merge ~/.Xresources
-exec i3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It seems so simple now. I should have realized this earlier. For crying out loud, the only two lines in this file are both commands. Well, that&amp;rsquo;s hindsight for you.&lt;/p&gt;
 </description>
     </item>
     
