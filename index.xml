@@ -2,12 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Quakkels.com</title>
-    <link>http://quakkels.com/index.xml</link>
+    <link>http://quakkels.com/</link>
     <description>Recent content on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Dec 2019 07:00:00 -0500</lastBuildDate>
-    <atom:link href="http://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>28 (HLM)</title>
+      <link>http://quakkels.com/training_log/0028/</link>
+      <pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0028/</guid>
+      <description>Light Day SSB Squats  65x5 155x5 245x3 285x1 295 for 3 sets of 5  Bench  45x5 135x5 185x3 215x1 225 for 3 sets of 5 185 for 2 sets of 8  Pendlay Row  135x8 185x4 205x8 205x6 205x6  Rows did not feel good. Need to work those more.</description>
+    </item>
+    
+    <item>
+      <title>27 (HLM)</title>
+      <link>http://quakkels.com/training_log/0027/</link>
+      <pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0027/</guid>
+      <description>Heavy Day I didn&amp;rsquo;t train much during December. So this workout is a measure of how much I&amp;rsquo;ve regressed.
+Squats  45x5 135x5 225x5 315x5 335x5 335x5 335x4  Only had 4 reps in my last set. But I&amp;rsquo;m pleased I was able to do this with 335.
+Overhead Press  45x5 95x5 135x3 145x1 155x1 160 for 3 sets of 5  Very pleased that I was able to get these reps with 160 pounds.</description>
+    </item>
     
     <item>
       <title>Flat is Better Than Nested Versus Single Entry Single Exit</title>
@@ -15,89 +37,8 @@
       <pubDate>Thu, 26 Dec 2019 07:00:00 -0500</pubDate>
       
       <guid>http://quakkels.com/posts/single-entry-single-exit/</guid>
-      <description>
-
-&lt;p&gt;As a program ages and receives updates, more and more features are built. Logic is added and the code becomes increasingly more complicated to read and understand. So programmers invent recommended practices to manage the complexity and to preserve the maintainability of their code. The goal being to keep the cognitive load to minimum levels so the programmer can work efficiently.&lt;/p&gt;
-
-&lt;p&gt;One popular practice is to avoid nested code when possible. The concept that flat is better than nested has been widely adopted by Python programmers who have included it in their &lt;a href= &#34;https://www.python.org/dev/peps/pep-0020/&#34; target=&#34;_blank&#34;&gt;guidelines&lt;/a&gt;. Python programmers aren&amp;rsquo;t the only group to adopt this preference. Resharper, a code analysis tool popular among C# programmers, &lt;a href=&#34;https://stackoverflow.com/q/268132&#34; target=&#34;_blank&#34;&gt;recommends coding styles that result in less nested code&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;However, there&amp;rsquo;s another recommended practice called Single Entry Single Exit (SE/SE). When applied in modern languages, it avoids exiting a program early with multiple return statements. This can be in direct opposition to &amp;ldquo;Flatter is Better&amp;rdquo; since an important flattening technique is to return early.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public bool ValidatePassword(CredentialService credentials, string username, string password)
-{
-  var isValid = false;
-
-  if (credentials.Exists(username))
-  {
-    if (!credentials.IsLockedOut(username))
-    {
-      if (credentials.IsHashValid(password, credentials.GetHashByUsername(username)))
-      {
-        LogValidPassword(username);
-        isValid = true;
-      }
-      else
-      {
-        LogInvalidPassword(username);
-      }
-    }
-    else
-    {
-      LogLockedOutUser(username);
-    }
-  }
-  else
-  {
-    LogMissingUsername(username);
-  }
-
-  return isValid;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The above code is sound. But we can easily see that nested if/else statements quickly become difficult to read. And keep in mind that as this codebase matures it&amp;rsquo;s very likely that additional features, checks, and logging will be required by business rules.&lt;/p&gt;
-
-&lt;p&gt;Now, consider how easy it is to read the following code which uses multiple early returns to exit.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public bool ValidatePassword(CredentialService credentials, string username, string password)
-{
-  if (!credentials.Exists(username))
-  {
-    LogMissingUsername(username);
-    return false;
-  }
-
-  if (credentials.IsLockedOut(username))
-  {
-    LogLockedOutUser(username);
-    return false;
-  }
-
-  if (!credentials.IsHashValid(password, credentials.GetHashByUsername(username)))
-  {
-    LogInvalidPassword(username);
-    return false;
-  }
-      
-  LogValidPassword(username);
-  return true;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;My preference is to favor returning early. Composing functions such that there&amp;rsquo;s just one final return statement results in code that has more &lt;code&gt;else&lt;/code&gt; statements and multiple levels of nesting. I find these are characteristics of code that&amp;rsquo;s difficult to read. A &lt;code&gt;return&lt;/code&gt; is the end of function execution. When an early &lt;code&gt;return&lt;/code&gt; is encountered then the final result is apparent. This is not the case when setting a result value which can be changed later in execution. So a programmer would need to handle the cognitive load of more scenarios with SE/SE than they would if early returns were adopted.&lt;/p&gt;
-
-&lt;h2 id=&#34;origins-of-single-entry-single-exit&#34;&gt;Origins of Single Entry Single Exit&lt;/h2&gt;
-
-&lt;p&gt;The history of SE/SE is rooted in a pioneering programming paradigm called Structured Programming. The term Structured Programming was &lt;a href=&#34;https://www.cs.utexas.edu/users/EWD/ewd02xx/EWD249.PDF&#34; target=&#34;_blank&#34;&gt;coined by Edsger Dijkstra&lt;/a&gt;. It&amp;rsquo;s used to refer to programming with control structures like if/then/else, loops like for and while, and subroutines. This paradigm gained popularity thanks in part to a 1968 letter called &lt;a href=&#34;https://www.cs.utexas.edu/users/EWD/ewd02xx/EWD215.PDF&#34; target=&#34;_blank&#34;&gt;Go-to Statement Considered Harmful&lt;/a&gt; by Dijkstra.&lt;/p&gt;
-
-&lt;p&gt;The argument for SE/SE has it&amp;rsquo;s foundation in the argument against using &lt;code&gt;goto&lt;/code&gt;. Essentially highlighting the benefits of avoiding flows that become tangled and obfuscated to the programmer. Such code is referred to as &lt;a href=&#34;https://en.wikipedia.org/wiki/Spaghetti_code#Meaning&#34; target=&#34;_blank&#34;&gt;spaghetti code&lt;/a&gt;. Bertrand Meyer criticizes returning early, and even advises against using &lt;code&gt;continue&lt;/code&gt; and &lt;code&gt;break&lt;/code&gt; in loops. He writes about it in his book called Touch of Class: Learning to Program Well with Objects and Contracts. Regarding &lt;code&gt;return&lt;/code&gt;, &lt;code&gt;continue&lt;/code&gt;, and &lt;code&gt;break&lt;/code&gt; he says they &amp;ldquo;are just the old goto in sheep&amp;rsquo;s clothing.&amp;rdquo; His opinion seems to be overly dogmatic to me because those three keywords always jump to the same place. A &lt;code&gt;return&lt;/code&gt; will always exit the function. A &lt;code&gt;continue&lt;/code&gt; will always jump to the top of the loop. A &lt;code&gt;break&lt;/code&gt; will always exit a loop. Those behaviors are consistent and programmers have mental models for them and they&amp;rsquo;re transferable to other programs. This is unlike &lt;code&gt;goto&lt;/code&gt; which requires the programmer to hunt for the location that&amp;rsquo;s being jumped to, and therefore they must create a new mental model for each flow.&lt;/p&gt;
-
-&lt;h2 id=&#34;final-thoughts&#34;&gt;Final Thoughts&lt;/h2&gt;
-
-&lt;p&gt;SE/SE was for a time when the programmer handled the structure of the function rather than just the logic of it. Languages that offered multiple points of entry to subroutines can certainly become confusing. I agree that multiple entry points is a practice to be avoided. But, modern languages offer greater protections than earlier ones. So the rule is less relevant today.&lt;/p&gt;
-
-&lt;p&gt;My disagreement is specifically with the single exit rule. I think flat code is just easier to understand than nested. Now, there are cases where a single exit is important. Multiple exit points could certainly be an issue in languages like C which require you to clean up after yourself. But the rule is not nearly as useful for languages that have features like garbage collection, &lt;code&gt;try...finally&lt;/code&gt;, and &lt;code&gt;using&lt;/code&gt; blocks.&lt;/p&gt;
-</description>
+      <description>As a program ages and receives updates, more and more features are built. Logic is added and the code becomes increasingly more complicated to read and understand. So programmers invent recommended practices to manage the complexity and to preserve the maintainability of their code. The goal being to keep the cognitive load to minimum levels so the programmer can work efficiently.
+One popular practice is to avoid nested code when possible.</description>
     </item>
     
     <item>
@@ -106,126 +47,9 @@
       <pubDate>Mon, 23 Dec 2019 07:00:00 -0500</pubDate>
       
       <guid>http://quakkels.com/posts/functions-for-documentation-instead-of-comments/</guid>
-      <description>
-
-&lt;p&gt;Using good function naming and composition will decrease the need for gratuitous comments and increase your code’s readability.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ve become convinced that comments are often worth avoiding. Comments aren&amp;rsquo;t subject to a compiler nor to an interpreter. Code may change and the corresponding comment often remains as it was. Except now the comment is misleading. This makes maintaining the code unnecessarily difficult.&lt;/p&gt;
-
-&lt;h2 id=&#34;use-function-names-to-document-code&#34;&gt;Use Function Names to Document Code&lt;/h2&gt;
-
-&lt;p&gt;Consider this code that determines the &amp;ldquo;Day of the Programmer&amp;rdquo;. The &lt;code&gt;GetDay&lt;/code&gt; method (method being a function on an object) gets the date that represents the 256th day of the year. And, it accounts for when the calendar changed from Julian to Gregorian.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public static DayOfTheProgrammer 
-{
-  public static string GetDay(int year)
-  {
-    var september256Day = 13;
-
-    // Find whether the year is missing 14 days.
-    if (year == 1918)
-    {
-      september256Day = 26;
-    }
-    // Find whether it&#39;s a leap year
-    else if (year &amp;gt;= 1918 &amp;amp;&amp;amp; (year % 400 == 0 || year % 4 == 0 &amp;amp;&amp;amp; year % 100 != 0) || year &amp;lt; 1918 &amp;amp;&amp;amp; year % 4 == 0)
-    {
-      september256Day = 12;
-    }
-
-    return $&amp;quot;{september256Day}.09.{year}&amp;quot;;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The above code works. But it is difficult to read. The programmer has considered future maintainers by adding explanations in comments above each &lt;code&gt;if&lt;/code&gt; statement. That is a step in the right direction, however comments are particularly vulnerable to &amp;ldquo;code rot&amp;rdquo; since the compiler (or interpreter) is unaware of their content. As the code is maintained it&amp;rsquo;s easy for neglected comments to have misleading or even false information in them. I prefer using descriptive names in lieu of comments.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public static class DayOfTheProgrammer
-{
-  public static string GetDay(int year)
-  {
-    var september256Day = 13;
-
-    if (IsMissing14Days(year))
-    {
-      september256Day = 26;
-    }
-    else if (IsLeapYear(year))
-    {
-      september256Day = 12;
-    }
-
-    return $&amp;quot;{september256Day}.09.{year}&amp;quot;;
-  }
-sxz
-  private static bool IsMissing14Days(int year)
-  {
-    return year == 1918;
-  }
-
-  private static bool IsLeapYear(int year)
-  {
-    return year &amp;gt;= 1918 
-      &amp;amp;&amp;amp; (year % 400 == 0 || year % 4 == 0 &amp;amp;&amp;amp; year % 100 != 0) 
-      || year &amp;lt; 1918 
-      &amp;amp;&amp;amp; year % 4 == 0;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Refactoring the code into functions with meaningful names has eliminated the need for the original comments. The same information is being communicated in both versions of the code. However, the original is vulnerable to comment rot while the refactored code that uses descriptive names is easier to maintain.&lt;/p&gt;
-
-&lt;p&gt;The programmer may decide to refactor further. The conditional statement in &lt;code&gt;IsLeapYear&lt;/code&gt; is still pretty long and requires effort to read and understand. We can add documentation by using descriptive variable names.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;private static bool IsLeapYear(int year)
-{
-  var isGregorianCalendar = year &amp;gt;= 1918;
-  var isGregorianLeapYear = year % 400 == 0 || year % 4 == 0 &amp;amp;&amp;amp; year % 100 != 0;
-
-  if (isGregorianCalendar &amp;amp;&amp;amp; isGregorianLeapYear)
-  {
-    return true;
-  }
-
-  var isJulianCalendar = !isGregorianCalendar;
-  var isJulianLeapYear = year % 4 == 0;
-
-  return isJulianCalendar &amp;amp;&amp;amp; isJulianLeapYear;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;(For more information about the Day of the Programmer problem visit &lt;a href=&#34;https://www.hackerrank.com/challenges/day-of-the-programmer/problem&#34; target=&#34;_blank&#34;&gt;HackerRank&lt;/a&gt;.)&lt;/p&gt;
-
-&lt;h2 id=&#34;prefer-smaller-functions&#34;&gt;Prefer Smaller Functions&lt;/h2&gt;
-
-&lt;p&gt;Long functions typically suffer from multiple code flows, varying levels of abstraction, and they often have &amp;ldquo;sections&amp;rdquo; delineated by comments. If the programmer feels the need to use comments to separate a program into sections, that could be an opportunity to write smaller functions with descriptive names.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;The first rule of functions is that they should be small. The second rule of functions is that &lt;em&gt;they should be smaller than that.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;— Clean Code by Robert C. Martin (pp. 34)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;useful-comments&#34;&gt;Useful Comments&lt;/h2&gt;
-
-&lt;p&gt;Though I believe that comments are often worth avoiding, there are times when comments are useful.&lt;/p&gt;
-
-&lt;p&gt;Useful comments often fall into one of the following categories.&lt;/p&gt;
-
-&lt;h3 id=&#34;legal&#34;&gt;Legal&lt;/h3&gt;
-
-&lt;p&gt;Legal comments such as copyright and license information.&lt;/p&gt;
-
-&lt;h3 id=&#34;explanation-of-intent&#34;&gt;Explanation of Intent&lt;/h3&gt;
-
-&lt;p&gt;Good comments can explain the programmer&amp;rsquo;s intention rather than explaining the implementation. Don&amp;rsquo;t explain how it works, rather explain the reason why it works that way.&lt;/p&gt;
-
-&lt;h3 id=&#34;warning&#34;&gt;Warning&lt;/h3&gt;
-
-&lt;p&gt;Comments can be useful for communicating warnings about possible consequences. Things like &lt;code&gt;// takes a long time to run&lt;/code&gt;, or &lt;code&gt;// not thread safe&lt;/code&gt; are good to know and difficult to document without a brief comment.&lt;/p&gt;
-
-&lt;p&gt;If a comment falls outside of the previous three categorizations, explore the idea of removing it. The message might be a good candidate for documenting with function names, or variable names.&lt;/p&gt;
-</description>
+      <description>Using good function naming and composition will decrease the need for gratuitous comments and increase your code’s readability.
+I&amp;rsquo;ve become convinced that comments are often worth avoiding. Comments aren&amp;rsquo;t subject to a compiler nor to an interpreter. Code may change and the corresponding comment often remains as it was. Except now the comment is misleading. This makes maintaining the code unnecessarily difficult.
+Use Function Names to Document Code Consider this code that determines the &amp;ldquo;Day of the Programmer&amp;rdquo;.</description>
     </item>
     
     <item>
@@ -234,224 +58,18 @@ sxz
       <pubDate>Tue, 17 Dec 2019 07:00:00 -0500</pubDate>
       
       <guid>http://quakkels.com/posts/clean-names/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882&#34; target=&#34;_blank&#34;&gt;Clean Code by Robert C. Martin&lt;/a&gt; is one of my favorite programming texts. It has a chapter called Meaningful Names wherein principles for the clear and clean naming of code elements are explained.&lt;/p&gt;
-
-&lt;p&gt;When we write code we should be considering the programmer who follows us. Sometimes it may be ourselves who have not touched the code for months or years. The programmer working in previously written code will need to study it to try and recognize the intention and systems of the original author. Making the code as easy to understand as possible is the author&amp;rsquo;s responsibility. When writing professional code, resist urges to &amp;lsquo;be clever&amp;rsquo; or to sacrifice clarity for brevity.&lt;/p&gt;
-
-&lt;p&gt;Use these good naming principles and the programmers who follow us will be grateful.&lt;/p&gt;
-
-&lt;h2 id=&#34;use-names-that-show-intent&#34;&gt;Use Names That Show Intent&lt;/h2&gt;
-
-&lt;p&gt;Name things so that we can identify them. Consider the variable declared below.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;DateTime z;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We can clearly see there is a variable. We can tell it&amp;rsquo;s a &lt;code&gt;DateTime&lt;/code&gt;. Though, we can&amp;rsquo;t tell what it&amp;rsquo;s used for from just the name. A programmer may try to add clarity be adding a few more keystrokes to the names.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;DateTime login;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This improves readability somewhat. But it the programmer still isn&amp;rsquo;t clear about what purpose this variable is intended to serve. The name could be further improved by adding more details.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;DateTime lastLoginUtc;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This is a better name because it communicates several things about the intent of the variable. It is intended to hold a UTC date representing the last time there was a login. The original name, &lt;code&gt;z&lt;/code&gt;, communicated none of that intent. The program using &lt;code&gt;z&lt;/code&gt; would have been harder to decipher.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s a slightly more complex example.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public bool GetResult(Dictionary&amp;lt;string, string&amp;gt; a, string x, string y)
-{
-  if (!a.ContainsKey(x)) 
-  {
-    return false;
-  }
-
-  return compare(y, a[x]);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This isn&amp;rsquo;t doing anything complex, but it&amp;rsquo;s not obvious what&amp;rsquo;s happening. See how much cleaner things get when meaningful names are applied.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public bool ValidatePassword(Dictionary&amp;lt;string, string&amp;gt; credentials, string username, string password)
-{
-  if (!credentials.ContainsKey(username)) 
-  {
-    return false;
-  }
-
-  return CheckHash(password, credentials[username]);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;When names show intention we have a much better idea of the job this code performs.&lt;/p&gt;
-
-&lt;h2 id=&#34;avoid-false-clues&#34;&gt;Avoid False Clues&lt;/h2&gt;
-
-&lt;p&gt;Programmers should not use names that have common meanings which could mislead the reader from what the variable actually represents. For example &lt;code&gt;ee&lt;/code&gt; is a bad variable name. Depending on the reader&amp;rsquo;s background they may be led to believe it stands for Expected Error, Employee Experience, or just Employee.&lt;/p&gt;
-
-&lt;p&gt;Similarly, if a variable refers to a collection of employees, avoid using &lt;code&gt;employeeList&lt;/code&gt; unless it&amp;rsquo;s actually a list. In fact, often it&amp;rsquo;s preferable to not indicate data type in the variable&amp;rsquo;s name. A pluralized name, such as &lt;code&gt;employees&lt;/code&gt;, communicates that it can hold multiple employee objects.&lt;/p&gt;
-
-&lt;h2 id=&#34;avoid-noise&#34;&gt;Avoid Noise&lt;/h2&gt;
-
-&lt;p&gt;When attempting to write descriptive names, be careful to avoid meaningless noise. For example, words like &amp;ldquo;info&amp;rdquo; or &amp;ldquo;detail&amp;rdquo; can easily become noise. Consider the method name &lt;code&gt;GetUserClaims()&lt;/code&gt;. Some may be inclined to name it &lt;code&gt;GetUserClaimsInfo()&lt;/code&gt; or &lt;code&gt;GetUserClaimsDetail()&lt;/code&gt; even though the extra words don&amp;rsquo;t add any new information for the reader.&lt;/p&gt;
-
-&lt;h2 id=&#34;names-should-fit-in-conversation&#34;&gt;Names Should Fit in Conversation&lt;/h2&gt;
-
-&lt;p&gt;Abbreviating terms or using acronyms can produce names that are awkward to verbalize in regular conversation. Avoid difficult to pronounce names in favor of names that are easily said.&lt;/p&gt;
-
-&lt;p&gt;Prefer &lt;code&gt;originalLoginDate&lt;/code&gt; over &lt;code&gt;ogLgnDt&lt;/code&gt;. Also prefer &lt;code&gt;EnableLongDescription&lt;/code&gt; over &lt;code&gt;ENBLNGDESC&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;don-t-use-encodings&#34;&gt;Don&amp;rsquo;t Use Encodings&lt;/h2&gt;
-
-&lt;p&gt;Names that use encodings often violate more than one of the previously recommended rules. They introduce an additional learning curve and require programmers to be subjected to unnecessary extra effort to decipher such names.&lt;/p&gt;
-
-&lt;p&gt;The most egregious offenses I&amp;rsquo;ve seen are names for database tables and columns in ERP software. From a real ERP we find this example, &lt;code&gt;CO00101&lt;/code&gt;. The name provides next to no clues regarding the table&amp;rsquo;s purpose. The programmer is expected to know that it refers to the table representing &amp;ldquo;Document Attachment Master.&amp;rdquo; Not only does this example use encodings, it also violates the principle that names should show intent. It&amp;rsquo;s an unfortunate name on multiple levels.&lt;/p&gt;
-
-&lt;p&gt;Hungarian Notation is an encoding scheme that has historically been popular. But it is a violation of this avoid-encodings rule. In some pioneering programming languages it was necessary to encode information about the variable within the variable name itself using mnemonics. Today our languages and IDEs are advanced enough to have nearly eliminate any need for Hungarian Notation style encodings.&lt;/p&gt;
-
-&lt;h3 id=&#34;don-t-use-encodings-exceptions-to-the-rule&#34;&gt;Don&amp;rsquo;t Use Encodings: Exceptions to the Rule&lt;/h3&gt;
-
-&lt;p&gt;Using prefixes for names of class members is still a commonly encountered encoding technique. Uncle Bob  recommends avoiding member prefixes entirely. He writes:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&amp;hellip;people quickly learn to ignore the prefix (or suffix) to see the meaningful part of the name. The more we read the code, the less we see the prefixes. Eventually the prefixes become unseen clutter and a marker of older code.&lt;/p&gt;
-
-&lt;p&gt;— Clean Code by Robert C. Martin (pp. 24)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I haven&amp;rsquo;t yet decided whether I agree with avoiding member prefixes. Consider this class with member prefixes:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public class User
-{
-  private string _username;
-
-  public User(string username)
-  {
-    _username = username;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And compare it to a version without the member prefix:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public class User
-{
-  private string username;
-
-  public User(string username)
-  {
-    this.username = username;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I&amp;rsquo;m hard pressed to say one is superior to the other. Ultimately, I don&amp;rsquo;t think this is a hill worth dying on. I would object to a more involved member prefix, such as &lt;code&gt;m_&lt;/code&gt; instead of just &lt;code&gt;_&lt;/code&gt;. But I think both versions of the &lt;code&gt;User&lt;/code&gt; class are easy to read. However, I would advocate for either &lt;code&gt;this.username&lt;/code&gt; or &lt;code&gt;_username&lt;/code&gt; when assigning the field rather than &lt;code&gt;username = username&lt;/code&gt;. While &lt;code&gt;username = username&lt;/code&gt; does work in languages like C#, it appears redundant. And, it violates the &amp;ldquo;avoid false clues&amp;rdquo; rule.&lt;/p&gt;
-
-&lt;p&gt;Another exception comes up when dealing with interfaces and concrete classes. If we have need for a configuration service with an interface and a concrete implementation, then how would the names be different between the two. It&amp;rsquo;s common to use an &lt;code&gt;I&lt;/code&gt; prefix to indicate an interface. So &lt;code&gt;IConfigurationService&lt;/code&gt; and &lt;code&gt;ConfigurationService&lt;/code&gt; for the concrete class implementation. But Uncle Bob prefers having the encoding on the concrete class, rather than on the interface. His reasoning for this is that the users of the configuration service interface have no need to know that they&amp;rsquo;ve been given an interface. So, he&amp;rsquo;d name them something like &lt;code&gt;ConfigurationService&lt;/code&gt;, and &lt;code&gt;ConfigurationServiceImp&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;use-nouns-for-class-names&#34;&gt;Use Nouns For Class Names&lt;/h2&gt;
-
-&lt;p&gt;This is a straightforward rule. Classes and objects should be thought of as nouns. So, they should be named that way. They shouldn&amp;rsquo;t have verbs.&lt;/p&gt;
-
-&lt;h2 id=&#34;use-verbs-for-method-names&#34;&gt;Use Verbs For Method Names&lt;/h2&gt;
-
-&lt;p&gt;Here&amp;rsquo;s another straightforward rule. Methods are &amp;ldquo;doers&amp;rdquo; so their name should have a verb for what they are doing. &lt;code&gt;GetCredentials&lt;/code&gt;, &lt;code&gt;ValidatePassword&lt;/code&gt;, and &lt;code&gt;AddUser&lt;/code&gt; are all good method names.&lt;/p&gt;
-
-&lt;h2 id=&#34;avoid-inside-jokes-references-and-general-cleverness&#34;&gt;Avoid Inside Jokes, References, and General &amp;ldquo;Cleverness&amp;rdquo;&lt;/h2&gt;
-
-&lt;p&gt;As fun as it might be, avoid using &amp;ldquo;easter eggs&amp;rdquo; or cultural references in your code. Instead, just be direct and write what you mean. Don&amp;rsquo;t require the reader to resist a distraction and map a label to a concept while they&amp;rsquo;re trying to understand your code.&lt;/p&gt;
-
-&lt;h3 id=&#34;exceptions-to-avoiding-jokes-and-references&#34;&gt;Exceptions to Avoiding Jokes and References&lt;/h3&gt;
-
-&lt;p&gt;There is a very specific exception to this rule. Cultural references and inside jokes &lt;em&gt;must&lt;/em&gt; be encouraged whenever you&amp;rsquo;re writing in the &lt;a href=&#34;https://lhartikk.github.io/ArnoldC/&#34; target=&#34;_blank&#34;&gt;ArnoldC&lt;/a&gt; language&lt;/p&gt;
-
-&lt;h2 id=&#34;pick-one-word-per-concept&#34;&gt;Pick One Word Per Concept&lt;/h2&gt;
-
-&lt;p&gt;Some words could be used interchangeably to use the same thing. In such scenarios settle on one word for each abstract concept. For example, using &lt;code&gt;Configuration&lt;/code&gt; and &lt;code&gt;Settings&lt;/code&gt; to represent the same concept could be confusing. Likewise, avoid using &lt;code&gt;Fetch&lt;/code&gt; alongside &lt;code&gt;Get&lt;/code&gt;. Having consistent terminology is very useful for teams working together. I&amp;rsquo;ve been part of many conversations over the difference between a &lt;code&gt;UserManager&lt;/code&gt; class and a &lt;code&gt;UserService&lt;/code&gt; class. The important thing is to identify the concept, and settle on a single word to represent it.&lt;/p&gt;
-
-&lt;h2 id=&#34;don-t-pun&#34;&gt;Don&amp;rsquo;t Pun&lt;/h2&gt;
-
-&lt;p&gt;Don&amp;rsquo;t have one word mean more than one thing. Uncle Bob highlights that doing so is essentially making a pun. The example he gives is &lt;code&gt;Add&lt;/code&gt;. A codebase may have many &lt;code&gt;Add&lt;/code&gt; methods in it, and they all create a new value by adding or concatenating two values. A programmer may want to add a value to a collection, and for consistency&amp;rsquo;s sake use the word &lt;code&gt;Add&lt;/code&gt; as the method name, even though the operation being performed is different than every other use of the word. &lt;code&gt;Insert&lt;/code&gt; or &lt;code&gt;Append&lt;/code&gt; would be better choices for such a method.&lt;/p&gt;
-
-&lt;h2 id=&#34;use-solution-domain-names&#34;&gt;Use Solution Domain Names&lt;/h2&gt;
-
-&lt;p&gt;It&amp;rsquo;s okay to use computer science terms, algorithm names, and so on, in our code. Our readers will be other programmers, so it&amp;rsquo;s alright to expect them to know these things.&lt;/p&gt;
-
-&lt;h2 id=&#34;use-problem-domain-names&#34;&gt;Use Problem Domain Names&lt;/h2&gt;
-
-&lt;p&gt;Don&amp;rsquo;t invent new terms to represent concepts in the problem domain. Instead use the terms that the problem domain experts use. This will aid in communication, and when someone takes maintains the code after you, they&amp;rsquo;ll be able to ask questions using terminology that the problem domain expert will understand.&lt;/p&gt;
-
-&lt;h2 id=&#34;add-meaningful-context&#34;&gt;Add Meaningful Context&lt;/h2&gt;
-
-&lt;p&gt;Names usually require some amount of context to be meaningful. The context can be provided by well named classes inside of well names namespaces. For example, a &lt;code&gt;State&lt;/code&gt; variable might not be immediately obvious as part of an address. But if it&amp;rsquo;s a property on an &lt;code&gt;Address&lt;/code&gt; class then what &lt;code&gt;Address.State&lt;/code&gt; is becomes much clearer.&lt;/p&gt;
-
-&lt;h2 id=&#34;don-t-add-gratuitous-context&#34;&gt;Don&amp;rsquo;t Add Gratuitous Context&lt;/h2&gt;
-
-&lt;p&gt;Most of the rules explored so far tend to lead us toward longer more descriptive names. But, a short name that is clear is always better than a longer name that is equally clear.&lt;/p&gt;
-
-&lt;h3 id=&#34;gratuitous-context-comments&#34;&gt;Gratuitous Context: Comments&lt;/h3&gt;
-
-&lt;p&gt;I submit that comments are a code smell that indicates poorly named code. Comments become stale easily because they&amp;rsquo;re not subject to a compiler nor an interpreter. Following the previous rules will help reduce the need for comments because the code&amp;rsquo;s intent and readability will be improved enough to eliminate the need for many of them.&lt;/p&gt;
-
-&lt;p&gt;A general rule I like is to limit my comments to &amp;ldquo;why&amp;rsquo;s&amp;rdquo;. Comments explaining what is happening or how it&amp;rsquo;s happening are usually vestigial because the code itself should be communicating the &amp;ldquo;what&amp;rdquo; and &amp;ldquo;how&amp;rdquo;. However, the sometimes does a poor job of explaining the &amp;ldquo;why&amp;rdquo;. If you identify a section of your code that may be confusing because it&amp;rsquo;s not obvious why it needs to be there then double check whether it&amp;rsquo;s possible to refactor to make the code clearer. Then, if &amp;ldquo;why&amp;rdquo; is still a question, then a comment may be appropriate. Though it should be a very rare occurrence.&lt;/p&gt;
-
-&lt;h2 id=&#34;takeaways&#34;&gt;Takeaways&lt;/h2&gt;
-
-&lt;p&gt;Solving problems with code is the programmer&amp;rsquo;s primary concern. But, a professional programmer also bears the responsibility of writing code that can be understood by others. If he fails at that task his code will rot, and eventually become too cumbersome to improve and use. Strive to infuse these previous guidelines into your code writing process. The results will be programs that are crafted together with a clarity that you, and those who follow you, will appreciate.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Our goal, as authors, is to make our code as easy as possible to understand. We want our code to be a quick skim, not an intense study. We want to use the popular paperback model whereby the author is responsible for making himself clear and not the academic model where it is the scholar&amp;rsquo;s job to dig the meaning out of the paper.&lt;/p&gt;
-
-&lt;p&gt;— Clean Code by Robert C. Martin (pp. 27)&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+      <description>Clean Code by Robert C. Martin is one of my favorite programming texts. It has a chapter called Meaningful Names wherein principles for the clear and clean naming of code elements are explained.
+When we write code we should be considering the programmer who follows us. Sometimes it may be ourselves who have not touched the code for months or years. The programmer working in previously written code will need to study it to try and recognize the intention and systems of the original author.</description>
     </item>
     
     <item>
       <title>26 (HLM)</title>
-      <link>http://quakkels.com/training_log/00026/</link>
+      <link>http://quakkels.com/training_log/0026/</link>
       <pubDate>Mon, 09 Dec 2019 13:20:35 -0600</pubDate>
       
-      <guid>http://quakkels.com/training_log/00026/</guid>
-      <description>
-
-&lt;h1 id=&#34;light-day&#34;&gt;Light Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;ssb-squats&#34;&gt;SSB Squats&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;65x5&lt;/li&gt;
-&lt;li&gt;155x5&lt;/li&gt;
-&lt;li&gt;245x3&lt;/li&gt;
-&lt;li&gt;275x1&lt;/li&gt;
-&lt;li&gt;285lbs for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;close-grip-bench&#34;&gt;Close Grip Bench&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;45x5&lt;/li&gt;
-&lt;li&gt;95x5&lt;/li&gt;
-&lt;li&gt;135x5&lt;/li&gt;
-&lt;li&gt;185x3&lt;/li&gt;
-&lt;li&gt;205x1&lt;/li&gt;
-&lt;li&gt;215lbs for 5 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The shoulder is just about back to normal. Close grip bench with elbows tucked helped stability a lot.&lt;/p&gt;
-
-&lt;h2 id=&#34;pendlay-row&#34;&gt;Pendlay Row&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;135x3&lt;/li&gt;
-&lt;li&gt;185x3&lt;/li&gt;
-&lt;li&gt;205lbs for 3 sets of 8&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <guid>http://quakkels.com/training_log/0026/</guid>
+      <description> Light Day SSB Squats  65x5 155x5 245x3 275x1 285lbs for 3 sets of 5  Close Grip Bench  45x5 95x5 135x5 185x3 205x1 215lbs for 5 sets of 5  The shoulder is just about back to normal. Close grip bench with elbows tucked helped stability a lot.
+Pendlay Row  135x3 185x3 205lbs for 3 sets of 8  </description>
     </item>
     
     <item>
@@ -460,44 +78,9 @@ sxz
       <pubDate>Thu, 05 Dec 2019 13:41:27 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0025/</guid>
-      <description>
-
-&lt;h1 id=&#34;heavy-day&#34;&gt;Heavy Day&lt;/h1&gt;
-
-&lt;p&gt;Weights felt good today. Feels like I&amp;rsquo;ve accidentally timed my first workout back after Thanksgiving so that everything felt great.&lt;/p&gt;
-
-&lt;p&gt;Also, my shoulder didn&amp;rsquo;t bother me at all today. It&amp;rsquo;ll be tested in a couple days with bench.&lt;/p&gt;
-
-&lt;h2 id=&#34;squats&#34;&gt;Squats&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;45x5&lt;/li&gt;
-&lt;li&gt;135x5&lt;/li&gt;
-&lt;li&gt;225x3&lt;/li&gt;
-&lt;li&gt;315x3&lt;/li&gt;
-&lt;li&gt;335x1&lt;/li&gt;
-&lt;li&gt;345lbs for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;overhead-press&#34;&gt;Overhead Press&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;45x5&lt;/li&gt;
-&lt;li&gt;95x5&lt;/li&gt;
-&lt;li&gt;135x3&lt;/li&gt;
-&lt;li&gt;150x1&lt;/li&gt;
-&lt;li&gt;160lbs for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;deadlift&#34;&gt;Deadlift&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;225x5&lt;/li&gt;
-&lt;li&gt;315x3&lt;/li&gt;
-&lt;li&gt;365x1&lt;/li&gt;
-&lt;li&gt;405lbs for 1 set of 5&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description> Heavy Day Weights felt good today. Feels like I&amp;rsquo;ve accidentally timed my first workout back after Thanksgiving so that everything felt great.
+Also, my shoulder didn&amp;rsquo;t bother me at all today. It&amp;rsquo;ll be tested in a couple days with bench.
+Squats  45x5 135x5 225x3 315x3 335x1 345lbs for 3 sets of 5  Overhead Press  45x5 95x5 135x3 150x1 160lbs for 3 sets of 5  Deadlift  225x5 315x3 365x1 405lbs for 1 set of 5  </description>
     </item>
     
     <item>
@@ -506,40 +89,8 @@ sxz
       <pubDate>Fri, 29 Nov 2019 14:51:06 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0024/</guid>
-      <description>
-
-&lt;h1 id=&#34;medium-day&#34;&gt;Medium Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;squats&#34;&gt;Squats&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;45x5&lt;/li&gt;
-&lt;li&gt;135x5&lt;/li&gt;
-&lt;li&gt;225x5&lt;/li&gt;
-&lt;li&gt;275x3&lt;/li&gt;
-&lt;li&gt;295x1&lt;/li&gt;
-&lt;li&gt;315 for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;overhead-press&#34;&gt;Overhead Press&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;45x5&lt;/li&gt;
-&lt;li&gt;95x5&lt;/li&gt;
-&lt;li&gt;135x3&lt;/li&gt;
-&lt;li&gt;145 for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Thankfully OHP doesn&amp;rsquo;t affect my shoulder as much as bench.&lt;/p&gt;
-
-&lt;h1 id=&#34;sldl&#34;&gt;SLDL&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;135x5&lt;/li&gt;
-&lt;li&gt;225x3&lt;/li&gt;
-&lt;li&gt;275 for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description> Medium Day Squats  45x5 135x5 225x5 275x3 295x1 315 for 3 sets of 5  Overhead Press  45x5 95x5 135x3 145 for 3 sets of 5  Thankfully OHP doesn&amp;rsquo;t affect my shoulder as much as bench.
+SLDL  135x5 225x3 275 for 3 sets of 5  </description>
     </item>
     
     <item>
@@ -548,39 +99,8 @@ sxz
       <pubDate>Wed, 27 Nov 2019 14:40:45 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0023/</guid>
-      <description>
-
-&lt;h1 id=&#34;light-day&#34;&gt;Light Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;squats&#34;&gt;Squats&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;65x5&lt;/li&gt;
-&lt;li&gt;155x5&lt;/li&gt;
-&lt;li&gt;245x3&lt;/li&gt;
-&lt;li&gt;275 for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;cg-paused-bench&#34;&gt;CG Paused Bench&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;45x5&lt;/li&gt;
-&lt;li&gt;95x5&lt;/li&gt;
-&lt;li&gt;135x5&lt;/li&gt;
-&lt;li&gt;155x3&lt;/li&gt;
-&lt;li&gt;185 for 5 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Shoulder still bothering me. The higher reps, closer grip, and pause made me feel like I was working at least a little bit. Didn&amp;rsquo;t want to go any heavier because I could definitely &amp;lsquo;feel&amp;rsquo; the weight on my shoulder.&lt;/p&gt;
-
-&lt;h1 id=&#34;pendlay-row&#34;&gt;Pendlay Row&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;135x5&lt;/li&gt;
-&lt;li&gt;185x3&lt;/li&gt;
-&lt;li&gt;200 for 3 sets of 8&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description> Light Day Squats  65x5 155x5 245x3 275 for 3 sets of 5  CG Paused Bench  45x5 95x5 135x5 155x3 185 for 5 sets of 5  Shoulder still bothering me. The higher reps, closer grip, and pause made me feel like I was working at least a little bit. Didn&amp;rsquo;t want to go any heavier because I could definitely &amp;lsquo;feel&amp;rsquo; the weight on my shoulder.
+Pendlay Row  135x5 185x3 200 for 3 sets of 8  </description>
     </item>
     
     <item>
@@ -589,53 +109,9 @@ sxz
       <pubDate>Mon, 25 Nov 2019 13:42:11 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0022/</guid>
-      <description>
-
-&lt;p&gt;Today I started a new approach with Heavy/Light/Medium (HLM.)&lt;/p&gt;
-
-&lt;h1 id=&#34;heavy-day&#34;&gt;Heavy Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;squats&#34;&gt;Squats&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;45x5&lt;/li&gt;
-&lt;li&gt;135x5&lt;/li&gt;
-&lt;li&gt;225x5&lt;/li&gt;
-&lt;li&gt;315x3&lt;/li&gt;
-&lt;li&gt;325x1&lt;/li&gt;
-&lt;li&gt;340lbs for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Squats were prescribed to be 5x5, but I changed it once the workout was underway because it was taking so long, and it felt heavy.&lt;/p&gt;
-
-&lt;h1 id=&#34;overhead-press&#34;&gt;Overhead Press&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;45x5&lt;/li&gt;
-&lt;li&gt;95x5&lt;/li&gt;
-&lt;li&gt;135x3&lt;/li&gt;
-&lt;li&gt;155x1&lt;/li&gt;
-&lt;li&gt;157.5lbs for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Press was prescribed for 5x5. Decided to change it to 3x5 just like squat. Work sets were planned to be 160lbs but I misloaded the bar and forgot a 2.5 on one side.&lt;/p&gt;
-
-&lt;p&gt;Left shoulder has felt tweaked since last week. Hopefully today&amp;rsquo;s workout helped loosen it up.&lt;/p&gt;
-
-&lt;h1 id=&#34;deadlift&#34;&gt;Deadlift&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;135x3&lt;/li&gt;
-&lt;li&gt;225x3&lt;/li&gt;
-&lt;li&gt;315x3&lt;/li&gt;
-&lt;li&gt;365x1&lt;/li&gt;
-&lt;li&gt;405lbs for 1 set of 4.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I was supposed to lift a set of 5. I&amp;rsquo;m not used to full body workouts and over-estimated what I could pull at the end of this workout.&lt;/p&gt;
-
-&lt;p&gt;For future workouts I might switch back to the 5x3 scheme from Persistence. Though, I&amp;rsquo;ll try and make it through a week or two with 3x5 first.&lt;/p&gt;
-</description>
+      <description>Today I started a new approach with Heavy/Light/Medium (HLM.)
+Heavy Day Squats  45x5 135x5 225x5 315x3 325x1 340lbs for 3 sets of 5  Squats were prescribed to be 5x5, but I changed it once the workout was underway because it was taking so long, and it felt heavy.
+Overhead Press  45x5 95x5 135x3 155x1 157.5lbs for 3 sets of 5  Press was prescribed for 5x5. Decided to change it to 3x5 just like squat.</description>
     </item>
     
     <item>
@@ -644,41 +120,7 @@ sxz
       <pubDate>Thu, 21 Nov 2019 13:39:37 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0021/</guid>
-      <description>
-
-&lt;h1 id=&#34;bench-day&#34;&gt;Bench Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Bench&lt;/td&gt;
-&lt;td&gt;240&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Pendlay Row&lt;/td&gt;
-&lt;td&gt;240&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;I failed the first rep of my third set. And my left shoulder felt tweaked. Decided to call it a day and not push it.&lt;/p&gt;
-</description>
+      <description>Bench Day Superset 1    Lift LBs Sets Reps     Bench 240 2 3   Pendlay Row 240 2 3    I failed the first rep of my third set. And my left shoulder felt tweaked. Decided to call it a day and not push it.</description>
     </item>
     
     <item>
@@ -687,46 +129,8 @@ sxz
       <pubDate>Tue, 19 Nov 2019 12:51:21 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0020/</guid>
-      <description>
-
-&lt;h1 id=&#34;r-strongman-challenge-day-usually-deadlift-day&#34;&gt;R/Strongman Challenge Day (Usually deadlift day)&lt;/h1&gt;
-
-&lt;p&gt;Got an 18&amp;rdquo; Deadlift gym PR with a lift of 495lbs.&lt;/p&gt;
-
-&lt;video width=&#34;100%&#34; controls&gt;
-  &lt;source src=&#34;http://quakkels.com/clips/18inch_deadlift_PR_495.mp4&#34; type=&#34;video/mp4&#34;&gt;
-    Your browser does not support the video tag.
-&lt;/video&gt;
-
-&lt;h2 id=&#34;superset&#34;&gt;Superset&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;SSB Squat&lt;/td&gt;
-&lt;td&gt;305&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;DB Step Up&lt;/td&gt;
-&lt;td&gt;50&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</description>
+      <description> R/Strongman Challenge Day (Usually deadlift day) Got an 18&amp;rdquo; Deadlift gym PR with a lift of 495lbs.
+Your browser does not support the video tag.  Superset    Lift LBs Sets Reps     SSB Squat 305 4 3   DB Step Up 50 4 6    </description>
     </item>
     
     <item>
@@ -735,72 +139,8 @@ sxz
       <pubDate>Mon, 18 Nov 2019 13:55:48 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0019/</guid>
-      <description>
-
-&lt;h1 id=&#34;overhead-press-day&#34;&gt;Overhead Press Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Overhead Press&lt;/td&gt;
-&lt;td&gt;175&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;3, 3, 3, 2, 3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Lat Pulldown&lt;/td&gt;
-&lt;td&gt;175&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;OHP will be kept at 175 until I can complete all 5 sets of 3 reps.&lt;/p&gt;
-
-&lt;h2 id=&#34;superset-2&#34;&gt;Superset 2&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;DB Floor Flies&lt;/td&gt;
-&lt;td&gt;40&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;DB Seated Press&lt;/td&gt;
-&lt;td&gt;50&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;10, 10, 10, 7&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Will keep DB Seated Press at 50 until I can complete all 4 sets of 10.&lt;/p&gt;
-</description>
+      <description>Overhead Press Day Superset 1    Lift LBs Sets Reps     Overhead Press 175 5 3, 3, 3, 2, 3   Lat Pulldown 175 5 6    OHP will be kept at 175 until I can complete all 5 sets of 3 reps.
+Superset 2    Lift LBs Sets Reps     DB Floor Flies 40 4 6   DB Seated Press 50 4 10, 10, 10, 7    Will keep DB Seated Press at 50 until I can complete all 4 sets of 10.</description>
     </item>
     
     <item>
@@ -809,43 +149,8 @@ sxz
       <pubDate>Fri, 15 Nov 2019 13:47:46 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0018/</guid>
-      <description>
-
-&lt;h1 id=&#34;deadlift-day&#34;&gt;Deadlift Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Squat&lt;/td&gt;
-&lt;td&gt;345&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Ab Roller&lt;/td&gt;
-&lt;td&gt;bw&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Instead of doing my usual 18&amp;rdquo; deadlift superset I opted to attempt an entry into r/strongman&amp;rsquo;s 18&amp;rdquo; deadlift challenge. Unfortunately, I failed with 495lbs. It broke off the blocks, but I just couldn&amp;rsquo;t get it past my knees.&lt;/p&gt;
-
-&lt;p&gt;Might attempt 485 tomorrow or Sunday.&lt;/p&gt;
-</description>
+      <description>Deadlift Day Superset 1    Lift LBs Sets Reps     Squat 345 5 3   Ab Roller bw 5 10    Instead of doing my usual 18&amp;rdquo; deadlift superset I opted to attempt an entry into r/strongman&amp;rsquo;s 18&amp;rdquo; deadlift challenge. Unfortunately, I failed with 495lbs. It broke off the blocks, but I just couldn&amp;rsquo;t get it past my knees.
+Might attempt 485 tomorrow or Sunday.</description>
     </item>
     
     <item>
@@ -854,68 +159,7 @@ sxz
       <pubDate>Thu, 14 Nov 2019 14:37:40 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0017/</guid>
-      <description>
-
-&lt;h1 id=&#34;bench-day&#34;&gt;Bench Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Bench&lt;/td&gt;
-&lt;td&gt;235&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Barbell Row&lt;/td&gt;
-&lt;td&gt;235&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&#34;superset-2&#34;&gt;Superset 2&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Axle Press&lt;/td&gt;
-&lt;td&gt;190&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Isolation DB Curl&lt;/td&gt;
-&lt;td&gt;35&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</description>
+      <description> Bench Day Superset 1    Lift LBs Sets Reps     Bench 235 5 3   Barbell Row 235 5 3    Superset 2    Lift LBs Sets Reps     Axle Press 190 4 3   Isolation DB Curl 35 4 10    </description>
     </item>
     
     <item>
@@ -924,55 +168,12 @@ sxz
       <pubDate>Tue, 12 Nov 2019 13:15:28 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0016/</guid>
-      <description>
-
-&lt;h1 id=&#34;deadlift-day&#34;&gt;Deadlift Day&lt;/h1&gt;
-
-&lt;p&gt;Yay! Day two back on track.&lt;/p&gt;
-
-&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
-
-&lt;p&gt;Goal was to deadlift 405 for 5 sets of 3. But failed the third rep of the second set and had to back off a bit.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Deadlift:&lt;/strong&gt; 3 at 405lbs, then 2 at 405lbs. Finished with 3 sets of 3 at 395lbs.&lt;/p&gt;
-
-&lt;p&gt;Superset with&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Ab Roller&lt;/strong&gt;  5 sets of 10 with bodyweight.&lt;/p&gt;
-
-&lt;h2 id=&#34;superset-2&#34;&gt;Superset 2&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;SSB Squat&lt;/td&gt;
-&lt;td&gt;295&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;DB Step Up&lt;/td&gt;
-&lt;td&gt;40&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;The program is getting heavy enough that I&amp;rsquo;m removing some of the supplemental work like the Pinch Block and Jumping Jacks. Those will get added back in next time I restart Persistence.&lt;/p&gt;
-
-&lt;p&gt;I had a grip PR today. A 385lb double overhand deadlift during warmups.&lt;/p&gt;
-</description>
+      <description>Deadlift Day Yay! Day two back on track.
+Superset 1 Goal was to deadlift 405 for 5 sets of 3. But failed the third rep of the second set and had to back off a bit.
+Deadlift: 3 at 405lbs, then 2 at 405lbs. Finished with 3 sets of 3 at 395lbs.
+Superset with&amp;hellip;
+Ab Roller 5 sets of 10 with bodyweight.
+Superset 2    Lift LBs Sets Reps     SSB Squat 295 4 3   DB Step Up 40 4 6    The program is getting heavy enough that I&amp;rsquo;m removing some of the supplemental work like the Pinch Block and Jumping Jacks.</description>
     </item>
     
     <item>
@@ -981,45 +182,379 @@ sxz
       <pubDate>Mon, 11 Nov 2019 06:18:04 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0015/</guid>
-      <description>
-
-&lt;h1 id=&#34;overhead-press-day&#34;&gt;Overhead Press Day&lt;/h1&gt;
-
-&lt;p&gt;Getting back into the routine this week. Last week amounted to a full 7 days away from the gym. I was starting to feel a little run down anyway. The weights were feeling heavier than they should. So maybe the week off will do some good for my recovery.&lt;/p&gt;
-
-&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Overhead Press&lt;/td&gt;
-&lt;td&gt;170&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Lat Pulldown&lt;/td&gt;
-&lt;td&gt;170&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Ran out of time for the second superset. I really need to get in the gym on time and use rest timers to make sure I get everything in.&lt;/p&gt;
-
-&lt;p&gt;Started using a pronated and slightly narrower grip on the lat pulldown. Seems to feel nice.&lt;/p&gt;
-</description>
+      <description>Overhead Press Day Getting back into the routine this week. Last week amounted to a full 7 days away from the gym. I was starting to feel a little run down anyway. The weights were feeling heavier than they should. So maybe the week off will do some good for my recovery.
+Superset 1    Lift LBs Sets Reps     Overhead Press 170 5 3   Lat Pulldown 170 5 6    Ran out of time for the second superset.</description>
+    </item>
+    
+    <item>
+      <title>14 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0014/</link>
+      <pubDate>Mon, 04 Nov 2019 06:07:55 -0600</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0014/</guid>
+      <description>Bench Day Conflicts in my schedule have caused me to miss a few days this week. I decided to skip ahead to bench day and modify it pretty heavily from what I usually do.
+Bench: 230lbs 5x3
+Barbell Row: 225lbs for 3. Then 245lbs for 2x3 (PR)
+I am happy with the rowing. For the last several weeks I&amp;rsquo;ve used an axle bar. With an axle I end up being limited by grip.</description>
+    </item>
+    
+    <item>
+      <title>13 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0013/</link>
+      <pubDate>Tue, 29 Oct 2019 12:00:00 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0013/</guid>
+      <description>Overhead Press Day Superset 1    Lift LBs Sets Reps     Overhead Press 165 5 3   Lat Pulldown 165 5 6   Jumping Jacks bw 5 20    Didn&amp;rsquo;t have time to do the second superset.</description>
+    </item>
+    
+    <item>
+      <title>12 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0012/</link>
+      <pubDate>Mon, 28 Oct 2019 13:37:28 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0012/</guid>
+      <description>Squat Day Superset 1    Lift LBs Sets Reps     Squat 345 5 3   Ab Roller bw 5 10   Jumping Jacks bw 5 20    Superset 2 Actually, I didn&amp;rsquo;t superset. Was feeling so dead at this point that I decided to drop the assistance stuff and only do the 18&amp;rdquo; deadlifts.
+   Lift LBs Sets Reps     18&amp;rdquo; Deadlift 415 4 3    415lbs for 3 reps is a PR.</description>
+    </item>
+    
+    <item>
+      <title>11 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0011/</link>
+      <pubDate>Wed, 23 Oct 2019 13:17:47 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0011/</guid>
+      <description> Bench Day Superset 1    Lift LBs Sets Reps     Bench 225 5 3   Axle Row 175 5 5   Jumping Jacks bw 5 20    Superset 2    Lift LBs Sets Reps     Axle Press 190 4 3   Isolation DB Curl 35 4 10   50&amp;rsquo; DB Suitcase Carry 80 4 1    </description>
+    </item>
+    
+    <item>
+      <title>10 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0010/</link>
+      <pubDate>Tue, 22 Oct 2019 13:40:06 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0010/</guid>
+      <description>Deadlift Day Superset 1    Lift LBs Sets Reps     Deadlift 385 5 3   Ab Roller bw 5 10   Jumping Jacks bw 5 20    These deadlifts felt very heavy. I&amp;rsquo;m going to watch my protein intake to see if I can continue this block&amp;rsquo;s linear progression. Though, I might reduce reps down to 2 instead of 3. Or, I might only train deadlifts once every two weeks.</description>
+    </item>
+    
+    <item>
+      <title>9 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0009/</link>
+      <pubDate>Mon, 21 Oct 2019 13:21:03 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0009/</guid>
+      <description> Overhead Press Day Switching it up! Changing up the Persistence program from the first time I ran it. Instead of an upper and lower superset each day, I&amp;rsquo;m going to have an upper body day with two upper body supersets. Lower body days will have two lower body supersets. This hopefully will be easier to recover from.
+Superset 1    Lift LBs Sets Reps     Overhead Press 160 5 3   Lat Pulldown 166 5 6   Jumping Jacks bw 5 20    Superset 2    Lift LBs Sets Reps     DB Floor Fly 35 4 6   Seated DB Press 50 4 8   50&amp;rsquo; DB Suitcase Carry 80 4 1    </description>
+    </item>
+    
+    <item>
+      <title>8 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0008/</link>
+      <pubDate>Sat, 19 Oct 2019 13:03:08 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0008/</guid>
+      <description>Squat Day Superset 1    Lift LBs Sets Reps     Squat 335 5 3   Ab Roller bw 5 8   Jumping Jacks bw 5 20    Superset 2    Lift LBs Sets Reps     Axle Press 190 4 3   Pinch Block 47.5 4 3   DB Lunges 35 4 3    I&amp;rsquo;ve been liking the unilateral work a lot lately.</description>
+    </item>
+    
+    <item>
+      <title>7 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0007/</link>
+      <pubDate>Thu, 17 Oct 2019 13:00:11 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0007/</guid>
+      <description>Bench Day Superset 1    Lift LBs Sets Reps     Bench 220 5 3   Axle Rows 160 5 5   Jumping Jacks bw 5 20    Superset 2    Lift Lbs Sets Reps     18&amp;rdquo; Deadlift 405 4 3   DB Isolation Curl 30 4 10   50&amp;rsquo; DB Suitcase Carry 80 4 1    I kept the 18&amp;rdquo; Deadlifts at 405.</description>
+    </item>
+    
+    <item>
+      <title>6 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0006/</link>
+      <pubDate>Wed, 16 Oct 2019 14:52:32 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0006/</guid>
+      <description>Deadlift Day Superset 1    Lift LBs Sets Reps     Deadlift Day 375 5 3   Ab Roller bw 5 8   Jumping Jacks bw 5 20    Deadlifts felt good. I&amp;rsquo;m really liking the 5x3 scheme. First work set was done without straps for a double overhand PR.
+Superset 2    Lift Lbs Sets Reps     DB Floor Flies 30 4 5   Pinch Block 47.</description>
+    </item>
+    
+    <item>
+      <title>5 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0005/</link>
+      <pubDate>Mon, 14 Oct 2019 13:11:57 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0005/</guid>
+      <description>Overhead Press Day Decided to switch up the set and rep scheme just a little. I&amp;rsquo;ve been on a calorie deficit for about a week, and I think I&amp;rsquo;ll be able to keep up with my lifts if I reduce the reps per set, but then increase total sets.
+Superset 1    Lift Weight Sets Reps     Press 155 5 3   Lat Pulldown 155 5 6   Jumping Jacks bw 5 20    Superset 2    Lift Weight Sets Reps     SSB Squat 285 4 3   DB Seated Press 50 4 8   50&amp;rsquo; DB Suitcase Carry 80 4 1    This new rep/set configuration worked well.</description>
+    </item>
+    
+    <item>
+      <title>4b (Persistence)</title>
+      <link>http://quakkels.com/training_log/0004b/</link>
+      <pubDate>Sat, 12 Oct 2019 12:45:48 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0004b/</guid>
+      <description>Axle Press Day Superset 1    Lift Weight Sets Reps     Axle Press 210 1 2   Axle Press 230 1 1    This workout was just a little make-up day since I had to cut yesterday&amp;rsquo;s workout short. 210lbs for 2 and 230lbs for 1 are both personal records.</description>
+    </item>
+    
+    <item>
+      <title>4 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0004/</link>
+      <pubDate>Fri, 11 Oct 2019 14:01:48 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0004/</guid>
+      <description>Squat Day Superset 1    Lift Weight Sets Reps     Squat 330 3 3   Turkish Get-up 15 3 3   Jumping Jacks bw 3 30    Only had time for one superset today.</description>
+    </item>
+    
+    <item>
+      <title>3 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0003/</link>
+      <pubDate>Thu, 10 Oct 2019 14:20:22 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0003/</guid>
+      <description>Bench Day Superset 1    Lift Weight Sets Reps     Bench 215 3 5   Axle Pendlay Row 160 3 8   Jumping Jacks bw 3 30    Superset 2    Lift Weight Sets Reps     18&amp;rdquo; Deadlift 405 3 3   Isolation DB Curl 30 3 10   50&amp;rsquo; DB Suitcase Carry 80 3 2    Today felt really good.</description>
+    </item>
+    
+    <item>
+      <title>2 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0002/</link>
+      <pubDate>Tue, 08 Oct 2019 13:29:34 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0002/</guid>
+      <description>Deadlift Day Superset 1    Lift Weight Sets Reps     Deadlift 365 3 5   Ab Roller bw 3 8   Jumping Jacks bw 3 30     Notes: Might adjust this volume on deadlifts. Want to lift heavy, but was really draggin&amp;rsquo; after the second round.
+ Superset 2    Lift Weight Sets Reps     DB Floor Flies 25 3 5   Pinch Block 45 3 4   One Legged Hip Thrust bw 3 10     Notes: First superset much harder the the second.</description>
+    </item>
+    
+    <item>
+      <title>1 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0001/</link>
+      <pubDate>Mon, 07 Oct 2019 07:14:44 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0001/</guid>
+      <description>Strict Press Day Superset 1    Lift Weight Sets Reps     Press 150 3 5   Lat Pulldown 150 2 10   Lat Pulldown 150 1 6   Jumping Jacks bw 3 30     Notes: Reached failure too soon on Lat Pulldown. Keep weight here for next time.
+ Superset 2    Lift Weight Sets Reps     SSB Squat 275 2 5   DB Seated Press 40 2 8   50&amp;rsquo; Sandbag Carry 165 2 1     Notes: Second superset was interrupted.</description>
+    </item>
+    
+    <item>
+      <title>Run Plex on an Ubuntu Server at Home</title>
+      <link>http://quakkels.com/posts/run-plex-on-ubuntu-server-at-home/</link>
+      <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/run-plex-on-ubuntu-server-at-home/</guid>
+      <description>Recently I&amp;rsquo;ve decided that having limited high quality entertainment choices is better than having endless choices that are of questionable quality. So my household decided to end our Netflix subscription. This decision motivated me to build a private streaming media server for our home. Here is how I created a home media server with Plex and a home server tower.
+Choosing the Media Server There are two popular software options for home media server.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with Mobile Development and Xamarin</title>
+      <link>http://quakkels.com/posts/getting-started-with-mobile-development-and-xamarin/</link>
+      <pubDate>Tue, 04 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/getting-started-with-mobile-development-and-xamarin/</guid>
+      <description>Xamarin enables programmers to write native mobile applications for both Android and iOS using C# and free development tools like Visual Studio Community Edition. This means that if you&amp;rsquo;re invested in the .NET ecosystem and the C# language, you can write cross-platform mobile applications using technology that&amp;rsquo;s already familiar to you.
+ A note on development for iOS: You will need a mac in order to build iOS versions of the app.</description>
+    </item>
+    
+    <item>
+      <title>Home Gym Outfitting; Train with a Sled</title>
+      <link>http://quakkels.com/posts/home_gym_outfitting_train_with_a_sled/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/home_gym_outfitting_train_with_a_sled/</guid>
+      <description>Outfitting a home gym with a sled for drags and arm-over-arm pulls is simple. You don&amp;rsquo;t need to spend hundreds of dollars on equipment or gym memberships in order to train with a sled. You also don&amp;rsquo;t really need any tools or handyman skills to get started.
+When I first wanted to add arm-over-arm pulls to work my cardio, grip, arms, and back, I looked around and found a few different options.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with Django</title>
+      <link>http://quakkels.com/posts/getting-started-python-django-vs-code/</link>
+      <pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/getting-started-python-django-vs-code/</guid>
+      <description>Django is a Python framework that I&amp;rsquo;ve written about before. I&amp;rsquo;ve compared Django to ASP.NET MVC. But, I didn&amp;rsquo;t go into much detail about how to actually use Django to create a data driven website. That&amp;rsquo;s what I&amp;rsquo;ll cover now.
+The goal for this &amp;lsquo;Getting Started&amp;rsquo; project is to get familiar with the basics of developing data driven web applications using Django, Models, Views, Templates, URLs, and Forms. By the end we&amp;rsquo;ll have a simple contact form that saves user submissions to the database, and displays that data to an administrator user.</description>
+    </item>
+    
+    <item>
+      <title>Configuring Vim When Using Git Bash on Windows</title>
+      <link>http://quakkels.com/posts/configuring-vim-when-using-git-bash/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/configuring-vim-when-using-git-bash/</guid>
+      <description>Occasionally I become enamored with the idea of becoming a Vim expert, or at least a competent Vim user. I work primarily in Windows environments so, though the desire exists, there aren&amp;rsquo;t many good opportunities to build Vim habits. There is a Vim on Windows release available. This has a GUI interface and an installer executable. Though if you have Git for Windows installed, then you already have Vim available.</description>
+    </item>
+    
+    <item>
+      <title>MySQL Quick Reference</title>
+      <link>http://quakkels.com/posts/mysql-quick-reference/</link>
+      <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/mysql-quick-reference/</guid>
+      <description>Shell Commands Set up security requirements: $ sudo mysql_secure_installation  Open the MySQL CLI client and login using a password and the specified user: $ sudo mysql -u {user} -p  MySQL Queries and Commands  Note that MySQL will not execute anything until it encounters a semicolon ; which indicates the end of a statement. This allows us to enter multi-line statements.
+ Create User &amp;gt; CREATE USER &#39;newuser&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39;;  Give User Access to a Database &amp;gt; GRANT ALL PRIVILEGES ON * .</description>
+    </item>
+    
+    <item>
+      <title>Gogs on Raspberry PI</title>
+      <link>http://quakkels.com/posts/gogs-on-raspberry-pi/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/gogs-on-raspberry-pi/</guid>
+      <description>In a previous article I configured a headless Raspberry Pi for Wifi and SSH. Next, I&amp;rsquo;ll set up a personal Gogs server on it.
+Change the Password First things first, change the password for the pi user to something different than raspberry.
+$ passwd Changing password for pi. (current) UNIX password: Enter new UNIX password: Retype new UNIX password: passwd: password updated successfully  Please tweet your new password to @quakkels /s</description>
+    </item>
+    
+    <item>
+      <title>Why I Prioritize Strength Training</title>
+      <link>http://quakkels.com/posts/why-i-prioritize-strength-training/</link>
+      <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/why-i-prioritize-strength-training/</guid>
+      <description>Over the last few years, I&amp;rsquo;ve taken up a new hobby; strength training. It&amp;rsquo;s something I&amp;rsquo;ve really grown to love. Though, sometimes it&amp;rsquo;s hard to articulate exactly why strength training has taken such a permanent position in my weekly routine.
+When I was a sedentary person my quality of life decreased every year. Even when I was in my mid 20s I was not &amp;ldquo;strong&amp;rdquo; and frequent back and shoulder pain would frustrate me for weeks at a time.</description>
+    </item>
+    
+    <item>
+      <title>Configure Headless Raspberry Pi for Wifi and SSH</title>
+      <link>http://quakkels.com/posts/configure-headless-raspberry-pi-for-wifi-and-ssh/</link>
+      <pubDate>Sat, 16 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/configure-headless-raspberry-pi-for-wifi-and-ssh/</guid>
+      <description>Raspberry Pis are great little computers. Wonderful for running hobby services. But, whenever I start a new RPi project, I dislike needing to dig out my spare HDMI monitor and USB keyboard. I don&amp;rsquo;t like having to take up room and connect all that hardware to just enable SSH and Wifi which renders all that equipment unnecessary.
+Recently I learned how to flash a new micro SD card and configure it to connect to my Wifi network and enable SSH before even turning on the RPi for the first time.</description>
+    </item>
+    
+    <item>
+      <title>Identify Valid Standards</title>
+      <link>http://quakkels.com/posts/identify-valid-standards/</link>
+      <pubDate>Thu, 16 Feb 2017 07:26:36 -0600</pubDate>
+      
+      <guid>http://quakkels.com/posts/identify-valid-standards/</guid>
+      <description>I can&amp;rsquo;t tell you how many times I&amp;rsquo;ve been in software planning meetings when an engineer addressed the team and claimed that we should use {insert technology here} because it&amp;rsquo;s the &amp;ldquo;Industry Standard.&amp;rdquo; I also can&amp;rsquo;t tell you how many times I&amp;rsquo;ve done the same thing. I&amp;rsquo;ve gone into my boss&amp;rsquo;s office and claimed that we should use a particular stack or technology because it&amp;rsquo;s an &amp;ldquo;industry standard.&amp;rdquo;
+This reasoning is attractive because on the surface it seems valid.</description>
+    </item>
+    
+    <item>
+      <title>Don&#39;t Take Frameworks for Granted</title>
+      <link>http://quakkels.com/posts/dont-take-frameworks-for-granted/</link>
+      <pubDate>Sat, 28 Jan 2017 07:41:18 -0600</pubDate>
+      
+      <guid>http://quakkels.com/posts/dont-take-frameworks-for-granted/</guid>
+      <description>Frameworks can help jump-start productivity on projects. But be careful. Relying too much on frameworks could also limit yourself in the long run.
+Whenever the opportunity presents itself, programmers should carefully consider whether using a framework is beneficial. It may provide immediate benefits, but there should be no magic happening that isn&amp;rsquo;t understood by the programmer.
+Years ago, I learned how to make websites with C#. I had help from many books, tutorials, and co-workers.</description>
+    </item>
+    
+    <item>
+      <title>Hello, I&#39;m Brandon Quakkelaar</title>
+      <link>http://quakkels.com/about/</link>
+      <pubDate>Fri, 27 Jan 2017 14:36:35 -0600</pubDate>
+      
+      <guid>http://quakkels.com/about/</guid>
+      <description>I believe that programming is a craft. My goal is to continuously study this craft, and to always refine my thinking and my execution while practicing it. I have a decade of experience and even though I have come a long way since I started, there&amp;rsquo;s always something fresh to study that I can add to my toolbox.
+Software development is a wonderful discipline that requires creativity, ingenuity, and logic.</description>
+    </item>
+    
+    <item>
+      <title>Pointing-online</title>
+      <link>http://quakkels.com/projects/pointing-online/</link>
+      <pubDate>Fri, 27 Jan 2017 14:36:35 -0600</pubDate>
+      
+      <guid>http://quakkels.com/projects/pointing-online/</guid>
+      <description>Pointing-online is a .Net Core project written in C# that was inspired by real world needs of distributed teams practicing Agile Scrum.</description>
+    </item>
+    
+    <item>
+      <title>Roast.it</title>
+      <link>http://quakkels.com/projects/roast-it/</link>
+      <pubDate>Fri, 27 Jan 2017 14:36:35 -0600</pubDate>
+      
+      <guid>http://quakkels.com/projects/roast-it/</guid>
+      <description>Roast.it is a simple JavaScript unit testing library designed for providing a fast feedback loop with minimal fuss. There are no frills here. No unnecessary dependencies. This will run unit tests for you from npm test. It will not get in your way.</description>
+    </item>
+    
+    <item>
+      <title>5 Slack Tricks that Changed My Life</title>
+      <link>http://quakkels.com/posts/5-slack-tricks-that-changed-my-life/</link>
+      <pubDate>Mon, 29 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/5-slack-tricks-that-changed-my-life/</guid>
+      <description>Please excuse the &amp;ldquo;click-baity&amp;rdquo; title. Sometimes I like to exaggerate.
+Slack plays a significant role in my daily communication. My team at work has been using Slack as our primary mode of textual communication for over a year. It is also used by developer communities in my local area. At first, it felt a little clumsy. No more clumsy than a typical chat program. But, channels started to accumulate. The number of Direct Message feeds grew.</description>
+    </item>
+    
+    <item>
+      <title>Into the Nether: Linux</title>
+      <link>http://quakkels.com/posts/into-the-nether-linux/</link>
+      <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/into-the-nether-linux/</guid>
+      <description>The first movie I saw that really got me excited about computers was WarGames. The WOPR was an inanimate object that just sat there on screen. But, it was still a complete character all by itself. It reacted to the Matthew Broderick character&amp;rsquo;s commands and questions and became something more clever than just a boring piece of hardware. The fictional software running inside the WOPR and Broderick&amp;rsquo;s character&amp;rsquo;s ability to interface with it created a story that was incredibly mystical and exciting.</description>
+    </item>
+    
+    <item>
+      <title>Maintaining Your Vision</title>
+      <link>http://quakkels.com/posts/maintaining-your-vision/</link>
+      <pubDate>Mon, 03 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/maintaining-your-vision/</guid>
+      <description>Programmers are often creators. Being a creator takes vision. Vision to see the destination, and vision to see the course. The destination could be learning a new language or technology stack. The destination could be a product to be released to customers. It could be something done for personal edification. The course is determined by taking that larger goal and breaking it down to manageable steps.
+The trick for successfully creating something, is to maintain that vision.</description>
+    </item>
+    
+    <item>
+      <title>Let&#39;s Scrape the Web with Python 3</title>
+      <link>http://quakkels.com/posts/lets-scrape-the-web-with-python-3/</link>
+      <pubDate>Sun, 10 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/lets-scrape-the-web-with-python-3/</guid>
+      <description>In the back of my mind I&amp;rsquo;ve always been intrigued by writing an application that can retrieve web pages over HTTP. It&amp;rsquo;s a fairly simple thing to do. We have a myriad of web browsers that do it for us. But there is just something about writing an application that operates independently of a browser and reaches out to touch the internet that I find fun and intriguing. So let&amp;rsquo;s do it&amp;hellip; in Python.</description>
+    </item>
+    
+    <item>
+      <title>What Happens When You Login?</title>
+      <link>http://quakkels.com/posts/what-happens-when-you-login/</link>
+      <pubDate>Sat, 23 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/what-happens-when-you-login/</guid>
+      <description>Your favorite website is asking you for your username and password.
+Username? Password? Sure, you&amp;rsquo;ve got those. [You enter your username] then [you enter your password] then [you press enter] then boom, you&amp;rsquo;re logged into the website.
+What actually just happened? Well, assuming that you entered correct login credentials, you can now access whatever members only area that site offers to those credentials. But before that, in the split seconds after you clicked login and before you saw your profile, the website had to verify that the credentials you entered were correct.</description>
+    </item>
+    
+    <item>
+      <title>Learn Insertion Sort with Video Game Discs</title>
+      <link>http://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</link>
+      <pubDate>Sat, 09 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</guid>
+      <description>I think you could say I have an average number of video game discs. It&amp;rsquo;s not a huge number of games, but it is enough that it can be difficult to find a particular game if they&amp;rsquo;re not organized in a predictable way.
+Enter insertion sort. Insertion sort is in the same family as the bubble sort in that its worst case complexity is O(n2). But in practice, it is usually a faster sort.</description>
+    </item>
+    
+    <item>
+      <title>Learn Bubble Sort with Playing Cards</title>
+      <link>http://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</link>
+      <pubDate>Tue, 22 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</guid>
+      <description>Let&amp;rsquo;s say you have an unordered list of numbers and you wanted to put them in order from lowest to highest value. How would you do that? You&amp;rsquo;re probably thinking that you would just look at all the numbers, find the lowest number and put it at the beginning of your list. Then you would find the next largest number and put it in the second spot in the list, and so on until you&amp;rsquo;ve ordered the entire list of numbers.</description>
+    </item>
+    
+    <item>
+      <title>Let&#39;s talk to a SQLite database with Python</title>
+      <link>http://quakkels.com/posts/lets-talk-to-a-sqlite-database-with-python/</link>
+      <pubDate>Sun, 20 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/lets-talk-to-a-sqlite-database-with-python/</guid>
+      <description>As I write this, it&amp;rsquo;s the weekend. My wonderful wife brought home some amazing Jet Fuel XBold Dark Roast Coffee that is sure to keep me wired for the next several hours. Now what should I do? Let&amp;rsquo;s explore Python a little more by using it to talk to a database.
+We&amp;rsquo;re a long way from my bread and butter. My goto technologies for database interaction are .NET, C# and Entity Framework CodeFirst with SQL Server 2005&amp;frasl;2008.</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET MVC Compared to Django</title>
+      <link>http://quakkels.com/posts/asp-net-mvc-compared-to-dango/</link>
+      <pubDate>Sun, 13 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/asp-net-mvc-compared-to-dango/</guid>
+      <description>The MVC pattern is widely used in web development today. Regardless of whether you develop in C#, PHP, Python, Java, JavaScript, or Ruby, you won’t have any trouble finding a popular MVC pattern for your language of choice.
+Being primarily a C# developer, I’ve been using ASP.NET MVC since version 1. It’s a great framework. It can be very good at getting a project off the ground quickly, especially when coupled with a good ORM such as NHibernate, or Entity Framework.</description>
     </item>
     
   </channel>

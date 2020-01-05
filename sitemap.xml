@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://quakkels.com/training_log/0028/</loc>
+    <lastmod>2020-01-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://quakkels.com/training_log/0027/</loc>
+    <lastmod>2020-01-02T00:00:00+00:00</lastmod>
+  </url>
   
   <url>
     <loc>http://quakkels.com/posts/single-entry-single-exit/</loc>
@@ -17,7 +28,7 @@
   </url>
   
   <url>
-    <loc>http://quakkels.com/training_log/00026/</loc>
+    <loc>http://quakkels.com/training_log/0026/</loc>
     <lastmod>2019-12-09T13:20:35-06:00</lastmod>
   </url>
   
@@ -267,6 +278,11 @@
   </url>
   
   <url>
+    <loc>http://quakkels.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://quakkels.com/projects/</loc>
     <lastmod>2017-01-27T14:36:35-06:00</lastmod>
   </url>
@@ -291,7 +307,7 @@
   
   <url>
     <loc>http://quakkels.com/</loc>
-    <lastmod>2019-12-26T07:00:00-05:00</lastmod>
+    <lastmod>2020-01-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -303,12 +319,13 @@
   
   <url>
     <loc>http://quakkels.com/tags/</loc>
+    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://quakkels.com/training_log/</loc>
-    <lastmod>2019-12-09T13:20:35-06:00</lastmod>
+    <lastmod>2020-01-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>

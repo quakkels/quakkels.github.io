@@ -2,54 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Training Log on Quakkels.com</title>
-    <link>http://quakkels.com/training_log/index.xml</link>
+    <link>http://quakkels.com/training_log/</link>
     <description>Recent content in Training Log on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Dec 2019 13:20:35 -0600</lastBuildDate>
-    <atom:link href="http://quakkels.com/training_log/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://quakkels.com/training_log/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>28 (HLM)</title>
+      <link>http://quakkels.com/training_log/0028/</link>
+      <pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0028/</guid>
+      <description>Light Day SSB Squats  65x5 155x5 245x3 285x1 295 for 3 sets of 5  Bench  45x5 135x5 185x3 215x1 225 for 3 sets of 5 185 for 2 sets of 8  Pendlay Row  135x8 185x4 205x8 205x6 205x6  Rows did not feel good. Need to work those more.</description>
+    </item>
+    
+    <item>
+      <title>27 (HLM)</title>
+      <link>http://quakkels.com/training_log/0027/</link>
+      <pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0027/</guid>
+      <description>Heavy Day I didn&amp;rsquo;t train much during December. So this workout is a measure of how much I&amp;rsquo;ve regressed.
+Squats  45x5 135x5 225x5 315x5 335x5 335x5 335x4  Only had 4 reps in my last set. But I&amp;rsquo;m pleased I was able to do this with 335.
+Overhead Press  45x5 95x5 135x3 145x1 155x1 160 for 3 sets of 5  Very pleased that I was able to get these reps with 160 pounds.</description>
+    </item>
     
     <item>
       <title>26 (HLM)</title>
-      <link>http://quakkels.com/training_log/00026/</link>
+      <link>http://quakkels.com/training_log/0026/</link>
       <pubDate>Mon, 09 Dec 2019 13:20:35 -0600</pubDate>
       
-      <guid>http://quakkels.com/training_log/00026/</guid>
-      <description>
-
-&lt;h1 id=&#34;light-day&#34;&gt;Light Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;ssb-squats&#34;&gt;SSB Squats&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;65x5&lt;/li&gt;
-&lt;li&gt;155x5&lt;/li&gt;
-&lt;li&gt;245x3&lt;/li&gt;
-&lt;li&gt;275x1&lt;/li&gt;
-&lt;li&gt;285lbs for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;close-grip-bench&#34;&gt;Close Grip Bench&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;45x5&lt;/li&gt;
-&lt;li&gt;95x5&lt;/li&gt;
-&lt;li&gt;135x5&lt;/li&gt;
-&lt;li&gt;185x3&lt;/li&gt;
-&lt;li&gt;205x1&lt;/li&gt;
-&lt;li&gt;215lbs for 5 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The shoulder is just about back to normal. Close grip bench with elbows tucked helped stability a lot.&lt;/p&gt;
-
-&lt;h2 id=&#34;pendlay-row&#34;&gt;Pendlay Row&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;135x3&lt;/li&gt;
-&lt;li&gt;185x3&lt;/li&gt;
-&lt;li&gt;205lbs for 3 sets of 8&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <guid>http://quakkels.com/training_log/0026/</guid>
+      <description> Light Day SSB Squats  65x5 155x5 245x3 275x1 285lbs for 3 sets of 5  Close Grip Bench  45x5 95x5 135x5 185x3 205x1 215lbs for 5 sets of 5  The shoulder is just about back to normal. Close grip bench with elbows tucked helped stability a lot.
+Pendlay Row  135x3 185x3 205lbs for 3 sets of 8  </description>
     </item>
     
     <item>
@@ -58,44 +47,9 @@
       <pubDate>Thu, 05 Dec 2019 13:41:27 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0025/</guid>
-      <description>
-
-&lt;h1 id=&#34;heavy-day&#34;&gt;Heavy Day&lt;/h1&gt;
-
-&lt;p&gt;Weights felt good today. Feels like I&amp;rsquo;ve accidentally timed my first workout back after Thanksgiving so that everything felt great.&lt;/p&gt;
-
-&lt;p&gt;Also, my shoulder didn&amp;rsquo;t bother me at all today. It&amp;rsquo;ll be tested in a couple days with bench.&lt;/p&gt;
-
-&lt;h2 id=&#34;squats&#34;&gt;Squats&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;45x5&lt;/li&gt;
-&lt;li&gt;135x5&lt;/li&gt;
-&lt;li&gt;225x3&lt;/li&gt;
-&lt;li&gt;315x3&lt;/li&gt;
-&lt;li&gt;335x1&lt;/li&gt;
-&lt;li&gt;345lbs for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;overhead-press&#34;&gt;Overhead Press&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;45x5&lt;/li&gt;
-&lt;li&gt;95x5&lt;/li&gt;
-&lt;li&gt;135x3&lt;/li&gt;
-&lt;li&gt;150x1&lt;/li&gt;
-&lt;li&gt;160lbs for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;deadlift&#34;&gt;Deadlift&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;225x5&lt;/li&gt;
-&lt;li&gt;315x3&lt;/li&gt;
-&lt;li&gt;365x1&lt;/li&gt;
-&lt;li&gt;405lbs for 1 set of 5&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description> Heavy Day Weights felt good today. Feels like I&amp;rsquo;ve accidentally timed my first workout back after Thanksgiving so that everything felt great.
+Also, my shoulder didn&amp;rsquo;t bother me at all today. It&amp;rsquo;ll be tested in a couple days with bench.
+Squats  45x5 135x5 225x3 315x3 335x1 345lbs for 3 sets of 5  Overhead Press  45x5 95x5 135x3 150x1 160lbs for 3 sets of 5  Deadlift  225x5 315x3 365x1 405lbs for 1 set of 5  </description>
     </item>
     
     <item>
@@ -104,40 +58,8 @@
       <pubDate>Fri, 29 Nov 2019 14:51:06 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0024/</guid>
-      <description>
-
-&lt;h1 id=&#34;medium-day&#34;&gt;Medium Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;squats&#34;&gt;Squats&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;45x5&lt;/li&gt;
-&lt;li&gt;135x5&lt;/li&gt;
-&lt;li&gt;225x5&lt;/li&gt;
-&lt;li&gt;275x3&lt;/li&gt;
-&lt;li&gt;295x1&lt;/li&gt;
-&lt;li&gt;315 for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;overhead-press&#34;&gt;Overhead Press&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;45x5&lt;/li&gt;
-&lt;li&gt;95x5&lt;/li&gt;
-&lt;li&gt;135x3&lt;/li&gt;
-&lt;li&gt;145 for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Thankfully OHP doesn&amp;rsquo;t affect my shoulder as much as bench.&lt;/p&gt;
-
-&lt;h1 id=&#34;sldl&#34;&gt;SLDL&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;135x5&lt;/li&gt;
-&lt;li&gt;225x3&lt;/li&gt;
-&lt;li&gt;275 for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description> Medium Day Squats  45x5 135x5 225x5 275x3 295x1 315 for 3 sets of 5  Overhead Press  45x5 95x5 135x3 145 for 3 sets of 5  Thankfully OHP doesn&amp;rsquo;t affect my shoulder as much as bench.
+SLDL  135x5 225x3 275 for 3 sets of 5  </description>
     </item>
     
     <item>
@@ -146,39 +68,8 @@
       <pubDate>Wed, 27 Nov 2019 14:40:45 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0023/</guid>
-      <description>
-
-&lt;h1 id=&#34;light-day&#34;&gt;Light Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;squats&#34;&gt;Squats&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;65x5&lt;/li&gt;
-&lt;li&gt;155x5&lt;/li&gt;
-&lt;li&gt;245x3&lt;/li&gt;
-&lt;li&gt;275 for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;cg-paused-bench&#34;&gt;CG Paused Bench&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;45x5&lt;/li&gt;
-&lt;li&gt;95x5&lt;/li&gt;
-&lt;li&gt;135x5&lt;/li&gt;
-&lt;li&gt;155x3&lt;/li&gt;
-&lt;li&gt;185 for 5 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Shoulder still bothering me. The higher reps, closer grip, and pause made me feel like I was working at least a little bit. Didn&amp;rsquo;t want to go any heavier because I could definitely &amp;lsquo;feel&amp;rsquo; the weight on my shoulder.&lt;/p&gt;
-
-&lt;h1 id=&#34;pendlay-row&#34;&gt;Pendlay Row&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;135x5&lt;/li&gt;
-&lt;li&gt;185x3&lt;/li&gt;
-&lt;li&gt;200 for 3 sets of 8&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description> Light Day Squats  65x5 155x5 245x3 275 for 3 sets of 5  CG Paused Bench  45x5 95x5 135x5 155x3 185 for 5 sets of 5  Shoulder still bothering me. The higher reps, closer grip, and pause made me feel like I was working at least a little bit. Didn&amp;rsquo;t want to go any heavier because I could definitely &amp;lsquo;feel&amp;rsquo; the weight on my shoulder.
+Pendlay Row  135x5 185x3 200 for 3 sets of 8  </description>
     </item>
     
     <item>
@@ -187,53 +78,9 @@
       <pubDate>Mon, 25 Nov 2019 13:42:11 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0022/</guid>
-      <description>
-
-&lt;p&gt;Today I started a new approach with Heavy/Light/Medium (HLM.)&lt;/p&gt;
-
-&lt;h1 id=&#34;heavy-day&#34;&gt;Heavy Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;squats&#34;&gt;Squats&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;45x5&lt;/li&gt;
-&lt;li&gt;135x5&lt;/li&gt;
-&lt;li&gt;225x5&lt;/li&gt;
-&lt;li&gt;315x3&lt;/li&gt;
-&lt;li&gt;325x1&lt;/li&gt;
-&lt;li&gt;340lbs for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Squats were prescribed to be 5x5, but I changed it once the workout was underway because it was taking so long, and it felt heavy.&lt;/p&gt;
-
-&lt;h1 id=&#34;overhead-press&#34;&gt;Overhead Press&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;45x5&lt;/li&gt;
-&lt;li&gt;95x5&lt;/li&gt;
-&lt;li&gt;135x3&lt;/li&gt;
-&lt;li&gt;155x1&lt;/li&gt;
-&lt;li&gt;157.5lbs for 3 sets of 5&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Press was prescribed for 5x5. Decided to change it to 3x5 just like squat. Work sets were planned to be 160lbs but I misloaded the bar and forgot a 2.5 on one side.&lt;/p&gt;
-
-&lt;p&gt;Left shoulder has felt tweaked since last week. Hopefully today&amp;rsquo;s workout helped loosen it up.&lt;/p&gt;
-
-&lt;h1 id=&#34;deadlift&#34;&gt;Deadlift&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;135x3&lt;/li&gt;
-&lt;li&gt;225x3&lt;/li&gt;
-&lt;li&gt;315x3&lt;/li&gt;
-&lt;li&gt;365x1&lt;/li&gt;
-&lt;li&gt;405lbs for 1 set of 4.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I was supposed to lift a set of 5. I&amp;rsquo;m not used to full body workouts and over-estimated what I could pull at the end of this workout.&lt;/p&gt;
-
-&lt;p&gt;For future workouts I might switch back to the 5x3 scheme from Persistence. Though, I&amp;rsquo;ll try and make it through a week or two with 3x5 first.&lt;/p&gt;
-</description>
+      <description>Today I started a new approach with Heavy/Light/Medium (HLM.)
+Heavy Day Squats  45x5 135x5 225x5 315x3 325x1 340lbs for 3 sets of 5  Squats were prescribed to be 5x5, but I changed it once the workout was underway because it was taking so long, and it felt heavy.
+Overhead Press  45x5 95x5 135x3 155x1 157.5lbs for 3 sets of 5  Press was prescribed for 5x5. Decided to change it to 3x5 just like squat.</description>
     </item>
     
     <item>
@@ -242,41 +89,7 @@
       <pubDate>Thu, 21 Nov 2019 13:39:37 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0021/</guid>
-      <description>
-
-&lt;h1 id=&#34;bench-day&#34;&gt;Bench Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Bench&lt;/td&gt;
-&lt;td&gt;240&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Pendlay Row&lt;/td&gt;
-&lt;td&gt;240&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;I failed the first rep of my third set. And my left shoulder felt tweaked. Decided to call it a day and not push it.&lt;/p&gt;
-</description>
+      <description>Bench Day Superset 1    Lift LBs Sets Reps     Bench 240 2 3   Pendlay Row 240 2 3    I failed the first rep of my third set. And my left shoulder felt tweaked. Decided to call it a day and not push it.</description>
     </item>
     
     <item>
@@ -285,46 +98,8 @@
       <pubDate>Tue, 19 Nov 2019 12:51:21 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0020/</guid>
-      <description>
-
-&lt;h1 id=&#34;r-strongman-challenge-day-usually-deadlift-day&#34;&gt;R/Strongman Challenge Day (Usually deadlift day)&lt;/h1&gt;
-
-&lt;p&gt;Got an 18&amp;rdquo; Deadlift gym PR with a lift of 495lbs.&lt;/p&gt;
-
-&lt;video width=&#34;100%&#34; controls&gt;
-  &lt;source src=&#34;http://quakkels.com/clips/18inch_deadlift_PR_495.mp4&#34; type=&#34;video/mp4&#34;&gt;
-    Your browser does not support the video tag.
-&lt;/video&gt;
-
-&lt;h2 id=&#34;superset&#34;&gt;Superset&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;SSB Squat&lt;/td&gt;
-&lt;td&gt;305&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;DB Step Up&lt;/td&gt;
-&lt;td&gt;50&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</description>
+      <description> R/Strongman Challenge Day (Usually deadlift day) Got an 18&amp;rdquo; Deadlift gym PR with a lift of 495lbs.
+Your browser does not support the video tag.  Superset    Lift LBs Sets Reps     SSB Squat 305 4 3   DB Step Up 50 4 6    </description>
     </item>
     
     <item>
@@ -333,72 +108,8 @@
       <pubDate>Mon, 18 Nov 2019 13:55:48 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0019/</guid>
-      <description>
-
-&lt;h1 id=&#34;overhead-press-day&#34;&gt;Overhead Press Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Overhead Press&lt;/td&gt;
-&lt;td&gt;175&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;3, 3, 3, 2, 3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Lat Pulldown&lt;/td&gt;
-&lt;td&gt;175&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;OHP will be kept at 175 until I can complete all 5 sets of 3 reps.&lt;/p&gt;
-
-&lt;h2 id=&#34;superset-2&#34;&gt;Superset 2&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;DB Floor Flies&lt;/td&gt;
-&lt;td&gt;40&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;DB Seated Press&lt;/td&gt;
-&lt;td&gt;50&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;10, 10, 10, 7&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Will keep DB Seated Press at 50 until I can complete all 4 sets of 10.&lt;/p&gt;
-</description>
+      <description>Overhead Press Day Superset 1    Lift LBs Sets Reps     Overhead Press 175 5 3, 3, 3, 2, 3   Lat Pulldown 175 5 6    OHP will be kept at 175 until I can complete all 5 sets of 3 reps.
+Superset 2    Lift LBs Sets Reps     DB Floor Flies 40 4 6   DB Seated Press 50 4 10, 10, 10, 7    Will keep DB Seated Press at 50 until I can complete all 4 sets of 10.</description>
     </item>
     
     <item>
@@ -407,43 +118,8 @@
       <pubDate>Fri, 15 Nov 2019 13:47:46 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0018/</guid>
-      <description>
-
-&lt;h1 id=&#34;deadlift-day&#34;&gt;Deadlift Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Squat&lt;/td&gt;
-&lt;td&gt;345&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Ab Roller&lt;/td&gt;
-&lt;td&gt;bw&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Instead of doing my usual 18&amp;rdquo; deadlift superset I opted to attempt an entry into r/strongman&amp;rsquo;s 18&amp;rdquo; deadlift challenge. Unfortunately, I failed with 495lbs. It broke off the blocks, but I just couldn&amp;rsquo;t get it past my knees.&lt;/p&gt;
-
-&lt;p&gt;Might attempt 485 tomorrow or Sunday.&lt;/p&gt;
-</description>
+      <description>Deadlift Day Superset 1    Lift LBs Sets Reps     Squat 345 5 3   Ab Roller bw 5 10    Instead of doing my usual 18&amp;rdquo; deadlift superset I opted to attempt an entry into r/strongman&amp;rsquo;s 18&amp;rdquo; deadlift challenge. Unfortunately, I failed with 495lbs. It broke off the blocks, but I just couldn&amp;rsquo;t get it past my knees.
+Might attempt 485 tomorrow or Sunday.</description>
     </item>
     
     <item>
@@ -452,68 +128,7 @@
       <pubDate>Thu, 14 Nov 2019 14:37:40 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0017/</guid>
-      <description>
-
-&lt;h1 id=&#34;bench-day&#34;&gt;Bench Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Bench&lt;/td&gt;
-&lt;td&gt;235&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Barbell Row&lt;/td&gt;
-&lt;td&gt;235&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&#34;superset-2&#34;&gt;Superset 2&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Axle Press&lt;/td&gt;
-&lt;td&gt;190&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Isolation DB Curl&lt;/td&gt;
-&lt;td&gt;35&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</description>
+      <description> Bench Day Superset 1    Lift LBs Sets Reps     Bench 235 5 3   Barbell Row 235 5 3    Superset 2    Lift LBs Sets Reps     Axle Press 190 4 3   Isolation DB Curl 35 4 10    </description>
     </item>
     
     <item>
@@ -522,55 +137,12 @@
       <pubDate>Tue, 12 Nov 2019 13:15:28 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0016/</guid>
-      <description>
-
-&lt;h1 id=&#34;deadlift-day&#34;&gt;Deadlift Day&lt;/h1&gt;
-
-&lt;p&gt;Yay! Day two back on track.&lt;/p&gt;
-
-&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
-
-&lt;p&gt;Goal was to deadlift 405 for 5 sets of 3. But failed the third rep of the second set and had to back off a bit.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Deadlift:&lt;/strong&gt; 3 at 405lbs, then 2 at 405lbs. Finished with 3 sets of 3 at 395lbs.&lt;/p&gt;
-
-&lt;p&gt;Superset with&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Ab Roller&lt;/strong&gt;  5 sets of 10 with bodyweight.&lt;/p&gt;
-
-&lt;h2 id=&#34;superset-2&#34;&gt;Superset 2&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;SSB Squat&lt;/td&gt;
-&lt;td&gt;295&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;DB Step Up&lt;/td&gt;
-&lt;td&gt;40&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;The program is getting heavy enough that I&amp;rsquo;m removing some of the supplemental work like the Pinch Block and Jumping Jacks. Those will get added back in next time I restart Persistence.&lt;/p&gt;
-
-&lt;p&gt;I had a grip PR today. A 385lb double overhand deadlift during warmups.&lt;/p&gt;
-</description>
+      <description>Deadlift Day Yay! Day two back on track.
+Superset 1 Goal was to deadlift 405 for 5 sets of 3. But failed the third rep of the second set and had to back off a bit.
+Deadlift: 3 at 405lbs, then 2 at 405lbs. Finished with 3 sets of 3 at 395lbs.
+Superset with&amp;hellip;
+Ab Roller 5 sets of 10 with bodyweight.
+Superset 2    Lift LBs Sets Reps     SSB Squat 295 4 3   DB Step Up 40 4 6    The program is getting heavy enough that I&amp;rsquo;m removing some of the supplemental work like the Pinch Block and Jumping Jacks.</description>
     </item>
     
     <item>
@@ -579,45 +151,8 @@
       <pubDate>Mon, 11 Nov 2019 06:18:04 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0015/</guid>
-      <description>
-
-&lt;h1 id=&#34;overhead-press-day&#34;&gt;Overhead Press Day&lt;/h1&gt;
-
-&lt;p&gt;Getting back into the routine this week. Last week amounted to a full 7 days away from the gym. I was starting to feel a little run down anyway. The weights were feeling heavier than they should. So maybe the week off will do some good for my recovery.&lt;/p&gt;
-
-&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Overhead Press&lt;/td&gt;
-&lt;td&gt;170&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Lat Pulldown&lt;/td&gt;
-&lt;td&gt;170&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Ran out of time for the second superset. I really need to get in the gym on time and use rest timers to make sure I get everything in.&lt;/p&gt;
-
-&lt;p&gt;Started using a pronated and slightly narrower grip on the lat pulldown. Seems to feel nice.&lt;/p&gt;
-</description>
+      <description>Overhead Press Day Getting back into the routine this week. Last week amounted to a full 7 days away from the gym. I was starting to feel a little run down anyway. The weights were feeling heavier than they should. So maybe the week off will do some good for my recovery.
+Superset 1    Lift LBs Sets Reps     Overhead Press 170 5 3   Lat Pulldown 170 5 6    Ran out of time for the second superset.</description>
     </item>
     
     <item>
@@ -626,17 +161,10 @@
       <pubDate>Mon, 04 Nov 2019 06:07:55 -0600</pubDate>
       
       <guid>http://quakkels.com/training_log/0014/</guid>
-      <description>
-
-&lt;h1 id=&#34;bench-day&#34;&gt;Bench Day&lt;/h1&gt;
-
-&lt;p&gt;Conflicts in my schedule have caused me to miss a few days this week. I decided to skip ahead to bench day and modify it pretty heavily from what I usually do.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Bench:&lt;/strong&gt; 230lbs 5x3&lt;br&gt;
-&lt;strong&gt;Barbell Row:&lt;/strong&gt; 225lbs for 3. Then 245lbs for 2x3 &lt;em&gt;(PR)&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;I am happy with the rowing. For the last several weeks I&amp;rsquo;ve used an axle bar. With an axle I end up being limited by grip. It was nice to see barbell rows being easier now. Happy to get the PR on an off day.&lt;/p&gt;
-</description>
+      <description>Bench Day Conflicts in my schedule have caused me to miss a few days this week. I decided to skip ahead to bench day and modify it pretty heavily from what I usually do.
+Bench: 230lbs 5x3
+Barbell Row: 225lbs for 3. Then 245lbs for 2x3 (PR)
+I am happy with the rowing. For the last several weeks I&amp;rsquo;ve used an axle bar. With an axle I end up being limited by grip.</description>
     </item>
     
     <item>
@@ -645,48 +173,7 @@
       <pubDate>Tue, 29 Oct 2019 12:00:00 -0500</pubDate>
       
       <guid>http://quakkels.com/training_log/0013/</guid>
-      <description>
-
-&lt;h1 id=&#34;overhead-press-day&#34;&gt;Overhead Press Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Overhead Press&lt;/td&gt;
-&lt;td&gt;165&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Lat Pulldown&lt;/td&gt;
-&lt;td&gt;165&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Jumping Jacks&lt;/td&gt;
-&lt;td&gt;bw&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Didn&amp;rsquo;t have time to do the second superset.&lt;/p&gt;
-</description>
+      <description>Overhead Press Day Superset 1    Lift LBs Sets Reps     Overhead Press 165 5 3   Lat Pulldown 165 5 6   Jumping Jacks bw 5 20    Didn&amp;rsquo;t have time to do the second superset.</description>
     </item>
     
     <item>
@@ -695,72 +182,121 @@
       <pubDate>Mon, 28 Oct 2019 13:37:28 -0500</pubDate>
       
       <guid>http://quakkels.com/training_log/0012/</guid>
-      <description>
-
-&lt;h1 id=&#34;squat-day&#34;&gt;Squat Day&lt;/h1&gt;
-
-&lt;h2 id=&#34;superset-1&#34;&gt;Superset 1&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Squat&lt;/td&gt;
-&lt;td&gt;345&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Ab Roller&lt;/td&gt;
-&lt;td&gt;bw&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Jumping Jacks&lt;/td&gt;
-&lt;td&gt;bw&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&#34;superset-2&#34;&gt;Superset 2&lt;/h2&gt;
-
-&lt;p&gt;Actually, I didn&amp;rsquo;t superset. Was feeling so dead at this point that I decided to drop the assistance stuff and &lt;em&gt;only&lt;/em&gt; do the 18&amp;rdquo; deadlifts.&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Lift&lt;/th&gt;
-&lt;th&gt;LBs&lt;/th&gt;
-&lt;th&gt;Sets&lt;/th&gt;
-&lt;th&gt;Reps&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;18&amp;rdquo; Deadlift&lt;/td&gt;
-&lt;td&gt;415&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;415lbs for 3 reps is a PR.&lt;/p&gt;
-</description>
+      <description>Squat Day Superset 1    Lift LBs Sets Reps     Squat 345 5 3   Ab Roller bw 5 10   Jumping Jacks bw 5 20    Superset 2 Actually, I didn&amp;rsquo;t superset. Was feeling so dead at this point that I decided to drop the assistance stuff and only do the 18&amp;rdquo; deadlifts.
+   Lift LBs Sets Reps     18&amp;rdquo; Deadlift 415 4 3    415lbs for 3 reps is a PR.</description>
+    </item>
+    
+    <item>
+      <title>11 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0011/</link>
+      <pubDate>Wed, 23 Oct 2019 13:17:47 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0011/</guid>
+      <description> Bench Day Superset 1    Lift LBs Sets Reps     Bench 225 5 3   Axle Row 175 5 5   Jumping Jacks bw 5 20    Superset 2    Lift LBs Sets Reps     Axle Press 190 4 3   Isolation DB Curl 35 4 10   50&amp;rsquo; DB Suitcase Carry 80 4 1    </description>
+    </item>
+    
+    <item>
+      <title>10 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0010/</link>
+      <pubDate>Tue, 22 Oct 2019 13:40:06 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0010/</guid>
+      <description>Deadlift Day Superset 1    Lift LBs Sets Reps     Deadlift 385 5 3   Ab Roller bw 5 10   Jumping Jacks bw 5 20    These deadlifts felt very heavy. I&amp;rsquo;m going to watch my protein intake to see if I can continue this block&amp;rsquo;s linear progression. Though, I might reduce reps down to 2 instead of 3. Or, I might only train deadlifts once every two weeks.</description>
+    </item>
+    
+    <item>
+      <title>9 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0009/</link>
+      <pubDate>Mon, 21 Oct 2019 13:21:03 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0009/</guid>
+      <description> Overhead Press Day Switching it up! Changing up the Persistence program from the first time I ran it. Instead of an upper and lower superset each day, I&amp;rsquo;m going to have an upper body day with two upper body supersets. Lower body days will have two lower body supersets. This hopefully will be easier to recover from.
+Superset 1    Lift LBs Sets Reps     Overhead Press 160 5 3   Lat Pulldown 166 5 6   Jumping Jacks bw 5 20    Superset 2    Lift LBs Sets Reps     DB Floor Fly 35 4 6   Seated DB Press 50 4 8   50&amp;rsquo; DB Suitcase Carry 80 4 1    </description>
+    </item>
+    
+    <item>
+      <title>8 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0008/</link>
+      <pubDate>Sat, 19 Oct 2019 13:03:08 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0008/</guid>
+      <description>Squat Day Superset 1    Lift LBs Sets Reps     Squat 335 5 3   Ab Roller bw 5 8   Jumping Jacks bw 5 20    Superset 2    Lift LBs Sets Reps     Axle Press 190 4 3   Pinch Block 47.5 4 3   DB Lunges 35 4 3    I&amp;rsquo;ve been liking the unilateral work a lot lately.</description>
+    </item>
+    
+    <item>
+      <title>7 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0007/</link>
+      <pubDate>Thu, 17 Oct 2019 13:00:11 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0007/</guid>
+      <description>Bench Day Superset 1    Lift LBs Sets Reps     Bench 220 5 3   Axle Rows 160 5 5   Jumping Jacks bw 5 20    Superset 2    Lift Lbs Sets Reps     18&amp;rdquo; Deadlift 405 4 3   DB Isolation Curl 30 4 10   50&amp;rsquo; DB Suitcase Carry 80 4 1    I kept the 18&amp;rdquo; Deadlifts at 405.</description>
+    </item>
+    
+    <item>
+      <title>6 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0006/</link>
+      <pubDate>Wed, 16 Oct 2019 14:52:32 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0006/</guid>
+      <description>Deadlift Day Superset 1    Lift LBs Sets Reps     Deadlift Day 375 5 3   Ab Roller bw 5 8   Jumping Jacks bw 5 20    Deadlifts felt good. I&amp;rsquo;m really liking the 5x3 scheme. First work set was done without straps for a double overhand PR.
+Superset 2    Lift Lbs Sets Reps     DB Floor Flies 30 4 5   Pinch Block 47.</description>
+    </item>
+    
+    <item>
+      <title>5 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0005/</link>
+      <pubDate>Mon, 14 Oct 2019 13:11:57 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0005/</guid>
+      <description>Overhead Press Day Decided to switch up the set and rep scheme just a little. I&amp;rsquo;ve been on a calorie deficit for about a week, and I think I&amp;rsquo;ll be able to keep up with my lifts if I reduce the reps per set, but then increase total sets.
+Superset 1    Lift Weight Sets Reps     Press 155 5 3   Lat Pulldown 155 5 6   Jumping Jacks bw 5 20    Superset 2    Lift Weight Sets Reps     SSB Squat 285 4 3   DB Seated Press 50 4 8   50&amp;rsquo; DB Suitcase Carry 80 4 1    This new rep/set configuration worked well.</description>
+    </item>
+    
+    <item>
+      <title>4b (Persistence)</title>
+      <link>http://quakkels.com/training_log/0004b/</link>
+      <pubDate>Sat, 12 Oct 2019 12:45:48 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0004b/</guid>
+      <description>Axle Press Day Superset 1    Lift Weight Sets Reps     Axle Press 210 1 2   Axle Press 230 1 1    This workout was just a little make-up day since I had to cut yesterday&amp;rsquo;s workout short. 210lbs for 2 and 230lbs for 1 are both personal records.</description>
+    </item>
+    
+    <item>
+      <title>4 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0004/</link>
+      <pubDate>Fri, 11 Oct 2019 14:01:48 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0004/</guid>
+      <description>Squat Day Superset 1    Lift Weight Sets Reps     Squat 330 3 3   Turkish Get-up 15 3 3   Jumping Jacks bw 3 30    Only had time for one superset today.</description>
+    </item>
+    
+    <item>
+      <title>3 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0003/</link>
+      <pubDate>Thu, 10 Oct 2019 14:20:22 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0003/</guid>
+      <description>Bench Day Superset 1    Lift Weight Sets Reps     Bench 215 3 5   Axle Pendlay Row 160 3 8   Jumping Jacks bw 3 30    Superset 2    Lift Weight Sets Reps     18&amp;rdquo; Deadlift 405 3 3   Isolation DB Curl 30 3 10   50&amp;rsquo; DB Suitcase Carry 80 3 2    Today felt really good.</description>
+    </item>
+    
+    <item>
+      <title>2 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0002/</link>
+      <pubDate>Tue, 08 Oct 2019 13:29:34 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0002/</guid>
+      <description>Deadlift Day Superset 1    Lift Weight Sets Reps     Deadlift 365 3 5   Ab Roller bw 3 8   Jumping Jacks bw 3 30     Notes: Might adjust this volume on deadlifts. Want to lift heavy, but was really draggin&amp;rsquo; after the second round.
+ Superset 2    Lift Weight Sets Reps     DB Floor Flies 25 3 5   Pinch Block 45 3 4   One Legged Hip Thrust bw 3 10     Notes: First superset much harder the the second.</description>
+    </item>
+    
+    <item>
+      <title>1 (Persistence)</title>
+      <link>http://quakkels.com/training_log/0001/</link>
+      <pubDate>Mon, 07 Oct 2019 07:14:44 -0500</pubDate>
+      
+      <guid>http://quakkels.com/training_log/0001/</guid>
+      <description>Strict Press Day Superset 1    Lift Weight Sets Reps     Press 150 3 5   Lat Pulldown 150 2 10   Lat Pulldown 150 1 6   Jumping Jacks bw 3 30     Notes: Reached failure too soon on Lat Pulldown. Keep weight here for next time.
+ Superset 2    Lift Weight Sets Reps     SSB Squat 275 2 5   DB Seated Press 40 2 8   50&amp;rsquo; Sandbag Carry 165 2 1     Notes: Second superset was interrupted.</description>
     </item>
     
   </channel>

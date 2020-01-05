@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Quakkels.com</title>
+    <link>http://quakkels.com/tags/</link>
+    <description>Recent content in Tags on Quakkels.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://quakkels.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fitness</title>
+      <link>http://quakkels.com/tags/fitness/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/tags/fitness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>http://quakkels.com/tags/programming/</link>
+      <pubDate>Thu, 26 Dec 2019 07:00:00 -0500</pubDate>
+      
+      <guid>http://quakkels.com/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>System Administration</title>
+      <link>http://quakkels.com/tags/system-administration/</link>
+      <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/tags/system-administration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorial</title>
+      <link>http://quakkels.com/tags/tutorial/</link>
+      <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

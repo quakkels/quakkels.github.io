@@ -2,12 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Quakkels.com</title>
-    <link>http://quakkels.com/posts/index.xml</link>
+    <link>http://quakkels.com/posts/</link>
     <description>Recent content in Posts on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 26 Dec 2019 07:00:00 -0500</lastBuildDate>
-    <atom:link href="http://quakkels.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://quakkels.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Flat is Better Than Nested Versus Single Entry Single Exit</title>
@@ -15,89 +17,8 @@
       <pubDate>Thu, 26 Dec 2019 07:00:00 -0500</pubDate>
       
       <guid>http://quakkels.com/posts/single-entry-single-exit/</guid>
-      <description>
-
-&lt;p&gt;As a program ages and receives updates, more and more features are built. Logic is added and the code becomes increasingly more complicated to read and understand. So programmers invent recommended practices to manage the complexity and to preserve the maintainability of their code. The goal being to keep the cognitive load to minimum levels so the programmer can work efficiently.&lt;/p&gt;
-
-&lt;p&gt;One popular practice is to avoid nested code when possible. The concept that flat is better than nested has been widely adopted by Python programmers who have included it in their &lt;a href= &#34;https://www.python.org/dev/peps/pep-0020/&#34; target=&#34;_blank&#34;&gt;guidelines&lt;/a&gt;. Python programmers aren&amp;rsquo;t the only group to adopt this preference. Resharper, a code analysis tool popular among C# programmers, &lt;a href=&#34;https://stackoverflow.com/q/268132&#34; target=&#34;_blank&#34;&gt;recommends coding styles that result in less nested code&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;However, there&amp;rsquo;s another recommended practice called Single Entry Single Exit (SE/SE). When applied in modern languages, it avoids exiting a program early with multiple return statements. This can be in direct opposition to &amp;ldquo;Flatter is Better&amp;rdquo; since an important flattening technique is to return early.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public bool ValidatePassword(CredentialService credentials, string username, string password)
-{
-  var isValid = false;
-
-  if (credentials.Exists(username))
-  {
-    if (!credentials.IsLockedOut(username))
-    {
-      if (credentials.IsHashValid(password, credentials.GetHashByUsername(username)))
-      {
-        LogValidPassword(username);
-        isValid = true;
-      }
-      else
-      {
-        LogInvalidPassword(username);
-      }
-    }
-    else
-    {
-      LogLockedOutUser(username);
-    }
-  }
-  else
-  {
-    LogMissingUsername(username);
-  }
-
-  return isValid;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The above code is sound. But we can easily see that nested if/else statements quickly become difficult to read. And keep in mind that as this codebase matures it&amp;rsquo;s very likely that additional features, checks, and logging will be required by business rules.&lt;/p&gt;
-
-&lt;p&gt;Now, consider how easy it is to read the following code which uses multiple early returns to exit.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public bool ValidatePassword(CredentialService credentials, string username, string password)
-{
-  if (!credentials.Exists(username))
-  {
-    LogMissingUsername(username);
-    return false;
-  }
-
-  if (credentials.IsLockedOut(username))
-  {
-    LogLockedOutUser(username);
-    return false;
-  }
-
-  if (!credentials.IsHashValid(password, credentials.GetHashByUsername(username)))
-  {
-    LogInvalidPassword(username);
-    return false;
-  }
-      
-  LogValidPassword(username);
-  return true;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;My preference is to favor returning early. Composing functions such that there&amp;rsquo;s just one final return statement results in code that has more &lt;code&gt;else&lt;/code&gt; statements and multiple levels of nesting. I find these are characteristics of code that&amp;rsquo;s difficult to read. A &lt;code&gt;return&lt;/code&gt; is the end of function execution. When an early &lt;code&gt;return&lt;/code&gt; is encountered then the final result is apparent. This is not the case when setting a result value which can be changed later in execution. So a programmer would need to handle the cognitive load of more scenarios with SE/SE than they would if early returns were adopted.&lt;/p&gt;
-
-&lt;h2 id=&#34;origins-of-single-entry-single-exit&#34;&gt;Origins of Single Entry Single Exit&lt;/h2&gt;
-
-&lt;p&gt;The history of SE/SE is rooted in a pioneering programming paradigm called Structured Programming. The term Structured Programming was &lt;a href=&#34;https://www.cs.utexas.edu/users/EWD/ewd02xx/EWD249.PDF&#34; target=&#34;_blank&#34;&gt;coined by Edsger Dijkstra&lt;/a&gt;. It&amp;rsquo;s used to refer to programming with control structures like if/then/else, loops like for and while, and subroutines. This paradigm gained popularity thanks in part to a 1968 letter called &lt;a href=&#34;https://www.cs.utexas.edu/users/EWD/ewd02xx/EWD215.PDF&#34; target=&#34;_blank&#34;&gt;Go-to Statement Considered Harmful&lt;/a&gt; by Dijkstra.&lt;/p&gt;
-
-&lt;p&gt;The argument for SE/SE has it&amp;rsquo;s foundation in the argument against using &lt;code&gt;goto&lt;/code&gt;. Essentially highlighting the benefits of avoiding flows that become tangled and obfuscated to the programmer. Such code is referred to as &lt;a href=&#34;https://en.wikipedia.org/wiki/Spaghetti_code#Meaning&#34; target=&#34;_blank&#34;&gt;spaghetti code&lt;/a&gt;. Bertrand Meyer criticizes returning early, and even advises against using &lt;code&gt;continue&lt;/code&gt; and &lt;code&gt;break&lt;/code&gt; in loops. He writes about it in his book called Touch of Class: Learning to Program Well with Objects and Contracts. Regarding &lt;code&gt;return&lt;/code&gt;, &lt;code&gt;continue&lt;/code&gt;, and &lt;code&gt;break&lt;/code&gt; he says they &amp;ldquo;are just the old goto in sheep&amp;rsquo;s clothing.&amp;rdquo; His opinion seems to be overly dogmatic to me because those three keywords always jump to the same place. A &lt;code&gt;return&lt;/code&gt; will always exit the function. A &lt;code&gt;continue&lt;/code&gt; will always jump to the top of the loop. A &lt;code&gt;break&lt;/code&gt; will always exit a loop. Those behaviors are consistent and programmers have mental models for them and they&amp;rsquo;re transferable to other programs. This is unlike &lt;code&gt;goto&lt;/code&gt; which requires the programmer to hunt for the location that&amp;rsquo;s being jumped to, and therefore they must create a new mental model for each flow.&lt;/p&gt;
-
-&lt;h2 id=&#34;final-thoughts&#34;&gt;Final Thoughts&lt;/h2&gt;
-
-&lt;p&gt;SE/SE was for a time when the programmer handled the structure of the function rather than just the logic of it. Languages that offered multiple points of entry to subroutines can certainly become confusing. I agree that multiple entry points is a practice to be avoided. But, modern languages offer greater protections than earlier ones. So the rule is less relevant today.&lt;/p&gt;
-
-&lt;p&gt;My disagreement is specifically with the single exit rule. I think flat code is just easier to understand than nested. Now, there are cases where a single exit is important. Multiple exit points could certainly be an issue in languages like C which require you to clean up after yourself. But the rule is not nearly as useful for languages that have features like garbage collection, &lt;code&gt;try...finally&lt;/code&gt;, and &lt;code&gt;using&lt;/code&gt; blocks.&lt;/p&gt;
-</description>
+      <description>As a program ages and receives updates, more and more features are built. Logic is added and the code becomes increasingly more complicated to read and understand. So programmers invent recommended practices to manage the complexity and to preserve the maintainability of their code. The goal being to keep the cognitive load to minimum levels so the programmer can work efficiently.
+One popular practice is to avoid nested code when possible.</description>
     </item>
     
     <item>
@@ -106,126 +27,9 @@
       <pubDate>Mon, 23 Dec 2019 07:00:00 -0500</pubDate>
       
       <guid>http://quakkels.com/posts/functions-for-documentation-instead-of-comments/</guid>
-      <description>
-
-&lt;p&gt;Using good function naming and composition will decrease the need for gratuitous comments and increase your code’s readability.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ve become convinced that comments are often worth avoiding. Comments aren&amp;rsquo;t subject to a compiler nor to an interpreter. Code may change and the corresponding comment often remains as it was. Except now the comment is misleading. This makes maintaining the code unnecessarily difficult.&lt;/p&gt;
-
-&lt;h2 id=&#34;use-function-names-to-document-code&#34;&gt;Use Function Names to Document Code&lt;/h2&gt;
-
-&lt;p&gt;Consider this code that determines the &amp;ldquo;Day of the Programmer&amp;rdquo;. The &lt;code&gt;GetDay&lt;/code&gt; method (method being a function on an object) gets the date that represents the 256th day of the year. And, it accounts for when the calendar changed from Julian to Gregorian.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public static DayOfTheProgrammer 
-{
-  public static string GetDay(int year)
-  {
-    var september256Day = 13;
-
-    // Find whether the year is missing 14 days.
-    if (year == 1918)
-    {
-      september256Day = 26;
-    }
-    // Find whether it&#39;s a leap year
-    else if (year &amp;gt;= 1918 &amp;amp;&amp;amp; (year % 400 == 0 || year % 4 == 0 &amp;amp;&amp;amp; year % 100 != 0) || year &amp;lt; 1918 &amp;amp;&amp;amp; year % 4 == 0)
-    {
-      september256Day = 12;
-    }
-
-    return $&amp;quot;{september256Day}.09.{year}&amp;quot;;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The above code works. But it is difficult to read. The programmer has considered future maintainers by adding explanations in comments above each &lt;code&gt;if&lt;/code&gt; statement. That is a step in the right direction, however comments are particularly vulnerable to &amp;ldquo;code rot&amp;rdquo; since the compiler (or interpreter) is unaware of their content. As the code is maintained it&amp;rsquo;s easy for neglected comments to have misleading or even false information in them. I prefer using descriptive names in lieu of comments.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public static class DayOfTheProgrammer
-{
-  public static string GetDay(int year)
-  {
-    var september256Day = 13;
-
-    if (IsMissing14Days(year))
-    {
-      september256Day = 26;
-    }
-    else if (IsLeapYear(year))
-    {
-      september256Day = 12;
-    }
-
-    return $&amp;quot;{september256Day}.09.{year}&amp;quot;;
-  }
-sxz
-  private static bool IsMissing14Days(int year)
-  {
-    return year == 1918;
-  }
-
-  private static bool IsLeapYear(int year)
-  {
-    return year &amp;gt;= 1918 
-      &amp;amp;&amp;amp; (year % 400 == 0 || year % 4 == 0 &amp;amp;&amp;amp; year % 100 != 0) 
-      || year &amp;lt; 1918 
-      &amp;amp;&amp;amp; year % 4 == 0;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Refactoring the code into functions with meaningful names has eliminated the need for the original comments. The same information is being communicated in both versions of the code. However, the original is vulnerable to comment rot while the refactored code that uses descriptive names is easier to maintain.&lt;/p&gt;
-
-&lt;p&gt;The programmer may decide to refactor further. The conditional statement in &lt;code&gt;IsLeapYear&lt;/code&gt; is still pretty long and requires effort to read and understand. We can add documentation by using descriptive variable names.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;private static bool IsLeapYear(int year)
-{
-  var isGregorianCalendar = year &amp;gt;= 1918;
-  var isGregorianLeapYear = year % 400 == 0 || year % 4 == 0 &amp;amp;&amp;amp; year % 100 != 0;
-
-  if (isGregorianCalendar &amp;amp;&amp;amp; isGregorianLeapYear)
-  {
-    return true;
-  }
-
-  var isJulianCalendar = !isGregorianCalendar;
-  var isJulianLeapYear = year % 4 == 0;
-
-  return isJulianCalendar &amp;amp;&amp;amp; isJulianLeapYear;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;(For more information about the Day of the Programmer problem visit &lt;a href=&#34;https://www.hackerrank.com/challenges/day-of-the-programmer/problem&#34; target=&#34;_blank&#34;&gt;HackerRank&lt;/a&gt;.)&lt;/p&gt;
-
-&lt;h2 id=&#34;prefer-smaller-functions&#34;&gt;Prefer Smaller Functions&lt;/h2&gt;
-
-&lt;p&gt;Long functions typically suffer from multiple code flows, varying levels of abstraction, and they often have &amp;ldquo;sections&amp;rdquo; delineated by comments. If the programmer feels the need to use comments to separate a program into sections, that could be an opportunity to write smaller functions with descriptive names.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;The first rule of functions is that they should be small. The second rule of functions is that &lt;em&gt;they should be smaller than that.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;— Clean Code by Robert C. Martin (pp. 34)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;useful-comments&#34;&gt;Useful Comments&lt;/h2&gt;
-
-&lt;p&gt;Though I believe that comments are often worth avoiding, there are times when comments are useful.&lt;/p&gt;
-
-&lt;p&gt;Useful comments often fall into one of the following categories.&lt;/p&gt;
-
-&lt;h3 id=&#34;legal&#34;&gt;Legal&lt;/h3&gt;
-
-&lt;p&gt;Legal comments such as copyright and license information.&lt;/p&gt;
-
-&lt;h3 id=&#34;explanation-of-intent&#34;&gt;Explanation of Intent&lt;/h3&gt;
-
-&lt;p&gt;Good comments can explain the programmer&amp;rsquo;s intention rather than explaining the implementation. Don&amp;rsquo;t explain how it works, rather explain the reason why it works that way.&lt;/p&gt;
-
-&lt;h3 id=&#34;warning&#34;&gt;Warning&lt;/h3&gt;
-
-&lt;p&gt;Comments can be useful for communicating warnings about possible consequences. Things like &lt;code&gt;// takes a long time to run&lt;/code&gt;, or &lt;code&gt;// not thread safe&lt;/code&gt; are good to know and difficult to document without a brief comment.&lt;/p&gt;
-
-&lt;p&gt;If a comment falls outside of the previous three categorizations, explore the idea of removing it. The message might be a good candidate for documenting with function names, or variable names.&lt;/p&gt;
-</description>
+      <description>Using good function naming and composition will decrease the need for gratuitous comments and increase your code’s readability.
+I&amp;rsquo;ve become convinced that comments are often worth avoiding. Comments aren&amp;rsquo;t subject to a compiler nor to an interpreter. Code may change and the corresponding comment often remains as it was. Except now the comment is misleading. This makes maintaining the code unnecessarily difficult.
+Use Function Names to Document Code Consider this code that determines the &amp;ldquo;Day of the Programmer&amp;rdquo;.</description>
     </item>
     
     <item>
@@ -234,181 +38,8 @@ sxz
       <pubDate>Tue, 17 Dec 2019 07:00:00 -0500</pubDate>
       
       <guid>http://quakkels.com/posts/clean-names/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882&#34; target=&#34;_blank&#34;&gt;Clean Code by Robert C. Martin&lt;/a&gt; is one of my favorite programming texts. It has a chapter called Meaningful Names wherein principles for the clear and clean naming of code elements are explained.&lt;/p&gt;
-
-&lt;p&gt;When we write code we should be considering the programmer who follows us. Sometimes it may be ourselves who have not touched the code for months or years. The programmer working in previously written code will need to study it to try and recognize the intention and systems of the original author. Making the code as easy to understand as possible is the author&amp;rsquo;s responsibility. When writing professional code, resist urges to &amp;lsquo;be clever&amp;rsquo; or to sacrifice clarity for brevity.&lt;/p&gt;
-
-&lt;p&gt;Use these good naming principles and the programmers who follow us will be grateful.&lt;/p&gt;
-
-&lt;h2 id=&#34;use-names-that-show-intent&#34;&gt;Use Names That Show Intent&lt;/h2&gt;
-
-&lt;p&gt;Name things so that we can identify them. Consider the variable declared below.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;DateTime z;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We can clearly see there is a variable. We can tell it&amp;rsquo;s a &lt;code&gt;DateTime&lt;/code&gt;. Though, we can&amp;rsquo;t tell what it&amp;rsquo;s used for from just the name. A programmer may try to add clarity be adding a few more keystrokes to the names.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;DateTime login;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This improves readability somewhat. But it the programmer still isn&amp;rsquo;t clear about what purpose this variable is intended to serve. The name could be further improved by adding more details.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;DateTime lastLoginUtc;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This is a better name because it communicates several things about the intent of the variable. It is intended to hold a UTC date representing the last time there was a login. The original name, &lt;code&gt;z&lt;/code&gt;, communicated none of that intent. The program using &lt;code&gt;z&lt;/code&gt; would have been harder to decipher.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s a slightly more complex example.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public bool GetResult(Dictionary&amp;lt;string, string&amp;gt; a, string x, string y)
-{
-  if (!a.ContainsKey(x)) 
-  {
-    return false;
-  }
-
-  return compare(y, a[x]);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This isn&amp;rsquo;t doing anything complex, but it&amp;rsquo;s not obvious what&amp;rsquo;s happening. See how much cleaner things get when meaningful names are applied.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public bool ValidatePassword(Dictionary&amp;lt;string, string&amp;gt; credentials, string username, string password)
-{
-  if (!credentials.ContainsKey(username)) 
-  {
-    return false;
-  }
-
-  return CheckHash(password, credentials[username]);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;When names show intention we have a much better idea of the job this code performs.&lt;/p&gt;
-
-&lt;h2 id=&#34;avoid-false-clues&#34;&gt;Avoid False Clues&lt;/h2&gt;
-
-&lt;p&gt;Programmers should not use names that have common meanings which could mislead the reader from what the variable actually represents. For example &lt;code&gt;ee&lt;/code&gt; is a bad variable name. Depending on the reader&amp;rsquo;s background they may be led to believe it stands for Expected Error, Employee Experience, or just Employee.&lt;/p&gt;
-
-&lt;p&gt;Similarly, if a variable refers to a collection of employees, avoid using &lt;code&gt;employeeList&lt;/code&gt; unless it&amp;rsquo;s actually a list. In fact, often it&amp;rsquo;s preferable to not indicate data type in the variable&amp;rsquo;s name. A pluralized name, such as &lt;code&gt;employees&lt;/code&gt;, communicates that it can hold multiple employee objects.&lt;/p&gt;
-
-&lt;h2 id=&#34;avoid-noise&#34;&gt;Avoid Noise&lt;/h2&gt;
-
-&lt;p&gt;When attempting to write descriptive names, be careful to avoid meaningless noise. For example, words like &amp;ldquo;info&amp;rdquo; or &amp;ldquo;detail&amp;rdquo; can easily become noise. Consider the method name &lt;code&gt;GetUserClaims()&lt;/code&gt;. Some may be inclined to name it &lt;code&gt;GetUserClaimsInfo()&lt;/code&gt; or &lt;code&gt;GetUserClaimsDetail()&lt;/code&gt; even though the extra words don&amp;rsquo;t add any new information for the reader.&lt;/p&gt;
-
-&lt;h2 id=&#34;names-should-fit-in-conversation&#34;&gt;Names Should Fit in Conversation&lt;/h2&gt;
-
-&lt;p&gt;Abbreviating terms or using acronyms can produce names that are awkward to verbalize in regular conversation. Avoid difficult to pronounce names in favor of names that are easily said.&lt;/p&gt;
-
-&lt;p&gt;Prefer &lt;code&gt;originalLoginDate&lt;/code&gt; over &lt;code&gt;ogLgnDt&lt;/code&gt;. Also prefer &lt;code&gt;EnableLongDescription&lt;/code&gt; over &lt;code&gt;ENBLNGDESC&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;don-t-use-encodings&#34;&gt;Don&amp;rsquo;t Use Encodings&lt;/h2&gt;
-
-&lt;p&gt;Names that use encodings often violate more than one of the previously recommended rules. They introduce an additional learning curve and require programmers to be subjected to unnecessary extra effort to decipher such names.&lt;/p&gt;
-
-&lt;p&gt;The most egregious offenses I&amp;rsquo;ve seen are names for database tables and columns in ERP software. From a real ERP we find this example, &lt;code&gt;CO00101&lt;/code&gt;. The name provides next to no clues regarding the table&amp;rsquo;s purpose. The programmer is expected to know that it refers to the table representing &amp;ldquo;Document Attachment Master.&amp;rdquo; Not only does this example use encodings, it also violates the principle that names should show intent. It&amp;rsquo;s an unfortunate name on multiple levels.&lt;/p&gt;
-
-&lt;p&gt;Hungarian Notation is an encoding scheme that has historically been popular. But it is a violation of this avoid-encodings rule. In some pioneering programming languages it was necessary to encode information about the variable within the variable name itself using mnemonics. Today our languages and IDEs are advanced enough to have nearly eliminate any need for Hungarian Notation style encodings.&lt;/p&gt;
-
-&lt;h3 id=&#34;don-t-use-encodings-exceptions-to-the-rule&#34;&gt;Don&amp;rsquo;t Use Encodings: Exceptions to the Rule&lt;/h3&gt;
-
-&lt;p&gt;Using prefixes for names of class members is still a commonly encountered encoding technique. Uncle Bob  recommends avoiding member prefixes entirely. He writes:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&amp;hellip;people quickly learn to ignore the prefix (or suffix) to see the meaningful part of the name. The more we read the code, the less we see the prefixes. Eventually the prefixes become unseen clutter and a marker of older code.&lt;/p&gt;
-
-&lt;p&gt;— Clean Code by Robert C. Martin (pp. 24)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I haven&amp;rsquo;t yet decided whether I agree with avoiding member prefixes. Consider this class with member prefixes:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public class User
-{
-  private string _username;
-
-  public User(string username)
-  {
-    _username = username;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And compare it to a version without the member prefix:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public class User
-{
-  private string username;
-
-  public User(string username)
-  {
-    this.username = username;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I&amp;rsquo;m hard pressed to say one is superior to the other. Ultimately, I don&amp;rsquo;t think this is a hill worth dying on. I would object to a more involved member prefix, such as &lt;code&gt;m_&lt;/code&gt; instead of just &lt;code&gt;_&lt;/code&gt;. But I think both versions of the &lt;code&gt;User&lt;/code&gt; class are easy to read. However, I would advocate for either &lt;code&gt;this.username&lt;/code&gt; or &lt;code&gt;_username&lt;/code&gt; when assigning the field rather than &lt;code&gt;username = username&lt;/code&gt;. While &lt;code&gt;username = username&lt;/code&gt; does work in languages like C#, it appears redundant. And, it violates the &amp;ldquo;avoid false clues&amp;rdquo; rule.&lt;/p&gt;
-
-&lt;p&gt;Another exception comes up when dealing with interfaces and concrete classes. If we have need for a configuration service with an interface and a concrete implementation, then how would the names be different between the two. It&amp;rsquo;s common to use an &lt;code&gt;I&lt;/code&gt; prefix to indicate an interface. So &lt;code&gt;IConfigurationService&lt;/code&gt; and &lt;code&gt;ConfigurationService&lt;/code&gt; for the concrete class implementation. But Uncle Bob prefers having the encoding on the concrete class, rather than on the interface. His reasoning for this is that the users of the configuration service interface have no need to know that they&amp;rsquo;ve been given an interface. So, he&amp;rsquo;d name them something like &lt;code&gt;ConfigurationService&lt;/code&gt;, and &lt;code&gt;ConfigurationServiceImp&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;use-nouns-for-class-names&#34;&gt;Use Nouns For Class Names&lt;/h2&gt;
-
-&lt;p&gt;This is a straightforward rule. Classes and objects should be thought of as nouns. So, they should be named that way. They shouldn&amp;rsquo;t have verbs.&lt;/p&gt;
-
-&lt;h2 id=&#34;use-verbs-for-method-names&#34;&gt;Use Verbs For Method Names&lt;/h2&gt;
-
-&lt;p&gt;Here&amp;rsquo;s another straightforward rule. Methods are &amp;ldquo;doers&amp;rdquo; so their name should have a verb for what they are doing. &lt;code&gt;GetCredentials&lt;/code&gt;, &lt;code&gt;ValidatePassword&lt;/code&gt;, and &lt;code&gt;AddUser&lt;/code&gt; are all good method names.&lt;/p&gt;
-
-&lt;h2 id=&#34;avoid-inside-jokes-references-and-general-cleverness&#34;&gt;Avoid Inside Jokes, References, and General &amp;ldquo;Cleverness&amp;rdquo;&lt;/h2&gt;
-
-&lt;p&gt;As fun as it might be, avoid using &amp;ldquo;easter eggs&amp;rdquo; or cultural references in your code. Instead, just be direct and write what you mean. Don&amp;rsquo;t require the reader to resist a distraction and map a label to a concept while they&amp;rsquo;re trying to understand your code.&lt;/p&gt;
-
-&lt;h3 id=&#34;exceptions-to-avoiding-jokes-and-references&#34;&gt;Exceptions to Avoiding Jokes and References&lt;/h3&gt;
-
-&lt;p&gt;There is a very specific exception to this rule. Cultural references and inside jokes &lt;em&gt;must&lt;/em&gt; be encouraged whenever you&amp;rsquo;re writing in the &lt;a href=&#34;https://lhartikk.github.io/ArnoldC/&#34; target=&#34;_blank&#34;&gt;ArnoldC&lt;/a&gt; language&lt;/p&gt;
-
-&lt;h2 id=&#34;pick-one-word-per-concept&#34;&gt;Pick One Word Per Concept&lt;/h2&gt;
-
-&lt;p&gt;Some words could be used interchangeably to use the same thing. In such scenarios settle on one word for each abstract concept. For example, using &lt;code&gt;Configuration&lt;/code&gt; and &lt;code&gt;Settings&lt;/code&gt; to represent the same concept could be confusing. Likewise, avoid using &lt;code&gt;Fetch&lt;/code&gt; alongside &lt;code&gt;Get&lt;/code&gt;. Having consistent terminology is very useful for teams working together. I&amp;rsquo;ve been part of many conversations over the difference between a &lt;code&gt;UserManager&lt;/code&gt; class and a &lt;code&gt;UserService&lt;/code&gt; class. The important thing is to identify the concept, and settle on a single word to represent it.&lt;/p&gt;
-
-&lt;h2 id=&#34;don-t-pun&#34;&gt;Don&amp;rsquo;t Pun&lt;/h2&gt;
-
-&lt;p&gt;Don&amp;rsquo;t have one word mean more than one thing. Uncle Bob highlights that doing so is essentially making a pun. The example he gives is &lt;code&gt;Add&lt;/code&gt;. A codebase may have many &lt;code&gt;Add&lt;/code&gt; methods in it, and they all create a new value by adding or concatenating two values. A programmer may want to add a value to a collection, and for consistency&amp;rsquo;s sake use the word &lt;code&gt;Add&lt;/code&gt; as the method name, even though the operation being performed is different than every other use of the word. &lt;code&gt;Insert&lt;/code&gt; or &lt;code&gt;Append&lt;/code&gt; would be better choices for such a method.&lt;/p&gt;
-
-&lt;h2 id=&#34;use-solution-domain-names&#34;&gt;Use Solution Domain Names&lt;/h2&gt;
-
-&lt;p&gt;It&amp;rsquo;s okay to use computer science terms, algorithm names, and so on, in our code. Our readers will be other programmers, so it&amp;rsquo;s alright to expect them to know these things.&lt;/p&gt;
-
-&lt;h2 id=&#34;use-problem-domain-names&#34;&gt;Use Problem Domain Names&lt;/h2&gt;
-
-&lt;p&gt;Don&amp;rsquo;t invent new terms to represent concepts in the problem domain. Instead use the terms that the problem domain experts use. This will aid in communication, and when someone takes maintains the code after you, they&amp;rsquo;ll be able to ask questions using terminology that the problem domain expert will understand.&lt;/p&gt;
-
-&lt;h2 id=&#34;add-meaningful-context&#34;&gt;Add Meaningful Context&lt;/h2&gt;
-
-&lt;p&gt;Names usually require some amount of context to be meaningful. The context can be provided by well named classes inside of well names namespaces. For example, a &lt;code&gt;State&lt;/code&gt; variable might not be immediately obvious as part of an address. But if it&amp;rsquo;s a property on an &lt;code&gt;Address&lt;/code&gt; class then what &lt;code&gt;Address.State&lt;/code&gt; is becomes much clearer.&lt;/p&gt;
-
-&lt;h2 id=&#34;don-t-add-gratuitous-context&#34;&gt;Don&amp;rsquo;t Add Gratuitous Context&lt;/h2&gt;
-
-&lt;p&gt;Most of the rules explored so far tend to lead us toward longer more descriptive names. But, a short name that is clear is always better than a longer name that is equally clear.&lt;/p&gt;
-
-&lt;h3 id=&#34;gratuitous-context-comments&#34;&gt;Gratuitous Context: Comments&lt;/h3&gt;
-
-&lt;p&gt;I submit that comments are a code smell that indicates poorly named code. Comments become stale easily because they&amp;rsquo;re not subject to a compiler nor an interpreter. Following the previous rules will help reduce the need for comments because the code&amp;rsquo;s intent and readability will be improved enough to eliminate the need for many of them.&lt;/p&gt;
-
-&lt;p&gt;A general rule I like is to limit my comments to &amp;ldquo;why&amp;rsquo;s&amp;rdquo;. Comments explaining what is happening or how it&amp;rsquo;s happening are usually vestigial because the code itself should be communicating the &amp;ldquo;what&amp;rdquo; and &amp;ldquo;how&amp;rdquo;. However, the sometimes does a poor job of explaining the &amp;ldquo;why&amp;rdquo;. If you identify a section of your code that may be confusing because it&amp;rsquo;s not obvious why it needs to be there then double check whether it&amp;rsquo;s possible to refactor to make the code clearer. Then, if &amp;ldquo;why&amp;rdquo; is still a question, then a comment may be appropriate. Though it should be a very rare occurrence.&lt;/p&gt;
-
-&lt;h2 id=&#34;takeaways&#34;&gt;Takeaways&lt;/h2&gt;
-
-&lt;p&gt;Solving problems with code is the programmer&amp;rsquo;s primary concern. But, a professional programmer also bears the responsibility of writing code that can be understood by others. If he fails at that task his code will rot, and eventually become too cumbersome to improve and use. Strive to infuse these previous guidelines into your code writing process. The results will be programs that are crafted together with a clarity that you, and those who follow you, will appreciate.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Our goal, as authors, is to make our code as easy as possible to understand. We want our code to be a quick skim, not an intense study. We want to use the popular paperback model whereby the author is responsible for making himself clear and not the academic model where it is the scholar&amp;rsquo;s job to dig the meaning out of the paper.&lt;/p&gt;
-
-&lt;p&gt;— Clean Code by Robert C. Martin (pp. 27)&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+      <description>Clean Code by Robert C. Martin is one of my favorite programming texts. It has a chapter called Meaningful Names wherein principles for the clear and clean naming of code elements are explained.
+When we write code we should be considering the programmer who follows us. Sometimes it may be ourselves who have not touched the code for months or years. The programmer working in previously written code will need to study it to try and recognize the intention and systems of the original author.</description>
     </item>
     
     <item>
@@ -417,177 +48,8 @@ sxz
       <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>http://quakkels.com/posts/run-plex-on-ubuntu-server-at-home/</guid>
-      <description>
-
-&lt;p&gt;Recently I&amp;rsquo;ve decided that having limited high quality entertainment choices is better than having endless choices that are of questionable quality. So my household decided to end our Netflix subscription. This decision motivated me to build a private streaming media server for our home. Here is how I created a home media server with Plex and a home server tower.&lt;/p&gt;
-
-&lt;h1 id=&#34;choosing-the-media-server&#34;&gt;Choosing the Media Server&lt;/h1&gt;
-
-&lt;p&gt;There are two popular software options for home media server. &lt;a href=&#34;https://www.plex.tv/&#34; target=&#34;_blank&#34;&gt;Plex&lt;/a&gt; and &lt;a href=&#34;https://kodi.tv/&#34; target=&#34;_blank&#34;&gt;Kodi&lt;/a&gt;. They are both free to use, though Plex does have a premium subscription option to unlock advanced features. These two media servers are very similar, and I believe they&amp;rsquo;ve been forked from the same original open source project.&lt;/p&gt;
-
-&lt;p&gt;I knew my household would be using our PS4 as a client of the media server. This ended up being the detail that helped me make the decision between the two. When I saw that &lt;a href=&#34;https://kodi.onl/ps4/&#34; target=&#34;_blank&#34;&gt;Kodi recommended using the Plex app&lt;/a&gt; for streaming on the PS4, I decided to use Plex directly.&lt;/p&gt;
-
-&lt;h1 id=&#34;choosing-the-hardware&#34;&gt;Choosing the Hardware&lt;/h1&gt;
-
-&lt;p&gt;This Plex media server will need some hardware to run on. In my case, this meant I&amp;rsquo;d need to acquire new computers because everything I have are either not suited to the job (e.g. laptops), are already dedicated to something else (e.g. Raspberry Pi, PS4), or don&amp;rsquo;t exist (i.e. I don&amp;rsquo;t have any other computers).&lt;/p&gt;
-
-&lt;p&gt;So, I needed to get a server, of some type, to run Plex on. I didn&amp;rsquo;t want to spend the time building a server myself. Rather than dealing with potential hardware hiccups, I wanted to focus on the software and networking parts of this project. So I considered these three options:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Raspberry Pi&lt;/li&gt;
-&lt;li&gt;NAS&lt;/li&gt;
-&lt;li&gt;Some kind of home server or PC&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;The Raspberry Pi was initially the more attractive option. But, I doubt that the little ARM processor will be able to keep up. I could see it getting really bogged down if there&amp;rsquo;s more than one stream, or if any transcoding is needed.&lt;/p&gt;
-
-&lt;p&gt;Next to check out was a NAS. These seemed ideal at first. But their shine dimmed as I dug into prices and specifications. Price was the key factor. I could easily spend around four hundred dollars on an entry level NAS that had no hard disks.&lt;/p&gt;
-
-&lt;p&gt;A quick web search for &amp;ldquo;Home Server&amp;rdquo; brought me to the Dell PowerEdge T30 on sale at Amazon for $376.20. This seemed like a good option. It came with a Intel Xeon E3-1225 v5 3.3GHz processor, 8GB of RAM, and a 1TB HD. This looked like a great value.&lt;/p&gt;
-
-&lt;p&gt;To make sure the T30 would work, I started investigating &lt;a href=&#34;https://support.plex.tv/articles/201774043-what-kind-of-cpu-do-i-need-for-my-server/?fbclid=IwAR3AqFt86n6IpsHazToGFNHzJtOFFfiUrnEP-Drf43GnpmvFQAAKvxBOCK0&#34; target=&#34;_blank&#34;&gt;CPU requirements in more depth&lt;/a&gt;. I wanted my server to handle transcoding two 1080p video files simultaneously. Plex recommended that transcoding one 1080p (10Mbps, H.264) file would need a CPU with a 2000 PassMark score. So, getting a CPU with a 4000 score should theoretically be able to double that number to two. The Xeon E3-1225 v3 has a score of &lt;a href=&#34;https://www.cpubenchmark.net/cpu_lookup.php?cpu=Intel+Xeon+E3-1225+v5+%40+3.30GHz&amp;id=2707&#34; target=&#34;_blank&#34;&gt;7,830&lt;/a&gt;. That meets my requirements and has plenty of cushion.&lt;/p&gt;
-
-&lt;p&gt;The T30 had the processing power, had the 1TB disk, was budget friendly, and already built. It didn&amp;rsquo;t need anything more. I just had to un-box it, plug in power and some initial peripherals (to handle OS installation) and connect it to my network via Ethernet.&lt;/p&gt;
-
-&lt;h1 id=&#34;choosing-the-operating-system&#34;&gt;Choosing the Operating System&lt;/h1&gt;
-
-&lt;p&gt;I didn&amp;rsquo;t have any desire to mess with Windows for this project. I&amp;rsquo;ve been using Linux for most of my recent projects and I&amp;rsquo;d like to continue that trend. There&amp;rsquo;s also nothing about Plex that requires Windows software.&lt;/p&gt;
-
-&lt;p&gt;I settled on using Ubuntu Server. It&amp;rsquo;s a widely used distribution of Linux that has a lot of documentation available.&lt;/p&gt;
-
-&lt;h1 id=&#34;install-ubuntu-server&#34;&gt;Install Ubuntu Server&lt;/h1&gt;
-
-&lt;p&gt;Download the ISO from &lt;a href=&#34;https://ubuntu.com/download/server&#34; target=&#34;_blank&#34;&gt;their website&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Once it has finished downloading, make a boot disk with it. This is very simple with Windows 10.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Place a write-able disk in your disk drive.&lt;/li&gt;
-&lt;li&gt;Right click on the Ubuntu ISO file and select &amp;ldquo;Burn disk image.&amp;rdquo;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/plex01-image-dvd-on-windows.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Get the boot disk in to the DVD drive of your server. Then with the disk in the drive, turn on the server.&lt;/p&gt;
-
-&lt;p&gt;As the server boots, smash that F12 key to enter BIOS to Boot from the DVD drive.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Another option is to create a bootable thumb drive using a tool like Balena Etcher to image the drive. I used writeable DVDs because I have so many left over from the 2000s that I just might as well use them up.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Ubuntu&amp;rsquo;s documentation is very good. Follow these &lt;a href=&#34;https://tutorials.ubuntu.com/tutorial/tutorial-install-ubuntu-server#0&#34; target=&#34;_blank&#34;&gt;directions for installing Ubuntu Server&lt;/a&gt;. They have screenshots and instructions of their installation screens, so I&amp;rsquo;m not going to go into too many details here.&lt;/p&gt;
-
-&lt;p&gt;When asked, &lt;strong&gt;be sure to install SSH for remote access&lt;/strong&gt;. This allows you to manage the server from your regular workstation. So you can put your server out of the way. And, you don&amp;rsquo;t have to worry about connecting monitors or keyboards to work on it. Finish off the installation by restarting the box.&lt;/p&gt;
-
-&lt;p&gt;Once you&amp;rsquo;ve finished installing Ubuntu Server it should:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Be connected to the network via Ethernet&lt;/li&gt;
-&lt;li&gt;Have a Name (mine is named &lt;code&gt;media&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;Have a User on the server (my user is &lt;code&gt;quakkels&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;Have SSH installed&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So, now look in your router&amp;rsquo;s connected devices to find your server&amp;rsquo;s IP address on your network.&lt;/p&gt;
-
-&lt;p&gt;Log in to your server from your main workstation via SSH:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh 192.168.1.11 -l quakkels
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Use your server&amp;rsquo;s local network IP address and your user&amp;rsquo;s username in the command above.&lt;/p&gt;
-
-&lt;p&gt;The next thing we need to do is install Samba on the server.&lt;/p&gt;
-
-&lt;h2 id=&#34;install-samba&#34;&gt;Install Samba&lt;/h2&gt;
-
-&lt;p&gt;I want to be able to access the media folder that&amp;rsquo;s on my server from my laptop. I need Samba installed in Ubuntu to do that.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo apt-get install samba
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then add a user to Samba. I&amp;rsquo;ll use the &lt;code&gt;quakkels&lt;/code&gt; user.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo smbpasswd -a quakkels
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then, create a folder to share.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ cd ~
-$ mkdir library
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now, edit the configuration file with your preferred editor. I&amp;rsquo;m using Nano.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo nano /etc/samba/smb.conf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Scroll down to the end of the file and add these lines.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[library]
-   path = /home/quakkels/library
-   available = yes
-   valid users = quakkels
-   read only = no
-   browsable = yes
-   public = yes
-   writeable = yes
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Replace &lt;code&gt;library&lt;/code&gt; with the name of your own shared folder and &lt;code&gt;quakkels&lt;/code&gt; with your own user.&lt;/p&gt;
-
-&lt;p&gt;Save the file and exit the editor.&lt;/p&gt;
-
-&lt;p&gt;Restart the smb daemon to apply the configuration changes.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo service smbd restart
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So at this point the share should be working and accessible on your network. Use Windows File Explorer to test it.&lt;/p&gt;
-
-&lt;p&gt;I navigated to \media\library and logged in with the Samba user &lt;code&gt;quakkels&lt;/code&gt; and placed a file. Test succeeded!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/plex03-samba-network-share.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;install-the-plex-media-server&#34;&gt;Install the Plex Media Server&lt;/h1&gt;
-
-&lt;p&gt;Unfortunately, Plex is not available via &lt;code&gt;apt-get&lt;/code&gt; in Ubuntu. But the Plex website does lay out a process for &lt;a href=&#34;https://support.plex.tv/articles/200288586-installation/&#34; target=&#34;_blank&#34;&gt;installing the server on Linux&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Start by downloading the &lt;code&gt;.deb&lt;/code&gt; file for Plex. I found the &lt;code&gt;.deb&lt;/code&gt; file available here: &lt;code&gt;https://downloads.plex.tv/plex-media-server-new/1.16.5.1554-1e5ff713d/debian/plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb&lt;/code&gt; and I&amp;rsquo;ll be using that URL with &lt;code&gt;wget&lt;/code&gt; in Ubuntu to download it directly to the server.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ cd ~
-$ wget https://downloads.plex.tv/plex-media-server-new/1.16.5.1554-1e5ff713d/debian/plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then, once the &lt;code&gt;.deb&lt;/code&gt; packaged has finished downloading, we can install it with &lt;code&gt;dpkg&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo dpkg -i plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now you can navigate to the Plex web site from a computer on your network by going to &lt;code&gt;http://{your-servers-ip}:32400/web/&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Plex is now running. You can follow Plex documentation to add Plex repositories for future updates, and for adding your media to Plex libraries.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/plex04-web-site.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://itsfoss.com/install-deb-files-ubuntu/&#34; target=&#34;_blank&#34;&gt;3 Ways to Install Deb Files on Ubuntu Linux&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://itsfoss.com/install-plex-ubuntu/&#34; target=&#34;_blank&#34;&gt;How to Install and Configure Plex on Ubuntu Linux&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.howtogeek.com/176471/how-to-share-files-between-windows-and-linux/&#34; target=&#34;_blank&#34;&gt;How to Share Files Between Windows and Linux&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.samba.org/&#34; target=&#34;_blank&#34;&gt;Samba&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.plex.tv/media-server-downloads/&#34; target=&#34;_blank&#34;&gt;Plex Media Server Downloads&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://support.plex.tv/articles/200288586-installation/&#34; target=&#34;_blank&#34;&gt;Plex Media Server Installation&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Recently I&amp;rsquo;ve decided that having limited high quality entertainment choices is better than having endless choices that are of questionable quality. So my household decided to end our Netflix subscription. This decision motivated me to build a private streaming media server for our home. Here is how I created a home media server with Plex and a home server tower.
+Choosing the Media Server There are two popular software options for home media server.</description>
     </item>
     
     <item>
@@ -596,265 +58,8 @@ $ wget https://downloads.plex.tv/plex-media-server-new/1.16.5.1554-1e5ff713d/deb
       <pubDate>Tue, 04 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>http://quakkels.com/posts/getting-started-with-mobile-development-and-xamarin/</guid>
-      <description>
-
-&lt;p&gt;Xamarin enables programmers to write native mobile applications for both Android and iOS using C# and free development tools like Visual Studio Community Edition. This means that if you&amp;rsquo;re invested in the .NET ecosystem and the C# language, you can write cross-platform mobile applications using technology that&amp;rsquo;s already familiar to you.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;A note on development for iOS:&lt;/strong&gt; You will need a mac in order to build iOS versions of the app. I don&amp;rsquo;t have a Mac available, so I&amp;rsquo;ll be getting started with a cross-platform project, but I&amp;rsquo;ll just be using Windows and testing the Android version.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Visit &lt;a href=&#34;https://visualstudio.microsoft.com/&#34;&gt;https://visualstudio.microsoft.com/&lt;/a&gt; to download Visual Studio Community (the free version) and install it. Be sure to select Mobile Development Tools during installation so Xamarin projects will be available.&lt;/p&gt;
-
-&lt;h2 id=&#34;intended-audience&#34;&gt;Intended Audience&lt;/h2&gt;
-
-&lt;p&gt;This is written for C# programmers who want to start working with mobile apps. If you&amp;rsquo;re not somewhat familiar with using Visual Studio, C#, or XML then this may be challenging to follow.&lt;/p&gt;
-
-&lt;h2 id=&#34;mvvm&#34;&gt;MVVM&lt;/h2&gt;
-
-&lt;p&gt;Before we create the first project, a quick word on practices. There are many ways of organizing an app, and one of the best practices is to use the MVVM pattern. MVVM stands for Model, View, View Model.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Model&lt;/strong&gt; (Data)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;View&lt;/strong&gt; (Presentation)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;View Model&lt;/strong&gt; (Business Rules)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;By keeping our data in the Model, our presentation code in the View, and our business logic in the View Model we&amp;rsquo;re keeping concerns separate. This will make the project simpler to understand and maintain as it grows.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;It&amp;rsquo;s funny how different ecosystems have different names for very similar concepts. Django has Model/View/Template. ASP.NET MVC has Model/View/Controller. XAML has MVVM. The consistent core idea is to separate concerns to make things simple to understand.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;create-a-new-project&#34;&gt;Create a New Project&lt;/h2&gt;
-
-&lt;p&gt;In Visual Studio select File &amp;gt; New &amp;gt; Project from the menu.&lt;/p&gt;
-
-&lt;p&gt;In the New Project Dialog select the category Installed &amp;gt; Visual C# &amp;gt; Cross-Platform from the list on the left. Then choose the Mobile App (Xamarin.Forms) project type and name it. I named mine &amp;ldquo;Lavender&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;images/xamarin-create-project.png&#34; alt=&#34;Create a Xamarin project&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Then in the next dialog, select Blank.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;images/xamarin-create-cross-platform-project.png&#34; alt=&#34;Create a Xamarin cross-platform mobile project&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Notice that &amp;ldquo;Code Sharing Strategy&amp;rdquo; is .NET Standard. This is very interesting if you&amp;rsquo;re familiar with the new .NET Standard approach that Microsoft is implementing for the .NET ecosystem. .NET Core and ASP.NET are both proceeding using the same .NET Standard libraries supporting them. Having this option for Xamarin projects means that .NET programmers will have access to the same libraries for mobile that they&amp;rsquo;re used to using in their other projects.&lt;/p&gt;
-
-&lt;p&gt;Now we have a solution called Lavender and three projects in that solution. The main Lavender project, and a project each for Android and iOS.&lt;/p&gt;
-
-&lt;p&gt;Create folders inside the Lavender project to support the MVVM pattern. Create Models, Views, and ViewModels folders. To do this, right click on the Lavender project (not the Lavender solution,) and go to Add &amp;gt; New Folder.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;images/xamarin-create-mvvm-folders.png&#34; alt=&#34;Create MVVM folders&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;When Visual Studio created the Lavender project, it automatically created a view for us called &lt;code&gt;MainPage.xaml&lt;/code&gt;, and it has &lt;code&gt;MainPage.xaml.cs&lt;/code&gt; behind it. Move those two files into the Views folder by dragging and dropping &lt;code&gt;MainPage.xaml&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;images/xamarin-move-mainpage-into-views-folder.png&#34; alt=&#34;Move MainPage.xaml into Views folder&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Open &lt;code&gt;MainPage.xaml&lt;/code&gt; and give it this code:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot; ?&amp;gt;
-&amp;lt;ContentPage xmlns=&amp;quot;http://xamarin.com/schemas/2014/forms&amp;quot;
-             xmlns:x=&amp;quot;http://schemas.microsoft.com/winfx/2009/xaml&amp;quot;
-             xmlns:local=&amp;quot;clr-namespace:Lavender&amp;quot;
-             x:Class=&amp;quot;Lavender.MainPage&amp;quot;&amp;gt;
-  &amp;lt;ContentPage.Content&amp;gt;
-    &amp;lt;StackLayout&amp;gt;
-      &amp;lt;Label Text=&amp;quot;Hello World!&amp;quot; FontSize=&amp;quot;Large&amp;quot; /&amp;gt;
-    &amp;lt;/StackLayout&amp;gt;
-  &amp;lt;/ContentPage.Content&amp;gt;
-&amp;lt;/ContentPage&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;A XAML &lt;code&gt;&amp;lt;ContentPage&amp;gt;&lt;/code&gt; can only have one object in it. But, the reason we are using the &lt;code&gt;&amp;lt;ContentPage.Content&amp;gt;&lt;/code&gt; object is because it can contain multiple objects. The &lt;code&gt;&amp;lt;StackLayout&amp;gt;&lt;/code&gt; will literally stack objects either vertically (by default) or horizontally. The &lt;code&gt;&amp;lt;Label&amp;gt;&lt;/code&gt; object is easiest way to get text to display on screen.&lt;/p&gt;
-
-&lt;p&gt;Save the file, then launch the debugger. The first time launching in the emulator may take some time&amp;hellip; maybe several minutes&amp;hellip; but eventually you will see it running.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Since this is running on Windows without a Mac, the project that runs needs to be the Lavender.Android project. Also, when you run this, you&amp;rsquo;ll want to make sure you have the Android SDK installed for the version(s) of Android you&amp;rsquo;re targeting.
-To manage your SDK tools, you can find a button for &amp;ldquo;Open Android SDK Manager&amp;rdquo; in the toolbar.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;images/xamarin-manage-android-sdks.png&#34; alt=&#34;Manage Android SDKs&#34; /&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;You will see this once the project finishes building, the emulator starts, and the app installs in the emulator:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;images/xamarin-debug-mobile-project.png&#34; alt=&#34;Debugging a Xamarin project&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;add-data-binding-between-the-view-and-the-view-model&#34;&gt;Add Data Binding Between the View and the View Model&lt;/h2&gt;
-
-&lt;p&gt;Add a label control that will bind to the &lt;code&gt;Name&lt;/code&gt; attribute of a view model. Update &lt;code&gt;MainPage.xaml&lt;/code&gt; to have this code:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot; ?&amp;gt;
-&amp;lt;ContentPage xmlns=&amp;quot;http://xamarin.com/schemas/2014/forms&amp;quot;
-             xmlns:x=&amp;quot;http://schemas.microsoft.com/winfx/2009/xaml&amp;quot;
-             xmlns:local=&amp;quot;clr-namespace:Lavender&amp;quot;
-             x:Class=&amp;quot;Lavender.MainPage&amp;quot;&amp;gt;
-  &amp;lt;ContentPage.Content&amp;gt;
-    &amp;lt;StackLayout&amp;gt;
-      &amp;lt;Label Text=&amp;quot;{Binding Name,StringFormat=&#39;Hello, \{0\}!&#39;}&amp;quot; FontSize=&amp;quot;Large&amp;quot; /&amp;gt;
-    &amp;lt;/StackLayout&amp;gt;
-  &amp;lt;/ContentPage.Content&amp;gt;
-&amp;lt;/ContentPage&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;It&amp;rsquo;s worth highlighting that these UI changes are being made in the shared library. This is reusable code that both Android and iOS will leverage. The Android and iOS specific projects are &lt;em&gt;not&lt;/em&gt; being modified. Yet, the controls being displayed are the same native controls that you would get if you were building this app for Android using Java or for iOS using Objective-C or Swift. Not only is the code in a shared library, but the executable is &lt;em&gt;not&lt;/em&gt; running in a VM like would be the case for portable JavaScript solutions.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Create a new class in the &lt;code&gt;ViewModels&lt;/code&gt; folder. Call it &lt;code&gt;MainPageViewModel.cs&lt;/code&gt; and put this code inside:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;namespace Lavender.ViewModels
-{
-  public class MainPageViewModel
-  {
-    public string Name { get; set; }
-
-    public MainPageViewModel()
-    {
-      Name = &amp;quot;Anonymous&amp;quot;;
-    }
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The &lt;code&gt;Name&lt;/code&gt; property is what we&amp;rsquo;ll use for data binding. And, we&amp;rsquo;re setting the value to &lt;code&gt;Anonymous&lt;/code&gt; for now.&lt;/p&gt;
-
-&lt;p&gt;Then, update the &lt;code&gt;MainPage.xaml.cs&lt;/code&gt; code-behind file to use the &lt;code&gt;MainPageViewModel&lt;/code&gt; class as its binding context.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;using Lavender.ViewModels;
-using Xamarin.Forms;
-
-namespace Lavender
-{
-  public partial class MainPage : ContentPage
-  {
-    private readonly MainPageViewModel viewModel;
-
-    public MainPage()
-    {
-      InitializeComponent();
-      viewModel = new MainPageViewModel();
-      BindingContext = viewModel;
-    }
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Compile and debug the project with that change. You will see it in the emulator.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/xamarin-hello-anonymous.png&#34; alt=&#34;Xamarin Hello Anonymous&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This shows that &lt;code&gt;MainPageViewModel&lt;/code&gt; is being bound as the context in &lt;code&gt;MainPage.xaml.cs&lt;/code&gt; and the value that was set on initialization is &amp;ldquo;Anonymous&amp;rdquo; and that is being passed to the &lt;code&gt;MainPage.xaml&lt;/code&gt; view correctly.&lt;/p&gt;
-
-&lt;p&gt;Now let&amp;rsquo;s do something with the value entered by the user.&lt;/p&gt;
-
-&lt;h2 id=&#34;add-form-to-let-the-user-update-their-name&#34;&gt;Add Form to Let the User Update Their Name&lt;/h2&gt;
-
-&lt;p&gt;Update &lt;code&gt;MainPage.xaml&lt;/code&gt; to add form controls allowing the user to enter and submit their actual name.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot; ?&amp;gt;
-&amp;lt;ContentPage xmlns=&amp;quot;http://xamarin.com/schemas/2014/forms&amp;quot;
-             xmlns:x=&amp;quot;http://schemas.microsoft.com/winfx/2009/xaml&amp;quot;
-             xmlns:local=&amp;quot;clr-namespace:Lavender&amp;quot;
-             x:Class=&amp;quot;Lavender.MainPage&amp;quot;&amp;gt;
-  &amp;lt;ContentPage.Content&amp;gt;
-    &amp;lt;StackLayout&amp;gt;
-      &amp;lt;Label Text=&amp;quot;{Binding Name,StringFormat=&#39;Hello, \{0\}!&#39;}&amp;quot; FontSize=&amp;quot;Large&amp;quot; /&amp;gt;
-      &amp;lt;Label Text=&amp;quot;Name&amp;quot; /&amp;gt;
-      &amp;lt;Entry Text=&amp;quot;{Binding NameEntry}&amp;quot; /&amp;gt;
-      &amp;lt;Button x:Name=&amp;quot;Button&amp;quot; Text=&amp;quot;Submit&amp;quot; Command=&amp;quot;{Binding SubmitCommand}&amp;quot; /&amp;gt;
-    &amp;lt;/StackLayout&amp;gt;
-  &amp;lt;/ContentPage.Content&amp;gt;
-&amp;lt;/ContentPage&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;There are two elements that bind to properties that we haven&amp;rsquo;t created yet. &lt;code&gt;&amp;lt;Entry Text=&amp;quot;{Binding NameEntry}&amp;quot; /&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;Button x:Name=&amp;quot;Button&amp;quot; Text=&amp;quot;Submit&amp;quot; Command=&amp;quot;{Binding SubmitCommand}&amp;quot; /&amp;gt;&lt;/code&gt; will require us to change the view model.&lt;/p&gt;
-
-&lt;p&gt;But, before we make changes to the view model, we need to create a new class that will facilitate notifying the view when the data in the view model changes.&lt;/p&gt;
-
-&lt;p&gt;Create a new file in the &lt;code&gt;ViewModels&lt;/code&gt; folder and call it &lt;code&gt;ViewModelBase.cs&lt;/code&gt;. Then put this code inside:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-
-namespace Lavender.ViewModels
-{
-  public abstract class ViewModelBase : INotifyPropertyChanged
-  {
-
-    public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged([CallerMemberName] string propertyName = &amp;quot;&amp;quot;)
-    {
-      var changed = PropertyChanged;
-      if (changed == null)
-        return;
-
-      changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
-    protected bool SetProperty&amp;lt;T&amp;gt;(ref T backingStore, T value,
-      [CallerMemberName]string propertyName = &amp;quot;&amp;quot;,
-      Action onChanged = null)
-    {
-      if (EqualityComparer&amp;lt;T&amp;gt;.Default.Equals(backingStore, value))
-      {
-        return false;
-      }
-
-      backingStore = value;
-      onChanged?.Invoke();
-      OnPropertyChanged(propertyName);
-      return true;
-    }
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This abstract class gives us the &lt;code&gt;SetProperty&amp;lt;T&amp;gt;()&lt;/code&gt; method which both changes the property&amp;rsquo;s value, &lt;em&gt;and&lt;/em&gt; it notifies the UI so it knows to display the new value.&lt;/p&gt;
-
-&lt;p&gt;Now let&amp;rsquo;s update &lt;code&gt;MainPageViewModel.cs&lt;/code&gt; to use this new abstract class. We&amp;rsquo;ll also add the new properties that the view needs for binding.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;using System.Windows.Input;
-using Xamarin.Forms;
-
-namespace Lavender.ViewModels
-{
-  public class MainPageViewModel : ViewModelBase
-  {
-    public string NameEntry { get; set; }
-
-    private string _name;
-    public string Name
-    {
-      get { return _name; }
-      set { SetProperty(ref _name, value); }
-    }
-
-    public ICommand SubmitCommand { get; }
-
-    public MainPageViewModel()
-    {
-      Name = &amp;quot;Anonymous&amp;quot;;
-      SubmitCommand = new Command(() =&amp;gt; { Name = NameEntry; });
-    }
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;MainPageViewModel&lt;/code&gt; now inherits from &lt;code&gt;ViewModelBase&lt;/code&gt; which give us the &lt;code&gt;SetProperty()&lt;/code&gt; method. This class also has new properties now: &lt;code&gt;NameEntry&lt;/code&gt; to support the name entry field, and &lt;code&gt;SubmitCommand&lt;/code&gt; to support the submit button. The property &lt;code&gt;Name&lt;/code&gt; has also been updated to use the &lt;code&gt;SetProperty()&lt;/code&gt; method.&lt;/p&gt;
-
-&lt;p&gt;When we run the debugger, now we see this:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/xamarin-hello-anonymous-form.png&#34; alt=&#34;Xamarin mobile app with a form to enter the user&#39;s name.&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;And submitting a name shows this:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/xamarin-hello-anonymous-form-showing-name.png&#34; alt=&#34;Xamarin mobile app with a form showing user&#39;s name.&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;There you have it. These are the basic building blocks to get started building mobile applications using Xamarin.&lt;/p&gt;
-</description>
+      <description>Xamarin enables programmers to write native mobile applications for both Android and iOS using C# and free development tools like Visual Studio Community Edition. This means that if you&amp;rsquo;re invested in the .NET ecosystem and the C# language, you can write cross-platform mobile applications using technology that&amp;rsquo;s already familiar to you.
+ A note on development for iOS: You will need a mac in order to build iOS versions of the app.</description>
     </item>
     
     <item>
@@ -863,41 +68,8 @@ namespace Lavender.ViewModels
       <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
       
       <guid>http://quakkels.com/posts/home_gym_outfitting_train_with_a_sled/</guid>
-      <description>&lt;p&gt;Outfitting a home gym with a sled for drags and arm-over-arm pulls is simple. You don&amp;rsquo;t need to spend hundreds of dollars on equipment or gym memberships in order to train with a sled. You also don&amp;rsquo;t really need any tools or handyman skills to get started.&lt;/p&gt;
-
-&lt;p&gt;When I first wanted to add arm-over-arm pulls to work my cardio, grip, arms, and back, I looked around and found a &lt;a target=&#34;_blank&#34; href=&#34;https://www.roguefitness.com/conditioning/strength-equipment/sleds&#34;&gt;few different options&lt;/a&gt;. And some of them were rather economical. However, most are still priced near a hundred dollars and they don&amp;rsquo;t include a rope nor a strap long enough for arm-over-arm pulls, which I&amp;rsquo;d have to purchase separately.&lt;/p&gt;
-
-&lt;p&gt;There&amp;rsquo;s a simpler and cheaper alternative to those econo sleds. It can be found at the local hardware store.&lt;/p&gt;
-
-&lt;p&gt;This tow strap cost me just about ten dollars.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/new_tow_strap.png&#34; alt=&#34;20&#39; Tow Strap&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;When I combine it with a few of my bumper plates, it does exactly what I need. Ta-da! A &amp;ldquo;sled&amp;rdquo; for my home gym.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/first_sled_experiment.png&#34; alt=&#34;Arm-over-arm pull with a 20&#39; tow strap&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This first experiment was awesome. It was easy to set up and it worked. Though, I did I noticed wear on the strap underneath the bumper plates. At first I thought it was no big deal. But if I had to replace the fraying strap a few times my costs would eventually be comparable with if I had bought an actual post style sled.&lt;/p&gt;
-
-&lt;p&gt;So to address the wear on the strap, I made a sheath using a an easily replaceable resource I frequently have lying around; a piece of cardboard.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/sled_experiment_with_cardboard_sheeth.png&#34; alt=&#34;A more resilient sled using a 20&#39; tow strap&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;m really happy with this setup. The cardboard works well on my reasonably smooth basement floor. It will eventually wear, but with the amount of online shopping my family does we&amp;rsquo;re never lacking fresh cardboard. Though, if the dragging surface were rougher, I&amp;rsquo;d imagine I&amp;rsquo;d have to use a different solution.&lt;/p&gt;
-
-&lt;p&gt;Adding useful pieces of equipment to a home gym doesn&amp;rsquo;t have to be expensive or complicated. And, simple additions like this keep workouts engaging and fun.&lt;/p&gt;
-
-&lt;p&gt;Benefits of sled training with a tow strap are numerous.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Simple.&lt;/strong&gt; Really hard to mess up.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cheap.&lt;/strong&gt; Just time, a stack of weights, and a ten dollar tow strap is all the investment you need to get started.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Safe.&lt;/strong&gt; You can do these by yourself. If you fail, there&amp;rsquo;s nothing that can fall and crush you.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Versatile.&lt;/strong&gt; You can do these heavy for strength. You can do these lighter for cardio. You can drag it forward or backward. Or, you can pull it arm-over-arm. Using just a tow strap you have enough equipment for a full body workout.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Things you can do with this include &lt;a href=&#34;https://youtu.be/MW5HfC5V_YI&#34; target=&#34;_blank&#34;&gt;Arm-Over-Arm Pulls&lt;/a&gt;, and &lt;a href=&#34;https://www.youtube.com/watch?v=KKEceC_t2bY&#34; target=&#34;_blank&#34;&gt;Reverse Sled Drag&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <description>Outfitting a home gym with a sled for drags and arm-over-arm pulls is simple. You don&amp;rsquo;t need to spend hundreds of dollars on equipment or gym memberships in order to train with a sled. You also don&amp;rsquo;t really need any tools or handyman skills to get started.
+When I first wanted to add arm-over-arm pulls to work my cardio, grip, arms, and back, I looked around and found a few different options.</description>
     </item>
     
     <item>
@@ -906,395 +78,8 @@ namespace Lavender.ViewModels
       <pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>http://quakkels.com/posts/getting-started-python-django-vs-code/</guid>
-      <description>
-
-&lt;p&gt;Django is a Python framework that I&amp;rsquo;ve written about before. I&amp;rsquo;ve &lt;a href=&#34;http://quakkels.com/posts/asp-net-mvc-compared-to-dango/&#34;&gt;compared Django to ASP.NET MVC&lt;/a&gt;. But, I didn&amp;rsquo;t go into much detail about how to actually use Django to create a data driven website. That&amp;rsquo;s what I&amp;rsquo;ll cover now.&lt;/p&gt;
-
-&lt;p&gt;The goal for this &amp;lsquo;Getting Started&amp;rsquo; project is to get familiar with the basics of developing data driven web applications using Django, Models, Views, Templates, URLs, and Forms. By the end we&amp;rsquo;ll have a simple contact form that saves user submissions to the database, and displays that data to an administrator user. It will not be a completed site, but it will introduce basic the building blocks of website development in Django.&lt;/p&gt;
-
-&lt;p&gt;If you&amp;rsquo;d like to refer to the end goal of this article, you can &lt;a href=&#34;https://github.com/quakkels/companionresource_djangosite&#34; target=&#34;_blank&#34;&gt;find it on GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Windows 10
-
-&lt;ul&gt;
-&lt;li&gt;Or your own favorite OS. But I&amp;rsquo;ll be writing from a Windows perspective.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Python 3.6 or above.&lt;/li&gt;
-&lt;li&gt;VS Code with Microsoft&amp;rsquo;s Python extension installed.
-
-&lt;ul&gt;
-&lt;li&gt;Or your own favorite Python IDE/editor, but I&amp;rsquo;ll be writing from the VS Code perspective&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;create-project&#34;&gt;Create Project&lt;/h2&gt;
-
-&lt;p&gt;Make the project directory and navigate inside.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; mkdir django-project &amp;amp;&amp;amp; cd django-project
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Create a Virtual Environment to isolate project specific dependencies.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; python -m venv django-env
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Activate the venv. (This is the Windows command.)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; django-env\Scripts\activate.bat
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Once inside an activated venv, you can leave it to work on other things by using the &lt;code&gt;deactivate&lt;/code&gt; command.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Install Django inside the active venv. (You don&amp;rsquo;t want to install packages globally. Make sure that the venv is active.)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; pip install django
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Use &lt;code&gt;django-admin&lt;/code&gt; to create the new Django application.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; django-admin startproject djangosite
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;That created a new folder called &lt;code&gt;djangosite&lt;/code&gt; and it placed boilerplate files inside. &lt;code&gt;manage.py&lt;/code&gt; is one of those files and it&amp;rsquo;s what will used from now on to run Django commands.&lt;/p&gt;
-
-&lt;p&gt;Run the development Django server from inside the site&amp;rsquo;s folder.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; cd djangosite
-(django-env)&amp;gt; python manage.py runserver
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Visit localhost:8000 to verify that it&amp;rsquo;s working. Then exit the server with Ctrl+Break.&lt;/p&gt;
-
-&lt;p&gt;When the Django server ran, Django automatically created a db.sqlite3 file in the project folder. &lt;a href=&#34;https://docs.djangoproject.com/en/2.2/ref/settings/#databases&#34; target=&#34;_blank&#34;&gt;Read more about configuring different database backends&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Use VS Code to open the &lt;code&gt;django-project&lt;/code&gt; folder that houses the virtual environment folder and the Django app folder. This can be done from the terminal, or manually inside VS Code.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; code ..\. 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Open &lt;code&gt;djangosite\urls.py&lt;/code&gt;. The imports for Django will probably be shown as missing modules because Django was installed in the venv and not globally. to fix this, press &lt;code&gt;ctrl+shift+p&lt;/code&gt; then execute the command &lt;code&gt;Python: Select Interpretter&lt;/code&gt;. Find &lt;code&gt;.\django-env\Scripts\python.exe&lt;/code&gt; from the list and select it. Then VS Code will stop showing the Django imports as errors.
-&amp;gt; For more VS Code information visit &lt;a href=&#34;https://code.visualstudio.com/docs/python/python-tutorial&#34; target=&#34;_blank&#34;&gt;Getting Started with Python in VS Code&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;add-a-custom-django-view&#34;&gt;Add a Custom Django View&lt;/h2&gt;
-
-&lt;p&gt;To add a &amp;lsquo;Hello World&amp;rsquo; page, create a new file in &lt;code&gt;django-project\djangosite\djangosite&lt;/code&gt; called &lt;code&gt;views.py&lt;/code&gt;. Add the following code.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.http import HttpResponse
-
-def welcome(request):
-  return HttpResponse(&amp;quot;Hello, World!&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To tell Django when to execute this welcome view, edit &lt;code&gt;urls.py&lt;/code&gt; so it looks like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.contrib import admin
-from django.urls import path, re_path
-
-from .views import welcome
-
-urlpatterns = [
-    path(&#39;admin/&#39;, admin.site.urls),
-    re_path(&#39;^$&#39;, welcome)
-]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Browse to localhost:8000 and see the custom message.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/python_django_hello_world.png&#34; alt=&#34;Django Hello World&#34; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Let&amp;rsquo;s take a quick break to go over some Django concepts.&lt;/p&gt;
-
-&lt;h3 id=&#34;app&#34;&gt;App&lt;/h3&gt;
-
-&lt;p&gt;A Django App is a python package that acts as a little web application of its own. With it&amp;rsquo;s own Models, Views, Templates, and URLs. Most Django sites use several apps. It is also possible to write an app such that it can be reused in other Django projects.&lt;/p&gt;
-
-&lt;h3 id=&#34;model&#34;&gt;Model&lt;/h3&gt;
-
-&lt;p&gt;A Django Model is a data model that maps to a database table. This introduces the concept of &lt;em&gt;Migrations&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;migrations&#34;&gt;Migrations&lt;/h3&gt;
-
-&lt;p&gt;The model will usually change as the site is developed.
-A migration will update the corresponding database table from previous versions to the new version of the code. As migrations get more complicated, there may be need to write custom migration scripts.&lt;/p&gt;
-
-&lt;h3 id=&#34;views&#34;&gt;Views&lt;/h3&gt;
-
-&lt;p&gt;Views in Django are like Controllers in ASP.NET MVC. They are what connect a model with a template.&lt;/p&gt;
-
-&lt;h3 id=&#34;templates&#34;&gt;Templates&lt;/h3&gt;
-
-&lt;p&gt;Templates in Django are like Views in ASP.NET MVC. They are the display layer; the HTML that will render in the browser.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;add-a-custom-django-model&#34;&gt;Add a Custom Django Model&lt;/h2&gt;
-
-&lt;p&gt;Show migrations&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py showmigrations
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Execute those migrations&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py migrate
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now create a new Django app. For this example, it will handle the functionality for a contact form.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py startapp contactform
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Move into the new &lt;code&gt;contactform&lt;/code&gt; directory and notice that Django has created a bunch of boilerplate code for us.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; cd contactform
-(django-env)&amp;gt; dir
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Add this new app to the Django site. Open &lt;code&gt;settings.py&lt;/code&gt; in the &lt;code&gt;djangosite&lt;/code&gt; folder, and add the &lt;code&gt;contactform&lt;/code&gt; app to the list of installed apps. &lt;code&gt;INSTALLED_APPS&lt;/code&gt; should look like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;INSTALLED_APPS = [
-    &#39;django.contrib.admin&#39;,
-    &#39;django.contrib.auth&#39;,
-    &#39;django.contrib.contenttypes&#39;,
-    &#39;django.contrib.sessions&#39;,
-    &#39;django.contrib.messages&#39;,
-    &#39;django.contrib.staticfiles&#39;,
-    &#39;contactform&#39;
-]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then, open the &lt;code&gt;models.py&lt;/code&gt; file in the contact form app and add the class that will represent the contact form.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.db import models
-
-class ContactForm(models.Model):
-    HOW_DID_YOU_HEAR_ABOUT_US_CHOICES = (
-        (&#39;SE&#39;, &#39;Search Engine&#39;),
-        (&#39;Q&#39;, &#39;Quakkels.com&#39;),
-        (&#39;F&#39;, &#39;From a friend&#39;),
-        (&#39;O&#39;, &#39;Other&#39;)
-    )
-
-    name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50)
-    comments = models.CharField(max_length=500)
-    how_did_you_hear_about_us = models.CharField(max_length=2, choices=HOW_DID_YOU_HEAR_ABOUT_US_CHOICES)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;More information about Django models can be found &lt;a href=&#34;https://docs.djangoproject.com/en/2.2/topics/db/models/&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;After the model is saved, create the new migration script.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py makemigrations
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Run the migration.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py migrate
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;If you&amp;rsquo;re curious about what the SQLite database tables look like, you can download something like &lt;a href=&#34;https://sqlitebrowser.org/dl/&#34; target=&#34;_blank&#34;&gt;DB Browser for SQLite&lt;/a&gt;. Table names will be named after the model with the app name as the prefix. So the table for ContactForm will be called &lt;code&gt;contactform_contactform&lt;/code&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;register-custom-model-in-admin&#34;&gt;Register Custom Model in Admin&lt;/h2&gt;
-
-&lt;p&gt;To make contact form submissions available to be read by a site administrator, &lt;code&gt;ContactForm&lt;/code&gt; needs to be registered in the admin area.&lt;/p&gt;
-
-&lt;p&gt;Open &lt;code&gt;contactform\admin.py&lt;/code&gt; and add this code to register the ContactForm model.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.contrib import admin
-from .models import ContactForm
-
-@admin.register(ContactForm)
-class ContactFormAdmin(admin.ModelAdmin):
-    list_display = (&#39;name&#39;, &#39;email&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Create a super user for logging into the site&amp;rsquo;s admin area.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py createsuperuser
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now when the development server runs, you&amp;rsquo;ll be able to view and edit ContactForms in the Admin area by navigating to localhost:8000/admin and using the new super user to log in.&lt;/p&gt;
-
-&lt;h2 id=&#34;create-a-custom-django-template&#34;&gt;Create a Custom Django Template&lt;/h2&gt;
-
-&lt;p&gt;Double check the terminal&amp;rsquo;s working directory is the &lt;code&gt;contactform&lt;/code&gt; folder inside of &lt;code&gt;djangosite&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; pwd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Switch to &lt;code&gt;contactform&lt;/code&gt; if it&amp;rsquo;s not the working directory.&lt;/p&gt;
-
-&lt;p&gt;Create a new folder for custom templates.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; mdkir templates
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In VS Code, create a file in the new templates folder called &lt;code&gt;contactform.html&lt;/code&gt; for the contact form. Put the following code in the file for now.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html&amp;gt;
-    &amp;lt;head&amp;gt;
-      &amp;lt;title&amp;gt;Contact Form&amp;lt;/title&amp;gt;
-    &amp;lt;/head&amp;gt;
-    &amp;lt;body&amp;gt;
-        &amp;lt;h1&amp;gt;Contact Form&amp;lt;/h1&amp;gt;
-    &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Next, update &lt;code&gt;contactform\views.py&lt;/code&gt; with this code.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.shortcuts import render
-
-def contactform(request):
-    return render(request, &amp;quot;contactform.html&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Notice that the &lt;code&gt;render()&lt;/code&gt; function is used here instead of returning &lt;code&gt;HttpResponse()&lt;/code&gt; directly like the &amp;ldquo;Hello, World!&amp;rdquo; view does. The &lt;code&gt;render()&lt;/code&gt; function will use the template for the html.&lt;/p&gt;
-
-&lt;p&gt;To make the template visible from the browser, we need to route requests to the view based on the URL.&lt;/p&gt;
-
-&lt;p&gt;Use VS Code to create a &lt;code&gt;urls.py&lt;/code&gt; file inside the &lt;code&gt;contactform&lt;/code&gt; folder. Put this code inside it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.urls import re_path
-
-from .views import contactform
-
-urlpatterns = [
-    re_path(&#39;contactform$&#39;, contactform)
-]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The &lt;code&gt;re_path()&lt;/code&gt; method uses a string as a regular expression. The &lt;code&gt;&#39;contactform$&#39;&lt;/code&gt; ensures that it only matches on paths that end in &lt;code&gt;contactform&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Since &lt;code&gt;djangosite\urls.py&lt;/code&gt; is what Django uses to route urls, it needs to be aware of the new &lt;code&gt;contactform\urls.py&lt;/code&gt;. Update it with this code.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.contrib import admin
-from django.urls import path, re_path, include
-
-from .views import welcome
-
-urlpatterns = [
-    path(&#39;admin/&#39;, admin.site.urls),
-    re_path(&#39;^contactform/&#39;, include(&#39;contactform.urls&#39;)),
-    path(&#39;&#39;, welcome),
-]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;&#39;^contactform/&#39;&lt;/code&gt; is a regular expression that makes sure matching paths begin with &lt;code&gt;contactform&lt;/code&gt;. This is a prefix for everything in the contactform app. So the complete matching path will be &lt;code&gt;localhost:8000/contactform/contactform&lt;/code&gt;. For more information read the &lt;a href=&#34;https://docs.djangoproject.com/en/2.2/topics/http/urls/&#34; target=&#34;_blank&#34;&gt;Django documentation&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id=&#34;create-a-form&#34;&gt;Create a Form&lt;/h1&gt;
-
-&lt;p&gt;Create a new file in &lt;code&gt;contactform&lt;/code&gt; called &lt;code&gt;forms.py&lt;/code&gt; and put this code in it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.forms import ModelForm
-from .models import ContactForm
-
-class ContactFormForm(ModelForm):
-    class Meta:
-        model = ContactForm
-        fields = (&#39;name&#39;, &#39;email&#39;, &#39;comments&#39;, &#39;how_did_you_hear_about_us&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;It was at this time that I started regretting how the &lt;code&gt;ContactForm&lt;/code&gt; model was named. To stick with Django conventions, this form class will be the name of the model with &amp;ldquo;Form&amp;rdquo; appended to it. Hence; &lt;code&gt;ContactFormForm&lt;/code&gt;. Future me will not make this mistake.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Update &lt;code&gt;contactform\views.py&lt;/code&gt; so it will send the new form class as an object to the template.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.shortcuts import render
-from django.http import HttpResponse
-from .forms import ContactFormForm
-from .models import ContactForm
-
-def contactform(request):
-    form = ContactFormForm()
-    context = { 
-        &#39;form&#39; : form,
-    }
-
-    return render(request, &amp;quot;contactform.html&amp;quot;, context)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Update the &lt;code&gt;contactform.html&lt;/code&gt; template to use the &lt;code&gt;form&lt;/code&gt; object in the &lt;code&gt;context&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html&amp;gt;
-    &amp;lt;head&amp;gt;
-      &amp;lt;title&amp;gt;Contact Form&amp;lt;/title&amp;gt;
-    &amp;lt;/head&amp;gt;
-    &amp;lt;body&amp;gt;
-        &amp;lt;h1&amp;gt;Contact Form&amp;lt;/h1&amp;gt;
-        &amp;lt;form method=&amp;quot;POST&amp;quot;&amp;gt;
-            {% csrf_token %} &amp;lt;!--this token is required in order to prevent CSRF attacks--&amp;gt;
-            {{ form }} &amp;lt;!-- the form object will render our FormModel --&amp;gt;
-            &amp;lt;button type=&amp;quot;submit&amp;quot;&amp;gt;Send&amp;lt;/button&amp;gt;
-        &amp;lt;/form&amp;gt;
-    &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You can find more details about how to properly use templates &lt;a href=&#34;https://docs.djangoproject.com/en/2.2/ref/templates/&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;. The code above has much room for improvement.&lt;/p&gt;
-
-&lt;p&gt;Two things worth noting here are &lt;code&gt;{% csrf_token %}&lt;/code&gt; and &lt;code&gt;{{ form }}&lt;/code&gt;. The code for CSRF Token prevents this page from being vulnerable to cross site request forgery attacks. The &lt;code&gt;form&lt;/code&gt; object is the &lt;code&gt;ContactFrom&lt;/code&gt; model converted to HTML form elements via the &lt;code&gt;ModelForm&lt;/code&gt; class.&lt;/p&gt;
-
-&lt;p&gt;Update the view to accept and save a Contact Form submission.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from .forms import ContactFormForm
-from .models import ContactForm
-
-def contactform(request):
-    form = ContactFormForm()
-    context = { &amp;quot;form&amp;quot; : form }
-
-    if request.method != &amp;quot;POST&amp;quot;:
-        return render(request, &amp;quot;contactform.html&amp;quot;, context)
-    
-    form = ContactFormForm(data=request.POST)
-
-    if not form.is_valid():
-        context[&amp;quot;form&amp;quot;] = form
-        return render(request, &amp;quot;contactform.html&amp;quot;, context)
-    
-    form.save()
-    return redirect(&amp;quot;/&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will render the form on first request. When the form is submitted it will check the values against what the model expects. If the values aren&amp;rsquo;t valid it will render the form again (ideally to inform the user there were problems and give them a chance to correct mistakes.) If the values are valid, then it will save a new record in the database which an admin will be able to see in Django&amp;rsquo;s administration section. Once the record is saved, the user gets redirected to the site root.&lt;/p&gt;
-
-&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
-
-&lt;p&gt;There&amp;rsquo;s a lot more to Django, but this is a fair amount of information to get started with it. What we wrote has an authenticated admin area, a &amp;lsquo;hello&amp;rsquo; home page, and a data driven form that persists data to a database. This isn&amp;rsquo;t a completed web application, but we did cover a lot of essential building blocks.&lt;/p&gt;
-
-&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/quakkels/companionresource_djangosite&#34; target=&#34;_blank&#34;&gt;Companion GitHub Repository&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://sqlitebrowser.org/dl/&#34; target=&#34;_blank&#34;&gt;DB Browser for SQLite&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/&#34; target=&#34;_blank&#34;&gt;Django Documentation&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/ref/settings/#databases&#34; target=&#34;_blank&#34;&gt;Configure different database backends&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/ref/forms/&#34; target=&#34;_blank&#34;&gt;Forms&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/topics/db/models/&#34; target=&#34;_blank&#34;&gt;Models&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/ref/templates/&#34; target=&#34;_blank&#34;&gt;Templates&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/2.2/topics/http/urls/&#34; target=&#34;_blank&#34;&gt;URL Dispatcher&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Django is a Python framework that I&amp;rsquo;ve written about before. I&amp;rsquo;ve compared Django to ASP.NET MVC. But, I didn&amp;rsquo;t go into much detail about how to actually use Django to create a data driven website. That&amp;rsquo;s what I&amp;rsquo;ll cover now.
+The goal for this &amp;lsquo;Getting Started&amp;rsquo; project is to get familiar with the basics of developing data driven web applications using Django, Models, Views, Templates, URLs, and Forms. By the end we&amp;rsquo;ll have a simple contact form that saves user submissions to the database, and displays that data to an administrator user.</description>
     </item>
     
     <item>
@@ -1303,114 +88,7 @@ def contactform(request):
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>http://quakkels.com/posts/configuring-vim-when-using-git-bash/</guid>
-      <description>
-
-&lt;p&gt;Occasionally I become enamored with the idea of becoming a Vim expert, or at least a competent Vim user. I work primarily in Windows environments so, though the desire exists, there aren&amp;rsquo;t many good opportunities to build Vim habits. There is a &lt;a href=&#34;https://www.vim.org/download.php/#pc&#34; target=&#34;_blank&#34;&gt;Vim on Windows release&lt;/a&gt; available. This has a GUI interface and an installer executable. Though if you have Git for Windows installed, then you already have Vim available. Git for Windows comes with the ever useful, Git Bash. And, lo! Git Bash has Vim.&lt;/p&gt;
-
-&lt;p&gt;Firing up a quick Git Bash session is simple enough. And firing up vim from there is straightforward. Thankfully, my previous experience with exiting Vim saved me from an embarrassing search query in my browser history.&lt;/p&gt;
-
-&lt;p&gt;&lt;center&gt;
-&lt;img src=&#34;http://quakkels.com/images/exiting_vim_orly.jpeg&#34; alt=&#34;How to exit Vim&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;It&amp;rsquo;s an old meme, but it checks out. (&lt;code&gt;esc&lt;/code&gt;, &lt;code&gt;:&lt;/code&gt; then &lt;code&gt;q!&lt;/code&gt; to quit without saving, btw)&lt;/em&gt;
-&lt;/center&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;configuring-vim-in-git-bash&#34;&gt;Configuring Vim in Git Bash&lt;/h2&gt;
-
-&lt;p&gt;Vim&amp;rsquo;s configuration can be customized with vimrc files. These files are scripts written in Vimscript. They run at initialization when Vim is opened. We can find out more information by using help commands inside Vim.&lt;/p&gt;
-
-&lt;p&gt;First, open a Git Bash terminal and then open &lt;code&gt;vim&lt;/code&gt;. Then, in &lt;a href=&#34;https://www.howtoforge.com/vim-basics&#34; target=&#34;_blank&#34;&gt;command mode&lt;/a&gt;, open the configuration help information with &lt;code&gt;:help vimrc&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;At this point we can see where Vim will look for custom vimrc files.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  Places for your personal initializations:
-    Unix            $HOME/.vimrc or $HOME/.vim/vimrc
-    OS/2            $HOME/.vimrc, $HOME/vimfiles/vimrc
-                    or $VIM/.vimrc (or _vimrc)
-    MS-Windows      $HOME/_vimrc, $HOME/vimfiles/vimrc
-                    or $VIM/_vimrc
-    Amiga           s:.vimrc, home:.vimrc, home:vimfiles:vimrc
-                    or $VIM/.vimrc
-
-  The files are searched in the order specified above and only the first
-  one that is found is read.
-
-  RECOMMENDATION: Put all your Vim configuration stuff in the
-  $HOME/.vim/ directory ($HOME/vimfiles/ for MS-Windows). That makes it
-  easy to copy it to another system.
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Don&amp;rsquo;t be fooled. Since &lt;a href=&#34;https://github.com/git/git/commit/df5218b4c30b2fa1ba0d1ada4166ad85bc83be26&#34; target=&#34;_blank&#34;&gt;Git Bash uses msys2&lt;/a&gt; to imitate a Unixy/Linuxy style system, Vim running inside Git Bash will be following Unix&amp;rsquo;s Conventions, rather than MS-Windows&amp;rsquo;.&lt;/p&gt;
-
-&lt;p&gt;Also let&amp;rsquo;s follow Vim&amp;rsquo;s recommendation for using the &lt;code&gt;$HOME/.vim/&lt;/code&gt; directory for configuration files.&lt;/p&gt;
-
-&lt;p&gt;Make the directory:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ mkdir $HOME/.vim
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then create the vimrc file:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ touch $HOME/.vim/vimrc
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;At this point, we have our empty initialization file for Vim. To make sure it&amp;rsquo;s working, I&amp;rsquo;ll add a command to turn on line numbering.&lt;/p&gt;
-
-&lt;p&gt;Open the vimrc file using Vim:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ vim $HOME/.vim/vimrc
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then, enter Insert Mode by pressing &lt;code&gt;i&lt;/code&gt; and enter three lines:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;quot; Custom Vim configuration
-
-set number
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Save these changes by pressing &lt;code&gt;esc&lt;/code&gt; to leave Insert Mode and then enter &lt;code&gt;:wq&lt;/code&gt; to write the changes and then quit Vim.&lt;/p&gt;
-
-&lt;p&gt;To check that it worked, open up the same file in Vim again and look for the line numbers.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/vim_line_numbers.png&#34; alt=&#34;Vim configured to show line numbers&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;It worked!&lt;/p&gt;
-
-&lt;p&gt;There are many more configuration changes you can make. Be aware that Vim already has default configuration set that is targeted towards programmers. To find all scripts (remember that configuration is set via initialization scripts) you can use the command &lt;code&gt;:scriptnames&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;When I execute &lt;code&gt;:scriptnames&lt;/code&gt; in Vim running in Git Bash, I see &lt;code&gt;/etc/vimrc&lt;/code&gt; at the very top of the list. This makes sense since the &lt;code&gt;etc&lt;/code&gt; folder is where Linux systems place a lot of their configuration. However, since this is in Windows, we need to figure out where the &lt;code&gt;etc&lt;/code&gt; folder is. It&amp;rsquo;s not in &lt;code&gt;C:\&lt;/code&gt; nor in the &lt;code&gt;$HOME&lt;/code&gt; directory. But, since Git Bash is mimicking a Linux system, we should be able to find it along with the other Git Bash files.&lt;/p&gt;
-
-&lt;p&gt;Since I&amp;rsquo;m running the 64 bit version of Git, I found the etc folder in &lt;code&gt;C:\Program Files\Git&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Inside Git Bash, we can get there with:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ cd c\&amp;quot;Program Files&amp;quot;\Git\etc
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then, to take a quick peek at &lt;code&gt;vimrc&lt;/code&gt; just execute:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ cat vimrc
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; I would &lt;em&gt;not&lt;/em&gt; recommend attempting to change anything in &lt;code&gt;etc&lt;/code&gt;. Instead modify Vim&amp;rsquo;s configuration using files in the &lt;code&gt;$HOME\.vim\&lt;/code&gt; folder.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Armed with this information there&amp;rsquo;s a lot of stuff you can now customize. Here are a few more resources:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://benmccormick.org/2014/07/14/learning-vim-in-2014-configuring-vim&#34; target=&#34;_blank&#34;&gt;Learning Vim in 2014: Configuring Vim&lt;/a&gt;&lt;br&gt;A few years old, but I really like how this author gets into the details rather than just telling you to copy/paste a &lt;code&gt;.vimrc&lt;/code&gt; file from GitHub.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://linuxhint.com/configure_vim_vimrc/&#34; target=&#34;_blank&#34;&gt;Configure Vim with vimrc&lt;/a&gt;&lt;br&gt;
-Similar to Learning Vim in 2014, but more recent. Also has Linux specific informmatin which you will want to ignore if you&amp;rsquo;re running in Windows.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://learnvimscriptthehardway.stevelosh.com/&#34; target=&#34;_blank&#34;&gt;Learn Vimscript the Hard Way&lt;/a&gt;&lt;br&gt; This ebook has an incredible amount of detail. It may be too much if you&amp;rsquo;re looking to just make quick changes. But it has a lot of great information if you want to dive into the deep end.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://vim.rtorr.com/&#34; target=&#34;_blank&#34;&gt;Vim Cheat Sheet&lt;/a&gt;&lt;br&gt;Excellent for discovering all the Vim shortcuts that people love so much.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Don&amp;rsquo;t forget to do ridiculous things like to configure VSCode&amp;rsquo;s terminal to use Git Bash which allows you to open Vim from inside VSCode. ;-)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/vim_inside_vscode.png&#34; alt=&#34;Run Vim from inside VSCode on Windows&#34; /&gt;&lt;/p&gt;
-</description>
+      <description>Occasionally I become enamored with the idea of becoming a Vim expert, or at least a competent Vim user. I work primarily in Windows environments so, though the desire exists, there aren&amp;rsquo;t many good opportunities to build Vim habits. There is a Vim on Windows release available. This has a GUI interface and an installer executable. Though if you have Git for Windows installed, then you already have Vim available.</description>
     </item>
     
     <item>
@@ -1419,85 +97,8 @@ Similar to Learning Vim in 2014, but more recent. Also has Linux specific inform
       <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>http://quakkels.com/posts/mysql-quick-reference/</guid>
-      <description>
-
-&lt;h2 id=&#34;shell-commands&#34;&gt;Shell Commands&lt;/h2&gt;
-
-&lt;h3 id=&#34;set-up-security-requirements&#34;&gt;Set up security requirements:&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo mysql_secure_installation
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;open-the-mysql-cli-client-and-login-using-a-password-and-the-specified-user&#34;&gt;Open the MySQL CLI client and login using a password and the specified user:&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo mysql -u {user} -p
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;mysql-queries-and-commands&#34;&gt;MySQL Queries and Commands&lt;/h2&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Note that MySQL will not execute anything until it encounters a semicolon &lt;code&gt;;&lt;/code&gt; which indicates the end of a statement. This allows us to enter multi-line statements.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&#34;create-user&#34;&gt;Create User&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; CREATE USER &#39;newuser&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39;;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;give-user-access-to-a-database&#34;&gt;Give User Access to a Database&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; GRANT ALL PRIVILEGES ON * . * TO &#39;newuser&#39;@&#39;localhost&#39;;
-&amp;gt; FLUSH PRIVILEGES;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;create-a-database-called-newstore&#34;&gt;Create a database called &lt;code&gt;newStore&lt;/code&gt;:&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; CREATE DATABASE IF NOT EXISTS newStore;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;create-a-new-table-in-a-database&#34;&gt;Create a new table in a database:&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; CREATE TABLE IF NOT EXISTS newTable (
-&amp;gt;   newTableID INT PRIMARY KEY AUTO_INCREMENT,
-&amp;gt;   firstName VARCHAR(255) not null,
-&amp;gt;   lastName VARCHAR(255) not null,
-&amp;gt;   email VARCHAR(255) not null
-&amp;gt; );
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;list-all-databases&#34;&gt;List all databases:&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; SHOW DATABASES;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;connect-to-a-database&#34;&gt;Connect to a database:&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; USE newStore;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;list-tables-in-a-database&#34;&gt;List tables in a database&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; SHOW TABLES;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;list-columns-in-a-table&#34;&gt;List columns in a table&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; SHOW COLUMNS FROM newTable
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;execute-a-sql-script-from-file&#34;&gt;Execute a sql script from file&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;&amp;gt; source /path/to/script.sql;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;more-resources&#34;&gt;More Resources&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql&#34;&gt;How To Create a New User and Grant Permissions in MySQL&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://dev.mysql.com/doc/&#34;&gt;MySQL Documentation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://mariadb.com/kb/en/library/documentation/&#34;&gt;MariaDB Documentation&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Shell Commands Set up security requirements: $ sudo mysql_secure_installation  Open the MySQL CLI client and login using a password and the specified user: $ sudo mysql -u {user} -p  MySQL Queries and Commands  Note that MySQL will not execute anything until it encounters a semicolon ; which indicates the end of a statement. This allows us to enter multi-line statements.
+ Create User &amp;gt; CREATE USER &#39;newuser&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39;;  Give User Access to a Database &amp;gt; GRANT ALL PRIVILEGES ON * .</description>
     </item>
     
     <item>
@@ -1506,124 +107,9 @@ Similar to Learning Vim in 2014, but more recent. Also has Linux specific inform
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>http://quakkels.com/posts/gogs-on-raspberry-pi/</guid>
-      <description>
-
-&lt;p&gt;In a previous article &lt;a href=&#34;http://quakkels.com/posts/configure-headless-raspberry-pi-for-wifi-and-ssh/&#34;&gt;I configured a headless Raspberry Pi for Wifi and SSH&lt;/a&gt;. Next, I&amp;rsquo;ll set up a personal Gogs server on it.&lt;/p&gt;
-
-&lt;h2 id=&#34;change-the-password&#34;&gt;Change the Password&lt;/h2&gt;
-
-&lt;p&gt;First things first, change the password for the &lt;code&gt;pi&lt;/code&gt; user to something different than &lt;code&gt;raspberry&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ passwd
-Changing password for pi.
-(current) UNIX password:
-Enter new UNIX password:
-Retype new UNIX password:
-passwd: password updated successfully
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;em&gt;Please tweet your new password to @quakkels /s&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;arrange-the-prerequisites&#34;&gt;Arrange the Prerequisites&lt;/h2&gt;
-
-&lt;p&gt;Next, I&amp;rsquo;ll make sure the &lt;a href=&#34;https://gogs.io/docs/installation&#34;&gt;prerequisites&lt;/a&gt; are set up. Since Raspbian is based on Debian I can use the Debian/Ubuntu commands. I&amp;rsquo;m skipping the database step because I&amp;rsquo;m happy with this Gogs instance using SQLite3.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo apt-get update
-$ sudo apt-get install git
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Before proceeding farther, I&amp;rsquo;m going to create a brand new user specifically for Gogs. This new user will be everything Gogs.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo adduser iamgogs 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Note: If I were a more experienced Gogs administrator I would have created a user named &lt;code&gt;git&lt;/code&gt; since that&amp;rsquo;s Gogs&amp;rsquo; best practice and it&amp;rsquo;s less work later on. Scripts and default configuration use &lt;code&gt;git&lt;/code&gt; as the Gogs user by default.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Be prepared to have a password ready for the new &lt;code&gt;iamgogs&lt;/code&gt; user.&lt;/p&gt;
-
-&lt;p&gt;Add the &lt;code&gt;iamgogs&lt;/code&gt; user to the sudo group.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo usermod -aG sudo iamgogs
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now switch to the &lt;code&gt;iamgogs&lt;/code&gt; user with:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ su - iamgogs
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And test the sudo ability by running any command as sudo:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo pwd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;install-gogs-from-binary&#34;&gt;Install Gogs from Binary&lt;/h2&gt;
-
-&lt;p&gt;From here, I could install Go and proceed to install from source. But instead, to keep the number of steps to a minimum, I&amp;rsquo;m going to &lt;a href=&#34;https://gogs.io/docs/installation/install_from_binary&#34;&gt;install from binary&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Being currently logged in as the &lt;code&gt;iamgogs&lt;/code&gt; user, I&amp;rsquo;ll use the &lt;code&gt;wget&lt;/code&gt; command to download the Raspberry PI build from &lt;a href=&#34;https://gogs.io/docs/installation/install_from_binary&#34;&gt;this download page&lt;/a&gt;. Use &lt;code&gt;wget&lt;/code&gt; with the url for the binary built specifically for Raspberry PI.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ wget {raspberrypibinaryurl}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now that I&amp;rsquo;ve got it downloaded, I can unzip it using the &lt;code&gt;unzip&lt;/code&gt; command.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ unzip {gogszipfilename}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you run the &lt;code&gt;ls&lt;/code&gt; command you should see the new &lt;code&gt;gogs&lt;/code&gt; folder that was extracted into the &lt;code&gt;iamgogs&lt;/code&gt; home directory.&lt;/p&gt;
-
-&lt;p&gt;And now for something completely expected&amp;hellip;&lt;/p&gt;
-
-&lt;h2 id=&#34;configuring-and-running-gogs-on-raspberry-pi&#34;&gt;Configuring and Running Gogs on Raspberry PI&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://gogs.io/docs/installation/configuration_and_run.html&#34;&gt;Running and configuring the Gogs server&lt;/a&gt; is handled by the Gogs install process. There&amp;rsquo;s lots of information online about manually creating and editing custom app.ini configuration file, but it looks like (for the most recent versions of Gogs) all I need to do is run the &lt;code&gt;gogs&lt;/code&gt; executable from the &lt;code&gt;$HOME/gogs&lt;/code&gt; folder with the &lt;code&gt;web&lt;/code&gt; parameter.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ cd $HOME/gogs
-$ ./gogs web
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I saw server information appear in the console. Since my Raspberry Pi is set up for headless operation, I don&amp;rsquo;t have the benefit of being able to access Gogs via a graphical web browser over localhost. So, from my windows machine, I navigated to {IpAddressOfRPi}:3000 and was greeted by a pleasant installation form which I filled out. Upon submitting the form, I had an admin account and a functioning Gogs server.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;m nearing the end of this Gogs journey, but I still need to set this up as a service running in the background. Otherwise I&amp;rsquo;m stuck with this SSH session running Gogs forever.&lt;/p&gt;
-
-&lt;p&gt;I was able to find some &lt;a href=&#34;https://blog.meinside.dev/Gogs-on-Raspberry-Pi/#2-for-systemd&#34;&gt;instructions&lt;/a&gt; for configuring a Gogs service with systemd that seemed straightforward enough.&lt;/p&gt;
-
-&lt;p&gt;Copy the systemd service file from Gogs to the appropriate folder&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo cp /home/iamgogs/scripts/systemd/gogs.service /lib/systemd/system/gogs.service
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then I edited the new file.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo nano /lib/systemd/system/gogs.service
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I updated the values for:
-- User
-- Group
-- WorkingDirectory
-- ExecStart
-- Environment&lt;/p&gt;
-
-&lt;p&gt;Since my Gogs user is &lt;code&gt;iamgogs&lt;/code&gt; rather than &lt;code&gt;git&lt;/code&gt; I needed to make sure the paths and users got updated accordingly. Once the file is updated and saved I tested to make sure it was working with:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo systemctl start gogs.service
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;After switching over to my windows machine and confirming the site loads in the browser, I returned to my ssh session to make sure systemd will automatically start the Gogs service on reboot.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo systemctl enable gogs.service
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And then a final test to make sure Gogs will start automatically when the RPi boots:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo reboot
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Lo and behold, it works.&lt;/p&gt;
-</description>
+      <description>In a previous article I configured a headless Raspberry Pi for Wifi and SSH. Next, I&amp;rsquo;ll set up a personal Gogs server on it.
+Change the Password First things first, change the password for the pi user to something different than raspberry.
+$ passwd Changing password for pi. (current) UNIX password: Enter new UNIX password: Retype new UNIX password: passwd: password updated successfully  Please tweet your new password to @quakkels /s</description>
     </item>
     
     <item>
@@ -1632,55 +118,8 @@ $ ./gogs web
       <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>http://quakkels.com/posts/why-i-prioritize-strength-training/</guid>
-      <description>&lt;p&gt;Over the last few years, I&amp;rsquo;ve taken up a new hobby; strength training. It&amp;rsquo;s something I&amp;rsquo;ve really grown to love. Though, sometimes it&amp;rsquo;s hard to articulate exactly why strength training has taken such a permanent position in my weekly routine.&lt;/p&gt;
-
-&lt;p&gt;When I was a sedentary person my quality of life decreased every year. Even when I was in my mid 20s I was not &amp;ldquo;strong&amp;rdquo; and frequent back and shoulder pain would frustrate me for weeks at a time. Every year my bodyweight would creep up, my strength would diminish, and I&amp;rsquo;d be a little less capable.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;You don&amp;rsquo;t own anything in your life. You don&amp;rsquo;t own your fitness. You don&amp;rsquo;t own your health&amp;hellip; You&amp;rsquo;re always constantly needing to work at it&amp;hellip; If you don&amp;rsquo;t, you lose it. So, you&amp;rsquo;re &amp;ldquo;paying the man.&amp;rdquo; ― &lt;a href=&#34;https://www.youtube.com/watch?v=si_w5Jze-zg&amp;amp;t=330s&#34;&gt;Josh Bridges&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I was losing my physical liberty. I was getting slower, weaker, and less resilient to everyday life. I&amp;rsquo;d spend my time being anxious about whether my back pain would get unbearable if I sat in the wrong chair for too long. I&amp;rsquo;d wake up in the morning in pain because I slept on my shoulder the wrong way. Utterly miserable.&lt;/p&gt;
-
-&lt;p&gt;So this is why strength training is important. It &amp;ldquo;pays the man&amp;rdquo; so I can keep my physical liberty. It makes me more useful to my family and my community. It sets an example for my offspring that it important to be active and work hard.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Strong people are harder to kill than weak people and more useful in general.
-― &lt;a href=&#34;https://www.goodreads.com/quotes/432892-strong-people-are-harder-to-kill-than-weak-people-and&#34;&gt;Mark Rippetoe&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Muscular strength is inversely and independently associated with death from all causes and cancer in men, even after adjusting for cardiorespiratory fitness and other potential confounders. ― &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2453303/&#34;&gt;Association between muscular strength and mortality in men: prospective cohort study&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&#39;http://quakkels.com/images/first400plusdeadlift.png&#39; style=&#34;float:right;padding:5px&#34;&gt;Strength training is an exercise in success. A person who follows a strength program and is disciplined will see improvements in their strength. They will be able to lift more, move more, and do more. That success reinforces confidence in one&amp;rsquo;s ability.  The first time I deadlifted over 400 pounds was hard hard work paying off, and it felt great.&lt;/p&gt;
-
-&lt;p&gt;Finally, I have not seen anyone come up with a better list for &amp;ldquo;why train&amp;rdquo; than Jim Wendler:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;For physical and mental health.&lt;/li&gt;
-&lt;li&gt;For self-improvement.&lt;/li&gt;
-&lt;li&gt;To challenge yourself physically and mentally.&lt;/li&gt;
-&lt;li&gt;To develop the bite that may help you through difficult times.&lt;/li&gt;
-&lt;li&gt;To honor all the men who have fought before you; it is part of your DNA to fight.&lt;/li&gt;
-&lt;li&gt;To show/prove to yourself that you can change through will.&lt;/li&gt;
-&lt;li&gt;In a world of &amp;ldquo;easy&amp;rdquo;, it keeps your teeth sharp.&lt;/li&gt;
-&lt;li&gt;Because we don&amp;rsquo;t have to chop wood anymore.&lt;/li&gt;
-&lt;li&gt;Being stronger is ALWAYS better.&lt;/li&gt;
-&lt;li&gt;To understand that there is cause and effect to action; and inaction.&lt;/li&gt;
-&lt;li&gt;A stronger body can equal a stronger mind can equal a stronger body.&lt;/li&gt;
-&lt;li&gt;There is zero negative consequence to being a stronger man.&lt;/li&gt;
-&lt;li&gt;To be a great example to your children; fat, weak and ignorant is not a good role model.&lt;/li&gt;
-&lt;li&gt;To exhaust your body and mind so as to put up with weak fools and ignorant beggars who demand what you have earned.&lt;/li&gt;
-&lt;li&gt;To learn self-reliance.&lt;/li&gt;
-&lt;li&gt;To understand that compassion and empathy is noble but not given lightly.&lt;/li&gt;
-&lt;li&gt;Because a mentally and physically dangerous man will always be needed.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;― &lt;a href=&#34;https://jimwendler.com/blogs/jimwendler-com/what-is-the-reason-for-me-to-do-this&#34;&gt;Jim Wendler&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;That&amp;rsquo;s why I train strength.&lt;/p&gt;
-</description>
+      <description>Over the last few years, I&amp;rsquo;ve taken up a new hobby; strength training. It&amp;rsquo;s something I&amp;rsquo;ve really grown to love. Though, sometimes it&amp;rsquo;s hard to articulate exactly why strength training has taken such a permanent position in my weekly routine.
+When I was a sedentary person my quality of life decreased every year. Even when I was in my mid 20s I was not &amp;ldquo;strong&amp;rdquo; and frequent back and shoulder pain would frustrate me for weeks at a time.</description>
     </item>
     
     <item>
@@ -1689,44 +128,8 @@ $ ./gogs web
       <pubDate>Sat, 16 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>http://quakkels.com/posts/configure-headless-raspberry-pi-for-wifi-and-ssh/</guid>
-      <description>
-
-&lt;p&gt;Raspberry Pis are great little computers. Wonderful for running hobby services. But, whenever I start a new RPi project, I dislike needing to dig out my spare HDMI monitor and USB keyboard. I don&amp;rsquo;t like having to take up room and connect all that hardware to just enable SSH and Wifi which renders all that equipment unnecessary.&lt;/p&gt;
-
-&lt;p&gt;Recently I learned how to flash a new micro SD card and configure it to connect to my Wifi network and enable SSH before even turning on the RPi for the first time.&lt;/p&gt;
-
-&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Raspberry Pi (mine is an RPi 3 Model B V1.2)&lt;/li&gt;
-&lt;li&gt;Micro USB charge cable&lt;/li&gt;
-&lt;li&gt;A powered USB hub or wall charger to plug the USB cable into&lt;/li&gt;
-&lt;li&gt;Micro SD card&lt;/li&gt;
-&lt;li&gt;Wifi network (and credentials to sign in to the router)&lt;/li&gt;
-&lt;li&gt;A computer that&amp;rsquo;s on previously mentioned network&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Download &lt;a href=&#34;https://www.raspberrypi.org/downloads/raspbian/&#34;&gt;Raspbian Lite&lt;/a&gt;. This version is stripped down and doesn&amp;rsquo;t include things like a graphical desktop.
-
-&lt;ul&gt;
-&lt;li&gt;Save the zip file to disk, and unzip. You should see the image file.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.raspberrypi.org/documentation/installation/installing-images/windows.md&#34;&gt;Flash&lt;/a&gt; the Micro SD card with Raspbian Lite. I used Etcher.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.raspberrypi.org/documentation/remote-access/ssh/&#34;&gt;Enable SSH&lt;/a&gt; by saving an empty file called &lt;code&gt;ssh&lt;/code&gt; to the new boot partition on the SD card.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Now this is the magic ingredient.&lt;/em&gt; &lt;a href=&#34;https://foxrow.com/raspberry-pi-headless-wifi-config&#34;&gt;Add a configuration file containing your Wifi information&lt;/a&gt; to the boot partition so that raspbian can connect on startup.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;At this point, if you&amp;rsquo;ve followed the previous steps correctly, you can eject the SD card from your reader and place it in you RPi and plug it in.&lt;/p&gt;
-
-&lt;p&gt;After waiting a minute or two for the RPi to boot (for the first time) you can log into your router and you will be able to find it in the list of connected devices. That list should have the IP address shown so you can use it to SSH into it.&lt;/p&gt;
-
-&lt;p&gt;Execute &lt;code&gt;ssh {IpAddress} -l pi&lt;/code&gt; and use the password &lt;code&gt;raspberry&lt;/code&gt; to login.&lt;/p&gt;
-
-&lt;p&gt;Now that we&amp;rsquo;ve got a functioning Raspberry Pi, &lt;a href=&#34;http://quakkels.com/posts/gogs-on-raspberry-pi/&#34;&gt;let&amp;rsquo;s do something useful with it&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <description>Raspberry Pis are great little computers. Wonderful for running hobby services. But, whenever I start a new RPi project, I dislike needing to dig out my spare HDMI monitor and USB keyboard. I don&amp;rsquo;t like having to take up room and connect all that hardware to just enable SSH and Wifi which renders all that equipment unnecessary.
+Recently I learned how to flash a new micro SD card and configure it to connect to my Wifi network and enable SSH before even turning on the RPi for the first time.</description>
     </item>
     
     <item>
@@ -1735,74 +138,8 @@ $ ./gogs web
       <pubDate>Thu, 16 Feb 2017 07:26:36 -0600</pubDate>
       
       <guid>http://quakkels.com/posts/identify-valid-standards/</guid>
-      <description>
-
-&lt;p&gt;I can&amp;rsquo;t tell you how many times I&amp;rsquo;ve been in software planning meetings when an engineer addressed the team and claimed that we should use {insert technology here} because it&amp;rsquo;s the &amp;ldquo;Industry Standard.&amp;rdquo; I also can&amp;rsquo;t tell you how many times I&amp;rsquo;ve done the same thing. I&amp;rsquo;ve gone into my boss&amp;rsquo;s office and claimed that we should use a particular stack or technology because it&amp;rsquo;s an &amp;ldquo;industry standard.&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;This reasoning is attractive because on the surface it seems valid. I mean, it
-must be an industry standard for a reason. Right? We&amp;rsquo;d be silly not to use it
-as well. Doesn&amp;rsquo;t that make sense?&lt;/p&gt;
-
-&lt;h2 id=&#34;hype-mentality&#34;&gt;Hype mentality&lt;/h2&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;&amp;ldquo;Hey coach, I think we should run screens because it&amp;rsquo;s the league standard.
-Everyone runs screens. If we want our team to win, we need to be
-running screens all the time.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Choosing technology based on popularity is easy. As programmers, it&amp;rsquo;s important
-to us to stay current and not let any good technology get past us. As a result,
-there are many ways that we can be influenced; industry publications, surveys,
-Blogs, Twitter, Reddit, even chatter in the break room. However, we need to be
-careful to weigh arguments based on technical merit and not succumb to the
-subliminal effects of hype.&lt;/p&gt;
-
-&lt;h2 id=&#34;hair-on-fire-mentality&#34;&gt;Hair-on-fire mentality&lt;/h2&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;&amp;ldquo;Hey coach, I think we should stop using back-shoulder passes down the field. We should remove them from our playbook entirely. Last time we ran a back-shoulder pass, we went three and out.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;When bugs that appear in staging (or even worse&amp;#151;production)  people will look for a root cause for why it occurred. This is good to do and it&amp;rsquo;s definitely the correct response. But those investigating should be sure to focus on the root cause of the bug. If they find a bug in code that relies on a third party library, there is a temptation to question the decisions of the team that added the library. This is usually due to a misplaced concern that the bug is a result of using a less popular (or non-standard) library. Instead, the investigation should focus on things like logic errors, syntax errors, and whether behavior is unit tested.&lt;/p&gt;
-
-&lt;p&gt;Sweeping rules dictating which libraries engineering teams must use are not the answer. Such a reaction result in standards that halt progress, stifle problem solving, and impede innovation.&lt;/p&gt;
-
-&lt;h2 id=&#34;how-standards-help&#34;&gt;How standards help&lt;/h2&gt;
-
-&lt;p&gt;When programming systems, standards should exist around the parts that need ‘glue’. Anytime there are two applications that need to talk to each other, they should follow a contract to ease communication between them. Examples of these kinds of standards include specifications for protocols such as HTTP, SAML, and OAuth.&lt;/p&gt;
-
-&lt;p&gt;Another area that benefits from industry standards is when describing languages. There must be a standard for what an &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; represents in HTML, and for how a CSS rule such as &lt;code&gt;h1 { color: red; }&lt;/code&gt; affects it. I wouldn&amp;rsquo;t be very productive in a language if when I wrote &lt;code&gt;string&lt;/code&gt; it would treat it like a &lt;code&gt;float&lt;/code&gt;. So having a language standard that defines the expected behavior of syntax and types is very helpful.&lt;/p&gt;
-
-&lt;p&gt;The key to these standards is that they are &lt;em&gt;defining expected behavior for a given tool&lt;/em&gt;. These standards do not dictate which tool to use.&lt;/p&gt;
-
-&lt;h2 id=&#34;picking-the-right-tool-for-a-job&#34;&gt;Picking the right tool for a job&lt;/h2&gt;
-
-&lt;p&gt;Some may claim that one software framework or language is an “industry standard”. Often, this is a result of the person seeing it used by others or featured in articles. So, they conclude that they should use it on every project. If there is even a vague similarity between their current project and the tool’s stated goals, then some people assume they’ve found the best tool for their job. More should be considered when choosing tools.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Good reasons to use a tool:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;It is stable&lt;/li&gt;
-&lt;li&gt;It does what we need&lt;/li&gt;
-&lt;li&gt;It is well supported&lt;/li&gt;
-&lt;li&gt;Ease of use&lt;/li&gt;
-&lt;li&gt;Compatible with existing system&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;Bad reasons to use a tool:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;It&amp;rsquo;s popular&lt;/li&gt;
-&lt;li&gt;It&amp;rsquo;s new&lt;/li&gt;
-&lt;li&gt;It&amp;rsquo;s been trending on Blogs and industry news sources.&lt;/li&gt;
-&lt;li&gt;The current tool is boring. We could use a change.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;don-t-flippantly-swing-the-industry-standard-club&#34;&gt;Don’t flippantly swing the “Industry Standard” club&lt;/h2&gt;
-
-&lt;p&gt;Promoting a tool by claiming that it&amp;rsquo;s an industry standard, rather than because it adheres to standards, is a mistake. There is a key difference between adhering to standards and being a standard. Industry standards are most effective when describing protocols and language behavior. We should select our tools based on how well they adhere to standards.&lt;/p&gt;
-</description>
+      <description>I can&amp;rsquo;t tell you how many times I&amp;rsquo;ve been in software planning meetings when an engineer addressed the team and claimed that we should use {insert technology here} because it&amp;rsquo;s the &amp;ldquo;Industry Standard.&amp;rdquo; I also can&amp;rsquo;t tell you how many times I&amp;rsquo;ve done the same thing. I&amp;rsquo;ve gone into my boss&amp;rsquo;s office and claimed that we should use a particular stack or technology because it&amp;rsquo;s an &amp;ldquo;industry standard.&amp;rdquo;
+This reasoning is attractive because on the surface it seems valid.</description>
     </item>
     
     <item>
@@ -1811,47 +148,9 @@ subliminal effects of hype.&lt;/p&gt;
       <pubDate>Sat, 28 Jan 2017 07:41:18 -0600</pubDate>
       
       <guid>http://quakkels.com/posts/dont-take-frameworks-for-granted/</guid>
-      <description>&lt;p&gt;Frameworks can help jump-start productivity on projects. But be careful.
-Relying too much on frameworks could also limit yourself in the long run.&lt;/p&gt;
-
-&lt;p&gt;Whenever the opportunity presents itself, programmers should carefully consider
-whether using a framework is beneficial. It may provide immediate benefits, but
-there should be no magic happening that isn&amp;rsquo;t understood by the programmer.&lt;/p&gt;
-
-&lt;p&gt;Years ago, I learned how to make websites with C#. I had help from many books,
-tutorials, and co-workers. With those resources I used the ASP.NET MVC 1
-framework to build websites in a new way. However, while building my sample MVC
-sites, the code I wrote was there just because that&amp;rsquo;s how it was written in a
-tutorial somewhere. At the time, I had very little understanding of how the
-internals worked. I didn&amp;rsquo;t understand how routing worked, or how reflection
-worked, or how factories fit in, or anything about what a view engine did, or
-model binding. It was all just magic that I accepted and had faith in.&lt;/p&gt;
-
-&lt;p&gt;I was able to build a working website with C# and ASP.NET MVC, and I did it
-fairly quickly. It was certainly done faster than it would have been without the
-framework. This fact can&amp;rsquo;t be ignored. Learning a technology while achieving
-results is important for any beginner. The experience of finishing something
-is valuable for the sense of accomplishment and for the motivation to keep
-going. But, it&amp;rsquo;s important to understand that once a project is finished, the
-learning should not stop. Understanding the building blocks of any framework is
-the foundation for every solid programmer.&lt;/p&gt;
-
-&lt;p&gt;In my case, it was very important that I continued to build up my foundation of
-understanding. That&amp;rsquo;s because projects in the real world don&amp;rsquo;t just end like
-side projects could. They live on and they evolve. Real projects keep receiving
-feature requests. New requirements will appear. Technology will change.
-Eventually, the chosen framework might lose support, or might not keep up with
-requirements. When that happens, knowledge of how the framework functions is
-imperative. Without that knowledge, programmers are at the mercy of tutorial
-writers and the framework creators. But with a knowledgeable foundation,
-programmers are equipped to continue building and shipping their projects.&lt;/p&gt;
-
-&lt;p&gt;The bottom line is this: frameworks can be wielded much more effectively
-&lt;em&gt;after&lt;/em&gt; the programmer understands enough of the language and design concepts
-so that the framework&amp;rsquo;s behavior isn&amp;rsquo;t magic anymore. Programmers equipped with
-such understanding will know where to look for seams in the execution pipeline,
-and they will be able to add customizations where appropriate.&lt;/p&gt;
-</description>
+      <description>Frameworks can help jump-start productivity on projects. But be careful. Relying too much on frameworks could also limit yourself in the long run.
+Whenever the opportunity presents itself, programmers should carefully consider whether using a framework is beneficial. It may provide immediate benefits, but there should be no magic happening that isn&amp;rsquo;t understood by the programmer.
+Years ago, I learned how to make websites with C#. I had help from many books, tutorials, and co-workers.</description>
     </item>
     
     <item>
@@ -1860,64 +159,86 @@ and they will be able to add customizations where appropriate.&lt;/p&gt;
       <pubDate>Mon, 29 Aug 2016 00:00:00 +0000</pubDate>
       
       <guid>http://quakkels.com/posts/5-slack-tricks-that-changed-my-life/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://quakkels.com/images/clickbait.png&#34; alt=&#34;&#34; /&gt;
-&lt;em&gt;Please excuse the &amp;ldquo;click-baity&amp;rdquo; title. Sometimes I like to exaggerate.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Slack plays a significant role in my daily communication. My team at work has been using Slack as our primary mode of textual communication for over a year. It is also used by developer communities in my local area. At first, it felt a little clumsy. No more clumsy than a typical chat program. But, channels started to accumulate. The number of Direct Message feeds grew. Navigating and filtering all the conversations became more cumbersome. The tricks I will discuss here have helped me to stay nimble in Slack&amp;rsquo;s user interface. At first, I looked at Slack as a swamp of messages that I needed to wade through. But, with these small tricks, Slack has become easier to use and it even plays more of a productivity role.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;ctrl+k&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;If you are in a large Slack room with many channels, &lt;code&gt;ctrl+k&lt;/code&gt; can be a lifesaver! It gives you quick access to a list of channels that have new conversations. It also has an easy to use search feature that allows the user to navigate from their current conversation to a different channel or user. For someone like me, this is life changing. I love being able to use as much software as I can without needing to use my mouse.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;/remind&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;At first, I thought the &lt;code&gt;/remind&lt;/code&gt; feature was a gimmick that wasn&amp;rsquo;t useful. So it took me a few months to even try it out for the first time. Once I tried it, I became dependent on it. Some of the ways to use this include:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Remind yourself to follow up with a colleague the next day.&lt;/li&gt;
-&lt;li&gt;Remind yourself to start or end work on a project.&lt;/li&gt;
-&lt;li&gt;Right before leaving work, you can remind yourself to run an errand on the way home.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;My favorite way to use &lt;code&gt;/remind&lt;/code&gt; is to set time-limits on periods of
-concentration. Outlook does a similar thing for meetings. About 15 minutes
-ahead of time, Outlook can pop up reminders that a meeting is approaching.
-I like to use &lt;code&gt;/remind&lt;/code&gt; in a similar way for things that aren&amp;rsquo;t on my calendar.&lt;/p&gt;
-
-&lt;p&gt;For example, I may need to switch concentration contexts midway through the
-day. I can use &lt;code&gt;/remind me to work on XyzProject in 2 hours&lt;/code&gt;. Once the
-reminder has been set, it&amp;rsquo;s easier for me to concentrate on the current
-task because I don&amp;rsquo;t need to keep project &amp;lsquo;XyzProject&amp;rsquo; in the back of my mind.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;/remind&lt;/code&gt; is also useful for helping me remember the state a project was in
-when I left it. For example, I can say &lt;code&gt;/remind me to bind new service 
-implementations with Ninject on Monday at 8am&lt;/code&gt;. This has been a great tool
-to get me working on a project right where I left off.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Star important channels&lt;/p&gt;
-
-&lt;p&gt;This is a cool little trick the helps me group my highest priority channels together. At work, I have a handful of channels that are team specific. I like to star those so they all get prioritized at the top of the list. Then all the other channels, which are company-wide, get grouped below the starred channels. It&amp;rsquo;s the simplest thing, but works so well. Just select the channel and hover over the channel&amp;rsquo;s name at the top. Then a click-able star button will appear.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;/mute&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;/mute&lt;/code&gt; has been useful for me at work where I&amp;rsquo;m in many channels. However, I don&amp;rsquo;t need constant notifications whenever someone has added a post. &lt;code&gt;/mute&lt;/code&gt; has been a great tool for alleviating the tsunami of push notifications that I would have otherwise received.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;/collapse&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;If people are going nuts with &lt;code&gt;/giphy&lt;/code&gt; or posting URLs that automatically show previews, then use &lt;code&gt;/collapse&lt;/code&gt; to clean up that clutter in one giant swoop!&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;So those are my 5 Slack tips. But wait! There&amp;rsquo;s more. So here are a few bonus tips.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;up-arrow&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;I know I&amp;rsquo;ve made posts that have errors in them. You can use the up arrow key to edit your last post, or even delete it entirely. If editing, I recommend surrounding the part that was wrong with &lt;code&gt;~&lt;/code&gt; and then adding your new edit after that. This is good helps people see what has changed.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;ctrl+/&lt;/code&gt; brings up a help menu.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Please excuse the &amp;ldquo;click-baity&amp;rdquo; title. Sometimes I like to exaggerate.
+Slack plays a significant role in my daily communication. My team at work has been using Slack as our primary mode of textual communication for over a year. It is also used by developer communities in my local area. At first, it felt a little clumsy. No more clumsy than a typical chat program. But, channels started to accumulate. The number of Direct Message feeds grew.</description>
+    </item>
+    
+    <item>
+      <title>Into the Nether: Linux</title>
+      <link>http://quakkels.com/posts/into-the-nether-linux/</link>
+      <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/into-the-nether-linux/</guid>
+      <description>The first movie I saw that really got me excited about computers was WarGames. The WOPR was an inanimate object that just sat there on screen. But, it was still a complete character all by itself. It reacted to the Matthew Broderick character&amp;rsquo;s commands and questions and became something more clever than just a boring piece of hardware. The fictional software running inside the WOPR and Broderick&amp;rsquo;s character&amp;rsquo;s ability to interface with it created a story that was incredibly mystical and exciting.</description>
+    </item>
+    
+    <item>
+      <title>Maintaining Your Vision</title>
+      <link>http://quakkels.com/posts/maintaining-your-vision/</link>
+      <pubDate>Mon, 03 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/maintaining-your-vision/</guid>
+      <description>Programmers are often creators. Being a creator takes vision. Vision to see the destination, and vision to see the course. The destination could be learning a new language or technology stack. The destination could be a product to be released to customers. It could be something done for personal edification. The course is determined by taking that larger goal and breaking it down to manageable steps.
+The trick for successfully creating something, is to maintain that vision.</description>
+    </item>
+    
+    <item>
+      <title>Let&#39;s Scrape the Web with Python 3</title>
+      <link>http://quakkels.com/posts/lets-scrape-the-web-with-python-3/</link>
+      <pubDate>Sun, 10 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/lets-scrape-the-web-with-python-3/</guid>
+      <description>In the back of my mind I&amp;rsquo;ve always been intrigued by writing an application that can retrieve web pages over HTTP. It&amp;rsquo;s a fairly simple thing to do. We have a myriad of web browsers that do it for us. But there is just something about writing an application that operates independently of a browser and reaches out to touch the internet that I find fun and intriguing. So let&amp;rsquo;s do it&amp;hellip; in Python.</description>
+    </item>
+    
+    <item>
+      <title>What Happens When You Login?</title>
+      <link>http://quakkels.com/posts/what-happens-when-you-login/</link>
+      <pubDate>Sat, 23 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/what-happens-when-you-login/</guid>
+      <description>Your favorite website is asking you for your username and password.
+Username? Password? Sure, you&amp;rsquo;ve got those. [You enter your username] then [you enter your password] then [you press enter] then boom, you&amp;rsquo;re logged into the website.
+What actually just happened? Well, assuming that you entered correct login credentials, you can now access whatever members only area that site offers to those credentials. But before that, in the split seconds after you clicked login and before you saw your profile, the website had to verify that the credentials you entered were correct.</description>
+    </item>
+    
+    <item>
+      <title>Learn Insertion Sort with Video Game Discs</title>
+      <link>http://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</link>
+      <pubDate>Sat, 09 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</guid>
+      <description>I think you could say I have an average number of video game discs. It&amp;rsquo;s not a huge number of games, but it is enough that it can be difficult to find a particular game if they&amp;rsquo;re not organized in a predictable way.
+Enter insertion sort. Insertion sort is in the same family as the bubble sort in that its worst case complexity is O(n2). But in practice, it is usually a faster sort.</description>
+    </item>
+    
+    <item>
+      <title>Learn Bubble Sort with Playing Cards</title>
+      <link>http://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</link>
+      <pubDate>Tue, 22 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</guid>
+      <description>Let&amp;rsquo;s say you have an unordered list of numbers and you wanted to put them in order from lowest to highest value. How would you do that? You&amp;rsquo;re probably thinking that you would just look at all the numbers, find the lowest number and put it at the beginning of your list. Then you would find the next largest number and put it in the second spot in the list, and so on until you&amp;rsquo;ve ordered the entire list of numbers.</description>
+    </item>
+    
+    <item>
+      <title>Let&#39;s talk to a SQLite database with Python</title>
+      <link>http://quakkels.com/posts/lets-talk-to-a-sqlite-database-with-python/</link>
+      <pubDate>Sun, 20 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/lets-talk-to-a-sqlite-database-with-python/</guid>
+      <description>As I write this, it&amp;rsquo;s the weekend. My wonderful wife brought home some amazing Jet Fuel XBold Dark Roast Coffee that is sure to keep me wired for the next several hours. Now what should I do? Let&amp;rsquo;s explore Python a little more by using it to talk to a database.
+We&amp;rsquo;re a long way from my bread and butter. My goto technologies for database interaction are .NET, C# and Entity Framework CodeFirst with SQL Server 2005&amp;frasl;2008.</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET MVC Compared to Django</title>
+      <link>http://quakkels.com/posts/asp-net-mvc-compared-to-dango/</link>
+      <pubDate>Sun, 13 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/posts/asp-net-mvc-compared-to-dango/</guid>
+      <description>The MVC pattern is widely used in web development today. Regardless of whether you develop in C#, PHP, Python, Java, JavaScript, or Ruby, you won’t have any trouble finding a popular MVC pattern for your language of choice.
+Being primarily a C# developer, I’ve been using ASP.NET MVC since version 1. It’s a great framework. It can be very good at getting a project off the ground quickly, especially when coupled with a good ORM such as NHibernate, or Entity Framework.</description>
     </item>
     
   </channel>
