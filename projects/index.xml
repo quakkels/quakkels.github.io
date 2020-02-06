@@ -6,18 +6,18 @@
     <description>Recent content in Check Out My Projects on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 Jan 2017 14:36:35 -0600</lastBuildDate>
+    <lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://quakkels.com/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Pointing-online</title>
-      <link>http://quakkels.com/projects/pointing-online/</link>
-      <pubDate>Fri, 27 Jan 2017 14:36:35 -0600</pubDate>
+      <title>RSS Discovery Engine</title>
+      <link>http://quakkels.com/projects/rss-discovery-engine/</link>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/projects/pointing-online/</guid>
-      <description>Pointing-online is a .Net Core project written in C# that was inspired by real world needs of distributed teams practicing Agile Scrum.</description>
+      <guid>http://quakkels.com/projects/rss-discovery-engine/</guid>
+      <description>RSS Discovery Engine was a fun project intended to encourage the use of RSS feeds. You can find the code on GitHub or try it out.</description>
     </item>
     
     <item>

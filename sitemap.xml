@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://quakkels.com/projects/rss-discovery-engine/</loc>
+    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://quakkels.com/training_log/0041/</loc>
     <lastmod>2020-02-05T00:00:00+00:00</lastmod>
   </url>
@@ -288,11 +293,6 @@
   </url>
   
   <url>
-    <loc>http://quakkels.com/projects/pointing-online/</loc>
-    <lastmod>2017-01-27T14:36:35-06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://quakkels.com/projects/roast-it/</loc>
     <lastmod>2017-01-27T14:36:35-06:00</lastmod>
   </url>
@@ -349,7 +349,7 @@
   
   <url>
     <loc>http://quakkels.com/projects/</loc>
-    <lastmod>2017-01-27T14:36:35-06:00</lastmod>
+    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -372,7 +372,7 @@
   
   <url>
     <loc>http://quakkels.com/</loc>
-    <lastmod>2020-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

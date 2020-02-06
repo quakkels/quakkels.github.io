@@ -6,10 +6,19 @@
     <description>Recent content on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>RSS Discovery Engine</title>
+      <link>http://quakkels.com/projects/rss-discovery-engine/</link>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://quakkels.com/projects/rss-discovery-engine/</guid>
+      <description>RSS Discovery Engine was a fun project intended to encourage the use of RSS feeds. You can find the code on GitHub or try it out.</description>
+    </item>
     
     <item>
       <title>41 Basic Strongman: Week 3 Day 2</title>
@@ -587,15 +596,6 @@ Years ago, I learned how to make websites with C#. I had help from many books, t
       <guid>http://quakkels.com/about/</guid>
       <description>I believe that programming is a craft. My goal is to continuously study this craft, and to always refine my thinking and my execution while practicing it. I have a decade of experience and even though I have come a long way since I started, there&amp;rsquo;s always something fresh to study that I can add to my toolbox.
 Software development is a wonderful discipline that requires creativity, ingenuity, and logic.</description>
-    </item>
-    
-    <item>
-      <title>Pointing-online</title>
-      <link>http://quakkels.com/projects/pointing-online/</link>
-      <pubDate>Fri, 27 Jan 2017 14:36:35 -0600</pubDate>
-      
-      <guid>http://quakkels.com/projects/pointing-online/</guid>
-      <description>Pointing-online is a .Net Core project written in C# that was inspired by real world needs of distributed teams practicing Agile Scrum.</description>
     </item>
     
     <item>
