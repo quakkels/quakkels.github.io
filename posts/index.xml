@@ -17,8 +17,8 @@
       <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>https://quakkels.com/posts/quakkels-dot-com-now-with-https/</guid>
-      <description>So I must&amp;rsquo;ve been under a rock for the last 21 months because it wasn&amp;rsquo;t until this week that I learned that GitHub Pages now supports SSL certificates for custom domains. They&amp;rsquo;ve had SSL support since 2016. But it has also been available for custom domain sites (like this one) since May of 2018.
-Before the feature was upgraded there were hacks to get around the custom domain limitation. Back then, when I was investigating, I decided it wasn&amp;rsquo;t worth the complexity and effort.</description>
+      <description>So I must&amp;rsquo;ve been under a rock for the last 21 months because it wasn&amp;rsquo;t until this week that I learned that GitHub Pages now supports SSL certificates for custom domains. They&amp;rsquo;ve had SSL support since 2016 for sites using .github.io domains. But it has also been available for custom domain sites (like this one) since May of 2018.
+Before the feature was upgraded there were hacks to get around the custom domain limitation.</description>
     </item>
     
     <item>
