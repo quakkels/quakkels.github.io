@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Check Out My Projects on Quakkels.com</title>
-    <link>http://quakkels.com/projects/</link>
+    <link>https://quakkels.com/projects/</link>
     <description>Recent content in Check Out My Projects on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://quakkels.com/projects/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://quakkels.com/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>RSS Discovery Engine</title>
-      <link>http://quakkels.com/projects/rss-discovery-engine/</link>
+      <link>https://quakkels.com/projects/rss-discovery-engine/</link>
       <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/projects/rss-discovery-engine/</guid>
+      <guid>https://quakkels.com/projects/rss-discovery-engine/</guid>
       <description>RSS Discovery Engine was a fun project intended to encourage the use of RSS feeds. You can find the code on GitHub or try it out.</description>
     </item>
     
     <item>
       <title>Roast.it</title>
-      <link>http://quakkels.com/projects/roast-it/</link>
+      <link>https://quakkels.com/projects/roast-it/</link>
       <pubDate>Fri, 27 Jan 2017 14:36:35 -0600</pubDate>
       
-      <guid>http://quakkels.com/projects/roast-it/</guid>
+      <guid>https://quakkels.com/projects/roast-it/</guid>
       <description>Roast.it is a simple JavaScript unit testing library designed for providing a fast feedback loop with minimal fuss. There are no frills here. No unnecessary dependencies. This will run unit tests for you from npm test. It will not get in your way.</description>
     </item>
     

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title"content="GitHub Pages and Quakkels.com &middot; Quakkels.com" />
+    <meta property="og:description"content="Now with HTTPS" />
+    <meta name="author" content="Brandon Quakkelaar">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.40.1" />
+
+    <title>GitHub Pages and Quakkels.com &middot; Quakkels.com</title>
+    <link rel="shortcut icon" href="https://quakkels.com/images/favicon.ico">
+    <link rel="stylesheet" href="https://quakkels.com/css/style.css">
+    <base href="https://quakkels.com/">
+    <link rel="canonical" href="https://quakkels.com/posts/quakkels-dot-com-now-with-https/">
+    <link href="" rel="alternate" type="application/rss+xml" title="Quakkels.com" />
+</head>
+<body lang="en">
+<nav id="main-nav">
+    <div class="mobile-menu">
+        
+        
+        <div id="hamburger"><span></span></div>
+    </div>
+    <a href="https://quakkels.com/">Quakkels.com</a>
+    <a href="https://quakkels.com/projects">Projects</a>
+    <a href="https://quakkels.com/about">About</a>
+    <a href="https://quakkels.com/training_log">Training Log</a>
+    <a class="rss" href="">RSS Feed</a>
+</nav>
+<header id="home-header">
+    <h1>GitHub Pages and Quakkels.com</h1>
+    
+    <h2>Feb 12, 2020</h2>
+    
+    
+    
+    <p>
+            <a href="https://quakkels.com/tags/system-administration">System Administration</a>
+        
+    </p>
+    
+    
+    <h3>By: Brandon Quakkelaar</h3>
+    
+</header>
+<div class="main">
+<section class="wrapper">
+
+
+<p>So I must&rsquo;ve been under a rock for the last 21 months because it wasn&rsquo;t until this week that I learned that GitHub Pages now supports <a href="https://github.blog/2018-05-01-github-pages-custom-domains-https/">SSL certificates for custom domains</a>. They&rsquo;ve had SSL support since 2016. But it has also been available for custom domain sites (like this one) since May of 2018.</p>
+
+<p>Before the feature was upgraded there were hacks to get around the custom domain limitation. Back then, when I was investigating, I decided it wasn&rsquo;t worth the complexity and effort. Quakkels.com is just a personal blog built with a static site generator using a free hosting service. I didn&rsquo;t see the need to spend too much effort on a hacky solution for adding SSL to it. SSL was a &ldquo;nice to have&rdquo; feature, but not critical to me.</p>
+
+<p>When I decided to look into it again, I was surprised that custom domain SSL&rsquo;s were supported. Pleased as I was to learn this I was also slightly dismayed that I was ignorant for so long about the new GitHub feature.</p>
+
+<p>Updating was simple enough. Years ago GitHub Pages had me create A Records pointing to a couple of their IP addresses. That method of setting up the domain is not compatible with the SSL feature they provide now. So I simply had to remove those A Records, and and replace them with a CNAME pointing to quakkels.github.io.</p>
+
+<p>I monitored the propogation of those setting with <code>dig</code>, as GitHub recommends.</p>
+
+<pre><code>$ dig quakkels.com +nostats +nocomments +nocmd
+
+; &lt;&lt;&gt;&gt; DiG 9.11.3-1ubuntu1.11-Ubuntu &lt;&lt;&gt;&gt; quakkels.com +nostats +nocomments +nocmd
+;; global options: +cmd
+;quakkels.com.			IN	A
+quakkels.com.		228	IN	CNAME	quakkels.github.io.
+quakkels.github.io.	2029	IN	A	185.199.108.153
+quakkels.github.io.	2029	IN	A	185.199.111.153
+quakkels.github.io.	2029	IN	A	185.199.109.153
+quakkels.github.io.	2029	IN	A	185.199.110.153
+</code></pre>
+
+<p>Once I saw the updated CNAME pointing to quakkels.github.com then I headed back over to my GitHub Pages settings to turn on SSL. I had to wait a few minutes for the SSL cert from LetsEncrypt to be available. Once that was online then all I needed to do was check the box to turn on SSL.</p>
+
+<p>The last thing I needed to do was on my end rather than on GitHub&rsquo;s end. I needed to update my Hugo config.toml to use <code>https</code> for the base url, re-generate the blog, and <code>git push</code> the changes.</p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+<li><a href="https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site">GitHub: Managing a custom domain</a></li>
+</ul>
+
+</section>
+</div>
+<div id="footer">
+    <div class="wrapper">
+        <img class="avatar" src="https://quakkels.com/images/avatar-v2.png">
+        My name is Brandon Quakkelaar. I love my family. I work with code. And, I have fun by reading, learning, and building.
+    </div>
+</div>
+<script src="https://quakkels.com/js/site.js"></script>
+<script>
+var navElement = document.getElementById("main-nav");
+var menuButton = document.getElementById("hamburger");
+var mobileSize = 768;
+var menu = new Menu(window, navElement, menuButton, mobileSize);
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91443661-1', 'auto');
+  ga('send', 'pageview');
+
+</script>

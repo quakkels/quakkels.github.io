@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on Quakkels.com</title>
-    <link>http://quakkels.com/tags/programming/</link>
+    <link>https://quakkels.com/tags/programming/</link>
     <description>Recent content in Programming on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 26 Dec 2019 07:00:00 -0500</lastBuildDate>
     
-	<atom:link href="http://quakkels.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://quakkels.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Flat is Better Than Nested Versus Single Entry Single Exit</title>
-      <link>http://quakkels.com/posts/single-entry-single-exit/</link>
+      <link>https://quakkels.com/posts/single-entry-single-exit/</link>
       <pubDate>Thu, 26 Dec 2019 07:00:00 -0500</pubDate>
       
-      <guid>http://quakkels.com/posts/single-entry-single-exit/</guid>
+      <guid>https://quakkels.com/posts/single-entry-single-exit/</guid>
       <description>As a program ages and receives updates, more and more features are built. Logic is added and the code becomes increasingly more complicated to read and understand. So programmers invent recommended practices to manage the complexity and to preserve the maintainability of their code. The goal being to keep the cognitive load to minimum levels so the programmer can work efficiently.
 One popular practice is to avoid nested code when possible.</description>
     </item>
     
     <item>
       <title>Functions for Documentation Instead of Comments</title>
-      <link>http://quakkels.com/posts/functions-for-documentation-instead-of-comments/</link>
+      <link>https://quakkels.com/posts/functions-for-documentation-instead-of-comments/</link>
       <pubDate>Mon, 23 Dec 2019 07:00:00 -0500</pubDate>
       
-      <guid>http://quakkels.com/posts/functions-for-documentation-instead-of-comments/</guid>
+      <guid>https://quakkels.com/posts/functions-for-documentation-instead-of-comments/</guid>
       <description>Using good function naming and composition will decrease the need for gratuitous comments and increase your code’s readability.
 I&amp;rsquo;ve become convinced that comments are often worth avoiding. Comments aren&amp;rsquo;t subject to a compiler nor to an interpreter. Code may change and the corresponding comment often remains as it was. Except now the comment is misleading. This makes maintaining the code unnecessarily difficult.
 Use Function Names to Document Code Consider this code that determines the &amp;ldquo;Day of the Programmer&amp;rdquo;.</description>
@@ -34,59 +34,59 @@ Use Function Names to Document Code Consider this code that determines the &amp;
     
     <item>
       <title>Naming Things Clearly</title>
-      <link>http://quakkels.com/posts/clean-names/</link>
+      <link>https://quakkels.com/posts/clean-names/</link>
       <pubDate>Tue, 17 Dec 2019 07:00:00 -0500</pubDate>
       
-      <guid>http://quakkels.com/posts/clean-names/</guid>
+      <guid>https://quakkels.com/posts/clean-names/</guid>
       <description>Clean Code by Robert C. Martin is one of my favorite programming texts. It has a chapter called Meaningful Names wherein principles for the clear and clean naming of code elements are explained.
 When we write code we should be considering the programmer who follows us. Sometimes it may be ourselves who have not touched the code for months or years. The programmer working in previously written code will need to study it to try and recognize the intention and systems of the original author.</description>
     </item>
     
     <item>
       <title>Getting Started with Mobile Development and Xamarin</title>
-      <link>http://quakkels.com/posts/getting-started-with-mobile-development-and-xamarin/</link>
+      <link>https://quakkels.com/posts/getting-started-with-mobile-development-and-xamarin/</link>
       <pubDate>Tue, 04 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/getting-started-with-mobile-development-and-xamarin/</guid>
+      <guid>https://quakkels.com/posts/getting-started-with-mobile-development-and-xamarin/</guid>
       <description>Xamarin enables programmers to write native mobile applications for both Android and iOS using C# and free development tools like Visual Studio Community Edition. This means that if you&amp;rsquo;re invested in the .NET ecosystem and the C# language, you can write cross-platform mobile applications using technology that&amp;rsquo;s already familiar to you.
  A note on development for iOS: You will need a mac in order to build iOS versions of the app.</description>
     </item>
     
     <item>
       <title>Getting Started with Django</title>
-      <link>http://quakkels.com/posts/getting-started-python-django-vs-code/</link>
+      <link>https://quakkels.com/posts/getting-started-python-django-vs-code/</link>
       <pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/getting-started-python-django-vs-code/</guid>
+      <guid>https://quakkels.com/posts/getting-started-python-django-vs-code/</guid>
       <description>Django is a Python framework that I&amp;rsquo;ve written about before. I&amp;rsquo;ve compared Django to ASP.NET MVC. But, I didn&amp;rsquo;t go into much detail about how to actually use Django to create a data driven website. That&amp;rsquo;s what I&amp;rsquo;ll cover now.
 The goal for this &amp;lsquo;Getting Started&amp;rsquo; project is to get familiar with the basics of developing data driven web applications using Django, Models, Views, Templates, URLs, and Forms. By the end we&amp;rsquo;ll have a simple contact form that saves user submissions to the database, and displays that data to an administrator user.</description>
     </item>
     
     <item>
       <title>Configuring Vim When Using Git Bash on Windows</title>
-      <link>http://quakkels.com/posts/configuring-vim-when-using-git-bash/</link>
+      <link>https://quakkels.com/posts/configuring-vim-when-using-git-bash/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/configuring-vim-when-using-git-bash/</guid>
+      <guid>https://quakkels.com/posts/configuring-vim-when-using-git-bash/</guid>
       <description>Occasionally I become enamored with the idea of becoming a Vim expert, or at least a competent Vim user. I work primarily in Windows environments so, though the desire exists, there aren&amp;rsquo;t many good opportunities to build Vim habits. There is a Vim on Windows release available. This has a GUI interface and an installer executable. Though if you have Git for Windows installed, then you already have Vim available.</description>
     </item>
     
     <item>
       <title>MySQL Quick Reference</title>
-      <link>http://quakkels.com/posts/mysql-quick-reference/</link>
+      <link>https://quakkels.com/posts/mysql-quick-reference/</link>
       <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/mysql-quick-reference/</guid>
+      <guid>https://quakkels.com/posts/mysql-quick-reference/</guid>
       <description>Shell Commands Set up security requirements: $ sudo mysql_secure_installation  Open the MySQL CLI client and login using a password and the specified user: $ sudo mysql -u {user} -p  MySQL Queries and Commands  Note that MySQL will not execute anything until it encounters a semicolon ; which indicates the end of a statement. This allows us to enter multi-line statements.
  Create User &amp;gt; CREATE USER &#39;newuser&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39;;  Give User Access to a Database &amp;gt; GRANT ALL PRIVILEGES ON * .</description>
     </item>
     
     <item>
       <title>Gogs on Raspberry PI</title>
-      <link>http://quakkels.com/posts/gogs-on-raspberry-pi/</link>
+      <link>https://quakkels.com/posts/gogs-on-raspberry-pi/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/gogs-on-raspberry-pi/</guid>
+      <guid>https://quakkels.com/posts/gogs-on-raspberry-pi/</guid>
       <description>In a previous article I configured a headless Raspberry Pi for Wifi and SSH. Next, I&amp;rsquo;ll set up a personal Gogs server on it.
 Change the Password First things first, change the password for the pi user to something different than raspberry.
 $ passwd Changing password for pi. (current) UNIX password: Enter new UNIX password: Retype new UNIX password: passwd: password updated successfully  Please tweet your new password to @quakkels /s</description>
@@ -94,20 +94,20 @@ $ passwd Changing password for pi. (current) UNIX password: Enter new UNIX passw
     
     <item>
       <title>Identify Valid Standards</title>
-      <link>http://quakkels.com/posts/identify-valid-standards/</link>
+      <link>https://quakkels.com/posts/identify-valid-standards/</link>
       <pubDate>Thu, 16 Feb 2017 07:26:36 -0600</pubDate>
       
-      <guid>http://quakkels.com/posts/identify-valid-standards/</guid>
+      <guid>https://quakkels.com/posts/identify-valid-standards/</guid>
       <description>I can&amp;rsquo;t tell you how many times I&amp;rsquo;ve been in software planning meetings when an engineer addressed the team and claimed that we should use {insert technology here} because it&amp;rsquo;s the &amp;ldquo;Industry Standard.&amp;rdquo; I also can&amp;rsquo;t tell you how many times I&amp;rsquo;ve done the same thing. I&amp;rsquo;ve gone into my boss&amp;rsquo;s office and claimed that we should use a particular stack or technology because it&amp;rsquo;s an &amp;ldquo;industry standard.&amp;rdquo;
 This reasoning is attractive because on the surface it seems valid.</description>
     </item>
     
     <item>
       <title>Don&#39;t Take Frameworks for Granted</title>
-      <link>http://quakkels.com/posts/dont-take-frameworks-for-granted/</link>
+      <link>https://quakkels.com/posts/dont-take-frameworks-for-granted/</link>
       <pubDate>Sat, 28 Jan 2017 07:41:18 -0600</pubDate>
       
-      <guid>http://quakkels.com/posts/dont-take-frameworks-for-granted/</guid>
+      <guid>https://quakkels.com/posts/dont-take-frameworks-for-granted/</guid>
       <description>Frameworks can help jump-start productivity on projects. But be careful. Relying too much on frameworks could also limit yourself in the long run.
 Whenever the opportunity presents itself, programmers should carefully consider whether using a framework is beneficial. It may provide immediate benefits, but there should be no magic happening that isn&amp;rsquo;t understood by the programmer.
 Years ago, I learned how to make websites with C#. I had help from many books, tutorials, and co-workers.</description>
@@ -115,38 +115,38 @@ Years ago, I learned how to make websites with C#. I had help from many books, t
     
     <item>
       <title>Into the Nether: Linux</title>
-      <link>http://quakkels.com/posts/into-the-nether-linux/</link>
+      <link>https://quakkels.com/posts/into-the-nether-linux/</link>
       <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/into-the-nether-linux/</guid>
+      <guid>https://quakkels.com/posts/into-the-nether-linux/</guid>
       <description>The first movie I saw that really got me excited about computers was WarGames. The WOPR was an inanimate object that just sat there on screen. But, it was still a complete character all by itself. It reacted to the Matthew Broderick character&amp;rsquo;s commands and questions and became something more clever than just a boring piece of hardware. The fictional software running inside the WOPR and Broderick&amp;rsquo;s character&amp;rsquo;s ability to interface with it created a story that was incredibly mystical and exciting.</description>
     </item>
     
     <item>
       <title>Maintaining Your Vision</title>
-      <link>http://quakkels.com/posts/maintaining-your-vision/</link>
+      <link>https://quakkels.com/posts/maintaining-your-vision/</link>
       <pubDate>Mon, 03 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/maintaining-your-vision/</guid>
+      <guid>https://quakkels.com/posts/maintaining-your-vision/</guid>
       <description>Programmers are often creators. Being a creator takes vision. Vision to see the destination, and vision to see the course. The destination could be learning a new language or technology stack. The destination could be a product to be released to customers. It could be something done for personal edification. The course is determined by taking that larger goal and breaking it down to manageable steps.
 The trick for successfully creating something, is to maintain that vision.</description>
     </item>
     
     <item>
       <title>Let&#39;s Scrape the Web with Python 3</title>
-      <link>http://quakkels.com/posts/lets-scrape-the-web-with-python-3/</link>
+      <link>https://quakkels.com/posts/lets-scrape-the-web-with-python-3/</link>
       <pubDate>Sun, 10 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/lets-scrape-the-web-with-python-3/</guid>
+      <guid>https://quakkels.com/posts/lets-scrape-the-web-with-python-3/</guid>
       <description>In the back of my mind I&amp;rsquo;ve always been intrigued by writing an application that can retrieve web pages over HTTP. It&amp;rsquo;s a fairly simple thing to do. We have a myriad of web browsers that do it for us. But there is just something about writing an application that operates independently of a browser and reaches out to touch the internet that I find fun and intriguing. So let&amp;rsquo;s do it&amp;hellip; in Python.</description>
     </item>
     
     <item>
       <title>What Happens When You Login?</title>
-      <link>http://quakkels.com/posts/what-happens-when-you-login/</link>
+      <link>https://quakkels.com/posts/what-happens-when-you-login/</link>
       <pubDate>Sat, 23 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/what-happens-when-you-login/</guid>
+      <guid>https://quakkels.com/posts/what-happens-when-you-login/</guid>
       <description>Your favorite website is asking you for your username and password.
 Username? Password? Sure, you&amp;rsquo;ve got those. [You enter your username] then [you enter your password] then [you press enter] then boom, you&amp;rsquo;re logged into the website.
 What actually just happened? Well, assuming that you entered correct login credentials, you can now access whatever members only area that site offers to those credentials. But before that, in the split seconds after you clicked login and before you saw your profile, the website had to verify that the credentials you entered were correct.</description>
@@ -154,39 +154,39 @@ What actually just happened? Well, assuming that you entered correct login crede
     
     <item>
       <title>Learn Insertion Sort with Video Game Discs</title>
-      <link>http://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</link>
+      <link>https://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</link>
       <pubDate>Sat, 09 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</guid>
+      <guid>https://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</guid>
       <description>I think you could say I have an average number of video game discs. It&amp;rsquo;s not a huge number of games, but it is enough that it can be difficult to find a particular game if they&amp;rsquo;re not organized in a predictable way.
 Enter insertion sort. Insertion sort is in the same family as the bubble sort in that its worst case complexity is O(n2). But in practice, it is usually a faster sort.</description>
     </item>
     
     <item>
       <title>Learn Bubble Sort with Playing Cards</title>
-      <link>http://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</link>
+      <link>https://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</link>
       <pubDate>Tue, 22 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</guid>
+      <guid>https://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</guid>
       <description>Let&amp;rsquo;s say you have an unordered list of numbers and you wanted to put them in order from lowest to highest value. How would you do that? You&amp;rsquo;re probably thinking that you would just look at all the numbers, find the lowest number and put it at the beginning of your list. Then you would find the next largest number and put it in the second spot in the list, and so on until you&amp;rsquo;ve ordered the entire list of numbers.</description>
     </item>
     
     <item>
       <title>Let&#39;s talk to a SQLite database with Python</title>
-      <link>http://quakkels.com/posts/lets-talk-to-a-sqlite-database-with-python/</link>
+      <link>https://quakkels.com/posts/lets-talk-to-a-sqlite-database-with-python/</link>
       <pubDate>Sun, 20 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/lets-talk-to-a-sqlite-database-with-python/</guid>
+      <guid>https://quakkels.com/posts/lets-talk-to-a-sqlite-database-with-python/</guid>
       <description>As I write this, it&amp;rsquo;s the weekend. My wonderful wife brought home some amazing Jet Fuel XBold Dark Roast Coffee that is sure to keep me wired for the next several hours. Now what should I do? Let&amp;rsquo;s explore Python a little more by using it to talk to a database.
 We&amp;rsquo;re a long way from my bread and butter. My goto technologies for database interaction are .NET, C# and Entity Framework CodeFirst with SQL Server 2005&amp;frasl;2008.</description>
     </item>
     
     <item>
       <title>ASP.NET MVC Compared to Django</title>
-      <link>http://quakkels.com/posts/asp-net-mvc-compared-to-dango/</link>
+      <link>https://quakkels.com/posts/asp-net-mvc-compared-to-dango/</link>
       <pubDate>Sun, 13 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/asp-net-mvc-compared-to-dango/</guid>
+      <guid>https://quakkels.com/posts/asp-net-mvc-compared-to-dango/</guid>
       <description>The MVC pattern is widely used in web development today. Regardless of whether you develop in C#, PHP, Python, Java, JavaScript, or Ruby, you won’t have any trouble finding a popular MVC pattern for your language of choice.
 Being primarily a C# developer, I’ve been using ASP.NET MVC since version 1. It’s a great framework. It can be very good at getting a project off the ground quickly, especially when coupled with a good ORM such as NHibernate, or Entity Framework.</description>
     </item>

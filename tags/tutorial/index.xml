@@ -2,60 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tutorial on Quakkels.com</title>
-    <link>http://quakkels.com/tags/tutorial/</link>
+    <link>https://quakkels.com/tags/tutorial/</link>
     <description>Recent content in Tutorial on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 03 Sep 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://quakkels.com/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://quakkels.com/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Run Plex on an Ubuntu Server at Home</title>
-      <link>http://quakkels.com/posts/run-plex-on-ubuntu-server-at-home/</link>
+      <link>https://quakkels.com/posts/run-plex-on-ubuntu-server-at-home/</link>
       <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/run-plex-on-ubuntu-server-at-home/</guid>
+      <guid>https://quakkels.com/posts/run-plex-on-ubuntu-server-at-home/</guid>
       <description>Recently I&amp;rsquo;ve decided that having limited high quality entertainment choices is better than having endless choices that are of questionable quality. So my household decided to end our Netflix subscription. This decision motivated me to build a private streaming media server for our home. Here is how I created a home media server with Plex and a home server tower.
 Choosing the Media Server There are two popular software options for home media server.</description>
     </item>
     
     <item>
       <title>Getting Started with Mobile Development and Xamarin</title>
-      <link>http://quakkels.com/posts/getting-started-with-mobile-development-and-xamarin/</link>
+      <link>https://quakkels.com/posts/getting-started-with-mobile-development-and-xamarin/</link>
       <pubDate>Tue, 04 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/getting-started-with-mobile-development-and-xamarin/</guid>
+      <guid>https://quakkels.com/posts/getting-started-with-mobile-development-and-xamarin/</guid>
       <description>Xamarin enables programmers to write native mobile applications for both Android and iOS using C# and free development tools like Visual Studio Community Edition. This means that if you&amp;rsquo;re invested in the .NET ecosystem and the C# language, you can write cross-platform mobile applications using technology that&amp;rsquo;s already familiar to you.
  A note on development for iOS: You will need a mac in order to build iOS versions of the app.</description>
     </item>
     
     <item>
       <title>Getting Started with Django</title>
-      <link>http://quakkels.com/posts/getting-started-python-django-vs-code/</link>
+      <link>https://quakkels.com/posts/getting-started-python-django-vs-code/</link>
       <pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/getting-started-python-django-vs-code/</guid>
+      <guid>https://quakkels.com/posts/getting-started-python-django-vs-code/</guid>
       <description>Django is a Python framework that I&amp;rsquo;ve written about before. I&amp;rsquo;ve compared Django to ASP.NET MVC. But, I didn&amp;rsquo;t go into much detail about how to actually use Django to create a data driven website. That&amp;rsquo;s what I&amp;rsquo;ll cover now.
 The goal for this &amp;lsquo;Getting Started&amp;rsquo; project is to get familiar with the basics of developing data driven web applications using Django, Models, Views, Templates, URLs, and Forms. By the end we&amp;rsquo;ll have a simple contact form that saves user submissions to the database, and displays that data to an administrator user.</description>
     </item>
     
     <item>
       <title>Configuring Vim When Using Git Bash on Windows</title>
-      <link>http://quakkels.com/posts/configuring-vim-when-using-git-bash/</link>
+      <link>https://quakkels.com/posts/configuring-vim-when-using-git-bash/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/configuring-vim-when-using-git-bash/</guid>
+      <guid>https://quakkels.com/posts/configuring-vim-when-using-git-bash/</guid>
       <description>Occasionally I become enamored with the idea of becoming a Vim expert, or at least a competent Vim user. I work primarily in Windows environments so, though the desire exists, there aren&amp;rsquo;t many good opportunities to build Vim habits. There is a Vim on Windows release available. This has a GUI interface and an installer executable. Though if you have Git for Windows installed, then you already have Vim available.</description>
     </item>
     
     <item>
       <title>Gogs on Raspberry PI</title>
-      <link>http://quakkels.com/posts/gogs-on-raspberry-pi/</link>
+      <link>https://quakkels.com/posts/gogs-on-raspberry-pi/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/gogs-on-raspberry-pi/</guid>
+      <guid>https://quakkels.com/posts/gogs-on-raspberry-pi/</guid>
       <description>In a previous article I configured a headless Raspberry Pi for Wifi and SSH. Next, I&amp;rsquo;ll set up a personal Gogs server on it.
 Change the Password First things first, change the password for the pi user to something different than raspberry.
 $ passwd Changing password for pi. (current) UNIX password: Enter new UNIX password: Retype new UNIX password: passwd: password updated successfully  Please tweet your new password to @quakkels /s</description>
@@ -63,58 +63,58 @@ $ passwd Changing password for pi. (current) UNIX password: Enter new UNIX passw
     
     <item>
       <title>Configure Headless Raspberry Pi for Wifi and SSH</title>
-      <link>http://quakkels.com/posts/configure-headless-raspberry-pi-for-wifi-and-ssh/</link>
+      <link>https://quakkels.com/posts/configure-headless-raspberry-pi-for-wifi-and-ssh/</link>
       <pubDate>Sat, 16 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/configure-headless-raspberry-pi-for-wifi-and-ssh/</guid>
+      <guid>https://quakkels.com/posts/configure-headless-raspberry-pi-for-wifi-and-ssh/</guid>
       <description>Raspberry Pis are great little computers. Wonderful for running hobby services. But, whenever I start a new RPi project, I dislike needing to dig out my spare HDMI monitor and USB keyboard. I don&amp;rsquo;t like having to take up room and connect all that hardware to just enable SSH and Wifi which renders all that equipment unnecessary.
 Recently I learned how to flash a new micro SD card and configure it to connect to my Wifi network and enable SSH before even turning on the RPi for the first time.</description>
     </item>
     
     <item>
       <title>5 Slack Tricks that Changed My Life</title>
-      <link>http://quakkels.com/posts/5-slack-tricks-that-changed-my-life/</link>
+      <link>https://quakkels.com/posts/5-slack-tricks-that-changed-my-life/</link>
       <pubDate>Mon, 29 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/5-slack-tricks-that-changed-my-life/</guid>
+      <guid>https://quakkels.com/posts/5-slack-tricks-that-changed-my-life/</guid>
       <description>Please excuse the &amp;ldquo;click-baity&amp;rdquo; title. Sometimes I like to exaggerate.
 Slack plays a significant role in my daily communication. My team at work has been using Slack as our primary mode of textual communication for over a year. It is also used by developer communities in my local area. At first, it felt a little clumsy. No more clumsy than a typical chat program. But, channels started to accumulate. The number of Direct Message feeds grew.</description>
     </item>
     
     <item>
       <title>Let&#39;s Scrape the Web with Python 3</title>
-      <link>http://quakkels.com/posts/lets-scrape-the-web-with-python-3/</link>
+      <link>https://quakkels.com/posts/lets-scrape-the-web-with-python-3/</link>
       <pubDate>Sun, 10 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/lets-scrape-the-web-with-python-3/</guid>
+      <guid>https://quakkels.com/posts/lets-scrape-the-web-with-python-3/</guid>
       <description>In the back of my mind I&amp;rsquo;ve always been intrigued by writing an application that can retrieve web pages over HTTP. It&amp;rsquo;s a fairly simple thing to do. We have a myriad of web browsers that do it for us. But there is just something about writing an application that operates independently of a browser and reaches out to touch the internet that I find fun and intriguing. So let&amp;rsquo;s do it&amp;hellip; in Python.</description>
     </item>
     
     <item>
       <title>Learn Insertion Sort with Video Game Discs</title>
-      <link>http://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</link>
+      <link>https://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</link>
       <pubDate>Sat, 09 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</guid>
+      <guid>https://quakkels.com/posts/learn-insertion-sort-with-video-game-discs/</guid>
       <description>I think you could say I have an average number of video game discs. It&amp;rsquo;s not a huge number of games, but it is enough that it can be difficult to find a particular game if they&amp;rsquo;re not organized in a predictable way.
 Enter insertion sort. Insertion sort is in the same family as the bubble sort in that its worst case complexity is O(n2). But in practice, it is usually a faster sort.</description>
     </item>
     
     <item>
       <title>Learn Bubble Sort with Playing Cards</title>
-      <link>http://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</link>
+      <link>https://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</link>
       <pubDate>Tue, 22 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</guid>
+      <guid>https://quakkels.com/posts/learn-bubble-sort-with-playing-cards/</guid>
       <description>Let&amp;rsquo;s say you have an unordered list of numbers and you wanted to put them in order from lowest to highest value. How would you do that? You&amp;rsquo;re probably thinking that you would just look at all the numbers, find the lowest number and put it at the beginning of your list. Then you would find the next largest number and put it in the second spot in the list, and so on until you&amp;rsquo;ve ordered the entire list of numbers.</description>
     </item>
     
     <item>
       <title>Let&#39;s talk to a SQLite database with Python</title>
-      <link>http://quakkels.com/posts/lets-talk-to-a-sqlite-database-with-python/</link>
+      <link>https://quakkels.com/posts/lets-talk-to-a-sqlite-database-with-python/</link>
       <pubDate>Sun, 20 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://quakkels.com/posts/lets-talk-to-a-sqlite-database-with-python/</guid>
+      <guid>https://quakkels.com/posts/lets-talk-to-a-sqlite-database-with-python/</guid>
       <description>As I write this, it&amp;rsquo;s the weekend. My wonderful wife brought home some amazing Jet Fuel XBold Dark Roast Coffee that is sure to keep me wired for the next several hours. Now what should I do? Let&amp;rsquo;s explore Python a little more by using it to talk to a database.
 We&amp;rsquo;re a long way from my bread and butter. My goto technologies for database interaction are .NET, C# and Entity Framework CodeFirst with SQL Server 2005&amp;frasl;2008.</description>
     </item>
