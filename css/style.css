@@ -26,7 +26,7 @@ body {
 
 /* typography */
 a {
-    color: #ce1f1c;
+    color: #d86902;
     text-decoration: none;
 
 	-webkit-transition: all 0.15s ease;
@@ -42,8 +42,9 @@ a:hover {
 }
 
 h1, h2, h3, h4 {
-    font-weight: 400;
+    font-weight: normal;
     line-height: 1em;
+    color:#444;
 }
 
 h1 {
@@ -80,11 +81,20 @@ pre code {
 /* navigation */
 #main-nav {
     text-align: right;
-    background:black;
+    background:#2f2f2f;
     position: fixed;
     top:0;
     width: 100%;
     box-shadow: 0px 0px 12px #000;
+}
+#main-nav #branding {
+    display:block;
+    float:left;
+    background:none;
+
+    font-weight:bold;
+    font-size: 1.1em;
+    text-shadow: 2px 2px 5px black;
 }
 
 #main-nav a {
@@ -95,12 +105,12 @@ pre code {
     
     text-decoration: none;
     font-size: 0.9em;
-    color:#ce1f1c;
+    color: #d86902;
 }
 
 #main-nav a.rss {
     color:white;
-    background: #ce1f1c;
+    background: #d86902;
 }
 #main-nav a.rss:hover {
     color: white;
@@ -156,6 +166,17 @@ pre code {
     margin-top: 24px;
 }
 
+.traininglog-list {
+    list-style:none;
+    padding-left:0;
+}
+
+.traininglog-list li {
+    margin: 4px 0;
+    padding: 4px 0;
+    border-bottom: 1px solid #aaa;
+}
+
 /* responsive */
 @media only screen and (max-width: 767px) {
     .wrapper {
@@ -171,6 +192,10 @@ pre code {
         float: initial;
     }
 
+    .traininglog-list li a {
+        display:block;
+    }
+
     /* responsive navigation */
     .mobile-menu {
         height: 56px
@@ -181,7 +206,7 @@ pre code {
         width: 32px;
         height: 32px;
         cursor: pointer;
-        margin: 16px;
+        margin: 12px;
         float: right;
     }
     
