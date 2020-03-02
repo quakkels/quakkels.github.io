@@ -51,7 +51,7 @@ h1 {
     color: #222;
 }
 
-p, h1, h2, h3, h4 {
+p, h1, h2, h3, h4, table {
     margin: 24px 0 16px 0;
 }
 
@@ -175,6 +175,26 @@ pre code {
     margin: 4px 0;
     padding: 4px 0;
     border-bottom: 1px solid #aaa;
+}
+
+/* tables */
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    border-bottom:1px solid #aaa;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+th, td {
+    padding: 0px 4px;
+}
+
+tbody tr:nth-child(odd) {
+    background: #eee;
 }
 
 /* responsive */
