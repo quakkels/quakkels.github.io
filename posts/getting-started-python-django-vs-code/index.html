@@ -56,7 +56,7 @@
 
 <p>The goal for this &lsquo;Getting Started&rsquo; project is to get familiar with the basics of developing data driven web applications using Django, Models, Views, Templates, URLs, and Forms. By the end we&rsquo;ll have a simple contact form that saves user submissions to the database, and displays that data to an administrator user. It will not be a completed site, but it will introduce basic the building blocks of website development in Django.</p>
 
-<p>If you&rsquo;d like to refer to the end goal of this article, you can <a href="https://github.com/quakkels/companionresource_djangosite" target="_blank">find it on GitHub</a>.</p>
+<p>If you&rsquo;d like to refer to the end goal of this article, you can <a href="https://github.com/quakkels/companionresource_djangosite" target="_blank" rel="noopener noreferrer">find it on GitHub</a>.</p>
 
 <h2 id="prerequisites">Prerequisites</h2>
 
@@ -115,7 +115,7 @@
 
 <p>Visit localhost:8000 to verify that it&rsquo;s working. Then exit the server with Ctrl+Break.</p>
 
-<p>When the Django server ran, Django automatically created a db.sqlite3 file in the project folder. <a href="https://docs.djangoproject.com/en/2.2/ref/settings/#databases" target="_blank">Read more about configuring different database backends</a>.</p>
+<p>When the Django server ran, Django automatically created a db.sqlite3 file in the project folder. <a href="https://docs.djangoproject.com/en/2.2/ref/settings/#databases" target="_blank" rel="noopener noreferrer">Read more about configuring different database backends</a>.</p>
 
 <p>Use VS Code to open the <code>django-project</code> folder that houses the virtual environment folder and the Django app folder. This can be done from the terminal, or manually inside VS Code.</p>
 
@@ -123,7 +123,7 @@
 </code></pre>
 
 <p>Open <code>djangosite\urls.py</code>. The imports for Django will probably be shown as missing modules because Django was installed in the venv and not globally. to fix this, press <code>ctrl+shift+p</code> then execute the command <code>Python: Select Interpretter</code>. Find <code>.\django-env\Scripts\python.exe</code> from the list and select it. Then VS Code will stop showing the Django imports as errors.
-&gt; For more VS Code information visit <a href="https://code.visualstudio.com/docs/python/python-tutorial" target="_blank">Getting Started with Python in VS Code</a>.</p>
+&gt; For more VS Code information visit <a href="https://code.visualstudio.com/docs/python/python-tutorial" target="_blank" rel="noopener noreferrer">Getting Started with Python in VS Code</a>.</p>
 
 <h2 id="add-a-custom-django-view">Add a Custom Django View</h2>
 
@@ -232,7 +232,7 @@ class ContactForm(models.Model):
 </code></pre>
 
 <blockquote>
-<p>More information about Django models can be found <a href="https://docs.djangoproject.com/en/2.2/topics/db/models/" target="_blank">here</a>.</p>
+<p>More information about Django models can be found <a href="https://docs.djangoproject.com/en/2.2/topics/db/models/" target="_blank" rel="noopener noreferrer">here</a>.</p>
 </blockquote>
 
 <p>After the model is saved, create the new migration script.</p>
@@ -246,7 +246,7 @@ class ContactForm(models.Model):
 </code></pre>
 
 <blockquote>
-<p>If you&rsquo;re curious about what the SQLite database tables look like, you can download something like <a href="https://sqlitebrowser.org/dl/" target="_blank">DB Browser for SQLite</a>. Table names will be named after the model with the app name as the prefix. So the table for ContactForm will be called <code>contactform_contactform</code>.</p>
+<p>If you&rsquo;re curious about what the SQLite database tables look like, you can download something like <a href="https://sqlitebrowser.org/dl/" target="_blank" rel="noopener noreferrer">DB Browser for SQLite</a>. Table names will be named after the model with the app name as the prefix. So the table for ContactForm will be called <code>contactform_contactform</code>.</p>
 </blockquote>
 
 <h2 id="register-custom-model-in-admin">Register Custom Model in Admin</h2>
@@ -336,7 +336,7 @@ urlpatterns = [
 ]
 </code></pre>
 
-<p><code>'^contactform/'</code> is a regular expression that makes sure matching paths begin with <code>contactform</code>. This is a prefix for everything in the contactform app. So the complete matching path will be <code>localhost:8000/contactform/contactform</code>. For more information read the <a href="https://docs.djangoproject.com/en/2.2/topics/http/urls/" target="_blank">Django documentation</a>.</p>
+<p><code>'^contactform/'</code> is a regular expression that makes sure matching paths begin with <code>contactform</code>. This is a prefix for everything in the contactform app. So the complete matching path will be <code>localhost:8000/contactform/contactform</code>. For more information read the <a href="https://docs.djangoproject.com/en/2.2/topics/http/urls/" target="_blank" rel="noopener noreferrer">Django documentation</a>.</p>
 
 <h1 id="create-a-form">Create a Form</h1>
 
@@ -389,7 +389,7 @@ def contactform(request):
 &lt;/html&gt;
 </code></pre>
 
-<p>You can find more details about how to properly use templates <a href="https://docs.djangoproject.com/en/2.2/ref/templates/" target="_blank">here</a>. The code above has much room for improvement.</p>
+<p>You can find more details about how to properly use templates <a href="https://docs.djangoproject.com/en/2.2/ref/templates/" target="_blank" rel="noopener noreferrer">here</a>. The code above has much room for improvement.</p>
 
 <p>Two things worth noting here are <code>{% csrf_token %}</code> and <code>{{ form }}</code>. The code for CSRF Token prevents this page from being vulnerable to cross site request forgery attacks. The <code>form</code> object is the <code>ContactFrom</code> model converted to HTML form elements via the <code>ModelForm</code> class.</p>
 
@@ -426,16 +426,16 @@ def contactform(request):
 <h2 id="resources">Resources</h2>
 
 <ul>
-<li><a href="https://github.com/quakkels/companionresource_djangosite" target="_blank">Companion GitHub Repository</a></li>
-<li><a href="https://sqlitebrowser.org/dl/" target="_blank">DB Browser for SQLite</a></li>
-<li><a href="https://docs.djangoproject.com/en/2.2/" target="_blank">Django Documentation</a>
+<li><a href="https://github.com/quakkels/companionresource_djangosite" target="_blank" rel="noopener noreferrer">Companion GitHub Repository</a></li>
+<li><a href="https://sqlitebrowser.org/dl/" target="_blank" rel="noopener noreferrer">DB Browser for SQLite</a></li>
+<li><a href="https://docs.djangoproject.com/en/2.2/" target="_blank" rel="noopener noreferrer">Django Documentation</a>
 
 <ul>
-<li><a href="https://docs.djangoproject.com/en/2.2/ref/settings/#databases" target="_blank">Configure different database backends</a></li>
-<li><a href="https://docs.djangoproject.com/en/2.2/ref/forms/" target="_blank">Forms</a></li>
-<li><a href="https://docs.djangoproject.com/en/2.2/topics/db/models/" target="_blank">Models</a></li>
-<li><a href="https://docs.djangoproject.com/en/2.2/ref/templates/" target="_blank">Templates</a></li>
-<li><a href="https://docs.djangoproject.com/en/2.2/topics/http/urls/" target="_blank">URL Dispatcher</a></li>
+<li><a href="https://docs.djangoproject.com/en/2.2/ref/settings/#databases" target="_blank" rel="noopener noreferrer">Configure different database backends</a></li>
+<li><a href="https://docs.djangoproject.com/en/2.2/ref/forms/" target="_blank" rel="noopener noreferrer">Forms</a></li>
+<li><a href="https://docs.djangoproject.com/en/2.2/topics/db/models/" target="_blank" rel="noopener noreferrer">Models</a></li>
+<li><a href="https://docs.djangoproject.com/en/2.2/ref/templates/" target="_blank" rel="noopener noreferrer">Templates</a></li>
+<li><a href="https://docs.djangoproject.com/en/2.2/topics/http/urls/" target="_blank" rel="noopener noreferrer">URL Dispatcher</a></li>
 </ul></li>
 </ul>
 

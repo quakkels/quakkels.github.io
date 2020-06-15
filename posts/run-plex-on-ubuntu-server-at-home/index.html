@@ -56,9 +56,9 @@
 
 <h1 id="choosing-the-media-server">Choosing the Media Server</h1>
 
-<p>There are two popular software options for home media server. <a href="https://www.plex.tv/" target="_blank">Plex</a> and <a href="https://kodi.tv/" target="_blank">Kodi</a>. They are both free to use, though Plex does have a premium subscription option to unlock advanced features. These two media servers are very similar, and I believe they&rsquo;ve been forked from the same original open source project.</p>
+<p>There are two popular software options for home media server. <a href="https://www.plex.tv/" target="_blank" rel="noopener noreferrer">Plex</a> and <a href="https://kodi.tv/" target="_blank" rel="noopener noreferrer">Kodi</a>. They are both free to use, though Plex does have a premium subscription option to unlock advanced features. These two media servers are very similar, and I believe they&rsquo;ve been forked from the same original open source project.</p>
 
-<p>I knew my household would be using our PS4 as a client of the media server. This ended up being the detail that helped me make the decision between the two. When I saw that <a href="https://kodi.onl/ps4/" target="_blank">Kodi recommended using the Plex app</a> for streaming on the PS4, I decided to use Plex directly.</p>
+<p>I knew my household would be using our PS4 as a client of the media server. This ended up being the detail that helped me make the decision between the two. When I saw that <a href="https://kodi.onl/ps4/" target="_blank" rel="noopener noreferrer">Kodi recommended using the Plex app</a> for streaming on the PS4, I decided to use Plex directly.</p>
 
 <h1 id="choosing-the-hardware">Choosing the Hardware</h1>
 
@@ -78,7 +78,7 @@
 
 <p>A quick web search for &ldquo;Home Server&rdquo; brought me to the Dell PowerEdge T30 on sale at Amazon for $376.20. This seemed like a good option. It came with a Intel Xeon E3-1225 v5 3.3GHz processor, 8GB of RAM, and a 1TB HD. This looked like a great value.</p>
 
-<p>To make sure the T30 would work, I started investigating <a href="https://support.plex.tv/articles/201774043-what-kind-of-cpu-do-i-need-for-my-server/?fbclid=IwAR3AqFt86n6IpsHazToGFNHzJtOFFfiUrnEP-Drf43GnpmvFQAAKvxBOCK0" target="_blank">CPU requirements in more depth</a>. I wanted my server to handle transcoding two 1080p video files simultaneously. Plex recommended that transcoding one 1080p (10Mbps, H.264) file would need a CPU with a 2000 PassMark score. So, getting a CPU with a 4000 score should theoretically be able to double that number to two. The Xeon E3-1225 v3 has a score of <a href="https://www.cpubenchmark.net/cpu_lookup.php?cpu=Intel+Xeon+E3-1225+v5+%40+3.30GHz&id=2707" target="_blank">7,830</a>. That meets my requirements and has plenty of cushion.</p>
+<p>To make sure the T30 would work, I started investigating <a href="https://support.plex.tv/articles/201774043-what-kind-of-cpu-do-i-need-for-my-server/?fbclid=IwAR3AqFt86n6IpsHazToGFNHzJtOFFfiUrnEP-Drf43GnpmvFQAAKvxBOCK0" target="_blank" rel="noopener noreferrer">CPU requirements in more depth</a>. I wanted my server to handle transcoding two 1080p video files simultaneously. Plex recommended that transcoding one 1080p (10Mbps, H.264) file would need a CPU with a 2000 PassMark score. So, getting a CPU with a 4000 score should theoretically be able to double that number to two. The Xeon E3-1225 v3 has a score of <a href="https://www.cpubenchmark.net/cpu_lookup.php?cpu=Intel+Xeon+E3-1225+v5+%40+3.30GHz&id=2707" target="_blank" rel="noopener noreferrer">7,830</a>. That meets my requirements and has plenty of cushion.</p>
 
 <p>The T30 had the processing power, had the 1TB disk, was budget friendly, and already built. It didn&rsquo;t need anything more. I just had to un-box it, plug in power and some initial peripherals (to handle OS installation) and connect it to my network via Ethernet.</p>
 
@@ -90,7 +90,7 @@
 
 <h1 id="install-ubuntu-server">Install Ubuntu Server</h1>
 
-<p>Download the ISO from <a href="https://ubuntu.com/download/server" target="_blank">their website</a>.</p>
+<p>Download the ISO from <a href="https://ubuntu.com/download/server" target="_blank" rel="noopener noreferrer">their website</a>.</p>
 
 <p>Once it has finished downloading, make a boot disk with it. This is very simple with Windows 10.</p>
 
@@ -109,7 +109,7 @@
 <p>Another option is to create a bootable thumb drive using a tool like Balena Etcher to image the drive. I used writeable DVDs because I have so many left over from the 2000s that I just might as well use them up.</p>
 </blockquote>
 
-<p>Ubuntu&rsquo;s documentation is very good. Follow these <a href="https://tutorials.ubuntu.com/tutorial/tutorial-install-ubuntu-server#0" target="_blank">directions for installing Ubuntu Server</a>. They have screenshots and instructions of their installation screens, so I&rsquo;m not going to go into too many details here.</p>
+<p>Ubuntu&rsquo;s documentation is very good. Follow these <a href="https://tutorials.ubuntu.com/tutorial/tutorial-install-ubuntu-server#0" target="_blank" rel="noopener noreferrer">directions for installing Ubuntu Server</a>. They have screenshots and instructions of their installation screens, so I&rsquo;m not going to go into too many details here.</p>
 
 <p>When asked, <strong>be sure to install SSH for remote access</strong>. This allows you to manage the server from your regular workstation. So you can put your server out of the way. And, you don&rsquo;t have to worry about connecting monitors or keyboards to work on it. Finish off the installation by restarting the box.</p>
 
@@ -185,7 +185,7 @@ $ mkdir library
 
 <h1 id="install-the-plex-media-server">Install the Plex Media Server</h1>
 
-<p>Unfortunately, Plex is not available via <code>apt-get</code> in Ubuntu. But the Plex website does lay out a process for <a href="https://support.plex.tv/articles/200288586-installation/" target="_blank">installing the server on Linux</a>.</p>
+<p>Unfortunately, Plex is not available via <code>apt-get</code> in Ubuntu. But the Plex website does lay out a process for <a href="https://support.plex.tv/articles/200288586-installation/" target="_blank" rel="noopener noreferrer">installing the server on Linux</a>.</p>
 
 <p>Start by downloading the <code>.deb</code> file for Plex. I found the <code>.deb</code> file available here: <code>https://downloads.plex.tv/plex-media-server-new/1.16.5.1554-1e5ff713d/debian/plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb</code> and I&rsquo;ll be using that URL with <code>wget</code> in Ubuntu to download it directly to the server.</p>
 
@@ -207,17 +207,17 @@ $ wget https://downloads.plex.tv/plex-media-server-new/1.16.5.1554-1e5ff713d/deb
 <h2 id="further-reading">Further Reading</h2>
 
 <ul>
-<li><a href="https://itsfoss.com/install-deb-files-ubuntu/" target="_blank">3 Ways to Install Deb Files on Ubuntu Linux</a></li>
-<li><a href="https://itsfoss.com/install-plex-ubuntu/" target="_blank">How to Install and Configure Plex on Ubuntu Linux</a></li>
-<li><a href="https://www.howtogeek.com/176471/how-to-share-files-between-windows-and-linux/" target="_blank">How to Share Files Between Windows and Linux</a>
+<li><a href="https://itsfoss.com/install-deb-files-ubuntu/" target="_blank" rel="noopener noreferrer">3 Ways to Install Deb Files on Ubuntu Linux</a></li>
+<li><a href="https://itsfoss.com/install-plex-ubuntu/" target="_blank" rel="noopener noreferrer">How to Install and Configure Plex on Ubuntu Linux</a></li>
+<li><a href="https://www.howtogeek.com/176471/how-to-share-files-between-windows-and-linux/" target="_blank" rel="noopener noreferrer">How to Share Files Between Windows and Linux</a>
 
 <ul>
-<li><a href="https://www.samba.org/" target="_blank">Samba</a></li>
+<li><a href="https://www.samba.org/" target="_blank" rel="noopener noreferrer">Samba</a></li>
 </ul></li>
-<li><a href="https://www.plex.tv/media-server-downloads/" target="_blank">Plex Media Server Downloads</a>
+<li><a href="https://www.plex.tv/media-server-downloads/" target="_blank" rel="noopener noreferrer">Plex Media Server Downloads</a>
 
 <ul>
-<li><a href="https://support.plex.tv/articles/200288586-installation/" target="_blank">Plex Media Server Installation</a></li>
+<li><a href="https://support.plex.tv/articles/200288586-installation/" target="_blank" rel="noopener noreferrer">Plex Media Server Installation</a></li>
 </ul></li>
 </ul>
 
