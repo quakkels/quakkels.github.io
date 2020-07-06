@@ -6,10 +6,20 @@
     <description>Recent content in Programming on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Dec 2019 07:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://quakkels.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Building Blocks of Function Components in React</title>
+      <link>https://quakkels.com/posts/building-blocks-of-function-components-in-react/</link>
+      <pubDate>Mon, 06 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/posts/building-blocks-of-function-components-in-react/</guid>
+      <description>Class based components aren&amp;rsquo;t the only way to build rich user interfaces in React. Here are some building blocks that can be used to build the same dynamic experiences using Function Components.
+Key JavaScript Concepts JavaScript Arrow Functions Since React apps use a build system to generate the runtime code, we&amp;rsquo;re able to take advantage of ES6 syntax via transpilers without needing to worry about browser support. This gives us access to Arrow Functions syntax which are lambda functions in JavaScript.</description>
+    </item>
     
     <item>
       <title>Flat is Better Than Nested Versus Single Entry Single Exit</title>

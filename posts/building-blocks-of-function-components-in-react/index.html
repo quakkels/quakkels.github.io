@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title"content="Building Blocks of Function Components in React &middot; Quakkels.com" />
+    <meta property="og:description"content="Class based components aren’t the only way to build rich user interfaces in React. Here are some building blocks that can be used to build the same dynamic experiences using Function Components." />
+    <meta name="author" content="Brandon Quakkelaar">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.40.1" />
+
+    <title>Building Blocks of Function Components in React &middot; Quakkels.com</title>
+    <link rel="shortcut icon" href="https://quakkels.com/images/favicon.ico">
+    <link rel="stylesheet" href="https://quakkels.com/css/style.css">
+    <base href="https://quakkels.com/">
+    <link rel="canonical" href="https://quakkels.com/posts/building-blocks-of-function-components-in-react/">
+    <link href="" rel="alternate" type="application/rss+xml" title="Quakkels.com" />
+</head>
+<body lang="en">
+<nav id="main-nav">
+    <a id="branding" href="https://quakkels.com/">Quakkels.com</a>
+    <div class="mobile-menu">
+        
+        <div id="hamburger"><span></span></div>
+    </div>
+    <a href="https://quakkels.com/">Articles</a>
+    <a href="https://quakkels.com/projects">Projects</a>
+    <a href="https://quakkels.com/about">About</a>
+    <a href="https://quakkels.com/training_log">Training Log</a>
+    <a class="rss" href="">RSS Feed</a>
+</nav>
+<header id="home-header">
+    <h1>Building Blocks of Function Components in React</h1>
+    
+    <h2>Jul 6, 2020</h2>
+    
+    
+    
+    <p>
+            <a href="https://quakkels.com/tags/programming">Programming</a>
+        
+    </p>
+    
+    
+    <h3>By: Brandon Quakkelaar</h3>
+    
+</header>
+<div class="main">
+<section class="wrapper">
+
+
+<p>Class based components aren&rsquo;t the only way to build rich user interfaces in React. Here are some building blocks that can be used to build the same dynamic experiences using Function Components.</p>
+
+<h2 id="key-javascript-concepts">Key JavaScript Concepts</h2>
+
+<h3 id="javascript-arrow-functions">JavaScript Arrow Functions</h3>
+
+<p>Since React apps use a build system to generate the runtime code, we&rsquo;re able to take advantage of ES6 syntax via transpilers without needing to worry about browser support. This gives us access to Arrow Functions syntax which are lambda functions in JavaScript.</p>
+
+<p>Before ES6 was available JavaScript had anonymous functions.</p>
+
+<pre><code>var anonFunc = function (name) { return &quot;Hello &quot; + name; }
+</code></pre>
+
+<p>Since ES6 is available we can rewrite the anonymous function above as an Arrow function like this:</p>
+
+<pre><code>const arrowFunc = (name) =&gt; { return &quot;Hello &quot; + name; }
+</code></pre>
+
+<p>First thing that&rsquo;s different is you&rsquo;ll notice the <code>const</code> keyword instead of <code>var</code>. The <code>const</code> keyword defines this as a constant value and doesn&rsquo;t allow <code>arrowFunc</code> to get redefined elsewhere. It&rsquo;s available to us in ES6 and it&rsquo;s usually more appropriate for declaring functions.</p>
+
+<p>Next, notice the absence of the <code>function</code> keyword, and instead we see <code>=&gt;</code> which is the &lsquo;arrow&rsquo; that indicates an Arrow function. (This should be very familiar to C# programmers because their lambda syntax is very similar.) The function parameters are listed inside paranthesis on the left of the arrow, and the function body is on the right.</p>
+
+<p>If there&rsquo;s only one parameter expected, then Arrow function definitions can skip the paranthesis.</p>
+
+<pre><code>const arrowFunc = name =&gt; { return &quot;Hello &quot; + name; }
+</code></pre>
+
+<p>Another convenient feature of Arrow functions is the implicit return that occurs if we remove the curly braces.</p>
+
+<pre><code>const arrowFunc = name =&gt; &quot;Hello &quot; + name
+</code></pre>
+
+<p>The result is syntax that can be fairly terse and clean, but if you&rsquo;re returning an object literal then you have to add paranthesis around it to ensure it&rsquo;s interpretted as a return value correctly.</p>
+
+<pre><code>// doesn't work
+const objLiteral = () =&gt; {one: 1}
+
+// returns the object
+const objLiteral = () =&gt; ({one: 1})
+</code></pre>
+
+<h3 id="closures">Closures</h3>
+
+<p>JavaScript has had closures since the beginning. It&rsquo;s one of the most powerful aspects of the language.</p>
+
+<p>Essentially, it just means that functions have access to their surrounding scope (i.e. lexical environment.)</p>
+
+<pre><code>let canSeeMe = true;
+const run = () =&gt; {
+  let canSee = true;
+  const displayCanSee = () =&gt; {
+    console.log(canSee);
+    console.log(&quot;and&quot;)
+    console.log(canSeeMe);
+  }
+  displayCanSee();
+}
+run();
+</code></pre>
+
+<p>In the example above the <code>displayCanSee</code> function can see the <code>canSee</code> and <code>canSeeMe</code> variables even though they&rsquo;re outside of the scope of the display function.</p>
+
+<h3 id="javascript-object-destructuring">JavaScript Object Destructuring</h3>
+
+<p>This is another JavaScript feature introduced in ES6. The assignment aspect is a useful shortcut for creating named variables using values from objects.</p>
+
+<pre><code>const person = {
+  first: 'George',
+  last: 'Washington',
+};
+
+const {first, last} = person; // destructuring 
+
+console.log(first); // prints 'George'
+console.log(last); // prints 'Washington'
+</code></pre>
+
+<p>Notice the curly braces on the left side if the assignment operator, <code>=</code>. When you see that, recognize it&rsquo;s using object destructuring to assign property&rsquo;s values to individual variables.</p>
+
+<h2 id="key-react-concepts">Key React Concepts</h2>
+
+<p>Programming React components without the class based syntax has been possible for some time. But such function based components were limited from being able to use state. That is, they were until React version 16.8 when a new API was introduced. React hooks allow a function component to be stateful.</p>
+
+<p>Here are examples of a function component using the JavaScript features we&rsquo;ve already examined.</p>
+
+<pre><code>// traditional function declaration
+function Hello(props) {
+  return &lt;h1&gt;Hello {props.name}&lt;/h1&gt;
+}
+
+// arrow function
+const Hello = props =&gt; {
+    return &lt;h1&gt;Hello {props.name}&lt;/h1&gt;
+}
+
+// implicit return
+const Hello = props =&gt; &lt;h1&gt;Hello {props.name}&lt;/h1&gt;
+
+// object destructuring
+const Hello = {name} =&gt; &lt;h1&gt;Hello {name}&lt;/h1&gt;
+</code></pre>
+
+<p>Now let&rsquo;s add some state.</p>
+
+<h3 id="the-usestate-hook">The <code>useState</code> Hook</h3>
+
+<p>State is for values that are displayed to the user which are subject to change. In the coming example we&rsquo;ll be showing a default message to the user and the user will be able to change the message to a word or phrase of their choosing.</p>
+
+<p>The <code>useState</code> hook can be imported like this.</p>
+
+<pre><code>import React, { useState } from 'react';
+</code></pre>
+
+<p>Its usage looks like this.</p>
+
+<pre><code>const [msg, setMsg] = useState('Hello world');
+</code></pre>
+
+<p>Let&rsquo;s break this down. First, this line is using array destructuring (same principles as object destructuring covered above) to handle the return value from the <code>useState</code> function call. A default value of &ldquo;Hello world&rdquo; is passed in, and we get two values out. <code>msg</code> which is set to &ldquo;Hello world&rdquo;, and <code>setMsg</code> which is a function that we can use to update the value of <code>msg</code>.</p>
+
+<p>React beginners might wonder why they need the <code>setMsg</code> function. They could certainly just use an assignment operator to update <code>msg</code>&rsquo;s value, but the trick is getting the new value displayed to the user. The new value won&rsquo;t be updated in React unless we use <code>setMsg</code>.</p>
+
+<p>Now, here&rsquo;s how <code>useState</code> can be used to dynamically update a function component.</p>
+
+<pre><code>const Hello = () =&gt; {
+  const [msg, setMsg] = useState('Hello world');
+
+  return (
+    &lt;&gt;
+      &lt;h1&gt;{msg}&lt;/h1&gt;
+      &lt;input 
+        type=&quot;text&quot; 
+        onChange={e =&gt; setMsg(e.target.value)} /&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre>
+
+<p>Now we&rsquo;re using JavaScript closure feature. Notice the <code>onChange</code> event of the <code>input</code> is being bound to another arrow function. That arrow function, via closure, has access to the <code>setMsg</code> function we set in the lexical scope. When the user changes that input then the default value of &ldquo;Hello world&rdquo; will immediately be updated and displayed as he types.</p>
+
+<p>Here&rsquo;s a <a href="http://plnkr.co/edit/BOG6kpClZIXuqf0k?open=Hello.js&preview" target="_blank" rel="noopener noreferrer">working demo</a>.</p>
+
+<h3 id="the-useeffect-hook">The <code>useEffect</code> Hook</h3>
+
+<p><code>useEffect</code> is for performing side effects whenever a component changes. It&rsquo;s similar to the class based approach that uses <code>componentDidMount</code>, <code>componentDidUpdate</code>, and <code>componentWillUnmount</code> methods. It replaces all three.</p>
+
+<p>One of the most common usages of <code>useEffect</code> is for loading data via API calls.</p>
+
+<p>The <code>useEffect</code> hook can be imported by adding it to our previous import statement.</p>
+
+<pre><code>import React, { useState, useEffect } from 'react';
+</code></pre>
+
+<p>Here&rsquo;s a very simple useage to illustrate a side effect, though not a very useful one.</p>
+
+<pre><code>const Hello = ({ name }) =&gt; {
+  
+  const [displayName, setDisplayName] = useState(name);
+
+  useEffect(() =&gt; {
+    setDisplayName('George') // side effect
+  });
+  
+  return &lt;&gt;
+    &lt;h1&gt;Hello {displayName}!&lt;/h1&gt; {/* Hello George */}
+  &lt;/&gt;
+};
+</code></pre>
+
+<p>The previous component receives a <code>name</code> property on the <code>props</code> object and assigns it to as the default value of <code>displayName</code> which is what gets shown to the user. But, since we&rsquo;ve create a side effect that always sets <code>displayName</code> to &ldquo;George&rdquo;, the user will never see any name other than &ldquo;George&rdquo;.</p>
+
+<p>Let&rsquo;s move on to a more useful example. Side effects are often used to take data from an API call and display it to the user.</p>
+
+<p>Here&rsquo;s some quick code for calling Bible API.</p>
+
+<pre><code>const api = {
+  getPassage: search =&gt; {
+    return axios.get(`http://bible-api.com/${search}`).then(r =&gt; r.data);
+  }
+}
+</code></pre>
+
+<p>Our function component will have two variables in state.</p>
+
+<pre><code>  const [passage, setPassage] = useState('');
+  const [search, setSearch] = useState('Ephesians 2:8-10');
+</code></pre>
+
+<p>Then, we have a very simple side effect that calls the API.</p>
+
+<pre><code>  useEffect(() =&gt; {
+    api.getPassage(search).then(d =&gt; setPassage(d.text));
+  });
+</code></pre>
+
+<p>The <code>useEffect</code> function lets React know about our arrow function that contains the side effect. So whenever this component mounts or is updated, the side effect code will execute.</p>
+
+<p>Here&rsquo;s the complete code.</p>
+
+<pre><code>import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const api = {
+  getPassage: search =&gt; {
+    return axios.get(`http://bible-api.com/${search}`).then(r =&gt; r.data);
+  }
+}
+
+const SearchBar = ({defaultSearch, onClick}) =&gt; {
+  const [inputSearch, setInputSearch] = useState(defaultSearch);
+  
+  return (
+    &lt;&gt;
+      &lt;input 
+        type='text' 
+        value={inputSearch} 
+        onChange={e =&gt; setInputSearch(e.target.value)} /&gt;
+      &lt;button 
+        onClick={() =&gt; onClick(inputSearch)}&gt;
+        Search
+      &lt;/button&gt;
+    &lt;/&gt;
+  )
+};
+
+const Hello = () =&gt; {
+  const [passage, setPassage] = useState('');
+  const [search, setSearch] = useState('Ephesians 2:8-10');
+
+  useEffect(() =&gt; {
+    api.getPassage(search).then(d =&gt; setPassage(d.text));
+  });
+
+  return (
+    &lt;&gt;
+      &lt;p&gt;&quot;{passage}&quot;&lt;/p&gt;
+      &lt;p style={{textAlign:'right'}}&gt;- {search}&lt;/p&gt;
+      &lt;SearchBar
+        defaultSearch={search} 
+        onClick={(value) =&gt; setSearch(value)} /&gt;
+    &lt;/&gt;
+  );
+};
+
+export default Hello;
+</code></pre>
+
+<p>And, <a href="http://plnkr.co/edit/AyYJppvIxL7O9X5Z?open=Hello.js&preview" target="_blank" rel="noopener noreferrer">here&rsquo;s the <code>useEffect</code> example</a> in a sandbox.</p>
+
+<p>One thing to notice in the code example; the search bar is separated into it&rsquo;s own function component. The reason it&rsquo;s separate from the <code>Hello</code> component is because every time a user presses a key in that <code>input</code> box, then the component is updated. If the <code>input</code> were inside the <code>Hello</code> component, then every keypress would trigger a new call out to the API. We don&rsquo;t want that. We avoid it by putting the <code>input</code> and the corresponding <code>button</code> elements into a <code>SearchBar</code> component of their own.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>We can see how these features build on each other to get rich function components in React. Closures and arrow functions combined with object/array destructuring are used in concert with React Hooks to deliver a full user experience without needing any of the class overhead found with traditional class based components. There are no plans to remove tradition class based components, but it&rsquo;s still good to explore and understand function components because you might prefer the style, you might come across function components that you need to support, or both.</p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+<li><a href="https://www.vinta.com.br/blog/2015/javascript-lambda-and-arrow-functions/" target="_blank" rel="noopener noreferrer">JavaScript&rsquo;s Lambda and Arrow Functions</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" target="_blank" rel="noopener noreferrer">MDN: Closures</a></li>
+<li><a href="https://wesbos.com/destructuring-objects" target="_blank" rel="noopener noreferrer">A Dead Simple intro to Destructuring JavaScript Objects</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" target="_blank" rel="noopener noreferrer">MDN: Destructuring Assignment</a></li>
+<li><a href="https://reactjs.org/docs/hooks-intro.html" target="_blank" rel="noopener noreferrer">Introducing Hooks</a></li>
+<li><a href="https://reactjs.org/docs/hooks-state.html" target="_blank" rel="noopener noreferrer">Using the State Hook</a></li>
+<li><a href="https://reactjs.org/docs/hooks-effect.html" target="_blank" rel="noopener noreferrer">Using the Effect Hook</a></li>
+<li><a href="http://bible-api.com/" target="_blank" rel="noopener noreferrer">Bible API</a></li>
+</ul>
+
+</section>
+</div>
+<div id="footer">
+    <div class="wrapper">
+
+
+  Check out articles with these tags:
+  <ul class="tags">
+    
+      <li><a href="/tags/fitness">fitness</a></li>
+    
+      <li><a href="/tags/programming">programming</a></li>
+    
+      <li><a href="/tags/system-administration">system-administration</a></li>
+    
+      <li><a href="/tags/tutorial">tutorial</a></li>
+    
+  </ul>
+
+
+    </div>
+</div>
+<script src="https://quakkels.com/js/site.js"></script>
+<script>
+var navElement = document.getElementById("main-nav");
+var menuButton = document.getElementById("hamburger");
+var mobileSize = 768;
+var menu = new Menu(window, navElement, menuButton, mobileSize);
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91443661-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
