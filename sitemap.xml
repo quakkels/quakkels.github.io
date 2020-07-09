@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://quakkels.com/posts/credit-card-processing-with-python/</loc>
+    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://quakkels.com/training_log/0084/</loc>
     <lastmod>2020-07-07T00:00:00+00:00</lastmod>
   </url>
@@ -595,19 +600,19 @@
   
   <url>
     <loc>https://quakkels.com/posts/</loc>
-    <lastmod>2020-07-06T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://quakkels.com/tags/programming/</loc>
-    <lastmod>2020-07-06T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://quakkels.com/</loc>
-    <lastmod>2020-07-07T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -630,7 +635,7 @@
   
   <url>
     <loc>https://quakkels.com/tags/tutorial/</loc>
-    <lastmod>2020-07-06T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
