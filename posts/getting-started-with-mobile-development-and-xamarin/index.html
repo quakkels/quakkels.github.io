@@ -8,7 +8,7 @@
     <meta property="og:description"content="Xamarin enables programmers to write native mobile applications for both Android and iOS using C# and free development tools like Visual Studio Community Edition. This means that if you&#39;re invested in the .NET ecosystem and the C# language, you can write cross-platform mobile applications using technology that&#39;s already familiar to you." />
     <meta name="author" content="Brandon Quakkelaar">
     <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.68.3" />
 
     <title>Getting Started with Mobile Development and Xamarin &middot; Quakkels.com</title>
     <link rel="shortcut icon" href="https://quakkels.com/images/favicon.ico">
@@ -50,62 +50,37 @@
 </header>
 <div class="main">
 <section class="wrapper">
-
-
 <p>Xamarin enables programmers to write native mobile applications for both Android and iOS using C# and free development tools like Visual Studio Community Edition. This means that if you&rsquo;re invested in the .NET ecosystem and the C# language, you can write cross-platform mobile applications using technology that&rsquo;s already familiar to you.</p>
-
 <blockquote>
 <p><strong>A note on development for iOS:</strong> You will need a mac in order to build iOS versions of the app. I don&rsquo;t have a Mac available, so I&rsquo;ll be getting started with a cross-platform project, but I&rsquo;ll just be using Windows and testing the Android version.</p>
 </blockquote>
-
 <p>Visit <a href="https://visualstudio.microsoft.com/">https://visualstudio.microsoft.com/</a> to download Visual Studio Community (the free version) and install it. Be sure to select Mobile Development Tools during installation so Xamarin projects will be available.</p>
-
 <h2 id="intended-audience">Intended Audience</h2>
-
 <p>This is written for C# programmers who want to start working with mobile apps. If you&rsquo;re not somewhat familiar with using Visual Studio, C#, or XML then this may be challenging to follow.</p>
-
 <h2 id="mvvm">MVVM</h2>
-
 <p>Before we create the first project, a quick word on practices. There are many ways of organizing an app, and one of the best practices is to use the MVVM pattern. MVVM stands for Model, View, View Model.</p>
-
 <ul>
 <li><strong>Model</strong> (Data)</li>
 <li><strong>View</strong> (Presentation)</li>
 <li><strong>View Model</strong> (Business Rules)</li>
 </ul>
-
 <p>By keeping our data in the Model, our presentation code in the View, and our business logic in the View Model we&rsquo;re keeping concerns separate. This will make the project simpler to understand and maintain as it grows.</p>
-
 <blockquote>
 <p>It&rsquo;s funny how different ecosystems have different names for very similar concepts. Django has Model/View/Template. ASP.NET MVC has Model/View/Controller. XAML has MVVM. The consistent core idea is to separate concerns to make things simple to understand.</p>
 </blockquote>
-
 <h2 id="create-a-new-project">Create a New Project</h2>
-
 <p>In Visual Studio select File &gt; New &gt; Project from the menu.</p>
-
 <p>In the New Project Dialog select the category Installed &gt; Visual C# &gt; Cross-Platform from the list on the left. Then choose the Mobile App (Xamarin.Forms) project type and name it. I named mine &ldquo;Lavender&rdquo;.</p>
-
-<p><img src="images/xamarin-create-project.png" alt="Create a Xamarin project" /></p>
-
+<p><img src="images/xamarin-create-project.png" alt="Create a Xamarin project"></p>
 <p>Then in the next dialog, select Blank.</p>
-
-<p><img src="images/xamarin-create-cross-platform-project.png" alt="Create a Xamarin cross-platform mobile project" /></p>
-
+<p><img src="images/xamarin-create-cross-platform-project.png" alt="Create a Xamarin cross-platform mobile project"></p>
 <p>Notice that &ldquo;Code Sharing Strategy&rdquo; is .NET Standard. This is very interesting if you&rsquo;re familiar with the new .NET Standard approach that Microsoft is implementing for the .NET ecosystem. .NET Core and ASP.NET are both proceeding using the same .NET Standard libraries supporting them. Having this option for Xamarin projects means that .NET programmers will have access to the same libraries for mobile that they&rsquo;re used to using in their other projects.</p>
-
 <p>Now we have a solution called Lavender and three projects in that solution. The main Lavender project, and a project each for Android and iOS.</p>
-
 <p>Create folders inside the Lavender project to support the MVVM pattern. Create Models, Views, and ViewModels folders. To do this, right click on the Lavender project (not the Lavender solution,) and go to Add &gt; New Folder.</p>
-
-<p><img src="images/xamarin-create-mvvm-folders.png" alt="Create MVVM folders" /></p>
-
+<p><img src="images/xamarin-create-mvvm-folders.png" alt="Create MVVM folders"></p>
 <p>When Visual Studio created the Lavender project, it automatically created a view for us called <code>MainPage.xaml</code>, and it has <code>MainPage.xaml.cs</code> behind it. Move those two files into the Views folder by dragging and dropping <code>MainPage.xaml</code>.</p>
-
-<p><img src="images/xamarin-move-mainpage-into-views-folder.png" alt="Move MainPage.xaml into Views folder" /></p>
-
+<p><img src="images/xamarin-move-mainpage-into-views-folder.png" alt="Move MainPage.xaml into Views folder"></p>
 <p>Open <code>MainPage.xaml</code> and give it this code:</p>
-
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
 &lt;ContentPage xmlns=&quot;http://xamarin.com/schemas/2014/forms&quot;
              xmlns:x=&quot;http://schemas.microsoft.com/winfx/2009/xaml&quot;
@@ -117,27 +92,17 @@
     &lt;/StackLayout&gt;
   &lt;/ContentPage.Content&gt;
 &lt;/ContentPage&gt;
-</code></pre>
-
-<p>A XAML <code>&lt;ContentPage&gt;</code> can only have one object in it. But, the reason we are using the <code>&lt;ContentPage.Content&gt;</code> object is because it can contain multiple objects. The <code>&lt;StackLayout&gt;</code> will literally stack objects either vertically (by default) or horizontally. The <code>&lt;Label&gt;</code> object is easiest way to get text to display on screen.</p>
-
+</code></pre><p>A XAML <code>&lt;ContentPage&gt;</code> can only have one object in it. But, the reason we are using the <code>&lt;ContentPage.Content&gt;</code> object is because it can contain multiple objects. The <code>&lt;StackLayout&gt;</code> will literally stack objects either vertically (by default) or horizontally. The <code>&lt;Label&gt;</code> object is easiest way to get text to display on screen.</p>
 <p>Save the file, then launch the debugger. The first time launching in the emulator may take some time&hellip; maybe several minutes&hellip; but eventually you will see it running.</p>
-
 <blockquote>
 <p>Since this is running on Windows without a Mac, the project that runs needs to be the Lavender.Android project. Also, when you run this, you&rsquo;ll want to make sure you have the Android SDK installed for the version(s) of Android you&rsquo;re targeting.
 To manage your SDK tools, you can find a button for &ldquo;Open Android SDK Manager&rdquo; in the toolbar.</p>
-
-<p><img src="images/xamarin-manage-android-sdks.png" alt="Manage Android SDKs" /></p>
+<p><img src="images/xamarin-manage-android-sdks.png" alt="Manage Android SDKs"></p>
 </blockquote>
-
 <p>You will see this once the project finishes building, the emulator starts, and the app installs in the emulator:</p>
-
-<p><img src="images/xamarin-debug-mobile-project.png" alt="Debugging a Xamarin project" /></p>
-
+<p><img src="images/xamarin-debug-mobile-project.png" alt="Debugging a Xamarin project"></p>
 <h2 id="add-data-binding-between-the-view-and-the-view-model">Add Data Binding Between the View and the View Model</h2>
-
 <p>Add a label control that will bind to the <code>Name</code> attribute of a view model. Update <code>MainPage.xaml</code> to have this code:</p>
-
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
 &lt;ContentPage xmlns=&quot;http://xamarin.com/schemas/2014/forms&quot;
              xmlns:x=&quot;http://schemas.microsoft.com/winfx/2009/xaml&quot;
@@ -149,14 +114,10 @@ To manage your SDK tools, you can find a button for &ldquo;Open Android SDK Mana
     &lt;/StackLayout&gt;
   &lt;/ContentPage.Content&gt;
 &lt;/ContentPage&gt;
-</code></pre>
-
-<blockquote>
+</code></pre><blockquote>
 <p>It&rsquo;s worth highlighting that these UI changes are being made in the shared library. This is reusable code that both Android and iOS will leverage. The Android and iOS specific projects are <em>not</em> being modified. Yet, the controls being displayed are the same native controls that you would get if you were building this app for Android using Java or for iOS using Objective-C or Swift. Not only is the code in a shared library, but the executable is <em>not</em> running in a VM like would be the case for portable JavaScript solutions.</p>
 </blockquote>
-
 <p>Create a new class in the <code>ViewModels</code> folder. Call it <code>MainPageViewModel.cs</code> and put this code inside:</p>
-
 <pre><code>namespace Lavender.ViewModels
 {
   public class MainPageViewModel
@@ -169,12 +130,8 @@ To manage your SDK tools, you can find a button for &ldquo;Open Android SDK Mana
     }
   }
 }
-</code></pre>
-
-<p>The <code>Name</code> property is what we&rsquo;ll use for data binding. And, we&rsquo;re setting the value to <code>Anonymous</code> for now.</p>
-
+</code></pre><p>The <code>Name</code> property is what we&rsquo;ll use for data binding. And, we&rsquo;re setting the value to <code>Anonymous</code> for now.</p>
 <p>Then, update the <code>MainPage.xaml.cs</code> code-behind file to use the <code>MainPageViewModel</code> class as its binding context.</p>
-
 <pre><code>using Lavender.ViewModels;
 using Xamarin.Forms;
 
@@ -192,20 +149,12 @@ namespace Lavender
     }
   }
 }
-</code></pre>
-
-<p>Compile and debug the project with that change. You will see it in the emulator.</p>
-
-<p><img src="/images/xamarin-hello-anonymous.png" alt="Xamarin Hello Anonymous" /></p>
-
+</code></pre><p>Compile and debug the project with that change. You will see it in the emulator.</p>
+<p><img src="/images/xamarin-hello-anonymous.png" alt="Xamarin Hello Anonymous"></p>
 <p>This shows that <code>MainPageViewModel</code> is being bound as the context in <code>MainPage.xaml.cs</code> and the value that was set on initialization is &ldquo;Anonymous&rdquo; and that is being passed to the <code>MainPage.xaml</code> view correctly.</p>
-
 <p>Now let&rsquo;s do something with the value entered by the user.</p>
-
 <h2 id="add-form-to-let-the-user-update-their-name">Add Form to Let the User Update Their Name</h2>
-
 <p>Update <code>MainPage.xaml</code> to add form controls allowing the user to enter and submit their actual name.</p>
-
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
 &lt;ContentPage xmlns=&quot;http://xamarin.com/schemas/2014/forms&quot;
              xmlns:x=&quot;http://schemas.microsoft.com/winfx/2009/xaml&quot;
@@ -220,14 +169,9 @@ namespace Lavender
     &lt;/StackLayout&gt;
   &lt;/ContentPage.Content&gt;
 &lt;/ContentPage&gt;
-</code></pre>
-
-<p>There are two elements that bind to properties that we haven&rsquo;t created yet. <code>&lt;Entry Text=&quot;{Binding NameEntry}&quot; /&gt;</code> and <code>&lt;Button x:Name=&quot;Button&quot; Text=&quot;Submit&quot; Command=&quot;{Binding SubmitCommand}&quot; /&gt;</code> will require us to change the view model.</p>
-
+</code></pre><p>There are two elements that bind to properties that we haven&rsquo;t created yet. <code>&lt;Entry Text=&quot;{Binding NameEntry}&quot; /&gt;</code> and <code>&lt;Button x:Name=&quot;Button&quot; Text=&quot;Submit&quot; Command=&quot;{Binding SubmitCommand}&quot; /&gt;</code> will require us to change the view model.</p>
 <p>But, before we make changes to the view model, we need to create a new class that will facilitate notifying the view when the data in the view model changes.</p>
-
 <p>Create a new file in the <code>ViewModels</code> folder and call it <code>ViewModelBase.cs</code>. Then put this code inside:</p>
-
 <pre><code>using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -264,12 +208,8 @@ namespace Lavender.ViewModels
     }
   }
 }
-</code></pre>
-
-<p>This abstract class gives us the <code>SetProperty&lt;T&gt;()</code> method which both changes the property&rsquo;s value, <em>and</em> it notifies the UI so it knows to display the new value.</p>
-
+</code></pre><p>This abstract class gives us the <code>SetProperty&lt;T&gt;()</code> method which both changes the property&rsquo;s value, <em>and</em> it notifies the UI so it knows to display the new value.</p>
 <p>Now let&rsquo;s update <code>MainPageViewModel.cs</code> to use this new abstract class. We&rsquo;ll also add the new properties that the view needs for binding.</p>
-
 <pre><code>using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -295,18 +235,11 @@ namespace Lavender.ViewModels
     }
   }
 }
-</code></pre>
-
-<p><code>MainPageViewModel</code> now inherits from <code>ViewModelBase</code> which give us the <code>SetProperty()</code> method. This class also has new properties now: <code>NameEntry</code> to support the name entry field, and <code>SubmitCommand</code> to support the submit button. The property <code>Name</code> has also been updated to use the <code>SetProperty()</code> method.</p>
-
+</code></pre><p><code>MainPageViewModel</code> now inherits from <code>ViewModelBase</code> which give us the <code>SetProperty()</code> method. This class also has new properties now: <code>NameEntry</code> to support the name entry field, and <code>SubmitCommand</code> to support the submit button. The property <code>Name</code> has also been updated to use the <code>SetProperty()</code> method.</p>
 <p>When we run the debugger, now we see this:</p>
-
-<p><img src="/images/xamarin-hello-anonymous-form.png" alt="Xamarin mobile app with a form to enter the user's name." /></p>
-
+<p><img src="/images/xamarin-hello-anonymous-form.png" alt="Xamarin mobile app with a form to enter the user&rsquo;s name."></p>
 <p>And submitting a name shows this:</p>
-
-<p><img src="/images/xamarin-hello-anonymous-form-showing-name.png" alt="Xamarin mobile app with a form showing user's name." /></p>
-
+<p><img src="/images/xamarin-hello-anonymous-form-showing-name.png" alt="Xamarin mobile app with a form showing user&rsquo;s name."></p>
 <p>There you have it. These are the basic building blocks to get started building mobile applications using Xamarin.</p>
 
 </section>

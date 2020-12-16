@@ -8,7 +8,7 @@
     <meta property="og:description"content="Raspberry Pis are great little computers. Wonderful for running hobby services. But, whenever I start a new RPi project, I dislike needing to dig out my spare HDMI monitor and USB keyboard. I don&#39;t like having to take up room, connect all that hardware, just to enable SSH and Wifi so I don&#39;t need any of that equipment I just finished setting up." />
     <meta name="author" content="Brandon Quakkelaar">
     <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.68.3" />
 
     <title>Configure Headless Raspberry Pi for Wifi and SSH &middot; Quakkels.com</title>
     <link rel="shortcut icon" href="https://quakkels.com/images/favicon.ico">
@@ -50,14 +50,9 @@
 </header>
 <div class="main">
 <section class="wrapper">
-
-
 <p>Raspberry Pis are great little computers. Wonderful for running hobby services. But, whenever I start a new RPi project, I dislike needing to dig out my spare HDMI monitor and USB keyboard. I don&rsquo;t like having to take up room and connect all that hardware to just enable SSH and Wifi which renders all that equipment unnecessary.</p>
-
 <p>Recently I learned how to flash a new micro SD card and configure it to connect to my Wifi network and enable SSH before even turning on the RPi for the first time.</p>
-
 <h2 id="prerequisites">Prerequisites</h2>
-
 <ul>
 <li>Raspberry Pi (mine is an RPi 3 Model B V1.2)</li>
 <li>Micro USB charge cable</li>
@@ -66,26 +61,20 @@
 <li>Wifi network (and credentials to sign in to the router)</li>
 <li>A computer that&rsquo;s on previously mentioned network</li>
 </ul>
-
 <h2 id="steps">Steps</h2>
-
 <ol>
 <li>Download <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Lite</a>. This version is stripped down and doesn&rsquo;t include things like a graphical desktop.
-
 <ul>
 <li>Save the zip file to disk, and unzip. You should see the image file.</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://www.raspberrypi.org/documentation/installation/installing-images/windows.md">Flash</a> the Micro SD card with Raspbian Lite. I used Etcher.</li>
 <li><a href="https://www.raspberrypi.org/documentation/remote-access/ssh/">Enable SSH</a> by saving an empty file called <code>ssh</code> to the new boot partition on the SD card.</li>
 <li><em>Now this is the magic ingredient.</em> <a href="https://foxrow.com/raspberry-pi-headless-wifi-config">Add a configuration file containing your Wifi information</a> to the boot partition so that raspbian can connect on startup.</li>
 </ol>
-
 <p>At this point, if you&rsquo;ve followed the previous steps correctly, you can eject the SD card from your reader and place it in you RPi and plug it in.</p>
-
 <p>After waiting a minute or two for the RPi to boot (for the first time) you can log into your router and you will be able to find it in the list of connected devices. That list should have the IP address shown so you can use it to SSH into it.</p>
-
 <p>Execute <code>ssh {IpAddress} -l pi</code> and use the password <code>raspberry</code> to login.</p>
-
 <p>Now that we&rsquo;ve got a functioning Raspberry Pi, <a href="/posts/gogs-on-raspberry-pi/">let&rsquo;s do something useful with it</a>.</p>
 
 </section>

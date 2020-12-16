@@ -1,9 +1,164 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://quakkels.com/training_log/0112/</loc>
+    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/</loc>
+    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0111/</loc>
+    <lastmod>2020-12-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0110/</loc>
+    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0109/</loc>
+    <lastmod>2020-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0108/</loc>
+    <lastmod>2020-12-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0107/</loc>
+    <lastmod>2020-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0106/</loc>
+    <lastmod>2020-11-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0105/</loc>
+    <lastmod>2020-11-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0104/</loc>
+    <lastmod>2020-11-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0102/</loc>
+    <lastmod>2020-11-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0101/</loc>
+    <lastmod>2020-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0100/</loc>
+    <lastmod>2020-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0099/</loc>
+    <lastmod>2020-10-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0098/</loc>
+    <lastmod>2020-10-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0097/</loc>
+    <lastmod>2020-10-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0096/</loc>
+    <lastmod>2020-09-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0095/</loc>
+    <lastmod>2020-09-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0093/</loc>
+    <lastmod>2020-08-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0092/</loc>
+    <lastmod>2020-08-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0091/</loc>
+    <lastmod>2020-08-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0090/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0089/</loc>
+    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0088/</loc>
+    <lastmod>2020-08-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0087/</loc>
+    <lastmod>2020-08-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0086/</loc>
+    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0085/</loc>
+    <lastmod>2020-08-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://quakkels.com/posts/credit-card-processing-with-python/</loc>
+    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/posts/</loc>
+    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/tags/programming/</loc>
+    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/tags/</loc>
+    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/tags/tutorial/</loc>
     <lastmod>2020-07-09T00:00:00+00:00</lastmod>
   </url>
   
@@ -85,6 +240,11 @@
   <url>
     <loc>https://quakkels.com/training_log/0070/</loc>
     <lastmod>2020-04-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/tags/fitness/</loc>
+    <lastmod>2020-04-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -233,12 +393,22 @@
   </url>
   
   <url>
+    <loc>https://quakkels.com/tags/system-administration/</loc>
+    <lastmod>2020-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://quakkels.com/training_log/0043/</loc>
     <lastmod>2020-02-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://quakkels.com/training_log/0042/</loc>
+    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/projects/</loc>
     <lastmod>2020-02-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -533,6 +703,11 @@
   </url>
   
   <url>
+    <loc>https://quakkels.com/</loc>
+    <lastmod>2017-01-27T14:36:35-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://quakkels.com/projects/roast-it/</loc>
     <lastmod>2017-01-27T14:36:35-06:00</lastmod>
   </url>
@@ -583,60 +758,15 @@
   </url>
   
   <url>
+    <loc>https://quakkels.com/training_log/0103/</loc>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/training_log/0094/</loc>
+  </url>
+  
+  <url>
     <loc>https://quakkels.com/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://quakkels.com/projects/</loc>
-    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://quakkels.com/tags/fitness/</loc>
-    <lastmod>2020-04-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://quakkels.com/posts/</loc>
-    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://quakkels.com/tags/programming/</loc>
-    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://quakkels.com/</loc>
-    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://quakkels.com/tags/system-administration/</loc>
-    <lastmod>2020-02-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://quakkels.com/tags/</loc>
-    <lastmod>2020-04-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://quakkels.com/training_log/</loc>
-    <lastmod>2020-07-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://quakkels.com/tags/tutorial/</loc>
-    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>

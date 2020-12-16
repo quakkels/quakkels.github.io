@@ -8,7 +8,7 @@
     <meta property="og:description"content="I’ve become convinced that comments are often worth avoiding. Comments aren’t subject to a compiler nor to an interpreter. Code may change and the corresponding comment often remains as it was. Except now the comment is misleading. This makes maintaining the code unnecessarily difficult." />
     <meta name="author" content="Brandon Quakkelaar">
     <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.68.3" />
 
     <title>Functions for Documentation Instead of Comments &middot; Quakkels.com</title>
     <link rel="shortcut icon" href="https://quakkels.com/images/favicon.ico">
@@ -48,16 +48,10 @@
 </header>
 <div class="main">
 <section class="wrapper">
-
-
 <p>Using good function naming and composition will decrease the need for gratuitous comments and increase your code’s readability.</p>
-
 <p>I&rsquo;ve become convinced that comments are often worth avoiding. Comments aren&rsquo;t subject to a compiler nor to an interpreter. Code may change and the corresponding comment often remains as it was. Except now the comment is misleading. This makes maintaining the code unnecessarily difficult.</p>
-
 <h2 id="use-function-names-to-document-code">Use Function Names to Document Code</h2>
-
 <p>Consider this code that determines the &ldquo;Day of the Programmer&rdquo;. The <code>GetDay</code> method (method being a function on an object) gets the date that represents the 256th day of the year. And, it accounts for when the calendar changed from Julian to Gregorian.</p>
-
 <pre><code>public static DayOfTheProgrammer 
 {
   public static string GetDay(int year)
@@ -78,10 +72,7 @@
     return $&quot;{september256Day}.09.{year}&quot;;
   }
 }
-</code></pre>
-
-<p>The above code works. But it is difficult to read. The programmer has considered future maintainers by adding explanations in comments above each <code>if</code> statement. That is a step in the right direction, however comments are particularly vulnerable to &ldquo;code rot&rdquo; since the compiler (or interpreter) is unaware of their content. As the code is maintained it&rsquo;s easy for neglected comments to have misleading or even false information in them. I prefer using descriptive names in lieu of comments.</p>
-
+</code></pre><p>The above code works. But it is difficult to read. The programmer has considered future maintainers by adding explanations in comments above each <code>if</code> statement. That is a step in the right direction, however comments are particularly vulnerable to &ldquo;code rot&rdquo; since the compiler (or interpreter) is unaware of their content. As the code is maintained it&rsquo;s easy for neglected comments to have misleading or even false information in them. I prefer using descriptive names in lieu of comments.</p>
 <pre><code>public static class DayOfTheProgrammer
 {
   public static string GetDay(int year)
@@ -113,12 +104,8 @@
       &amp;&amp; year % 4 == 0;
   }
 }
-</code></pre>
-
-<p>Refactoring the code into functions with meaningful names has eliminated the need for the original comments. The same information is being communicated in both versions of the code. However, the original is vulnerable to comment rot while the refactored code that uses descriptive names is easier to maintain.</p>
-
+</code></pre><p>Refactoring the code into functions with meaningful names has eliminated the need for the original comments. The same information is being communicated in both versions of the code. However, the original is vulnerable to comment rot while the refactored code that uses descriptive names is easier to maintain.</p>
 <p>The programmer may decide to refactor further. The conditional statement in <code>IsLeapYear</code> is still pretty long and requires effort to read and understand. We can add documentation by using descriptive variable names.</p>
-
 <pre><code>private static bool IsLeapYear(int year)
 {
   var isGregorianCalendar = year &gt;= 1918;
@@ -134,38 +121,22 @@
 
   return isJulianCalendar &amp;&amp; isJulianLeapYear;
 }
-</code></pre>
-
-<p>(For more information about the Day of the Programmer problem visit <a href="https://www.hackerrank.com/challenges/day-of-the-programmer/problem" target="_blank" rel="noopener noreferrer">HackerRank</a>.)</p>
-
+</code></pre><p>(For more information about the Day of the Programmer problem visit <!-- raw HTML omitted -->HackerRank<!-- raw HTML omitted -->.)</p>
 <h2 id="prefer-smaller-functions">Prefer Smaller Functions</h2>
-
 <p>Long functions typically suffer from multiple code flows, varying levels of abstraction, and they often have &ldquo;sections&rdquo; delineated by comments. If the programmer feels the need to use comments to separate a program into sections, that could be an opportunity to write smaller functions with descriptive names.</p>
-
 <blockquote>
 <p>The first rule of functions is that they should be small. The second rule of functions is that <em>they should be smaller than that.</em></p>
-
 <p>— Clean Code by Robert C. Martin (pp. 34)</p>
 </blockquote>
-
 <h2 id="useful-comments">Useful Comments</h2>
-
 <p>Though I believe that comments are often worth avoiding, there are times when comments are useful.</p>
-
 <p>Useful comments often fall into one of the following categories.</p>
-
 <h3 id="legal">Legal</h3>
-
 <p>Legal comments such as copyright and license information.</p>
-
 <h3 id="explanation-of-intent">Explanation of Intent</h3>
-
 <p>Good comments can explain the programmer&rsquo;s intention rather than explaining the implementation. Don&rsquo;t explain how it works, rather explain the reason why it works that way.</p>
-
 <h3 id="warning">Warning</h3>
-
 <p>Comments can be useful for communicating warnings about possible consequences. Things like <code>// takes a long time to run</code>, or <code>// not thread safe</code> are good to know and difficult to document without a brief comment.</p>
-
 <p>If a comment falls outside of the previous three categorizations, explore the idea of removing it. The message might be a good candidate for documenting with function names, or variable names.</p>
 
 </section>

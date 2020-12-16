@@ -8,7 +8,7 @@
     <meta property="og:description"content="Foray headlong into SQLite data." />
     <meta name="author" content="Brandon Quakkelaar">
     <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.68.3" />
 
     <title>Let&#39;s talk to a SQLite database with Python &middot; Quakkels.com</title>
     <link rel="shortcut icon" href="https://quakkels.com/images/favicon.ico">
@@ -50,79 +50,47 @@
 </header>
 <div class="main">
 <section class="wrapper">
-
-
 <p>As I write this, it&rsquo;s the weekend. My wonderful wife brought home some amazing Jet Fuel XBold Dark Roast Coffee that is sure to keep me wired for the next several hours. Now what should I do? Let&rsquo;s explore Python a little more by using it to talk to a database.</p>
-
-<p><img src="/images/JetFuel.png" alt="Turning caffeine into code!" /></p>
-
-<p>We&rsquo;re a long way from my bread and butter. My goto technologies for database interaction are .NET, C# and Entity Framework CodeFirst with SQL Server <sup>2005</sup>&frasl;<sub>2008</sub>. These technologies lend themselves to enterprise level web and application development. They require a fair amount of software licenses and infrastructure to get rolling. In contrast, SQLite (as you may have guessed) is a very lightweight implementation of a relational database. It is completely self contained. There is no SQLite server or configuration requirements. You just make a database and boom! You&rsquo;re in business. Because of this light footprint and its ease of use, it is a very common database to use in mobile applications.</p>
-
+<p><img src="/images/JetFuel.png" alt="Turning caffeine into code!"></p>
+<p>We&rsquo;re a long way from my bread and butter. My goto technologies for database interaction are .NET, C# and Entity Framework CodeFirst with SQL Server 2005/2008. These technologies lend themselves to enterprise level web and application development. They require a fair amount of software licenses and infrastructure to get rolling. In contrast, SQLite (as you may have guessed) is a very lightweight implementation of a relational database. It is completely self contained. There is no SQLite server or configuration requirements. You just make a database and boom! You&rsquo;re in business. Because of this light footprint and its ease of use, it is a very common database to use in mobile applications.</p>
 <p>First, let&rsquo;s create a SQLite database file. I&rsquo;m going to call my database &ldquo;Blog.sqlite&rdquo;. You can do this from the command line with Python, or if you prefer a graphical interface, you can use a snappy little Firefox add-on called <a href="https://addons.mozilla.org/en-us/firefox/addon/sqlite-manager/">SQLite Manager</a>. It runs inside Firefox and offers a simple interface for interacting with SQLite databases. And, since it runs in Firefox, it works on any platform that runs Firefox (E.G. MacOS, Windows, Linux).</p>
-
 <p>Once we have our database created, then we need to make a table. Once again, we can do this using straight SQL and Python from the command line, but I prefer to use the SQLite Manager add-on in Firefox.</p>
-
-<p><img src="/images/CreatePostsTableResized.png" alt="Screenshot of creating a table with SQLite Manager." /></p>
-
+<p><img src="/images/CreatePostsTableResized.png" alt="Screenshot of creating a table with SQLite Manager."></p>
 <p><em>Note that the Id field is an auto incremented integer value and a primary key.</em></p>
-
 <p>Now, let&rsquo;s dive into code. What will this application do? Well, since this project is in the spirit of exploration, the application we&rsquo;re going to build won&rsquo;t be very useful. Instead it will have an academic focus. Let&rsquo;s just perform basic CRUD operations (Create, Read, Update, Delete) and then exit. We won&rsquo;t worry about user interaction or GUI or web. This is going to just be a console app.</p>
-
 <p><strong><em>This should go without saying, but this won&rsquo;t work without installing Python first. I&rsquo;m using Python3.2.3. Don&rsquo;t worry about downloading SQLite. There is no SQLite server, remember? If you have Python, you can use SQLite.</em></strong></p>
-
 <p>In the same folder as the Blog.sqlite database, create your Python file using your favorite text editor. I called mine sqliteConnect.py. Once you have your file, you can run it from the command line by first browsing to the folder where you saved the file, then just enter the following command:</p>
-
 <pre><code>$ python3 sqliteConnect.py
 </code></pre>
-
 <p>That will run the Python script. Though, nothing will happen until we put some code in there.</p>
-
 <h2 id="connecting-to-your-sqlite-database-from-python">Connecting to Your SQLite Database from Python</h2>
-
 <p>To perform CRUD functionality, first we need to establish a connection with the database, and then create what&rsquo;s known as a cursor which will allow us to execute commands.</p>
-
 <pre><code>import sqlite3
 
 conn = sqlite3.connect('Blog.sqlite')
 cursor = conn.cursor()
-</code></pre>
-
-<h2 id="creating-a-record">Creating a Record</h2>
-
+</code></pre><h2 id="creating-a-record">Creating a Record</h2>
 <p>Now that we have our open connection and our cursor, we can insert data into the Posts table.</p>
-
 <pre><code>cursor.execute('insert into Posts (Headline, Body) values (?, ?)', ('This is my Headline', 'This is the body of my blog post.'))
 firstPostId = cursor.lastrowid
 
 cursor.execute('insert into Posts (Headline, Body) values (?, ?)', ('Jet Fuel XBold Coffee', 'Jet Fuel XBold Dark Roast Coffee will make you code like a madman.'))
 conn.commit()
 </code></pre>
-
 <p>Here, we call <code>cursor.execute()</code> and pass it two parameters. A SQL command with placeholders for the data (the question marks), and a sequence containing the data to be inserted. Since we are hard-coding the insert, we could have just placed our data directly into the SQL. But in the real world, we could be inserting user generated input. In that case, we would want to use this parameterized technique to keep the SQL query safe and keep our database safe from SQL Injection style hacking attempts.</p>
-
 <p>We have explicitly inserted the data for Headline and Body while ignoring the value for the Id field. This is purposeful because when we created the Posts table, we defined Id to be an auto-incrementing integer value. This is good because it saves us from having to generate a unique identifier ourselves. However, we are going to be editing this same record later in our application. In order to be able to get the same record, we need to know the auto generated Id value.</p>
-
 <p>The last inserted row id is stored in <code>cursor.lastrowid</code>. So, when our insert is complete, if we want to grab the new Id value, we just need to assign <code>cursor.lastrowid</code> to our <code>firstPostId</code> variable.</p>
-
 <p>It&rsquo;s worth noting here, calling <code>cursor.execute()</code> will execute the command on the database. But, we need to commit any changes by calling conn.commit(). If we don&rsquo;t call conn.commit() before the connection is closed, then our changes will be undone as if they never happened.</p>
-
 <h2 id="reading-our-new-records">Reading Our New Records</h2>
-
 <p>Now that we have some data inserted into the database table, let&rsquo;s read it out.</p>
-
 <pre><code>cursor.execute('select * from Posts')
 
 print('Current records: ')
 for row in cursor.fetchall():
     print('\t', row)
-</code></pre>
-
-<p>We are using the same <code>cursor.execute()</code> method to run a select query on the table. Then we can print each row by using <code>cursor.fetchall()</code> in a for loop.</p>
-
+</code></pre><p>We are using the same <code>cursor.execute()</code> method to run a select query on the table. Then we can print each row by using <code>cursor.fetchall()</code> in a for loop.</p>
 <h2 id="update-that-first-record">Update That First Record</h2>
-
 <p>Now, let&rsquo;s make some changes to the record we inserted first. This is when the <code>firstPostId</code> comes in handy.</p>
-
 <pre><code>cursor.execute('update Posts set Headline=?, Body=? where Id=?', ('This is my NEW Headline', 'This is the NEW body of my blog post.', firstPostId))
 conn.commit()
 
@@ -130,14 +98,9 @@ print('Records after update: ')
 cursor.execute('select * from Posts')
 for row in cursor.fetchall():
     print('\t', row)
-</code></pre>
-
-<p>Now when we print our read results, we can see that the first record has been updated with new data.</p>
-
+</code></pre><p>Now when we print our read results, we can see that the first record has been updated with new data.</p>
 <h2 id="delete-everything">Delete Everything</h2>
-
 <p>You don&rsquo;t have to delete everything, but that&rsquo;s what I&rsquo;m going to do.</p>
-
 <pre><code>cursor.execute('delete from Posts')
 conn.commit()
 
@@ -146,19 +109,13 @@ cursor.execute('select * from Posts')
 for row in cursor.fetchall():
     print('\t', row)
 </code></pre>
-
 <p>Now, when we print our query results, we see nothing.</p>
-
 <h2 id="wrapping-up-closing-down">Wrapping Up, Closing Down</h2>
-
 <pre><code>cursor.close()
 conn.close()
 </code></pre>
-
 <p>Since we&rsquo;re done with our cursor and connection, we can close them down.</p>
-
 <h2 id="complete-code">Complete Code</h2>
-
 <pre><code>import sqlite3
 
 conn = sqlite3.connect('Blog.sqlite')
@@ -197,8 +154,7 @@ for row in cursor.fetchall():
     print('\t', row)
 
 cursor.close()
-conn.close()
-</code></pre>
+conn.close()</code></pre>
 
 </section>
 </div>

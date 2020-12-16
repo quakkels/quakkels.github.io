@@ -8,7 +8,7 @@
     <meta property="og:description"content="Insertion sort is in the same family as the bubble sort in that its worst case complexity is O(n2). But in practice, it is usually a faster sort." />
     <meta name="author" content="Brandon Quakkelaar">
     <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.68.3" />
 
     <title>Learn Insertion Sort with Video Game Discs &middot; Quakkels.com</title>
     <link rel="shortcut icon" href="https://quakkels.com/images/favicon.ico">
@@ -50,36 +50,20 @@
 </header>
 <div class="main">
 <section class="wrapper">
-
-
 <p>I think you could say I have an average number of video game discs. It&rsquo;s not a huge number of games, but it is enough that it can be difficult to find a particular game if they&rsquo;re not organized in a predictable way.</p>
-
 <p>Enter insertion sort. Insertion sort is in the same family as the bubble sort in that its worst case complexity is O(n2). But in practice, it is usually a faster sort.</p>
-
 <p>So we start with a few game discs that we want to sort. To simplify this demonstration each game is numbered.</p>
-
-<p><img src="/images/insertionSort01.jpg" alt="" /></p>
-
+<p><img src="/images/insertionSort01.jpg" alt=""></p>
 <p>The sort begins by comparing the first two discs with each other, and ordering them appropriately. We see that the 4 is moved to before the 27.</p>
-
-<p><img src="/images/insertionSort02.jpg" alt="" /></p>
-
+<p><img src="/images/insertionSort02.jpg" alt=""></p>
 <p>At this point, the insertion sort looks remarkably similar to the bubble sort. the interesting part will be shown soon. First we move onto the next game disc. The 42 gets compared to the 27 and stays where it is because it is already in order relative to the 27.</p>
-
-<p><img src="/images/insertionSort03.jpg" alt="" /></p>
-
+<p><img src="/images/insertionSort03.jpg" alt=""></p>
 <p>Now comes the interesting part. The 21 is goes before the 42 and before the 27. So our insertion sort technique inserts the 21 into the correct spot.</p>
-
-<p><img src="/images/insertionSort04.jpg" alt="" /></p>
-
+<p><img src="/images/insertionSort04.jpg" alt=""></p>
 <p>Then we get to the last game disc. An 8. This gets inserted after the 4 and before the 21.</p>
-
-<p><img src="/images/insertionSort05.jpg" alt="" /></p>
-
+<p><img src="/images/insertionSort05.jpg" alt=""></p>
 <p>Now the entire list of game discs has been sorted. We see the process working, but now we need to translate this process into a computer algorithm.</p>
-
 <h2 id="insertion-sort-example-in-javascript">Insertion Sort Example in JavaScript</h2>
-
 <pre><code>// set up the array with random values
 var sortMe = new Array();
 var arrayLength = 5;
@@ -115,9 +99,7 @@ for(; i &lt; arrayLength; i++) {
     }
     console.log(logText);
 }
-</code></pre>
-
-<p>Here&rsquo;s a link to the <a href="/files/InsertionSort.html">working example</a>.</p>
+</code></pre><p>Here&rsquo;s a link to the <a href="/files/InsertionSort.html">working example</a>.</p>
 
 </section>
 </div>

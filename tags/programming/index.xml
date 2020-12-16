@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on Quakkels.com</title>
@@ -59,7 +59,7 @@ Use Function Names to Document Code Consider this code that determines the &amp;
       <pubDate>Tue, 17 Dec 2019 07:00:00 -0500</pubDate>
       
       <guid>https://quakkels.com/posts/clean-names/</guid>
-      <description>Clean Code by Robert C. Martin is one of my favorite programming texts. It has a chapter called Meaningful Names wherein principles for the clear and clean naming of code elements are explained.
+      <description>Clean Code by Robert C. Martinis one of my favorite programming texts. It has a chapter called Meaningful Names wherein principles for the clear and clean naming of code elements are explained.
 When we write code we should be considering the programmer who follows us. Sometimes it may be ourselves who have not touched the code for months or years. The programmer working in previously written code will need to study it to try and recognize the intention and systems of the original author.</description>
     </item>
     
@@ -89,7 +89,7 @@ The goal for this &amp;lsquo;Getting Started&amp;rsquo; project is to get famili
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://quakkels.com/posts/configuring-vim-when-using-git-bash/</guid>
-      <description>Occasionally I become enamored with the idea of becoming a Vim expert, or at least a competent Vim user. I work primarily in Windows environments so, though the desire exists, there aren&amp;rsquo;t many good opportunities to build Vim habits. There is a Vim on Windows release available. This has a GUI interface and an installer executable. Though if you have Git for Windows installed, then you already have Vim available.</description>
+      <description>Occasionally I become enamored with the idea of becoming a Vim expert, or at least a competent Vim user. I work primarily in Windows environments so, though the desire exists, there aren&amp;rsquo;t many good opportunities to build Vim habits. There is a Vim on Windows releaseavailable. This has a GUI interface and an installer executable. Though if you have Git for Windows installed, then you already have Vim available. Git for Windows comes with the ever useful, Git Bash.</description>
     </item>
     
     <item>
@@ -98,8 +98,8 @@ The goal for this &amp;lsquo;Getting Started&amp;rsquo; project is to get famili
       <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://quakkels.com/posts/mysql-quick-reference/</guid>
-      <description>Shell Commands Set up security requirements: $ sudo mysql_secure_installation  Open the MySQL CLI client and login using a password and the specified user: $ sudo mysql -u {user} -p  MySQL Queries and Commands  Note that MySQL will not execute anything until it encounters a semicolon ; which indicates the end of a statement. This allows us to enter multi-line statements.
- Create User &amp;gt; CREATE USER &#39;newuser&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39;;  Give User Access to a Database &amp;gt; GRANT ALL PRIVILEGES ON * .</description>
+      <description>Shell Commands Set up security requirements: $ sudo mysql_secure_installation Open the MySQL CLI client and login using a password and the specified user: $ sudo mysql -u {user} -p MySQL Queries and Commands  Note that MySQL will not execute anything until it encounters a semicolon ; which indicates the end of a statement. This allows us to enter multi-line statements.
+ Create User &amp;gt; CREATE USER &amp;#39;newuser&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;password&amp;#39;; Give User Access to a Database &amp;gt; GRANT ALL PRIVILEGES ON * .</description>
     </item>
     
     <item>
@@ -110,7 +110,7 @@ The goal for this &amp;lsquo;Getting Started&amp;rsquo; project is to get famili
       <guid>https://quakkels.com/posts/gogs-on-raspberry-pi/</guid>
       <description>In a previous article I configured a headless Raspberry Pi for Wifi and SSH. Next, I&amp;rsquo;ll set up a personal Gogs server on it.
 Change the Password First things first, change the password for the pi user to something different than raspberry.
-$ passwd Changing password for pi. (current) UNIX password: Enter new UNIX password: Retype new UNIX password: passwd: password updated successfully  Please tweet your new password to @quakkels /s</description>
+$ passwd Changing password for pi. (current) UNIX password: Enter new UNIX password: Retype new UNIX password: passwd: password updated successfully Please tweet your new password to @quakkels /s</description>
     </item>
     
     <item>
@@ -199,7 +199,7 @@ Enter insertion sort. Insertion sort is in the same family as the bubble sort in
       
       <guid>https://quakkels.com/posts/lets-talk-to-a-sqlite-database-with-python/</guid>
       <description>As I write this, it&amp;rsquo;s the weekend. My wonderful wife brought home some amazing Jet Fuel XBold Dark Roast Coffee that is sure to keep me wired for the next several hours. Now what should I do? Let&amp;rsquo;s explore Python a little more by using it to talk to a database.
-We&amp;rsquo;re a long way from my bread and butter. My goto technologies for database interaction are .NET, C# and Entity Framework CodeFirst with SQL Server 2005&amp;frasl;2008.</description>
+We&amp;rsquo;re a long way from my bread and butter. My goto technologies for database interaction are .NET, C# and Entity Framework CodeFirst with SQL Server 2005/2008.</description>
     </item>
     
     <item>

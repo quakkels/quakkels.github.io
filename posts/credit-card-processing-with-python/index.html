@@ -8,7 +8,7 @@
     <meta property="og:description"content="If you run a business, charity, or any organization that accepts money, a professional online payment feature on your website is a great way for your patrons to conveniently pay you. Here&#39;s how such a payment feature can be implemented in Python with Authorize.net." />
     <meta name="author" content="Brandon Quakkelaar">
     <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.68.3" />
 
     <title>Credit Card Processing with Python &middot; Quakkels.com</title>
     <link rel="shortcut icon" href="https://quakkels.com/images/favicon.ico">
@@ -50,61 +50,36 @@
 </header>
 <div class="main">
 <section class="wrapper">
-
-
 <p>If you run a business, charity, or any organization that accepts money, a professional online payment feature on your website is a great way for your patrons to conveniently pay you.</p>
-
 <p>Here&rsquo;s how such a payment feature can be implemented in Python with Authorize.net.</p>
-
 <h2 id="create-a-sandbox-account">Create a Sandbox Account</h2>
-
 <p>If you&rsquo;re a programmer interested in building a project yourself, then you&rsquo;ll need to visit Authorize.net and create a sandbox account. Your sandbox account will let you test your payment processing integration without actually charging credit cards, and without needing to set up a Merchant Account with your bank. To process real payments you will need a Merchant Account, but for development we just need sandbox access.</p>
-
-<p>Set up your sandbox account <a href="https://developer.authorize.net/hello_world.html">in Authorize.net&rsquo;s Developer Center</a>.</p>
-
+<p>Set up your sandbox account <!-- raw HTML omitted -->in Authorize.net&rsquo;s Developer Center<!-- raw HTML omitted -->.</p>
 <p>Once you&rsquo;ve done that, you will have four pieces of information that you should save.</p>
-
 <ul>
 <li>Sandbox account credentials (username and password)</li>
 <li>API Login ID (25 alphanumeric characters)</li>
 <li>Transaction Key (16 alphanumeric characters)</li>
 <li>Key</li>
 </ul>
-
 <p>The important elements to note are the API Login ID and the Transaction Key. These two pieces of information are used to authenticate your calls into Authorize.net&rsquo;s API to process payments. Keep this information secret. Don&rsquo;t share it with anyone. Don&rsquo;t commit it to Git.</p>
-
 <h2 id="use-the-python-sdk">Use the Python SDK</h2>
-
 <p>Create a new directory for the python project.</p>
-
 <pre><code>$ mkdir authnetdemo
 $ cd authnetdemo
-</code></pre>
-
-<p>I&rsquo;m not going to explain Python virtual environments in this article, but feel free to use one for this project if you like.</p>
-
+</code></pre><p>I&rsquo;m not going to explain Python virtual environments in this article, but feel free to use one for this project if you like.</p>
 <p>Now install the Authorize.net SDK.</p>
-
 <pre><code>$ python3.7 -m pip install authorizenet
-</code></pre>
-
-<p>Create file called &ldquo;settings.py&rdquo; for the module that will be responsible for managing the Authorize.net secrets. For now I&rsquo;m going to just place the real values directly in the file, but I don&rsquo;t recommend that for production code, nor for projects that will be committed to source control like Git.</p>
-
+</code></pre><p>Create file called &ldquo;settings.py&rdquo; for the module that will be responsible for managing the Authorize.net secrets. For now I&rsquo;m going to just place the real values directly in the file, but I don&rsquo;t recommend that for production code, nor for projects that will be committed to source control like Git.</p>
 <p><strong>settings.py</strong></p>
-
 <pre><code>def get_transaction_id():
     return &quot;YOUR_TRANSACTION_ID&quot;
 
 def get_api_login_id():
     return &quot;YOUR_API_LOGIN_ID&quot;
-</code></pre>
-
-<p>These values could be retrieved from a database or environment variables. Or they could even be retrieved from a configuration file in xml, json, or your format of choice. I&rsquo;m not going to cover those techniques in this article, but they are all good ways to keep secrets out of the application&rsquo;s source code.</p>
-
+</code></pre><p>These values could be retrieved from a database or environment variables. Or they could even be retrieved from a configuration file in xml, json, or your format of choice. I&rsquo;m not going to cover those techniques in this article, but they are all good ways to keep secrets out of the application&rsquo;s source code.</p>
 <p>Create a &ldquo;models.py&rdquo; file to hold a couple classes that we&rsquo;ll use.</p>
-
 <p><strong>models.py</strong></p>
-
 <pre><code>class CreditCard:
     number = None
     expiration_date = None
@@ -113,16 +88,10 @@ def get_api_login_id():
 class TransactionResponse:
     is_success = False
     messages = []
-</code></pre>
-
-<p>These classes are abstractions for models from the SDK. This helps future SDK upgrades and changes. The <code>CreditCard</code> class models bare bones card information. The <code>TransactionResponse</code> class models the response from the Authorize.net API call.</p>
-
+</code></pre><p>These classes are abstractions for models from the SDK. This helps future SDK upgrades and changes. The <code>CreditCard</code> class models bare bones card information. The <code>TransactionResponse</code> class models the response from the Authorize.net API call.</p>
 <p>Other potential things we could add include things like billing address, name on card, and order information.</p>
-
 <p>Create a file called &ldquo;paymentprocessing.py&rdquo; for the module handling credit card tasks.</p>
-
 <p><strong>paymentprocessing.py</strong></p>
-
 <pre><code>from authorizenet import apicontractsv1
 from authorizenet.apicontrollers import createTransactionController
 from decimal import Decimal
@@ -182,18 +151,11 @@ def response_mapper(api_response):
     response.is_success = False
     response.messages.append(f&quot;response code: {api_response.messages.resultCode}&quot;)
     return response
-</code></pre>
-
-<p>There are two functions; <code>charge_credit_card</code> and <code>response_mapper</code>.</p>
-
+</code></pre><p>There are two functions; <code>charge_credit_card</code> and <code>response_mapper</code>.</p>
 <p>The <code>response_mapper</code> is a function to abstract the SDK&rsquo;s response model away from the rest of the applicaiton. The idea there is if that response model changes, then we only need to update this module and the mapper, and not have to make changes elsewhere in the application.</p>
-
 <p>The <code>charge_credit_card</code> function is where the actual money changes hands. First the merchant is identified. Then the card information is set.</p>
-
 <p>Create an <code>app.py</code> file.</p>
-
 <p><strong>app.py</strong></p>
-
 <pre><code>import models
 import paymentprocessing
 
@@ -208,82 +170,56 @@ response = paymentprocessing.charge_credit_card(card, amount)
 
 print(response.is_success)
 print(response.messages)
-</code></pre>
-
-<p>This is the entry point for our Python script. The amount to charge is specified. The credit card details are specified. Then we attempt to charge the card and print the response.</p>
-
+</code></pre><p>This is the entry point for our Python script. The amount to charge is specified. The credit card details are specified. Then we attempt to charge the card and print the response.</p>
 <p>Run &ldquo;app.py&rdquo; without forgeting to add your API Login ID and Transaction ID.</p>
-
 <pre><code>$ python3.7 app.py 
 True
 ['Successfully created transaction with Transaction ID: 40051695558', 'Transaction Response Code: 1', 'Message Code: 1', 'Description: This transaction has been approved.']
-</code></pre>
-
-<p>For more details about Authorize.net&rsquo;s testability, take a look at their <a href="https://developer.authorize.net/hello_world/testing_guide.html" target="_blank" rel="noopener noreferrer">Testing Guide</a>.</p>
-
+</code></pre><p>For more details about Authorize.net&rsquo;s testability, take a look at their <!-- raw HTML omitted -->Testing Guide<!-- raw HTML omitted -->.</p>
 <blockquote>
 <p>Note: If you get a Transaction ID of 0, then you may need to sign in to your sandbox account and switch the sandbox account settings from &ldquo;Testing&rdquo; to &ldquo;Live.&rdquo; It&rsquo;s still a testing account and cards wont actually be charged, but this setting replicates the behavior of non-sandbox accounts. Those non-sandbox accounts can be placed in testing mode too.</p>
 </blockquote>
-
 <h2 id="security">Security</h2>
-
-<p>I can&rsquo;t discuss processing credit cards without addressing security concerns. PCI Data Security Standard (PCI DSS) is a standardized checklist for making sure merchants and programmers are securely handling credit card information. Here&rsquo;s an overview of PCI DSS taken from the PCI Security Standards Council&rsquo;s <a href="https://www.pcisecuritystandards.org/pdfs/pci_ssc_quick_guide.pdf" target="_blank" rel="noopener noreferrer">quick reference guide</a>.</p>
-
+<p>I can&rsquo;t discuss processing credit cards without addressing security concerns. PCI Data Security Standard (PCI DSS) is a standardized checklist for making sure merchants and programmers are securely handling credit card information. Here&rsquo;s an overview of PCI DSS taken from the PCI Security Standards Council&rsquo;s <!-- raw HTML omitted -->quick reference guide<!-- raw HTML omitted -->.</p>
 <h3 id="pci-dss-requirements">PCI DSS Requirements</h3>
-
 <p><strong>Build and Maintain a Secure Network</strong></p>
-
 <ul>
 <li>Install and maintain a firewall configuration to protect cardholder
 data</li>
 <li>Do not use vendor-supplied defaults for system passwords and
 other security parameters</li>
 </ul>
-
 <p><strong>Protect Cardholder Data</strong></p>
-
 <ul>
 <li>Protect stored cardholder data</li>
 <li>Encrypt transmission of cardholder data across open, public
 networks</li>
 </ul>
-
 <p><strong>Maintain a Vulnerability Management Program</strong></p>
-
 <ul>
 <li>Use and regularly update anti-virus software or programs</li>
 <li>Develop and maintain secure systems and applications</li>
 </ul>
-
 <p><strong>Implement Strong Access Control Measures</strong></p>
-
 <ul>
 <li>Restrict access to cardholder data by business need-to-know</li>
 <li>Assign a unique ID to each person with computer access</li>
 <li>Restrict physical access to cardholder data</li>
 </ul>
-
 <p><strong>Regularly Monitor and Test Networks</strong></p>
-
 <ul>
 <li>Track and monitor all access to network resources and cardholder
 data</li>
 <li>Regularly test security systems and processes</li>
 </ul>
-
 <p><strong>Maintain an Information Security Policy</strong></p>
-
 <ul>
 <li>Maintain a policy that addresses information security for
 employees and contractors</li>
 </ul>
-
 <p>Read the quick reference guide for more details on what each of these points mean.</p>
-
 <h2 id="next-steps">Next Steps</h2>
-
 <p>What we&rsquo;ve accomplished in this tutorial is significant. We are able to process credit card payments via Authorize.net&rsquo;s API. However, the code presented here can certainly be improved with some additions:</p>
-
 <ul>
 <li>Build a web UI</li>
 <li>Secure with SSL encryption</li>
@@ -292,18 +228,15 @@ employees and contractors</li>
 <li>Handle secrets securely</li>
 <li>Open an actual Merchant Account with a bank and configure it with Authorize.net to accept real payments</li>
 </ul>
-
 <p>This isn&rsquo;t an exhaustive list, but it is a good start. Though with every new feature, be sure to check PCI DSS recommendations to make sure you&rsquo;re compliant. For example, if you decide to transfer credit card information over a network, you have to make sure it&rsquo;s secured and encrypted. If you want to store credit card information on your own servers, you have to make sure those servers and the information is secured according to PCI standards.</p>
-
 <h2 id="further-reading">Further Reading</h2>
-
 <ul>
-<li><a href="https://developer.authorize.net/api/reference/features/credit_card_tutorial.html" target="_blank" rel="noopener noreferrer">Authorize.net Credit Card Tutorial</a></li>
-<li><a href="https://developer.authorize.net/hello_world/testing_guide.html" target="_blank" rel="noopener noreferrer">Authorize.net Testing Guid</a></li>
-<li><a href="https://github.com/AuthorizeNet/sdk-python Python SDK" target="_blank" rel="noopener noreferrer">Authorize.net Python SDK</a></li>
-<li><a href="https://github.com/AuthorizeNet/sample-code-python" target="_blank" rel="noopener noreferrer">Authorize.net sample code in Python</a></li>
-<li><a href="https://community.developer.authorize.net/" target="_blank" rel="noopener noreferrer">Authorize.net Developer Community</a></li>
-<li><a href="https://www.pcisecuritystandards.org/pdfs/pci_ssc_quick_guide.pdf" target="_blank" rel="noopener noreferrer">PCI DSS Quick Reference Guide</a></li>
+<li><!-- raw HTML omitted -->Authorize.net Credit Card Tutorial<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->Authorize.net Testing Guid<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->Authorize.net Python SDK<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->Authorize.net sample code in Python<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->Authorize.net Developer Community<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->PCI DSS Quick Reference Guide<!-- raw HTML omitted --></li>
 </ul>
 
 </section>

@@ -8,7 +8,7 @@
     <meta property="og:description"content="A set of basic MySQL functionality for when you just have access to the CLI." />
     <meta name="author" content="Brandon Quakkelaar">
     <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.68.3" />
 
     <title>MySQL Quick Reference &middot; Quakkels.com</title>
     <link rel="shortcut icon" href="https://quakkels.com/images/favicon.ico">
@@ -50,79 +50,40 @@
 </header>
 <div class="main">
 <section class="wrapper">
-
-
 <h2 id="shell-commands">Shell Commands</h2>
-
 <h3 id="set-up-security-requirements">Set up security requirements:</h3>
-
 <pre><code>$ sudo mysql_secure_installation
-</code></pre>
-
-<h3 id="open-the-mysql-cli-client-and-login-using-a-password-and-the-specified-user">Open the MySQL CLI client and login using a password and the specified user:</h3>
-
+</code></pre><h3 id="open-the-mysql-cli-client-and-login-using-a-password-and-the-specified-user">Open the MySQL CLI client and login using a password and the specified user:</h3>
 <pre><code>$ sudo mysql -u {user} -p
-</code></pre>
-
-<h2 id="mysql-queries-and-commands">MySQL Queries and Commands</h2>
-
+</code></pre><h2 id="mysql-queries-and-commands">MySQL Queries and Commands</h2>
 <blockquote>
 <p>Note that MySQL will not execute anything until it encounters a semicolon <code>;</code> which indicates the end of a statement. This allows us to enter multi-line statements.</p>
 </blockquote>
-
 <h3 id="create-user">Create User</h3>
-
-<pre><code class="language-sql">&gt; CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
-</code></pre>
-
-<h3 id="give-user-access-to-a-database">Give User Access to a Database</h3>
-
-<pre><code class="language-sql">&gt; GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
-&gt; FLUSH PRIVILEGES;
-</code></pre>
-
-<h3 id="create-a-database-called-newstore">Create a database called <code>newStore</code>:</h3>
-
-<pre><code class="language-sql">&gt; CREATE DATABASE IF NOT EXISTS newStore;
-</code></pre>
-
-<h3 id="create-a-new-table-in-a-database">Create a new table in a database:</h3>
-
-<pre><code class="language-sql">&gt; CREATE TABLE IF NOT EXISTS newTable (
-&gt;   newTableID INT PRIMARY KEY AUTO_INCREMENT,
-&gt;   firstName VARCHAR(255) not null,
-&gt;   lastName VARCHAR(255) not null,
-&gt;   email VARCHAR(255) not null
-&gt; );
-</code></pre>
-
-<h3 id="list-all-databases">List all databases:</h3>
-
-<pre><code class="language-sql">&gt; SHOW DATABASES;
-</code></pre>
-
-<h3 id="connect-to-a-database">Connect to a database:</h3>
-
-<pre><code class="language-sql">&gt; USE newStore;
-</code></pre>
-
-<h3 id="list-tables-in-a-database">List tables in a database</h3>
-
-<pre><code class="language-sql">&gt; SHOW TABLES;
-</code></pre>
-
-<h3 id="list-columns-in-a-table">List columns in a table</h3>
-
-<pre><code class="language-sql">&gt; SHOW COLUMNS FROM newTable
-</code></pre>
-
-<h3 id="execute-a-sql-script-from-file">Execute a sql script from file</h3>
-
-<pre><code class="language-sql">&gt; source /path/to/script.sql;
-</code></pre>
-
-<h2 id="more-resources">More Resources</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> <span style="color:#e6db74">&#39;newuser&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span> IDENTIFIED <span style="color:#66d9ef">BY</span> <span style="color:#e6db74">&#39;password&#39;</span>;
+</code></pre></div><h3 id="give-user-access-to-a-database">Give User Access to a Database</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#f92672">*</span> . <span style="color:#f92672">*</span> <span style="color:#66d9ef">TO</span> <span style="color:#e6db74">&#39;newuser&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span>;
+<span style="color:#f92672">&gt;</span> FLUSH <span style="color:#66d9ef">PRIVILEGES</span>;
+</code></pre></div><h3 id="create-a-database-called-newstore">Create a database called <code>newStore</code>:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">EXISTS</span> newStore;
+</code></pre></div><h3 id="create-a-new-table-in-a-database">Create a new table in a database:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">EXISTS</span> newTable (
+<span style="color:#f92672">&gt;</span>   newTableID INT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> AUTO_INCREMENT,
+<span style="color:#f92672">&gt;</span>   firstName VARCHAR(<span style="color:#ae81ff">255</span>) <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span>,
+<span style="color:#f92672">&gt;</span>   lastName VARCHAR(<span style="color:#ae81ff">255</span>) <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span>,
+<span style="color:#f92672">&gt;</span>   email VARCHAR(<span style="color:#ae81ff">255</span>) <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span>
+<span style="color:#f92672">&gt;</span> );
+</code></pre></div><h3 id="list-all-databases">List all databases:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">SHOW</span> DATABASES;
+</code></pre></div><h3 id="connect-to-a-database">Connect to a database:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">&gt;</span> USE newStore;
+</code></pre></div><h3 id="list-tables-in-a-database">List tables in a database</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">SHOW</span> TABLES;
+</code></pre></div><h3 id="list-columns-in-a-table">List columns in a table</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">SHOW</span> COLUMNS <span style="color:#66d9ef">FROM</span> newTable
+</code></pre></div><h3 id="execute-a-sql-script-from-file">Execute a sql script from file</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">source</span> <span style="color:#f92672">/</span>path<span style="color:#f92672">/</span><span style="color:#66d9ef">to</span><span style="color:#f92672">/</span>script.<span style="color:#66d9ef">sql</span>;
+</code></pre></div><h2 id="more-resources">More Resources</h2>
 <ul>
 <li><a href="https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql">How To Create a New User and Grant Permissions in MySQL</a></li>
 <li><a href="https://dev.mysql.com/doc/">MySQL Documentation</a></li>
