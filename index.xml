@@ -93,6 +93,15 @@
     </item>
     
     <item>
+      <title>103: Reboot 2</title>
+      <link>https://quakkels.com/training_log/0103/</link>
+      <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/training_log/0103/</guid>
+      <description>Bench  45x5 135x5 185x5 210x5,5,5  DB Row  70x6,6,6,6  DB Seated Press  45x10  </description>
+    </item>
+    
+    <item>
       <title>102: Reboot 2</title>
       <link>https://quakkels.com/training_log/0102/</link>
       <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
@@ -163,6 +172,15 @@
       
       <guid>https://quakkels.com/training_log/0095/</guid>
       <description>Squat  45x5 135x5 225x5 275x5 305x5,2,5 (yikes)  Overhead Press  45x7 95x5 135x3 162.5x4,3,3,3 (yikes)  Seated Pulldown  90x5,5 135x3 162.5x5,5,5  </description>
+    </item>
+    
+    <item>
+      <title>94: Reboot</title>
+      <link>https://quakkels.com/training_log/0094/</link>
+      <pubDate>Tue, 01 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/training_log/0094/</guid>
+      <description>Squat  45x5 135x5 225x3 275x1 290x5,5,5  Bench  45x5 95x5 135x3 185x1 205x5,5,5  </description>
     </item>
     
     <item>
@@ -1434,24 +1452,6 @@ We&amp;rsquo;re a long way from my bread and butter. My goto technologies for da
       <guid>https://quakkels.com/posts/asp-net-mvc-compared-to-dango/</guid>
       <description>The MVC pattern is widely used in web development today. Regardless of whether you develop in C#, PHP, Python, Java, JavaScript, or Ruby, you won’t have any trouble finding a popular MVC pattern for your language of choice.
 Being primarily a C# developer, I’ve been using ASP.NET MVC since version 1. It’s a great framework. It can be very good at getting a project off the ground quickly, especially when coupled with a good ORM such as NHibernate, or Entity Framework.</description>
-    </item>
-    
-    <item>
-      <title>103: Reboot 2</title>
-      <link>https://quakkels.com/training_log/0103/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://quakkels.com/training_log/0103/</guid>
-      <description>Bench  45x5 135x5 185x5 210x5,5,5  DB Row  70x6,6,6,6  DB Seated Press  45x10  </description>
-    </item>
-    
-    <item>
-      <title>94: Reboot</title>
-      <link>https://quakkels.com/training_log/0094/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://quakkels.com/training_log/0094/</guid>
-      <description>Squat  45x5 135x5 225x3 275x1 290x5,5,5  Bench  45x5 95x5 135x3 185x1 205x5,5,5  </description>
     </item>
     
   </channel>
