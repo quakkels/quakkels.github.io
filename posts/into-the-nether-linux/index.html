@@ -97,7 +97,7 @@ a balance between age and stability. Or so I&rsquo;ve been told.</p>
 <pre><code>$ sudo apt-get install i3
 </code></pre>
 <p>The sudo command will temporarily changes your regular user&rsquo;s permissions to root level so that the next command (apt-get) will be executed with elevated permissions. At least, that&rsquo;s how it is supposed to be. But for me, it didn&rsquo;t work!</p>
-<p>Not sure why, but for some reason my Debian instance did not have sudo installed. <!-- raw HTML omitted -->Maybe it was somehow related to me not installing a desktop environment. I don&rsquo;t know for sure. But it struck me as odd.<!-- raw HTML omitted --> <a href="https://www.reddit.com/r/linux/comments/3guj67/into_the_nether_linux/cu1suqk/">It seems that the reason sudo wasn&rsquo;t installed is because I set a root password during installation</a>. So I used a series of commands to install sudo so I could use it for all software installs going forward. Here are the commands I ran:</p>
+<p>Not sure why, but for some reason my Debian instance did not have sudo installed. <strike>Maybe it was somehow related to me not installing a desktop environment. I don&rsquo;t know for sure. But it struck me as odd.</strike> <a href="https://www.reddit.com/r/linux/comments/3guj67/into_the_nether_linux/cu1suqk/">It seems that the reason sudo wasn&rsquo;t installed is because I set a root password during installation</a>. So I used a series of commands to install sudo so I could use it for all software installs going forward. Here are the commands I ran:</p>
 <pre><code>$ su root
 $ apt-get install sudo
 $ sudo adduser quakkels sudo

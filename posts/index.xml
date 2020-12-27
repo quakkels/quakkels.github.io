@@ -79,7 +79,7 @@ Use Function Names to Document Code Consider this code that determines the &amp;
       <pubDate>Tue, 17 Dec 2019 07:00:00 -0500</pubDate>
       
       <guid>https://quakkels.com/posts/clean-names/</guid>
-      <description>Clean Code by Robert C. Martinis one of my favorite programming texts. It has a chapter called Meaningful Names wherein principles for the clear and clean naming of code elements are explained.
+      <description>Clean Code by Robert C. Martin is one of my favorite programming texts. It has a chapter called Meaningful Names wherein principles for the clear and clean naming of code elements are explained.
 When we write code we should be considering the programmer who follows us. Sometimes it may be ourselves who have not touched the code for months or years. The programmer working in previously written code will need to study it to try and recognize the intention and systems of the original author.</description>
     </item>
     
@@ -129,7 +129,7 @@ The goal for this &amp;lsquo;Getting Started&amp;rsquo; project is to get famili
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://quakkels.com/posts/configuring-vim-when-using-git-bash/</guid>
-      <description>Occasionally I become enamored with the idea of becoming a Vim expert, or at least a competent Vim user. I work primarily in Windows environments so, though the desire exists, there aren&amp;rsquo;t many good opportunities to build Vim habits. There is a Vim on Windows releaseavailable. This has a GUI interface and an installer executable. Though if you have Git for Windows installed, then you already have Vim available. Git for Windows comes with the ever useful, Git Bash.</description>
+      <description>Occasionally I become enamored with the idea of becoming a Vim expert, or at least a competent Vim user. I work primarily in Windows environments so, though the desire exists, there aren&amp;rsquo;t many good opportunities to build Vim habits. There is a Vim on Windows release available. This has a GUI interface and an installer executable. Though if you have Git for Windows installed, then you already have Vim available. Git for Windows comes with the ever useful, Git Bash.</description>
     </item>
     
     <item>

@@ -137,7 +137,7 @@ const Hello = {name} =&gt; &lt;h1&gt;Hello {name}&lt;/h1&gt;
   );
 }
 </code></pre><p>Now we&rsquo;re using JavaScript closure feature. Notice the <code>onChange</code> event of the <code>input</code> is being bound to another arrow function. That arrow function, via closure, has access to the <code>setMsg</code> function we set in the lexical scope. When the user changes that input then the default value of &ldquo;Hello world&rdquo; will immediately be updated and displayed as he types.</p>
-<p>Here&rsquo;s a <!-- raw HTML omitted -->working demo<!-- raw HTML omitted -->.</p>
+<p>Here&rsquo;s a <a href="http://plnkr.co/edit/BOG6kpClZIXuqf0k?open=Hello.js&preview" target="_blank" rel="noopener noreferrer">working demo</a>.</p>
 <h3 id="the-useeffect-hook">The <code>useEffect</code> Hook</h3>
 <p><code>useEffect</code> is for performing side effects whenever a component changes. It&rsquo;s similar to the class based approach that uses <code>componentDidMount</code>, <code>componentDidUpdate</code>, and <code>componentWillUnmount</code> methods. It replaces all three.</p>
 <p>One of the most common usages of <code>useEffect</code> is for loading data via API calls.</p>
@@ -219,20 +219,20 @@ const Hello = () =&gt; {
 };
 
 export default Hello;
-</code></pre><p>And, <!-- raw HTML omitted -->here&rsquo;s the <code>useEffect</code> example<!-- raw HTML omitted --> in a sandbox.</p>
+</code></pre><p>And, <a href="http://plnkr.co/edit/AyYJppvIxL7O9X5Z?open=Hello.js&preview" target="_blank" rel="noopener noreferrer">here&rsquo;s the <code>useEffect</code> example</a> in a sandbox.</p>
 <p>One thing to notice in the code example; the search bar is separated into it&rsquo;s own function component. The reason it&rsquo;s separate from the <code>Hello</code> component is because every time a user presses a key in that <code>input</code> box, then the component is updated. If the <code>input</code> were inside the <code>Hello</code> component, then every keypress would trigger a new call out to the API. We don&rsquo;t want that. We avoid it by putting the <code>input</code> and the corresponding <code>button</code> elements into a <code>SearchBar</code> component of their own.</p>
 <h2 id="wrapping-up">Wrapping Up</h2>
 <p>We can see how these features build on each other to get rich function components in React. Closures and arrow functions combined with object/array destructuring are used in concert with React Hooks to deliver a full user experience without needing any of the class overhead found with traditional class based components. There are no plans to remove tradition class based components, but it&rsquo;s still good to explore and understand function components because you might prefer the style, you might come across function components that you need to support, or both.</p>
 <h2 id="further-reading">Further Reading</h2>
 <ul>
-<li><!-- raw HTML omitted -->JavaScript&rsquo;s Lambda and Arrow Functions<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->MDN: Closures<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->A Dead Simple intro to Destructuring JavaScript Objects<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->MDN: Destructuring Assignment<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->Introducing Hooks<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->Using the State Hook<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->Using the Effect Hook<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->Bible API<!-- raw HTML omitted --></li>
+<li><a href="https://www.vinta.com.br/blog/2015/javascript-lambda-and-arrow-functions/" target="_blank" rel="noopener noreferrer">JavaScript&rsquo;s Lambda and Arrow Functions</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" target="_blank" rel="noopener noreferrer">MDN: Closures</a></li>
+<li><a href="https://wesbos.com/destructuring-objects" target="_blank" rel="noopener noreferrer">A Dead Simple intro to Destructuring JavaScript Objects</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" target="_blank" rel="noopener noreferrer">MDN: Destructuring Assignment</a></li>
+<li><a href="https://reactjs.org/docs/hooks-intro.html" target="_blank" rel="noopener noreferrer">Introducing Hooks</a></li>
+<li><a href="https://reactjs.org/docs/hooks-state.html" target="_blank" rel="noopener noreferrer">Using the State Hook</a></li>
+<li><a href="https://reactjs.org/docs/hooks-effect.html" target="_blank" rel="noopener noreferrer">Using the Effect Hook</a></li>
+<li><a href="http://bible-api.com/" target="_blank" rel="noopener noreferrer">Bible API</a></li>
 </ul>
 
 </section>

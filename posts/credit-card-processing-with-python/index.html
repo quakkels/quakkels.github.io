@@ -53,7 +53,7 @@
 <p>Here&rsquo;s how such a payment feature can be implemented in Python with Authorize.net.</p>
 <h2 id="create-a-sandbox-account">Create a Sandbox Account</h2>
 <p>If you&rsquo;re a programmer interested in building a project yourself, then you&rsquo;ll need to visit Authorize.net and create a sandbox account. Your sandbox account will let you test your payment processing integration without actually charging credit cards, and without needing to set up a Merchant Account with your bank. To process real payments you will need a Merchant Account, but for development we just need sandbox access.</p>
-<p>Set up your sandbox account <!-- raw HTML omitted -->in Authorize.net&rsquo;s Developer Center<!-- raw HTML omitted -->.</p>
+<p>Set up your sandbox account <a href="https://developer.authorize.net/hello_world.html">in Authorize.net&rsquo;s Developer Center</a>.</p>
 <p>Once you&rsquo;ve done that, you will have four pieces of information that you should save.</p>
 <ul>
 <li>Sandbox account credentials (username and password)</li>
@@ -174,12 +174,12 @@ print(response.messages)
 <pre><code>$ python3.7 app.py 
 True
 ['Successfully created transaction with Transaction ID: 40051695558', 'Transaction Response Code: 1', 'Message Code: 1', 'Description: This transaction has been approved.']
-</code></pre><p>For more details about Authorize.net&rsquo;s testability, take a look at their <!-- raw HTML omitted -->Testing Guide<!-- raw HTML omitted -->.</p>
+</code></pre><p>For more details about Authorize.net&rsquo;s testability, take a look at their <a href="https://developer.authorize.net/hello_world/testing_guide.html" target="_blank" rel="noopener noreferrer">Testing Guide</a>.</p>
 <blockquote>
 <p>Note: If you get a Transaction ID of 0, then you may need to sign in to your sandbox account and switch the sandbox account settings from &ldquo;Testing&rdquo; to &ldquo;Live.&rdquo; It&rsquo;s still a testing account and cards wont actually be charged, but this setting replicates the behavior of non-sandbox accounts. Those non-sandbox accounts can be placed in testing mode too.</p>
 </blockquote>
 <h2 id="security">Security</h2>
-<p>I can&rsquo;t discuss processing credit cards without addressing security concerns. PCI Data Security Standard (PCI DSS) is a standardized checklist for making sure merchants and programmers are securely handling credit card information. Here&rsquo;s an overview of PCI DSS taken from the PCI Security Standards Council&rsquo;s <!-- raw HTML omitted -->quick reference guide<!-- raw HTML omitted -->.</p>
+<p>I can&rsquo;t discuss processing credit cards without addressing security concerns. PCI Data Security Standard (PCI DSS) is a standardized checklist for making sure merchants and programmers are securely handling credit card information. Here&rsquo;s an overview of PCI DSS taken from the PCI Security Standards Council&rsquo;s <a href="https://www.pcisecuritystandards.org/pdfs/pci_ssc_quick_guide.pdf" target="_blank" rel="noopener noreferrer">quick reference guide</a>.</p>
 <h3 id="pci-dss-requirements">PCI DSS Requirements</h3>
 <p><strong>Build and Maintain a Secure Network</strong></p>
 <ul>
@@ -230,12 +230,12 @@ employees and contractors</li>
 <p>This isn&rsquo;t an exhaustive list, but it is a good start. Though with every new feature, be sure to check PCI DSS recommendations to make sure you&rsquo;re compliant. For example, if you decide to transfer credit card information over a network, you have to make sure it&rsquo;s secured and encrypted. If you want to store credit card information on your own servers, you have to make sure those servers and the information is secured according to PCI standards.</p>
 <h2 id="further-reading">Further Reading</h2>
 <ul>
-<li><!-- raw HTML omitted -->Authorize.net Credit Card Tutorial<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->Authorize.net Testing Guid<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->Authorize.net Python SDK<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->Authorize.net sample code in Python<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->Authorize.net Developer Community<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->PCI DSS Quick Reference Guide<!-- raw HTML omitted --></li>
+<li><a href="https://developer.authorize.net/api/reference/features/credit_card_tutorial.html" target="_blank" rel="noopener noreferrer">Authorize.net Credit Card Tutorial</a></li>
+<li><a href="https://developer.authorize.net/hello_world/testing_guide.html" target="_blank" rel="noopener noreferrer">Authorize.net Testing Guid</a></li>
+<li><a href="https://github.com/AuthorizeNet/sdk-python Python SDK" target="_blank" rel="noopener noreferrer">Authorize.net Python SDK</a></li>
+<li><a href="https://github.com/AuthorizeNet/sample-code-python" target="_blank" rel="noopener noreferrer">Authorize.net sample code in Python</a></li>
+<li><a href="https://community.developer.authorize.net/" target="_blank" rel="noopener noreferrer">Authorize.net Developer Community</a></li>
+<li><a href="https://www.pcisecuritystandards.org/pdfs/pci_ssc_quick_guide.pdf" target="_blank" rel="noopener noreferrer">PCI DSS Quick Reference Guide</a></li>
 </ul>
 
 </section>

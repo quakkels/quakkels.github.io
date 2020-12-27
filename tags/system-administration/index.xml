@@ -37,7 +37,7 @@ Choosing the Media Server There are two popular software options for home media 
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://quakkels.com/posts/configuring-vim-when-using-git-bash/</guid>
-      <description>Occasionally I become enamored with the idea of becoming a Vim expert, or at least a competent Vim user. I work primarily in Windows environments so, though the desire exists, there aren&amp;rsquo;t many good opportunities to build Vim habits. There is a Vim on Windows releaseavailable. This has a GUI interface and an installer executable. Though if you have Git for Windows installed, then you already have Vim available. Git for Windows comes with the ever useful, Git Bash.</description>
+      <description>Occasionally I become enamored with the idea of becoming a Vim expert, or at least a competent Vim user. I work primarily in Windows environments so, though the desire exists, there aren&amp;rsquo;t many good opportunities to build Vim habits. There is a Vim on Windows release available. This has a GUI interface and an installer executable. Though if you have Git for Windows installed, then you already have Vim available. Git for Windows comes with the ever useful, Git Bash.</description>
     </item>
     
     <item>
