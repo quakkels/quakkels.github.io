@@ -197,6 +197,11 @@ tbody tr:nth-child(odd) {
     background: #eee;
 }
 
+/* Pagination */
+
+.pagination li { display: inline; list-style: none; }
+.pagination .active a { color: gray; font-weight: bold; }
+
 /* responsive */
 @media only screen and (max-width: 767px) {
     .wrapper {
