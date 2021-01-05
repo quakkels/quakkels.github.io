@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Jan 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://quakkels.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Building Strength of Character</title>
+      <link>https://quakkels.com/posts/developing-strength-of-character/</link>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/posts/developing-strength-of-character/</guid>
+      <description>I wrote the first draft of this article all the way back in February of 2019. This started as a quick guide for how to build good habits using principles from physical training. But it quickly grew when I wanted to explore how to identify good character and good virtue. Back then I didn&amp;rsquo;t realize how big this topic is and how many different ways of answering it there are. So, I continued exploring the topic, and enjoying the underlying philosophy.</description>
+    </item>
     
     <item>
       <title>Credit Card Processing with Python</title>

@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Jan 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://quakkels.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Fitness</title>
+      <link>https://quakkels.com/tags/fitness/</link>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/tags/fitness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Philosophy</title>
+      <link>https://quakkels.com/tags/philosophy/</link>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/tags/philosophy/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Programming</title>
@@ -26,15 +44,6 @@
       <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://quakkels.com/tags/tutorial/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Fitness</title>
-      <link>https://quakkels.com/tags/fitness/</link>
-      <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://quakkels.com/tags/fitness/</guid>
       <description></description>
     </item>
     
