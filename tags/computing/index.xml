@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Computing on Quakkels.com</title>
+    <link>https://quakkels.com/tags/computing/</link>
+    <description>Recent content in Computing on Quakkels.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Jan 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://quakkels.com/tags/computing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My Favorite Tools on Linux</title>
+      <link>https://quakkels.com/posts/my-favorite-tools-on-linux/</link>
+      <pubDate>Sun, 10 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/posts/my-favorite-tools-on-linux/</guid>
+      <description>Last year I decided to take on the challenge of running just Linux. I wanted to see how good (or bad) the experience would be, and whether it&amp;rsquo;d be painful enough that I&amp;rsquo;d go back to using Windows. I went ahead and installed Linux Mint on my primary personal laptop. I did not dual boot Windows. This meant I stopped using Windows 10 unless it was work related. Thankfully, I don&amp;rsquo;t really miss Windows 10 that much.</description>
+    </item>
+    
+    <item>
+      <title>Into the Nether: Linux</title>
+      <link>https://quakkels.com/posts/into-the-nether-linux/</link>
+      <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/posts/into-the-nether-linux/</guid>
+      <description>The first movie I saw that really got me excited about computers was WarGames. The WOPR was an inanimate object that just sat there on screen. But, it was still a complete character all by itself. It reacted to the Matthew Broderick character&amp;rsquo;s commands and questions and became something more clever than just a boring piece of hardware. The fictional software running inside the WOPR and Broderick&amp;rsquo;s character&amp;rsquo;s ability to interface with it created a story that was incredibly mystical and exciting.</description>
+    </item>
+    
+  </channel>
+</rss>
