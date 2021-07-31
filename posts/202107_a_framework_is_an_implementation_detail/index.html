@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title"content="A Framework is an Implementation Detail &middot; Quakkels.com" />
+    <meta property="og:description"content="Frameworks are not all good. Weigh the benefits with the pitfalls." />
+    <meta name="author" content="Brandon Quakkelaar">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.68.3" />
+
+    <title>A Framework is an Implementation Detail &middot; Quakkels.com</title>
+    <link rel="shortcut icon" href="https://quakkels.com/images/favicon.ico">
+    <link rel="stylesheet" href="https://quakkels.com/css/style.css">
+    <base href="https://quakkels.com/">
+    <link rel="canonical" href="https://quakkels.com/posts/202107_a_framework_is_an_implementation_detail/">
+    <link href="" rel="alternate" type="application/rss+xml" title="Quakkels.com" />
+</head>
+<body lang="en">
+<nav id="main-nav">
+    <a id="branding" href="https://quakkels.com/">Quakkels.com</a>
+    <div class="mobile-menu">
+        <div id="hamburger"><span></span></div>
+    </div>
+    <a href="https://quakkels.com/">Articles</a>
+    <a href="https://quakkels.com/projects">Projects</a>
+    <a href="https://quakkels.com/about">About</a>
+    <a href="https://quakkels.com/training_log">Training Log</a>
+    <a class="rss" href="">RSS Feed</a>
+</nav>
+<header id="home-header">
+    <h1>A Framework is an Implementation Detail</h1>
+    
+    <h2>Jul 31, 2021</h2>
+    
+    
+    
+    <p>
+            <a href="https://quakkels.com/tags/programming">Programming</a>
+        
+    </p>
+    
+    
+    <h3>By: Brandon Quakkelaar</h3>
+    
+</header>
+<div class="main">
+<section class="wrapper">
+<p>I&rsquo;ve previously written about <a href="/posts/dont-take-frameworks-for-granted/">my opinion of how programmers should consider frameworks</a>. I was delighted to hear Robert C Martin express a similar point of view in a Q&amp;A session after his Clean Architecture and Design talk at ITkonekt 2019.</p>
+<blockquote>
+<p>Frameworks are wonderful things. You can a lot done with a framework. You get a framework like Spring or Rails, or JSF, or JPA. Any of those neat little framework. Wonderful. Angular. Lovely things. But, the author of the framework does not know you! And does not care about you. <strong>The author of the framework does not understand your problems. He is not writing code to solve your problems. They are writing code to solve their problems.</strong> When you use a framework you make an enormeous commitment to that framework. You bind your code to it. In the very worst case you derive from base classes in the framework. The framework author makes no such commitment to you. It is a terribly asymitric relationship. And as an Architect, if you&rsquo;re an Architect, or if you&rsquo;re a Lead Designer, you must be very skeptical of that relationship. Because you should be thinking that this framework is out to screw you. You should be looking very very carefully at how much you bind to it. Read the directions. You know. The documents that the framework author writes. Read those directions but do not follow those directions. Because, the directions that the framework author writes will tell you to couple to the framework intimately. Because he loves the framework. You don&rsquo;t have to. So then what you do is you put the framework behind an architectural boundary. [&hellip;] <strong>You use it in a very careful way so that one day, when that framework no longer satisfies your needs, you will have options.</strong></p>
+</blockquote>
+<p>(Emphasis mine.)</p>
+<p>Let us programmers continually improve in our craft. I think the specific language choice is far less important than the architectural structure of our programs. We&rsquo;re so quick is hitch ourselves to things like the &ldquo;Django Wagon&rdquo; or the &ldquo;React Wagon&rdquo; or the &ldquo;EF Wagon&rdquo; without planning for an eventual time when those frameworks hinder rather than help.</p>
+
+</section>
+</div>
+<div id="footer">
+    <div class="wrapper">
+
+
+  Check out articles with these tags:
+  <ul class="tags">
+    
+      <li><a href="/tags/computing">computing</a></li>
+    
+      <li><a href="/tags/fitness">fitness</a></li>
+    
+      <li><a href="/tags/hobbies">hobbies</a></li>
+    
+      <li><a href="/tags/philosophy">philosophy</a></li>
+    
+      <li><a href="/tags/programming">programming</a></li>
+    
+      <li><a href="/tags/system-administration">system-administration</a></li>
+    
+      <li><a href="/tags/tutorial">tutorial</a></li>
+    
+  </ul>
+
+
+    </div>
+</div>
+<script src="https://quakkels.com/js/site.js"></script>
+<script>
+var navElement = document.getElementById("main-nav");
+var menuButton = document.getElementById("hamburger");
+var mobileSize = 768;
+var menu = new Menu(window, navElement, menuButton, mobileSize);
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91443661-1', 'auto');
+  ga('send', 'pageview');
+
+</script>

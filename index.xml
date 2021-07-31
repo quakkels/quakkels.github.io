@@ -8,6 +8,21 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 27 Jan 2017 14:36:35 -0600</lastBuildDate><atom:link href="https://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>A Framework is an Implementation Detail</title>
+      <link>https://quakkels.com/posts/202107_a_framework_is_an_implementation_detail/</link>
+      <pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/posts/202107_a_framework_is_an_implementation_detail/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve previously written about &lt;a href=&#34;https://quakkels.com/posts/dont-take-frameworks-for-granted/&#34;&gt;my opinion of how programmers should consider frameworks&lt;/a&gt;. I was delighted to hear Robert C Martin express a similar point of view in a Q&amp;amp;A session after his Clean Architecture and Design talk at ITkonekt 2019.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Frameworks are wonderful things. You can a lot done with a framework. You get a framework like Spring or Rails, or JSF, or JPA. Any of those neat little framework. Wonderful. Angular. Lovely things. But, the author of the framework does not know you! And does not care about you. &lt;strong&gt;The author of the framework does not understand your problems. He is not writing code to solve your problems. They are writing code to solve their problems.&lt;/strong&gt; When you use a framework you make an enormeous commitment to that framework. You bind your code to it. In the very worst case you derive from base classes in the framework. The framework author makes no such commitment to you. It is a terribly asymitric relationship. And as an Architect, if you&amp;rsquo;re an Architect, or if you&amp;rsquo;re a Lead Designer, you must be very skeptical of that relationship. Because you should be thinking that this framework is out to screw you. You should be looking very very carefully at how much you bind to it. Read the directions. You know. The documents that the framework author writes. Read those directions but do not follow those directions. Because, the directions that the framework author writes will tell you to couple to the framework intimately. Because he loves the framework. You don&amp;rsquo;t have to. So then what you do is you put the framework behind an architectural boundary. [&amp;hellip;] &lt;strong&gt;You use it in a very careful way so that one day, when that framework no longer satisfies your needs, you will have options.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;(Emphasis mine.)&lt;/p&gt;
+&lt;p&gt;Let us programmers continually improve in our craft. I think the specific language choice is far less important than the architectural structure of our programs. We&amp;rsquo;re so quick is hitch ourselves to things like the &amp;ldquo;Django Wagon&amp;rdquo; or the &amp;ldquo;React Wagon&amp;rdquo; or the &amp;ldquo;EF Wagon&amp;rdquo; without planning for an eventual time when those frameworks hinder rather than help.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Hand Tool Woodworking</title>
       <link>https://quakkels.com/posts/hand-tool-woodworking/</link>
       <pubDate>Fri, 12 Feb 2021 00:00:00 +0000</pubDate>

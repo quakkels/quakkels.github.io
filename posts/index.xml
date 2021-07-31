@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 31 Jul 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://quakkels.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A Framework is an Implementation Detail</title>
+      <link>https://quakkels.com/posts/202107_a_framework_is_an_implementation_detail/</link>
+      <pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/posts/202107_a_framework_is_an_implementation_detail/</guid>
+      <description>I&amp;rsquo;ve previously written about my opinion of how programmers should consider frameworks. I was delighted to hear Robert C Martin express a similar point of view in a Q&amp;amp;A session after his Clean Architecture and Design talk at ITkonekt 2019.
+ Frameworks are wonderful things. You can a lot done with a framework. You get a framework like Spring or Rails, or JSF, or JPA. Any of those neat little framework.</description>
+    </item>
     
     <item>
       <title>Hand Tool Woodworking</title>
