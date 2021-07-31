@@ -18,7 +18,7 @@
       
       <guid>https://quakkels.com/posts/202107_a_framework_is_an_implementation_detail/</guid>
       <description>I&amp;rsquo;ve previously written about my opinion of how programmers should consider frameworks. I was delighted to hear Robert C Martin express a similar point of view in a Q&amp;amp;A session after his Clean Architecture and Design talk at ITkonekt 2019.
- Frameworks are wonderful things. You can a lot done with a framework. You get a framework like Spring or Rails, or JSF, or JPA. Any of those neat little framework.</description>
+ Frameworks are wonderful things. You can get a lot done with a framework. You get a framework like Spring or Rails, or JSF, or JPA. Any of those neat little frameworks.</description>
     </item>
     
     <item>
