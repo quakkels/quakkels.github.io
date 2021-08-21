@@ -8,6 +8,124 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 27 Jan 2017 14:36:35 -0600</lastBuildDate><atom:link href="https://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Develop an ASP.NET Core Site on Linux</title>
+      <link>https://quakkels.com/posts/202108_develop_an_aspnetcore_site_on_linux/</link>
+      <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/posts/202108_develop_an_aspnetcore_site_on_linux/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/dotnetOnLinux/csharp_dotnetcore_linux.png&#34; alt=&#34;C#, Dotnet Core, and Linux&#34;&gt;&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s no doubt it, C# is my favorite language. It breaks my heart whenever anyone points out that it&amp;rsquo;s basically just Java. (Looking at you, Robert C. Martin.) Though it may be inspired and even derived from Java, I much prefer the C# and .NET ecosystem. I&amp;rsquo;m sure familiarity plays a large part in my preference for it, as well as some old-fashioned nostalgia, and perhaps even a simple convenience factor. Even so, C# is a powerful tool that shouldn&amp;rsquo;t be dismissed lightly. The power doesn&amp;rsquo;t just come from the language. It also comes from the frameworks, libraries, and documentation.&lt;/p&gt;
+&lt;p&gt;I also like running open source software. My preference for open source software has led me to use Linux on all my personal computers. Windows is a powerful tool that shouldn&amp;rsquo;t be dismissed lightly. But, I&amp;rsquo;ve decided that running a transparent operating system like Linux is more important to me than Windows features. For most of C#&amp;lsquo;s existence, it only ran on Windows systems. Given the comparisons between C# and Java, Java was clearly beating C# in cross platform compatibility. Mono blazed a trail for C# development on non Windows platforms, but there were a fair number of compatibility issues. That is, until Microsoft &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://devblogs.microsoft.com/dotnet/the-next-generation-of-net-asp-net-vnext/&#34;&gt;announced in 2014&lt;/a&gt; that ASP.NET &amp;ldquo;vNext&amp;rdquo; would be Mono compatible, and it would be open source.&lt;/p&gt;
+&lt;p&gt;Now we&amp;rsquo;re several years removed from that announcement, and there have been a ton of growing pains. But ASP.NET Core is open source, it&amp;rsquo;s cross platform, and it&amp;rsquo;s proven to be a workhorse. It&amp;rsquo;s the first tool I want to grab when starting a new project.&lt;/p&gt;
+&lt;p&gt;So that&amp;rsquo;s why I&amp;rsquo;m writing this blog post. If you&amp;rsquo;re a bit of an idealist, like I am, and you want to run open source software while still leveraging the powerful C# development ecosystem, then this should give a quick glimpse into what it&amp;rsquo;s like to develop C# websites on Linux.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll cover three things:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Creating Solutions with Projects&lt;/li&gt;
+&lt;li&gt;Debugging and Intellisense via Omnisharp in VS Code&lt;/li&gt;
+&lt;li&gt;Adding project references&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;install-the-tools&#34;&gt;Install the Tools&lt;/h2&gt;
+&lt;p&gt;First, you need a copy of Linux to work in. I&amp;rsquo;ve chosen &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://linuxmint.com/download.php&#34;&gt;Linux Mint&lt;/a&gt;, and I encourage you to use that, but you can also use just about any other Linux distribution, but you&amp;rsquo;ll have an easier time following along if it&amp;rsquo;s at least based on Debian like Linux Mint and &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://ubuntu.com/download&#34;&gt;Ubuntu&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Once you have a copy of Linux running, install the &lt;code&gt;dotnet&lt;/code&gt; SDK and runtime. Microsoft doesn&amp;rsquo;t have installation instructions specific to Linux Mint, but since it&amp;rsquo;s based on Debian I used the instructions on their &amp;ldquo;&lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://docs.microsoft.com/en-us/dotnet/core/install/linux-debian&#34;&gt;Install the .NET SDK or the .NET Runtime on Debian&lt;/a&gt;&amp;rdquo; page. Install both on your computer. If you&amp;rsquo;re not running Linux Mint, look for the distribution you&amp;rsquo;re running in their &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://docs.microsoft.com/en-us/dotnet/core/install/linux&#34;&gt;list of supported Linux distros&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Next, &lt;a target=&#34;_blank&#34; href=&#34;https://quakkels.com/posts/my-favorite-tools-on-linux/#visual-studio-code&#34;&gt;install Visual Studio Code&lt;/a&gt;. If you want you can use JetBrains Rider, which is a full fledged IDE that runs on Linux, Mac, and Windows. It&amp;rsquo;s a proprietary product, but it&amp;rsquo;s a high quality option if you&amp;rsquo;d like a more streamlined development experience. I&amp;rsquo;ll be using VS Code in this walkthrough.&lt;/p&gt;
+&lt;h2 id=&#34;create-the-net-5-solution-with-projects&#34;&gt;Create The .NET 5 Solution with Projects&lt;/h2&gt;
+&lt;p&gt;Using the &lt;code&gt;dotnet&lt;/code&gt; CLI we&amp;rsquo;ll create a multiple project Solution. It is common for multiple .NET Projects can be associated in a single Solution file. This allows a formal organization for multiple related projects. With a Solution (SLN file) we can designate that a web project and a business domain project are related and meant to exist together. And when they&amp;rsquo;re defined that way, they can be managed together as a single unit instead of as completely separate projects. (For this example, we&amp;rsquo;ll forgo creating a unit testing project, but remember if this were a real project that you only need to unit test the code that you need to work.)&lt;/p&gt;
+&lt;p&gt;In a terminal, navigate to a directory where the new .NET Solution will be created. I used my user&amp;rsquo;s home folder (&lt;code&gt;/home/quakkels/&lt;/code&gt;.)&lt;/p&gt;
+&lt;p&gt;Create a new directory for the Solution, and change directories into it.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir DotnetSolution
+cd DotnetSolution
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now we can use the &lt;code&gt;dotnet&lt;/code&gt; CLI command to start. We can first list out all the templates that &lt;code&gt;dotnet&lt;/code&gt; can create for us from &lt;code&gt;new&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dotnet new --list
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In the results of the &lt;code&gt;--list&lt;/code&gt; flag we can validate that there&amp;rsquo;s an option to create a Solution File (SLN for short.)&lt;/p&gt;
+&lt;p&gt;Create a Solution file. For consistency, I recommend naming it to match the solution folder.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dotnet new sln --name DotnetSolution
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then if you&amp;rsquo;re curious, take a peek at the contents of the new SLN file.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat DotnetSolution.sln
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So far it&amp;rsquo;s just full of a bunch of generic boilerplate. But that will change as we add Dotnet projects to it.&lt;/p&gt;
+&lt;p&gt;Create a dotnet web project.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dotnet new web --name DotnetSolution.Web
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you list the current directories contents with &lt;code&gt;ls&lt;/code&gt;, you should see the SLN file and the new DotnetSolution.Web folder.&lt;/p&gt;
+&lt;p&gt;Now add a class library project to handle all the behaviors that aren&amp;rsquo;t specific to the web.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dotnet new classlib --name DotnetSolution.Behaviors
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now that we have these projects, we need to add them to the SLN file. The &lt;code&gt;dotnet&lt;/code&gt; CLI makes a &lt;code&gt;sln&lt;/code&gt; command available so we don&amp;rsquo;t have to manage the contents of that file by hand.&lt;/p&gt;
+&lt;p&gt;Add both projects to the Solution.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dotnet sln add ./DotnetSolution.Web/DotnetSolution.Web.csproj
+dotnet sln add ./DotnetSolution.Behaviors/DotnetSolution.Behaviors.csproj
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We can verify the Solution has the projects by running:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dotnet sln list
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The benefit of having these projects in a Solution is that we can execute commands on the Solution which will affect both projects as a unit. That&amp;rsquo;s better than needing to run the same commands multiple times, once for each project. Some commands available are &lt;code&gt;dotnet clean&lt;/code&gt;, &lt;code&gt;dotnet restore&lt;/code&gt;, &lt;code&gt;dotnet build&lt;/code&gt;, and if we had a unit test project we could run &lt;code&gt;dotnet test&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To make sure the web project is working, use &lt;code&gt;dotnet&lt;/code&gt; to run the web project.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dotnet run --project ./DotnetSolution.Web/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You will be able to navigate to the website using https://localhost:5001. But, your browser will tell you the SSL certificate can&amp;rsquo;t be trusted. Microsoft and aspdotnet core 5 automatically configure new websites to use HTTPS, even for local development. So you can either just tell your browser to proceed to the website, since you know it&amp;rsquo;s safe. Or, you can go through the &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetcore-5.0&amp;tabs=visual-studio#ssl-linux&#34;&gt;steps to trust the dev certificate&lt;/a&gt;. The unfortunate truth of it is: this is a bad dev experience on Linux. There is a command to create dev certs: &lt;code&gt;dotnet dev-certs https -v&lt;/code&gt;. And, there&amp;rsquo;s a command to trust the dev cert: &lt;code&gt;dotnet dev-certs https --trust&lt;/code&gt;, but it&amp;rsquo;s only supported on Mac and Windows. If you run it in Linux, you&amp;rsquo;re given a URL to follow to manually trust development certificates. The simplest way to proceed, for now, is to add a certificate exception to your browser.&lt;/p&gt;
+&lt;p&gt;After navigating to https://localhost:5001, verify that you see &amp;ldquo;Hello World!&amp;quot;. Then shut down the server by cancelling the process with &lt;code&gt;Ctrl + C&lt;/code&gt; in the terminal.&lt;/p&gt;
+&lt;h2 id=&#34;use-the-debugger-and-intellisense-in-vs-code&#34;&gt;Use the Debugger and Intellisense in VS Code&lt;/h2&gt;
+&lt;p&gt;Next, we need to set up debugging in Visual Studio Code. Open the DotnetSolution directory in VS Code. It&amp;rsquo;s very quick to use the following command in the terminal that&amp;rsquo;s in the DotnetSolution folder.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;code .
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;VS Code will probably ask you to install recommended extensions for C#. Go ahead and install extensions. If it doesn&amp;rsquo;t ask, then go to the Extensions tab and install the C# extension by Microsoft. After the extension is installed, I recommend closing VS Code and starting it up again using the same &lt;code&gt;code .&lt;/code&gt; command in the DotnetSolution folder.&lt;/p&gt;
+&lt;p&gt;After opening the DotnetSolution folder in VS Code, you should see a popup asking you to add assets for running and debugging.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/dotnetOnLinux/vscode_run_and_debug.png&#34; alt=&#34;Run and debug dialog&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Click &amp;ldquo;Yes.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;After clicking &amp;ldquo;Yes&amp;rdquo; you will see another popup dialog asking you to select the project to launch.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/dotnetOnLinux/vscode_select_project_to_launch.png&#34; alt=&#34;Select project to launch dialog&#34;&gt;&lt;/p&gt;
+&lt;p&gt;From the list, select the DotnetSolution.Web project.&lt;/p&gt;
+&lt;p&gt;Using the left navigation go into the Debug tab, and click the &amp;ldquo;play&amp;rdquo; button to launch the &lt;code&gt;.NET Core Launch (Web)&lt;/code&gt; configuration.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/dotnetOnLinux/vscode_debug_dotnetcore.png&#34; alt=&#34;Play button&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Now, when the site is launched with the play button, it will build and open in your browser.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/dotnetOnLinux/helloworld.png&#34; alt=&#34;Hello World!&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Then, to check that debugging is working, stop the site using the stop button at the top of VS Code then add a breakpoint in Startup.cs.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/dotnetOnLinux/vscode_add_breakpoint.png&#34; alt=&#34;Add breakpoint&#34;&gt;&lt;/p&gt;
+&lt;p&gt;And launch again with the play button under the Debug tab.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/dotnetOnLinux/vscode_hit_breakpoint.png&#34; alt=&#34;Hit breakpoint&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Now we have debugging working in our Dotnet Core 5 website on Linux.&lt;/p&gt;
+&lt;h2 id=&#34;add-a-project-reference&#34;&gt;Add a Project Reference&lt;/h2&gt;
+&lt;p&gt;So far, we&amp;rsquo;ve just installed tools, created a solution with those tools, and configured the development environment. Now, let&amp;rsquo;s do some actual programming in the DotnetSolution.Behaviors and then let&amp;rsquo;s add a project reference so we can use DotnetSolution.Behaviors in the website.&lt;/p&gt;
+&lt;p&gt;The website currently just prints &amp;ldquo;Hello World!&amp;rdquo; and that&amp;rsquo;s it. Instead of a generic message like that, I want it to tell me a random joke. The joke delivery mechanism isn&amp;rsquo;t specific to the website. It just delivers a joke. It could be delivering a joke to a console app, to a database, or any other type of application. So, the fact that the joke will be displayed in a website is an implementation detail. We&amp;rsquo;ll keep the implementation details separate by putting the joke behaviors in the DotnetSolution.Behaviors class library.&lt;/p&gt;
+&lt;p&gt;Using VS Code, in the DotnetSolution.Behaviors project, rename &lt;code&gt;Class1.cs&lt;/code&gt; to &lt;code&gt;JokeRepository.cs&lt;/code&gt; and put the following code in it:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;using System;
+
+namespace DotnetSolution.Behaviors
+{
+    public static class JokeRepository
+    {
+        private static string[] Jokes = new string [] {
+            &amp;quot;I’m reading a book about anti-gravity. It’s impossible to put down.&amp;quot;,
+            &amp;quot;6:30 is the best time on a clock, hands down.&amp;quot;,
+            &amp;quot;I can tell when people are being judgmental just by looking at them.&amp;quot;,
+            &amp;quot;I was wondering why the frisbee kept getting bigger and bigger, but then it hit me.&amp;quot;
+        };
+
+        public static string GetRandomJoke()
+        {
+            Random r = new Random();
+            var index = r.Next(0, JokeRepository.Jokes.Length);
+            return JokeRepository.Jokes[index];
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;As you&amp;rsquo;re working in the JokeRepository.cs class, you should notice that there&amp;rsquo;s syntax highlighting and some Intellisense style features popping up.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/dotnetOnLinux/vscode_intellisense_syntax_highlighting.png&#34; alt=&#34;VS Code syntax highlighting examples&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;If you don&amp;rsquo;t see syntax and error highlighting, then you may need to restart VS Code, since the Omnisharp server in the C# extension may have shut down for some reason.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Now, open up &lt;code&gt;Startup.cs&lt;/code&gt; in the DotnetSolution.Web project so we can display jokes instead of the &amp;ldquo;Hello World!&amp;rdquo; message.&lt;/p&gt;
+&lt;p&gt;Find this line:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;await context.Response.WriteAsync(&amp;quot;Hello World!&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And replace it with this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;await context.Response.WriteAsync(JokeRepository.GetRandomJoke());
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now, if the C# extension is working correctly, you should see error highlighting on that line, and if you hover your mouse over it, you&amp;rsquo;ll see this message:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/dotnetOnLinux/vscode_cant_find_jokerepository.png&#34; alt=&#34;Can&amp;rsquo;t find JokeRepository&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Even though DotnetSolution.Behaviors is in the same Solution as DotnetSolution.Web, the web project doesn&amp;rsquo;t have a reference to the behaviors project yet.&lt;/p&gt;
+&lt;p&gt;So, making sure you&amp;rsquo;re terminal is working in the DotnetSolution folder, run this command to add a project reference.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dotnet add DotnetSolution.Web/ reference DotnetSolution.Behaviors/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now if you place your cursor on the error highlighted &lt;code&gt;JokeRespository&lt;/code&gt; in code, and press &lt;code&gt;ctrl+.&lt;/code&gt; then you&amp;rsquo;ll be given the option to add a &lt;code&gt;using&lt;/code&gt; statement for &lt;code&gt;DotnetSolution.Behaviors&lt;/code&gt;. Go ahead and add it to the file, and the errors will go away.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/dotnetOnLinux/vscode_using_package.png&#34; alt=&#34;Add using example&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Once the errors are gone, run the site again. You can either launch it with VS Code, or with the &lt;code&gt;dotnet run --project ./DotnetSolution.Web/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/dotnetOnLinux/joke.png&#34; alt=&#34;Add using example&#34;&gt;&lt;/p&gt;
+&lt;p&gt;And there&amp;rsquo;s the random joke.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;There we have it. An ASP.NET Core website developed on Linux. Granted, this is a super simple site. But I hope I was able to show you enough about the C# development experience on Linux to get you to consider trying it for your next project.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>A Framework is an Implementation Detail</title>
       <link>https://quakkels.com/posts/202107_a_framework_is_an_implementation_detail/</link>
       <pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate>

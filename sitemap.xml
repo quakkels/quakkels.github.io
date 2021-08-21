@@ -3,22 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://quakkels.com/posts/202107_a_framework_is_an_implementation_detail/</loc>
-    <lastmod>2021-07-31T00:00:00+00:00</lastmod>
+    <loc>https://quakkels.com/posts/202108_develop_an_aspnetcore_site_on_linux/</loc>
+    <lastmod>2021-08-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://quakkels.com/posts/</loc>
-    <lastmod>2021-07-31T00:00:00+00:00</lastmod>
+    <lastmod>2021-08-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://quakkels.com/tags/programming/</loc>
-    <lastmod>2021-07-31T00:00:00+00:00</lastmod>
+    <lastmod>2021-08-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://quakkels.com/tags/</loc>
+    <lastmod>2021-08-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/tags/tutorial/</loc>
+    <lastmod>2021-08-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/posts/202107_a_framework_is_an_implementation_detail/</loc>
     <lastmod>2021-07-31T00:00:00+00:00</lastmod>
   </url>
   
@@ -414,11 +424,6 @@
   
   <url>
     <loc>https://quakkels.com/posts/credit-card-processing-with-python/</loc>
-    <lastmod>2020-07-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://quakkels.com/tags/tutorial/</loc>
     <lastmod>2020-07-09T00:00:00+00:00</lastmod>
   </url>
   
