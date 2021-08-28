@@ -9,6 +9,18 @@ body {
     margin:0;
 }
 
+#sendComments {
+    padding-top: 36px;
+}
+#sendComments div {
+    color: #888;
+    font-size: 0.85em;
+    /*background: #f0dec6;*/
+    background: #fff6e9;
+    border: 1px dashed #f4dec6;
+    padding: 16px;
+}
+
 /* layout */
 .main {
     background: white;
