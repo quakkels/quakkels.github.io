@@ -3,22 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://quakkels.com/tags/book-club/</loc>
+    <lastmod>2021-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/posts/</loc>
+    <lastmod>2021-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/tags/</loc>
+    <lastmod>2021-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/posts/202108_the_pilgrims_courage/</loc>
+    <lastmod>2021-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://quakkels.com/tags/virtues/</loc>
+    <lastmod>2021-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://quakkels.com/posts/202108_develop_an_aspnetcore_site_on_linux/</loc>
     <lastmod>2021-08-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://quakkels.com/posts/</loc>
-    <lastmod>2021-08-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://quakkels.com/tags/programming/</loc>
-    <lastmod>2021-08-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://quakkels.com/tags/</loc>
     <lastmod>2021-08-21T00:00:00+00:00</lastmod>
   </url>
   

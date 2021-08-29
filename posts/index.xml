@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 29 Aug 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://quakkels.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Pilgrim&#39;s Courage</title>
+      <link>https://quakkels.com/posts/202108_the_pilgrims_courage/</link>
+      <pubDate>Sun, 29 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/posts/202108_the_pilgrims_courage/</guid>
+      <description>I don&amp;rsquo;t remember how old I was when I first read an abridged version of John Bunyan&amp;rsquo;s Christian allegory, The Pilgrim&amp;rsquo;s Progress. It&amp;rsquo;s a great book, and the abridged version (which I&amp;rsquo;ve unfortunately misplaced at some point) had great illustrations and was very approachable when I was a boy.
+John Bunyan lived in England during the 17th century. He witnessed civil war, plague, and he experienced religious persecution. He wrote the first part of The Pilgrim&amp;rsquo;s Progress while in prison for not following the Church of England.</description>
+    </item>
     
     <item>
       <title>Develop an ASP.NET Core Site on Linux</title>
