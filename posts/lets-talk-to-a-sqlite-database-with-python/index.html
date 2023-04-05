@@ -61,7 +61,7 @@
 <p>That will run the Python script. Though, nothing will happen until we put some code in there.</p>
 <h2 id="connecting-to-your-sqlite-database-from-python">Connecting to Your SQLite Database from Python</h2>
 <p>To perform CRUD functionality, first we need to establish a connection with the database, and then create what&rsquo;s known as a cursor which will allow us to execute commands.</p>
-<pre><code>import sqlite3
+<pre tabindex="0"><code>import sqlite3
 
 conn = sqlite3.connect('Blog.sqlite')
 cursor = conn.cursor()
@@ -79,7 +79,7 @@ conn.commit()
 <p>It&rsquo;s worth noting here, calling <code>cursor.execute()</code> will execute the command on the database. But, we need to commit any changes by calling conn.commit(). If we don&rsquo;t call conn.commit() before the connection is closed, then our changes will be undone as if they never happened.</p>
 <h2 id="reading-our-new-records">Reading Our New Records</h2>
 <p>Now that we have some data inserted into the database table, let&rsquo;s read it out.</p>
-<pre><code>cursor.execute('select * from Posts')
+<pre tabindex="0"><code>cursor.execute('select * from Posts')
 
 print('Current records: ')
 for row in cursor.fetchall():
@@ -87,7 +87,7 @@ for row in cursor.fetchall():
 </code></pre><p>We are using the same <code>cursor.execute()</code> method to run a select query on the table. Then we can print each row by using <code>cursor.fetchall()</code> in a for loop.</p>
 <h2 id="update-that-first-record">Update That First Record</h2>
 <p>Now, let&rsquo;s make some changes to the record we inserted first. This is when the <code>firstPostId</code> comes in handy.</p>
-<pre><code>cursor.execute('update Posts set Headline=?, Body=? where Id=?', ('This is my NEW Headline', 'This is the NEW body of my blog post.', firstPostId))
+<pre tabindex="0"><code>cursor.execute('update Posts set Headline=?, Body=? where Id=?', ('This is my NEW Headline', 'This is the NEW body of my blog post.', firstPostId))
 conn.commit()
 
 print('Records after update: ')

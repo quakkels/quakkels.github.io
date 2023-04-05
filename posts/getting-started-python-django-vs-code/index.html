@@ -65,38 +65,38 @@
 </ul>
 <h2 id="create-project">Create Project</h2>
 <p>Make the project directory and navigate inside.</p>
-<pre><code>&gt; mkdir django-project &amp;&amp; cd django-project
+<pre tabindex="0"><code>&gt; mkdir django-project &amp;&amp; cd django-project
 </code></pre><p>Create a Virtual Environment to isolate project specific dependencies.</p>
-<pre><code>&gt; python -m venv django-env
+<pre tabindex="0"><code>&gt; python -m venv django-env
 </code></pre><p>Activate the venv. (This is the Windows command.)</p>
-<pre><code>&gt; django-env\Scripts\activate.bat
+<pre tabindex="0"><code>&gt; django-env\Scripts\activate.bat
 </code></pre><blockquote>
 <p><strong>Note:</strong> Once inside an activated venv, you can leave it to work on other things by using the <code>deactivate</code> command.</p>
 </blockquote>
 <p>Install Django inside the active venv. (You don&rsquo;t want to install packages globally. Make sure that the venv is active.)</p>
-<pre><code>(django-env)&gt; pip install django
+<pre tabindex="0"><code>(django-env)&gt; pip install django
 </code></pre><p>Use <code>django-admin</code> to create the new Django application.</p>
-<pre><code>(django-env)&gt; django-admin startproject djangosite
+<pre tabindex="0"><code>(django-env)&gt; django-admin startproject djangosite
 </code></pre><p>That created a new folder called <code>djangosite</code> and it placed boilerplate files inside. <code>manage.py</code> is one of those files and it&rsquo;s what will used from now on to run Django commands.</p>
 <p>Run the development Django server from inside the site&rsquo;s folder.</p>
-<pre><code>(django-env)&gt; cd djangosite
+<pre tabindex="0"><code>(django-env)&gt; cd djangosite
 (django-env)&gt; python manage.py runserver
 </code></pre><p>Visit localhost:8000 to verify that it&rsquo;s working. Then exit the server with Ctrl+Break.</p>
 <p>When the Django server ran, Django automatically created a db.sqlite3 file in the project folder. <a href="https://docs.djangoproject.com/en/2.2/ref/settings/#databases" target="_blank" rel="noopener noreferrer">Read more about configuring different database backends</a>.</p>
 <p>Use VS Code to open the <code>django-project</code> folder that houses the virtual environment folder and the Django app folder. This can be done from the terminal, or manually inside VS Code.</p>
-<pre><code>&gt; code ..\. 
+<pre tabindex="0"><code>&gt; code ..\. 
 </code></pre><p>Open <code>djangosite\urls.py</code>. The imports for Django will probably be shown as missing modules because Django was installed in the venv and not globally. to fix this, press <code>ctrl+shift+p</code> then execute the command <code>Python: Select Interpretter</code>. Find <code>.\django-env\Scripts\python.exe</code> from the list and select it. Then VS Code will stop showing the Django imports as errors.</p>
 <blockquote>
 <p>For more VS Code information visit <a href="https://code.visualstudio.com/docs/python/python-tutorial" target="_blank" rel="noopener noreferrer">Getting Started with Python in VS Code</a>.</p>
 </blockquote>
 <h2 id="add-a-custom-django-view">Add a Custom Django View</h2>
 <p>To add a &lsquo;Hello World&rsquo; page, create a new file in <code>django-project\djangosite\djangosite</code> called <code>views.py</code>. Add the following code.</p>
-<pre><code>from django.http import HttpResponse
+<pre tabindex="0"><code>from django.http import HttpResponse
 
 def welcome(request):
   return HttpResponse(&quot;Hello, World!&quot;)
 </code></pre><p>To tell Django when to execute this welcome view, edit <code>urls.py</code> so it looks like this:</p>
-<pre><code>from django.contrib import admin
+<pre tabindex="0"><code>from django.contrib import admin
 from django.urls import path, re_path
 
 from .views import welcome
@@ -123,16 +123,16 @@ A migration will update the corresponding database table from previous versions 
 </blockquote>
 <h2 id="add-a-custom-django-model">Add a Custom Django Model</h2>
 <p>Show migrations</p>
-<pre><code>(django-env)&gt; python manage.py showmigrations
+<pre tabindex="0"><code>(django-env)&gt; python manage.py showmigrations
 </code></pre><p>Execute those migrations</p>
-<pre><code>(django-env)&gt; python manage.py migrate
+<pre tabindex="0"><code>(django-env)&gt; python manage.py migrate
 </code></pre><p>Now create a new Django app. For this example, it will handle the functionality for a contact form.</p>
-<pre><code>(django-env)&gt; python manage.py startapp contactform
+<pre tabindex="0"><code>(django-env)&gt; python manage.py startapp contactform
 </code></pre><p>Move into the new <code>contactform</code> directory and notice that Django has created a bunch of boilerplate code for us.</p>
-<pre><code>(django-env)&gt; cd contactform
+<pre tabindex="0"><code>(django-env)&gt; cd contactform
 (django-env)&gt; dir
 </code></pre><p>Add this new app to the Django site. Open <code>settings.py</code> in the <code>djangosite</code> folder, and add the <code>contactform</code> app to the list of installed apps. <code>INSTALLED_APPS</code> should look like this:</p>
-<pre><code>INSTALLED_APPS = [
+<pre tabindex="0"><code>INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -142,7 +142,7 @@ A migration will update the corresponding database table from previous versions 
     'contactform'
 ]
 </code></pre><p>Then, open the <code>models.py</code> file in the contact form app and add the class that will represent the contact form.</p>
-<pre><code>from django.db import models
+<pre tabindex="0"><code>from django.db import models
 
 class ContactForm(models.Model):
     HOW_DID_YOU_HEAR_ABOUT_US_CHOICES = (
@@ -160,32 +160,32 @@ class ContactForm(models.Model):
 <p>More information about Django models can be found <a href="https://docs.djangoproject.com/en/2.2/topics/db/models/" target="_blank" rel="noopener noreferrer">here</a>.</p>
 </blockquote>
 <p>After the model is saved, create the new migration script.</p>
-<pre><code>(django-env)&gt; python manage.py makemigrations
+<pre tabindex="0"><code>(django-env)&gt; python manage.py makemigrations
 </code></pre><p>Run the migration.</p>
-<pre><code>(django-env)&gt; python manage.py migrate
+<pre tabindex="0"><code>(django-env)&gt; python manage.py migrate
 </code></pre><blockquote>
 <p>If you&rsquo;re curious about what the SQLite database tables look like, you can download something like <a href="https://sqlitebrowser.org/dl/" target="_blank" rel="noopener noreferrer">DB Browser for SQLite</a>. Table names will be named after the model with the app name as the prefix. So the table for ContactForm will be called <code>contactform_contactform</code>.</p>
 </blockquote>
 <h2 id="register-custom-model-in-admin">Register Custom Model in Admin</h2>
 <p>To make contact form submissions available to be read by a site administrator, <code>ContactForm</code> needs to be registered in the admin area.</p>
 <p>Open <code>contactform\admin.py</code> and add this code to register the ContactForm model.</p>
-<pre><code>from django.contrib import admin
+<pre tabindex="0"><code>from django.contrib import admin
 from .models import ContactForm
 
 @admin.register(ContactForm)
 class ContactFormAdmin(admin.ModelAdmin):
     list_display = ('name', 'email')
 </code></pre><p>Create a super user for logging into the site&rsquo;s admin area.</p>
-<pre><code>(django-env)&gt; python manage.py createsuperuser
+<pre tabindex="0"><code>(django-env)&gt; python manage.py createsuperuser
 </code></pre><p>Now when the development server runs, you&rsquo;ll be able to view and edit ContactForms in the Admin area by navigating to localhost:8000/admin and using the new super user to log in.</p>
 <h2 id="create-a-custom-django-template">Create a Custom Django Template</h2>
 <p>Double check the terminal&rsquo;s working directory is the <code>contactform</code> folder inside of <code>djangosite</code>.</p>
-<pre><code>(django-env)&gt; pwd
+<pre tabindex="0"><code>(django-env)&gt; pwd
 </code></pre><p>Switch to <code>contactform</code> if it&rsquo;s not the working directory.</p>
 <p>Create a new folder for custom templates.</p>
-<pre><code>(django-env)&gt; mdkir templates
+<pre tabindex="0"><code>(django-env)&gt; mdkir templates
 </code></pre><p>In VS Code, create a file in the new templates folder called <code>contactform.html</code> for the contact form. Put the following code in the file for now.</p>
-<pre><code>&lt;!DOCTYPE html&gt;
+<pre tabindex="0"><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
       &lt;title&gt;Contact Form&lt;/title&gt;
@@ -195,14 +195,14 @@ class ContactFormAdmin(admin.ModelAdmin):
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre><p>Next, update <code>contactform\views.py</code> with this code.</p>
-<pre><code>from django.shortcuts import render
+<pre tabindex="0"><code>from django.shortcuts import render
 
 def contactform(request):
     return render(request, &quot;contactform.html&quot;)
 </code></pre><p>Notice that the <code>render()</code> function is used here instead of returning <code>HttpResponse()</code> directly like the &ldquo;Hello, World!&rdquo; view does. The <code>render()</code> function will use the template for the html.</p>
 <p>To make the template visible from the browser, we need to route requests to the view based on the URL.</p>
 <p>Use VS Code to create a <code>urls.py</code> file inside the <code>contactform</code> folder. Put this code inside it.</p>
-<pre><code>from django.urls import re_path
+<pre tabindex="0"><code>from django.urls import re_path
 
 from .views import contactform
 
@@ -211,7 +211,7 @@ urlpatterns = [
 ]
 </code></pre><p>The <code>re_path()</code> method uses a string as a regular expression. The <code>'contactform$'</code> ensures that it only matches on paths that end in <code>contactform</code>.</p>
 <p>Since <code>djangosite\urls.py</code> is what Django uses to route urls, it needs to be aware of the new <code>contactform\urls.py</code>. Update it with this code.</p>
-<pre><code>from django.contrib import admin
+<pre tabindex="0"><code>from django.contrib import admin
 from django.urls import path, re_path, include
 
 from .views import welcome
@@ -224,7 +224,7 @@ urlpatterns = [
 </code></pre><p><code>'^contactform/'</code> is a regular expression that makes sure matching paths begin with <code>contactform</code>. This is a prefix for everything in the contactform app. So the complete matching path will be <code>localhost:8000/contactform/contactform</code>. For more information read the <a href="https://docs.djangoproject.com/en/2.2/topics/http/urls/" target="_blank" rel="noopener noreferrer">Django documentation</a>.</p>
 <h1 id="create-a-form">Create a Form</h1>
 <p>Create a new file in <code>contactform</code> called <code>forms.py</code> and put this code in it.</p>
-<pre><code>from django.forms import ModelForm
+<pre tabindex="0"><code>from django.forms import ModelForm
 from .models import ContactForm
 
 class ContactFormForm(ModelForm):
@@ -235,7 +235,7 @@ class ContactFormForm(ModelForm):
 <p><em>It was at this time that I started regretting how the <code>ContactForm</code> model was named. To stick with Django conventions, this form class will be the name of the model with &ldquo;Form&rdquo; appended to it. Hence; <code>ContactFormForm</code>. Future me will not make this mistake.</em></p>
 </blockquote>
 <p>Update <code>contactform\views.py</code> so it will send the new form class as an object to the template.</p>
-<pre><code>from django.shortcuts import render
+<pre tabindex="0"><code>from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import ContactFormForm
 from .models import ContactForm
@@ -248,7 +248,7 @@ def contactform(request):
 
     return render(request, &quot;contactform.html&quot;, context)
 </code></pre><p>Update the <code>contactform.html</code> template to use the <code>form</code> object in the <code>context</code>.</p>
-<pre><code>&lt;!DOCTYPE html&gt;
+<pre tabindex="0"><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
       &lt;title&gt;Contact Form&lt;/title&gt;
@@ -265,7 +265,7 @@ def contactform(request):
 </code></pre><p>You can find more details about how to properly use templates <a href="https://docs.djangoproject.com/en/2.2/ref/templates/" target="_blank" rel="noopener noreferrer">here</a>. The code above has much room for improvement.</p>
 <p>Two things worth noting here are <code>{% csrf_token %}</code> and <code>{{ form }}</code>. The code for CSRF Token prevents this page from being vulnerable to cross site request forgery attacks. The <code>form</code> object is the <code>ContactFrom</code> model converted to HTML form elements via the <code>ModelForm</code> class.</p>
 <p>Update the view to accept and save a Contact Form submission.</p>
-<pre><code>from django.shortcuts import render, redirect
+<pre tabindex="0"><code>from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import ContactFormForm
 from .models import ContactForm

@@ -6,11 +6,7 @@
     <description>Recent content in Check Out My Projects on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://quakkels.com/projects/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://quakkels.com/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RSS Discovery Engine</title>
       <link>https://quakkels.com/projects/rss-discovery-engine/</link>

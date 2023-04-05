@@ -58,7 +58,7 @@
 <p>Vim&rsquo;s configuration can be customized with vimrc files. These files are scripts written in Vimscript. They run at initialization when Vim is opened. We can find out more information by using help commands inside Vim.</p>
 <p>First, open a Git Bash terminal and then open <code>vim</code>. Then, in <a href="https://www.howtoforge.com/vim-basics" target="_blank" rel="noopener noreferrer">command mode</a>, open the configuration help information with <code>:help vimrc</code>.</p>
 <p>At this point we can see where Vim will look for custom vimrc files.</p>
-<pre><code>  Places for your personal initializations:
+<pre tabindex="0"><code>  Places for your personal initializations:
     Unix            $HOME/.vimrc or $HOME/.vim/vimrc
     OS/2            $HOME/.vimrc, $HOME/vimfiles/vimrc
                     or $VIM/.vimrc (or _vimrc)
@@ -74,17 +74,17 @@
   $HOME/.vim/ directory ($HOME/vimfiles/ for MS-Windows). That makes it
   easy to copy it to another system.
 
-</code></pre><p>Don&rsquo;t be fooled. Since <a href="https://github.com/git/git/commit/df5218b4c30b2fa1ba0d1ada4166ad85bc83be26" target="_blank" rel="noopener noreferrer">Git Bash uses msys2</a> to imitate a Unixy/Linuxy style system, Vim running inside Git Bash will be following Unix&rsquo;s Conventions, rather than MS-Windows&rsquo;.</p>
+</code></pre><p>Don&rsquo;t be fooled. Since <a href="https://github.com/git/git/commit/df5218b4c30b2fa1ba0d1ada4166ad85bc83be26" target="_blank" rel="noopener noreferrer">Git Bash uses msys2</a> to imitate a Unixy/Linuxy style system, Vim running inside Git Bash will be following Unix&rsquo;s Conventions, rather than MS-Windows'.</p>
 <p>Also let&rsquo;s follow Vim&rsquo;s recommendation for using the <code>$HOME/.vim/</code> directory for configuration files.</p>
 <p>Make the directory:</p>
-<pre><code>$ mkdir $HOME/.vim
+<pre tabindex="0"><code>$ mkdir $HOME/.vim
 </code></pre><p>Then create the vimrc file:</p>
-<pre><code>$ touch $HOME/.vim/vimrc
+<pre tabindex="0"><code>$ touch $HOME/.vim/vimrc
 </code></pre><p>At this point, we have our empty initialization file for Vim. To make sure it&rsquo;s working, I&rsquo;ll add a command to turn on line numbering.</p>
 <p>Open the vimrc file using Vim:</p>
-<pre><code>$ vim $HOME/.vim/vimrc
+<pre tabindex="0"><code>$ vim $HOME/.vim/vimrc
 </code></pre><p>Then, enter Insert Mode by pressing <code>i</code> and enter three lines:</p>
-<pre><code>&quot; Custom Vim configuration
+<pre tabindex="0"><code>&quot; Custom Vim configuration
 
 set number
 </code></pre><p>Save these changes by pressing <code>esc</code> to leave Insert Mode and then enter <code>:wq</code> to write the changes and then quit Vim.</p>
@@ -95,9 +95,9 @@ set number
 <p>When I execute <code>:scriptnames</code> in Vim running in Git Bash, I see <code>/etc/vimrc</code> at the very top of the list. This makes sense since the <code>etc</code> folder is where Linux systems place a lot of their configuration. However, since this is in Windows, we need to figure out where the <code>etc</code> folder is. It&rsquo;s not in <code>C:\</code> nor in the <code>$HOME</code> directory. But, since Git Bash is mimicking a Linux system, we should be able to find it along with the other Git Bash files.</p>
 <p>Since I&rsquo;m running the 64 bit version of Git, I found the etc folder in <code>C:\Program Files\Git</code>.</p>
 <p>Inside Git Bash, we can get there with:</p>
-<pre><code>$ cd c\&quot;Program Files&quot;\Git\etc
+<pre tabindex="0"><code>$ cd c\&quot;Program Files&quot;\Git\etc
 </code></pre><p>Then, to take a quick peek at <code>vimrc</code> just execute:</p>
-<pre><code>$ cat vimrc
+<pre tabindex="0"><code>$ cat vimrc
 </code></pre><blockquote>
 <p><strong>Note:</strong> I would <em>not</em> recommend attempting to change anything in <code>etc</code>. Instead modify Vim&rsquo;s configuration using files in the <code>$HOME\.vim\</code> folder.</p>
 </blockquote>

@@ -49,14 +49,14 @@
 <p>Use these good naming principles and the programmers who follow us will be grateful.</p>
 <h2 id="use-names-that-show-intent">Use Names That Show Intent</h2>
 <p>Name things so that we can identify them. Consider the variable declared below.</p>
-<pre><code>DateTime z;
+<pre tabindex="0"><code>DateTime z;
 </code></pre><p>We can clearly see there is a variable. We can tell it&rsquo;s a <code>DateTime</code>. Though, we can&rsquo;t tell what it&rsquo;s used for from just the name. A programmer may try to add clarity be adding a few more keystrokes to the names.</p>
-<pre><code>DateTime login;
+<pre tabindex="0"><code>DateTime login;
 </code></pre><p>This improves readability somewhat. But it the programmer still isn&rsquo;t clear about what purpose this variable is intended to serve. The name could be further improved by adding more details.</p>
-<pre><code>DateTime lastLoginUtc;
+<pre tabindex="0"><code>DateTime lastLoginUtc;
 </code></pre><p>This is a better name because it communicates several things about the intent of the variable. It is intended to hold a UTC date representing the last time there was a login. The original name, <code>z</code>, communicated none of that intent. The program using <code>z</code> would have been harder to decipher.</p>
 <p>Here&rsquo;s a slightly more complex example.</p>
-<pre><code>public bool GetResult(Dictionary&lt;string, string&gt; a, string x, string y)
+<pre tabindex="0"><code>public bool GetResult(Dictionary&lt;string, string&gt; a, string x, string y)
 {
   if (!a.ContainsKey(x)) 
   {
@@ -66,7 +66,7 @@
   return compare(y, a[x]);
 }
 </code></pre><p>This isn&rsquo;t doing anything complex, but it&rsquo;s not obvious what&rsquo;s happening. See how much cleaner things get when meaningful names are applied.</p>
-<pre><code>public bool ValidatePassword(Dictionary&lt;string, string&gt; credentials, string username, string password)
+<pre tabindex="0"><code>public bool ValidatePassword(Dictionary&lt;string, string&gt; credentials, string username, string password)
 {
   if (!credentials.ContainsKey(username)) 
   {
@@ -95,7 +95,7 @@
 <p>— Clean Code by Robert C. Martin (pp. 24)</p>
 </blockquote>
 <p>I haven&rsquo;t yet decided whether I agree with avoiding member prefixes. Consider this class with member prefixes:</p>
-<pre><code>public class User
+<pre tabindex="0"><code>public class User
 {
   private string _username;
 
@@ -105,7 +105,7 @@
   }
 }
 </code></pre><p>And compare it to a version without the member prefix:</p>
-<pre><code>public class User
+<pre tabindex="0"><code>public class User
 {
   private string username;
 

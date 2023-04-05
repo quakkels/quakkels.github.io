@@ -90,21 +90,21 @@
 </ul>
 <p>So, now look in your router&rsquo;s connected devices to find your server&rsquo;s IP address on your network.</p>
 <p>Log in to your server from your main workstation via SSH:</p>
-<pre><code>$ ssh 192.168.1.11 -l quakkels
+<pre tabindex="0"><code>$ ssh 192.168.1.11 -l quakkels
 </code></pre><p>Use your server&rsquo;s local network IP address and your user&rsquo;s username in the command above.</p>
 <p>The next thing we need to do is install Samba on the server.</p>
 <h2 id="install-samba">Install Samba</h2>
 <p>I want to be able to access the media folder that&rsquo;s on my server from my laptop. I need Samba installed in Ubuntu to do that.</p>
-<pre><code>$ sudo apt-get install samba
+<pre tabindex="0"><code>$ sudo apt-get install samba
 </code></pre><p>Then add a user to Samba. I&rsquo;ll use the <code>quakkels</code> user.</p>
-<pre><code>$ sudo smbpasswd -a quakkels
+<pre tabindex="0"><code>$ sudo smbpasswd -a quakkels
 </code></pre><p>Then, create a folder to share.</p>
-<pre><code>$ cd ~
+<pre tabindex="0"><code>$ cd ~
 $ mkdir library
 </code></pre><p>Now, edit the configuration file with your preferred editor. I&rsquo;m using Nano.</p>
-<pre><code>sudo nano /etc/samba/smb.conf
+<pre tabindex="0"><code>sudo nano /etc/samba/smb.conf
 </code></pre><p>Scroll down to the end of the file and add these lines.</p>
-<pre><code>[library]
+<pre tabindex="0"><code>[library]
    path = /home/quakkels/library
    available = yes
    valid users = quakkels
@@ -115,17 +115,17 @@ $ mkdir library
 </code></pre><p>Replace <code>library</code> with the name of your own shared folder and <code>quakkels</code> with your own user.</p>
 <p>Save the file and exit the editor.</p>
 <p>Restart the smb daemon to apply the configuration changes.</p>
-<pre><code>sudo service smbd restart
+<pre tabindex="0"><code>sudo service smbd restart
 </code></pre><p>So at this point the share should be working and accessible on your network. Use Windows File Explorer to test it.</p>
 <p>I navigated to \media\library and logged in with the Samba user <code>quakkels</code> and placed a file. Test succeeded!</p>
 <p><img src="/images/plex03-samba-network-share.png" alt=""></p>
 <h1 id="install-the-plex-media-server">Install the Plex Media Server</h1>
 <p>Unfortunately, Plex is not available via <code>apt-get</code> in Ubuntu. But the Plex website does lay out a process for <a href="https://support.plex.tv/articles/200288586-installation/" target="_blank" rel="noopener noreferrer">installing the server on Linux</a>.</p>
 <p>Start by downloading the <code>.deb</code> file for Plex. I found the <code>.deb</code> file available here: <code>https://downloads.plex.tv/plex-media-server-new/1.16.5.1554-1e5ff713d/debian/plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb</code> and I&rsquo;ll be using that URL with <code>wget</code> in Ubuntu to download it directly to the server.</p>
-<pre><code>$ cd ~
+<pre tabindex="0"><code>$ cd ~
 $ wget https://downloads.plex.tv/plex-media-server-new/1.16.5.1554-1e5ff713d/debian/plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb
 </code></pre><p>Then, once the <code>.deb</code> packaged has finished downloading, we can install it with <code>dpkg</code>.</p>
-<pre><code>$ sudo dpkg -i plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb
+<pre tabindex="0"><code>$ sudo dpkg -i plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb
 </code></pre><p>Now you can navigate to the Plex web site from a computer on your network by going to <code>http://{your-servers-ip}:32400/web/</code>.</p>
 <p>Plex is now running. You can follow Plex documentation to add Plex repositories for future updates, and for adding your media to Plex libraries.</p>
 <p><img src="/images/plex04-web-site.png" alt=""></p>

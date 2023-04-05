@@ -50,7 +50,7 @@
 <h2 id="the-basics">The Basics</h2>
 <h3 id="nordvpn">NordVPN</h3>
 <p>VPN software is important for online privacy and security and NordVPN was my choice before switching to Linux. Thankfully, they have <a target="_blank" rel="noopener noreferrer" href="https://nordvpn.com/download/linux/">Linux</a> support as well.</p>
-<pre><code>wget -qnc https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
+<pre tabindex="0"><code>wget -qnc https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
 sudo dpkg -i ./nordvpn-release_1.0.0_all.deb
 sudo apt-get update
 sudo apt-get --assume-yes install nordvpn
@@ -58,32 +58,32 @@ rm nordvpn-release_1.0.0_all.deb
 </code></pre><p>Once installed, login to NordVPN with <code>nordvpn login</code>. If you want it to automatically connect when you start your computer you can run <code>nordvpn set autoconnect on</code>. Though be careful to exclude your local area network if you&rsquo;re trying to connect to other computers. Whitelist your LAN&rsquo;s IP range with <code>nordvpn whitelist add subnet 192.168.1.0/24</code>.</p>
 <h3 id="git">Git</h3>
 <p>No surprise here. I use <a target="_blank" rel="noopener noreferrer" href="https://git-scm.com/">Git</a> for blogging and side projects.</p>
-<pre><code>sudo apt-get install git
+<pre tabindex="0"><code>sudo apt-get install git
 </code></pre><h3 id="jq">jq</h3>
 <p>The <a target="_blank" rel="noopener noreferrer" href="https://stedolan.github.io/jq/">jq</a> command is a handy utility for parsing JSON in the terminal. I like to automate API testing with bash scripts using <code>jq</code> to parse the JSON response.</p>
-<pre><code>sudo apt-get install jq
+<pre tabindex="0"><code>sudo apt-get install jq
 </code></pre><h3 id="filezilla">Filezilla</h3>
 <p><a target="_blank" rel="noopener noreferrer" href="https://filezilla-project.org/">Filezilla</a> is my preferred FTP client.</p>
-<pre><code>sudo apt-get install filezilla
+<pre tabindex="0"><code>sudo apt-get install filezilla
 </code></pre><h3 id="tmux">Tmux</h3>
 <p>I like using the terminal as much as I can. And Tmux adds a ton of flexibility, through keybindings, to create, close, move, resize, and generally play with multiple terminal &ldquo;panes&rdquo;. So instead of having a bunch of terminal windows, and instead of having a bunch of tabs, I use <a target="_blank" rel="noopener noreferrer" href="https://github.com/tmux/tmux/wiki">Tmux</a>.</p>
-<pre><code>sudo apt-get install tmux
+<pre tabindex="0"><code>sudo apt-get install tmux
 </code></pre><h3 id="tree">Tree</h3>
 <p>The <code>ls</code> command is very handy, but sometimes I just want to see a tree structure including child directories. <a target="_blank" rel="noopener noreferrer" href="http://mama.indstate.edu/users/ice/tree/">Tree</a> offers that functionality and is pretty handy when I don&rsquo;t want to switch over to a windowed file browser.</p>
-<pre><code>sudo apt-get install tree
+<pre tabindex="0"><code>sudo apt-get install tree
 </code></pre><h3 id="direnv">direnv</h3>
 <p>The <a target="_blank" rel="noopener noreferrer" href="https://direnv.net/"><code>direnv</code></a> shell tool is for easily configuring environment variables that are specific to the folder you&rsquo;re currently working in. I came across it while reading <a target="_blank" rel="noopener noreferrer" href="https://interpreterbook.com/">Writing An Interpreter In Go</a>. The author of that book recommended it to manage Go environment configurations. It&rsquo;s been working great.</p>
-<pre><code>sudo apt-get install direnv
+<pre tabindex="0"><code>sudo apt-get install direnv
 </code></pre><h3 id="hugo">Hugo</h3>
 <p><a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a> is a static site generator that I use to manage this blog.</p>
-<pre><code>sudo apt-get install hugo
+<pre tabindex="0"><code>sudo apt-get install hugo
 </code></pre><h2 id="text-editing">Text Editing</h2>
 <h3 id="vim">Vim</h3>
 <p><a target="_blank" rel="noopener noreferrer" href="https://www.vim.org/">Vim</a> is a staple editor in the Linux community. And while there is fierce competition with other options, it&rsquo;s reputation is really solid among those who use it. I <a href="posts/configuring-vim-when-using-git-bash/">wrote about Vim before</a>, back when I was still using Windows for everything.</p>
-<pre><code>sudo apt-get install vim
+<pre tabindex="0"><code>sudo apt-get install vim
 </code></pre><h3 id="visual-studio-code">Visual Studio Code</h3>
 <p>I spend most of my time on my laptop working in <a target="_blank" rel="noopener noreferrer" href="https://code.visualstudio.com/">Visual Studio Code</a>. I use it for all my blogging and coding. While I&rsquo;m always on the lookout for something to take it&rsquo;s place, Visual Studio Code is essential to my projects.</p>
-<pre><code>wget -qnc https://go.microsoft.com/fwlink/?LinkID=760868 -O vscode.deb
+<pre tabindex="0"><code>wget -qnc https://go.microsoft.com/fwlink/?LinkID=760868 -O vscode.deb
 sudo apt install -y ./vscode.deb
 sudo apt-get update
 sudo apt-get --assume-yes install code
@@ -91,51 +91,51 @@ rm vscode.deb
 </code></pre><h2 id="graphics">Graphics</h2>
 <h3 id="pencil">Pencil</h3>
 <p>Alrighty, <a target="_blank" rel="noopener noreferrer" href="https://pencil.evolus.vn/">Pencil</a> is great. I love using this thing. It&rsquo;s a tool for designing layouts and user interfaces. I used to use Balsamiq, but Pencil&rsquo;s quality and user experience is very comparable. And it&rsquo;s available on Linux for free!</p>
-<pre><code>wget -qnc https://pencil.evolus.vn/dl/V3.1.0.ga/pencil_3.1.0.ga_amd64.deb -O pencil.deb
+<pre tabindex="0"><code>wget -qnc https://pencil.evolus.vn/dl/V3.1.0.ga/pencil_3.1.0.ga_amd64.deb -O pencil.deb
 sudo apt install -y ./pencil.deb
 sudo apt-get update
 sudo apt-get --assume-yes install pencil
 rm pencil.deb
 </code></pre><h3 id="inkscape">Inkscape</h3>
 <p><a target="_blank" rel="noopener noreferrer" href="https://inkscape.org/">Inkscape</a> is a high quality vector graphics editor. There is a learning curve to it. And if you&rsquo;re coming from a background using Illustrator, then you&rsquo;ll need to re-learn how to do some things. I would frequently use Illustrator back when I professionally did graphics and logo design work. And considering that experience, I have no reservations recommending Inkscape for new projects.</p>
-<pre><code>sudo add-apt-repository -y ppa:inkscape.dev/stable
+<pre tabindex="0"><code>sudo add-apt-repository -y ppa:inkscape.dev/stable
 sudo apt update
 sudo apt install -y inkscape
 </code></pre><h2 id="video">Video</h2>
 <h3 id="handbrake">HandBrake</h3>
 <p><a target="_blank" rel="noopener noreferrer" href="https://handbrake.fr/">HandBrake</a> is a video transcoder. It will do a pretty good job of taking a video file and converting it to another format. It also lets you tweak compression and quality levels.</p>
-<pre><code>sudo add-apt-repository ppa:stebbins/handbrake-releases -y
+<pre tabindex="0"><code>sudo add-apt-repository ppa:stebbins/handbrake-releases -y
 sudo apt-get update
 sudo apt-get install -y handbrake-gtk
 sudo apt-get install -y handbrake-cli
 </code></pre><h3 id="cheese">Cheese</h3>
 <p>One of the things that my copy of Linux Mint was missing out of the box was a way to take pictures and video recordings using my laptop&rsquo;s camera. <a target="_blank" rel="noopener noreferrer" href="https://wiki.gnome.org/Apps/Cheese">Cheese</a> is a snappy little program that provides that functionality.</p>
-<pre><code>sudo apt-get install cheese
+<pre tabindex="0"><code>sudo apt-get install cheese
 </code></pre><h3 id="kdenlive">Kdenlive</h3>
 <p>I like to do a very small amount of video editing. I primarily just edit small clips of my personal records for my <a href="training_log">training log</a>. I paid for a video editing tool that I used on Windows. But</p>
 <ul>
 <li><a target="_blank" rel="noopener noreferrer" href="https://kdenlive.org">Kdenlive</a> is a free, and one of the most popular, video editing tools available on Linux.</li>
 </ul>
-<pre><code>sudo apt-get install kdenlive
+<pre tabindex="0"><code>sudo apt-get install kdenlive
 </code></pre><h3 id="youtube-dl">Youtube-dl</h3>
 <p><a target="_blank" rel="noopener noreferrer" href="https://youtube-dl.org/">Youtube-dl</a> is a tool to download clips off of YouTube. I used it recently grab a couple small clips for my post about <a href="posts/developing-strength-of-character/">building strength of character</a>.</p>
-<pre><code>sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+<pre tabindex="0"><code>sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
 </code></pre><p>Since YouTube is constantly changing their website, Youtube-dl needs to be kept as up-to-date as possible in order to work. So, once it&rsquo;s installed, be sure to open a new terminal and run <code>youtube-dl -U</code> to update it.</p>
 <p>Also, I had some issues getting this running. I think the fix was to make sure that Python, specifically a <code>python</code> command, was installed.</p>
 <h2 id="programming">Programming</h2>
 <h3 id="python-3">Python 3</h3>
 <p>I like my <a target="_blank" rel="noopener noreferrer" href="https://www.python.org/">Python</a> with <a target="_blank" rel="noopener noreferrer" href="https://pypi.org/project/pip/">PIP</a> and <a target="_blank" rel="noopener noreferrer" href="https://pipenv.pypa.io/">Pipenv</a>.</p>
-<pre><code>sudo apt-get install python3
+<pre tabindex="0"><code>sudo apt-get install python3
 sudo apt-get --assume-yes install python3-pip
 pip3 install --user pipenv
 </code></pre><h3 id="javascript">JavaScript</h3>
 <p>I like my JavaScript with <a target="_blank" rel="noopener noreferrer" href="https://nodejs.org">Node</a> and <a target="_blank" rel="noopener noreferrer" href="https://www.npmjs.com/">NPM</a>.</p>
-<pre><code>sudo apt-get install nodejs
+<pre tabindex="0"><code>sudo apt-get install nodejs
 sudo apt-get install npm
 </code></pre><h3 id="go-golang">Go (Golang)</h3>
 <p><a target="_blank" rel="noopener noreferrer" href="https://golang.org/">Go</a> isn&rsquo;t quite as straightforward to set up as the previous two. But it&rsquo;s not too bad.</p>
-<pre><code>sudo add-apt-repository ppa:longsleep/golang-backports --yes
+<pre tabindex="0"><code>sudo add-apt-repository ppa:longsleep/golang-backports --yes
 sudo apt-get --assume-yes update
 sudo apt-get --assume-yes install golang-go
 mkdir -p ~/go/{bin,pkg,src}

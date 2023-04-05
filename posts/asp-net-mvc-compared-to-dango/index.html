@@ -75,7 +75,7 @@ is to Python as ASP.NET MVC is to C#. I was surprised to find that out. My first
 <table>
 <thead>
 <tr>
-<th align="right"></th>
+<th style="text-align:right"></th>
 <th>Model</th>
 <th>View</th>
 <th>Controller</th>
@@ -83,13 +83,13 @@ is to Python as ASP.NET MVC is to C#. I was surprised to find that out. My first
 </thead>
 <tbody>
 <tr>
-<td align="right"><strong>ASP.NET MVC Term</strong></td>
+<td style="text-align:right"><strong>ASP.NET MVC Term</strong></td>
 <td>Model</td>
 <td>View</td>
 <td>Controller</td>
 </tr>
 <tr>
-<td align="right"><strong>Django Term</strong></td>
+<td style="text-align:right"><strong>Django Term</strong></td>
 <td>Model</td>
 <td>Template</td>
 <td>View</td>
@@ -100,10 +100,10 @@ is to Python as ASP.NET MVC is to C#. I was surprised to find that out. My first
 <p>When I think of Views in MVC, I think of the presentation layer which consists of markup, CSS, JavaScript, and some server-side scripting for basic display logic. That’s not what Views are in Django. Rather, Django’s Views do the equivalent job of the Controller in ASP.NET MVC.
 Templates are the Real Views</p>
 <p>ASP.NET MVC uses the term &lsquo;View&rsquo; to describe their presentation layer. HTML markup, css styles and JavaScript come together in a View file with help from Razor. Razor is very powerful and it is easy to pick up because it allows C# syntax directly in the view file to render a complete webpage. In my experience, this can also lead to an unbalanced View that has too much logic embedded in the View file instead of in the controller.</p>
-<p>Django uses the term “Template&rsquo; to describe their presentation layer. It also brings HTML markup, css styles, and JavaScript together. Though, it uses it’s own template rendering system. Whereas ASP.NET has the power of Razor that leverages C# syntax, Django’s template rendering syntax is unique, and it introduces a steeper learning curve than Razor.</p>
+<p>Django uses the term “Template' to describe their presentation layer. It also brings HTML markup, css styles, and JavaScript together. Though, it uses it’s own template rendering system. Whereas ASP.NET has the power of Razor that leverages C# syntax, Django’s template rendering syntax is unique, and it introduces a steeper learning curve than Razor.</p>
 <h2 id="if-youre-looking-for-partial-views-in-django">If You’re Looking for Partial Views in Django&hellip;</h2>
 <p>&hellip;You’re probably not going to find them. There is nothing called &ldquo;Partial Template&rdquo; in Django, though you can accomplish similar functionality.</p>
-<p>Let’s say you have a data driven navigation bar that you want to display on all your template pages. You don’t want to write all your views to explicitly query that data, create the nav object for the template, and then have the navigation markup located in each template. Rather, you would like to just have located in your template file a reference to a &ldquo;Partial View&rsquo; which would do all that for you and it is independent of View-specific processes. In ASP.NET, this can be accomplished with Partial Views. In Django, this can be accomplished with Template Tags. It seems to me to be more cumbersome than a Partial View concept, but that could just be because I am still relatively new to the Django framework.
+<p>Let’s say you have a data driven navigation bar that you want to display on all your template pages. You don’t want to write all your views to explicitly query that data, create the nav object for the template, and then have the navigation markup located in each template. Rather, you would like to just have located in your template file a reference to a &ldquo;Partial View' which would do all that for you and it is independent of View-specific processes. In ASP.NET, this can be accomplished with Partial Views. In Django, this can be accomplished with Template Tags. It seems to me to be more cumbersome than a Partial View concept, but that could just be because I am still relatively new to the Django framework.
 Models are Pretty Much What You Would Expect</p>
 <p>Django has its own built in ORM. This allows you to define database tables, fields, validation, and relationships using Python classes. When you make changes to you Model’s classes, Django provides a simple command to sync the database:</p>
 <pre><code>$ python manage.py syncdb

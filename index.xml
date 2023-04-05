@@ -6,7 +6,26 @@
     <description>Recent content on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 Jan 2017 14:36:35 -0600</lastBuildDate><atom:link href="https://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Two Foundational Principles for Dialogue</title>
+      <link>https://quakkels.com/posts/202304_essentials_for_healthy_conversation/</link>
+      <pubDate>Wed, 05 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/posts/202304_essentials_for_healthy_conversation/</guid>
+      <description>&lt;p&gt;There are two non-negotiable beliefs that are essential to healthy dialogue.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;There is such a thing as truth.&lt;/li&gt;
+&lt;li&gt;The truth is available to every reasonable person.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A healthy dialogue happens when opposing viewpoints articulate and evaluate arguments in a search for the truth.&lt;/p&gt;
+&lt;p&gt;Participants in dialogue must agree that truth exists. If there isn&amp;rsquo;t agreement that truth exists, then they are engaged in a futile exercise. It&amp;rsquo;s literally pointless. If a person thinks that the truth changes depending on perspectives then you can safely exit the conversation without worry of missing any opportunities to find the truth. Life is too short. It&amp;rsquo;s okay to skip that conversation because it&amp;rsquo;s not grounded in reality. Actual truth doesn&amp;rsquo;t change based on who&amp;rsquo;s paying attention. If a tree falls in the forest and a person is around and hears it, then it would&amp;rsquo;ve made that same noise if no one was there. Truth exists.&lt;/p&gt;
+&lt;p&gt;People might find truth offensive. People might not accept the possibility that their opinions are wrong. If you engage with such a person and claim that truth exists, be prepared for unhinged and irrational tantrums.&lt;/p&gt;
+&lt;p&gt;Participants in dialogue must agree that the truth is available to every reasonable person. This is important because people try to tell us that a man cannot comment on women&amp;rsquo;s issues, and people of one race can&amp;rsquo;t comment on people of another race. If you&amp;rsquo;re engaged in dialogue with someone who ignores the validity of your argument and instead doesn&amp;rsquo;t even consider it because you&amp;rsquo;re the wrong sex or race, then you&amp;rsquo;re in an unhealthy dialogue. Who you are and where you come from doesn&amp;rsquo;t change what you are capable of knowing about reality. Truth is available.&lt;/p&gt;
+&lt;p&gt;Be warned. If you enter a dialogue, whether it be online, in person, pen pals, chain letters, whatever—if you&amp;rsquo;re engaged with a person who doesn&amp;rsquo;t believe these things then you&amp;rsquo;re in for a rough time. If they&amp;rsquo;re not willing to grow their understanding about the nature of truth, then it&amp;rsquo;s your best bet to pray for them, and kindly exit the conversation.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>The Pilgrim&#39;s Courage</title>
       <link>https://quakkels.com/posts/202108_the_pilgrims_courage/</link>
@@ -45,7 +64,7 @@
       <guid>https://quakkels.com/posts/202108_develop_an_aspnetcore_site_on_linux/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/dotnetOnLinux/csharp_dotnetcore_linux.png&#34; alt=&#34;C#, Dotnet Core, and Linux&#34;&gt;&lt;/p&gt;
 &lt;p&gt;There&amp;rsquo;s no doubt about it, C# is my favorite language. It breaks my heart whenever anyone points out that it&amp;rsquo;s basically just Java. (Looking at you, Robert C. Martin.) Though it may be inspired and even derived from Java, I much prefer the C# and .NET ecosystem. I&amp;rsquo;m sure familiarity plays a large part in my preference for it, as well as some old-fashioned nostalgia, and perhaps even a simple convenience factor. Even so, C# is a powerful tool that shouldn&amp;rsquo;t be dismissed lightly. The power doesn&amp;rsquo;t just come from the language. It also comes from the frameworks, libraries, and documentation.&lt;/p&gt;
-&lt;p&gt;I also like running open source software. My preference for open source software has led me to use Linux on all my personal computers. Windows is a powerful tool that shouldn&amp;rsquo;t be dismissed lightly. But, I&amp;rsquo;ve decided that running a transparent operating system like Linux is more important to me than Windows features. For most of C#&amp;lsquo;s existence, it only ran on Windows systems. Given the comparisons between C# and Java, Java was clearly beating C# in cross platform compatibility. Mono blazed a trail for C# development on non Windows platforms, but there were a fair number of compatibility issues. That is, until Microsoft &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://devblogs.microsoft.com/dotnet/the-next-generation-of-net-asp-net-vnext/&#34;&gt;announced in 2014&lt;/a&gt; that ASP.NET &amp;ldquo;vNext&amp;rdquo; would be Mono compatible, and it would be open source.&lt;/p&gt;
+&lt;p&gt;I also like running open source software. My preference for open source software has led me to use Linux on all my personal computers. Windows is a powerful tool that shouldn&amp;rsquo;t be dismissed lightly. But, I&amp;rsquo;ve decided that running a transparent operating system like Linux is more important to me than Windows features. For most of C#&amp;rsquo;s existence, it only ran on Windows systems. Given the comparisons between C# and Java, Java was clearly beating C# in cross platform compatibility. Mono blazed a trail for C# development on non Windows platforms, but there were a fair number of compatibility issues. That is, until Microsoft &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://devblogs.microsoft.com/dotnet/the-next-generation-of-net-asp-net-vnext/&#34;&gt;announced in 2014&lt;/a&gt; that ASP.NET &amp;ldquo;vNext&amp;rdquo; would be Mono compatible, and it would be open source.&lt;/p&gt;
 &lt;p&gt;Now we&amp;rsquo;re several years removed from that announcement, and there have been a ton of growing pains. But ASP.NET Core is open source, it&amp;rsquo;s cross platform, and it&amp;rsquo;s proven to be a workhorse. It&amp;rsquo;s the first tool I want to grab when starting a new project.&lt;/p&gt;
 &lt;p&gt;So that&amp;rsquo;s why I&amp;rsquo;m writing this blog post. If you&amp;rsquo;re a bit of an idealist, like I am, and you want to run open source software while still leveraging the powerful C# development ecosystem, then this should give a quick glimpse into what it&amp;rsquo;s like to develop C# websites on Linux.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ll cover three things:&lt;/p&gt;
@@ -62,35 +81,35 @@
 &lt;p&gt;Using the &lt;code&gt;dotnet&lt;/code&gt; CLI we&amp;rsquo;ll create a multiple project Solution. It is common for multiple .NET Projects can be associated in a single Solution file. This allows a formal organization for multiple related projects. With a Solution (SLN file) we can designate that a web project and a business domain project are related and meant to exist together. And when they&amp;rsquo;re defined that way, they can be managed together as a single unit instead of as completely separate projects. (For this example, we&amp;rsquo;ll forgo creating a unit testing project. But remember, if this were a real project then you should unit test the code that needs to work.)&lt;/p&gt;
 &lt;p&gt;In a terminal, navigate to a directory where the new .NET Solution will be created. I used my user&amp;rsquo;s home folder (&lt;code&gt;/home/quakkels/&lt;/code&gt;.)&lt;/p&gt;
 &lt;p&gt;Create a new directory for the Solution, and change directories into it.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mkdir DotnetSolution
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mkdir DotnetSolution
 cd DotnetSolution
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now we can use the &lt;code&gt;dotnet&lt;/code&gt; CLI command to start. We can first list out all the templates that &lt;code&gt;dotnet&lt;/code&gt; can create for us from &lt;code&gt;new&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;dotnet new --list
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;dotnet new --list
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In the results of the &lt;code&gt;--list&lt;/code&gt; flag we can validate that there&amp;rsquo;s an option to create a Solution File (SLN for short.)&lt;/p&gt;
 &lt;p&gt;Create a Solution file. For consistency, I recommend naming it to match the solution folder.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;dotnet new sln --name DotnetSolution
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;dotnet new sln --name DotnetSolution
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then if you&amp;rsquo;re curious, take a peek at the contents of the new SLN file.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cat DotnetSolution.sln
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cat DotnetSolution.sln
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So far it&amp;rsquo;s just full of a bunch of generic boilerplate. But that will change as we add Dotnet projects to it.&lt;/p&gt;
 &lt;p&gt;Create a dotnet web project.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;dotnet new web --name DotnetSolution.Web
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;dotnet new web --name DotnetSolution.Web
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you list the current directories contents with &lt;code&gt;ls&lt;/code&gt;, you should see the SLN file and the new DotnetSolution.Web folder.&lt;/p&gt;
 &lt;p&gt;Now add a class library project to handle all the behaviors that aren&amp;rsquo;t specific to the web.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;dotnet new classlib --name DotnetSolution.Behaviors
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;dotnet new classlib --name DotnetSolution.Behaviors
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now that we have these projects, we need to add them to the SLN file. The &lt;code&gt;dotnet&lt;/code&gt; CLI makes a &lt;code&gt;sln&lt;/code&gt; command available so we don&amp;rsquo;t have to manage the contents of that file by hand.&lt;/p&gt;
 &lt;p&gt;Add both projects to the Solution.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;dotnet sln add ./DotnetSolution.Web/DotnetSolution.Web.csproj
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;dotnet sln add ./DotnetSolution.Web/DotnetSolution.Web.csproj
 dotnet sln add ./DotnetSolution.Behaviors/DotnetSolution.Behaviors.csproj
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We can verify the Solution has the projects by running:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;dotnet sln list
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;dotnet sln list
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The benefit of having these projects in a Solution is that we can execute commands on the Solution which will affect both projects as a unit. That&amp;rsquo;s better than needing to run the same commands multiple times, once for each project. Some commands available are &lt;code&gt;dotnet clean&lt;/code&gt;, &lt;code&gt;dotnet restore&lt;/code&gt;, &lt;code&gt;dotnet build&lt;/code&gt;, and if we had a unit test project we could run &lt;code&gt;dotnet test&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;To make sure the web project is working, use &lt;code&gt;dotnet&lt;/code&gt; to run the web project.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;dotnet run --project ./DotnetSolution.Web/
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;dotnet run --project ./DotnetSolution.Web/
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You will be able to navigate to the website using https://localhost:5001. But, your browser will tell you the SSL certificate can&amp;rsquo;t be trusted. Microsoft and aspdotnet core 5 automatically configure new websites to use HTTPS, even for local development. So you can either just tell your browser to proceed to the website, since you know it&amp;rsquo;s safe. Or, you can go through the &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetcore-5.0&amp;tabs=visual-studio#ssl-linux&#34;&gt;steps to trust the dev certificate&lt;/a&gt;. The unfortunate truth of it is: this is a bad dev experience on Linux. There is a command to create dev certs: &lt;code&gt;dotnet dev-certs https -v&lt;/code&gt;. And, there&amp;rsquo;s a command to trust the dev cert: &lt;code&gt;dotnet dev-certs https --trust&lt;/code&gt;, but it&amp;rsquo;s only supported on Mac and Windows. If you run it in Linux, you&amp;rsquo;re given a URL to follow to manually trust development certificates. The simplest way to proceed, for now, is to add a certificate exception to your browser.&lt;/p&gt;
-&lt;p&gt;After navigating to https://localhost:5001, verify that you see &amp;ldquo;Hello World!&amp;quot;. Then shut down the server by cancelling the process with &lt;code&gt;Ctrl + C&lt;/code&gt; in the terminal.&lt;/p&gt;
+&lt;p&gt;After navigating to https://localhost:5001, verify that you see &amp;ldquo;Hello World!&amp;rdquo;. Then shut down the server by cancelling the process with &lt;code&gt;Ctrl + C&lt;/code&gt; in the terminal.&lt;/p&gt;
 &lt;h2 id=&#34;use-the-debugger-and-intellisense-in-vs-code&#34;&gt;Use the Debugger and Intellisense in VS Code&lt;/h2&gt;
 &lt;p&gt;Next, we need to set up debugging in Visual Studio Code. Open the DotnetSolution directory in VS Code. It&amp;rsquo;s very quick to use the following command in the terminal that&amp;rsquo;s in the DotnetSolution folder.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;code .
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;code .
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;VS Code will probably ask you to install recommended extensions for C#. Go ahead and install extensions. If it doesn&amp;rsquo;t ask, then go to the Extensions tab and install the C# extension by Microsoft. After the extension is installed, I recommend closing VS Code and starting it up again using the same &lt;code&gt;code .&lt;/code&gt; command in the DotnetSolution folder.&lt;/p&gt;
 &lt;p&gt;After opening the DotnetSolution folder in VS Code, you should see a popup asking you to add assets for running and debugging.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/dotnetOnLinux/vscode_run_and_debug.png&#34; alt=&#34;Run and debug dialog&#34;&gt;&lt;/p&gt;
@@ -111,7 +130,7 @@ dotnet sln add ./DotnetSolution.Behaviors/DotnetSolution.Behaviors.csproj
 &lt;p&gt;So far, we&amp;rsquo;ve just installed tools, created a solution with those tools, and configured the development environment. Now, let&amp;rsquo;s do some actual programming in the DotnetSolution.Behaviors and then let&amp;rsquo;s add a project reference so we can use DotnetSolution.Behaviors in the website.&lt;/p&gt;
 &lt;p&gt;The website currently just prints &amp;ldquo;Hello World!&amp;rdquo; and that&amp;rsquo;s it. Instead of a generic message like that, I want it to tell me a random joke. The joke delivery mechanism isn&amp;rsquo;t specific to the website. It just delivers a joke. It could be delivering a joke to a console app, to a database, or any other type of application. So, the fact that the joke will be displayed in a website is an implementation detail. We&amp;rsquo;ll keep the implementation details separate by putting the joke behaviors in the DotnetSolution.Behaviors class library.&lt;/p&gt;
 &lt;p&gt;Using VS Code, in the DotnetSolution.Behaviors project, rename &lt;code&gt;Class1.cs&lt;/code&gt; to &lt;code&gt;JokeRepository.cs&lt;/code&gt; and put the following code in it:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;using System;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;using System;
 
 namespace DotnetSolution.Behaviors
 {
@@ -137,14 +156,14 @@ namespace DotnetSolution.Behaviors
 &lt;p&gt;&lt;em&gt;If you don&amp;rsquo;t see syntax and error highlighting, then you may need to restart VS Code, since the Omnisharp server in the C# extension may have shut down for some reason.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Now, open up &lt;code&gt;Startup.cs&lt;/code&gt; in the DotnetSolution.Web project so we can display jokes instead of the &amp;ldquo;Hello World!&amp;rdquo; message.&lt;/p&gt;
 &lt;p&gt;Find this line:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;await context.Response.WriteAsync(&amp;quot;Hello World!&amp;quot;);
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;await context.Response.WriteAsync(&amp;quot;Hello World!&amp;quot;);
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And replace it with this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;await context.Response.WriteAsync(JokeRepository.GetRandomJoke());
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;await context.Response.WriteAsync(JokeRepository.GetRandomJoke());
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now, if the C# extension is working correctly, you should see error highlighting on that line, and if you hover your mouse over it, you&amp;rsquo;ll see this message:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/dotnetOnLinux/vscode_cant_find_jokerepository.png&#34; alt=&#34;Can&amp;rsquo;t find JokeRepository&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Even though DotnetSolution.Behaviors is in the same Solution as DotnetSolution.Web, the web project doesn&amp;rsquo;t have a reference to the behaviors project yet.&lt;/p&gt;
 &lt;p&gt;So, making sure you&amp;rsquo;re terminal is working in the DotnetSolution folder, run this command to add a project reference.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;dotnet add DotnetSolution.Web/ reference DotnetSolution.Behaviors/
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;dotnet add DotnetSolution.Web/ reference DotnetSolution.Behaviors/
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now if you place your cursor on the error highlighted &lt;code&gt;JokeRespository&lt;/code&gt; in code, and press &lt;code&gt;ctrl+.&lt;/code&gt; then you&amp;rsquo;ll be given the option to add a &lt;code&gt;using&lt;/code&gt; statement for &lt;code&gt;DotnetSolution.Behaviors&lt;/code&gt;. Go ahead and add it to the file, and the errors will go away.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/dotnetOnLinux/vscode_using_package.png&#34; alt=&#34;Add using example&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Once the errors are gone, run the site again. You can either launch it with VS Code, or with the &lt;code&gt;dotnet run --project ./DotnetSolution.Web/&lt;/code&gt;&lt;/p&gt;
@@ -289,7 +308,7 @@ namespace DotnetSolution.Behaviors
 &lt;h2 id=&#34;the-basics&#34;&gt;The Basics&lt;/h2&gt;
 &lt;h3 id=&#34;nordvpn&#34;&gt;NordVPN&lt;/h3&gt;
 &lt;p&gt;VPN software is important for online privacy and security and NordVPN was my choice before switching to Linux. Thankfully, they have &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://nordvpn.com/download/linux/&#34;&gt;Linux&lt;/a&gt; support as well.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;wget -qnc https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;wget -qnc https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
 sudo dpkg -i ./nordvpn-release_1.0.0_all.deb
 sudo apt-get update
 sudo apt-get --assume-yes install nordvpn
@@ -297,32 +316,32 @@ rm nordvpn-release_1.0.0_all.deb
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Once installed, login to NordVPN with &lt;code&gt;nordvpn login&lt;/code&gt;. If you want it to automatically connect when you start your computer you can run &lt;code&gt;nordvpn set autoconnect on&lt;/code&gt;. Though be careful to exclude your local area network if you&amp;rsquo;re trying to connect to other computers. Whitelist your LAN&amp;rsquo;s IP range with &lt;code&gt;nordvpn whitelist add subnet 192.168.1.0/24&lt;/code&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;git&#34;&gt;Git&lt;/h3&gt;
 &lt;p&gt;No surprise here. I use &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://git-scm.com/&#34;&gt;Git&lt;/a&gt; for blogging and side projects.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install git
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install git
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;jq&#34;&gt;jq&lt;/h3&gt;
 &lt;p&gt;The &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://stedolan.github.io/jq/&#34;&gt;jq&lt;/a&gt; command is a handy utility for parsing JSON in the terminal. I like to automate API testing with bash scripts using &lt;code&gt;jq&lt;/code&gt; to parse the JSON response.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install jq
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install jq
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;filezilla&#34;&gt;Filezilla&lt;/h3&gt;
 &lt;p&gt;&lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://filezilla-project.org/&#34;&gt;Filezilla&lt;/a&gt; is my preferred FTP client.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install filezilla
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install filezilla
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;tmux&#34;&gt;Tmux&lt;/h3&gt;
 &lt;p&gt;I like using the terminal as much as I can. And Tmux adds a ton of flexibility, through keybindings, to create, close, move, resize, and generally play with multiple terminal &amp;ldquo;panes&amp;rdquo;. So instead of having a bunch of terminal windows, and instead of having a bunch of tabs, I use &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://github.com/tmux/tmux/wiki&#34;&gt;Tmux&lt;/a&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install tmux
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install tmux
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;tree&#34;&gt;Tree&lt;/h3&gt;
 &lt;p&gt;The &lt;code&gt;ls&lt;/code&gt; command is very handy, but sometimes I just want to see a tree structure including child directories. &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;http://mama.indstate.edu/users/ice/tree/&#34;&gt;Tree&lt;/a&gt; offers that functionality and is pretty handy when I don&amp;rsquo;t want to switch over to a windowed file browser.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install tree
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install tree
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;direnv&#34;&gt;direnv&lt;/h3&gt;
 &lt;p&gt;The &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://direnv.net/&#34;&gt;&lt;code&gt;direnv&lt;/code&gt;&lt;/a&gt; shell tool is for easily configuring environment variables that are specific to the folder you&amp;rsquo;re currently working in. I came across it while reading &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://interpreterbook.com/&#34;&gt;Writing An Interpreter In Go&lt;/a&gt;. The author of that book recommended it to manage Go environment configurations. It&amp;rsquo;s been working great.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install direnv
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install direnv
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;hugo&#34;&gt;Hugo&lt;/h3&gt;
 &lt;p&gt;&lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; is a static site generator that I use to manage this blog.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install hugo
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install hugo
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;text-editing&#34;&gt;Text Editing&lt;/h2&gt;
 &lt;h3 id=&#34;vim&#34;&gt;Vim&lt;/h3&gt;
 &lt;p&gt;&lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://www.vim.org/&#34;&gt;Vim&lt;/a&gt; is a staple editor in the Linux community. And while there is fierce competition with other options, it&amp;rsquo;s reputation is really solid among those who use it. I &lt;a href=&#34;posts/configuring-vim-when-using-git-bash/&#34;&gt;wrote about Vim before&lt;/a&gt;, back when I was still using Windows for everything.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install vim
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install vim
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;visual-studio-code&#34;&gt;Visual Studio Code&lt;/h3&gt;
 &lt;p&gt;I spend most of my time on my laptop working in &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;. I use it for all my blogging and coding. While I&amp;rsquo;m always on the lookout for something to take it&amp;rsquo;s place, Visual Studio Code is essential to my projects.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;wget -qnc https://go.microsoft.com/fwlink/?LinkID=760868 -O vscode.deb
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;wget -qnc https://go.microsoft.com/fwlink/?LinkID=760868 -O vscode.deb
 sudo apt install -y ./vscode.deb
 sudo apt-get update
 sudo apt-get --assume-yes install code
@@ -330,51 +349,51 @@ rm vscode.deb
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;graphics&#34;&gt;Graphics&lt;/h2&gt;
 &lt;h3 id=&#34;pencil&#34;&gt;Pencil&lt;/h3&gt;
 &lt;p&gt;Alrighty, &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://pencil.evolus.vn/&#34;&gt;Pencil&lt;/a&gt; is great. I love using this thing. It&amp;rsquo;s a tool for designing layouts and user interfaces. I used to use Balsamiq, but Pencil&amp;rsquo;s quality and user experience is very comparable. And it&amp;rsquo;s available on Linux for free!&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;wget -qnc https://pencil.evolus.vn/dl/V3.1.0.ga/pencil_3.1.0.ga_amd64.deb -O pencil.deb
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;wget -qnc https://pencil.evolus.vn/dl/V3.1.0.ga/pencil_3.1.0.ga_amd64.deb -O pencil.deb
 sudo apt install -y ./pencil.deb
 sudo apt-get update
 sudo apt-get --assume-yes install pencil
 rm pencil.deb
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;inkscape&#34;&gt;Inkscape&lt;/h3&gt;
 &lt;p&gt;&lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://inkscape.org/&#34;&gt;Inkscape&lt;/a&gt; is a high quality vector graphics editor. There is a learning curve to it. And if you&amp;rsquo;re coming from a background using Illustrator, then you&amp;rsquo;ll need to re-learn how to do some things. I would frequently use Illustrator back when I professionally did graphics and logo design work. And considering that experience, I have no reservations recommending Inkscape for new projects.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo add-apt-repository -y ppa:inkscape.dev/stable
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo add-apt-repository -y ppa:inkscape.dev/stable
 sudo apt update
 sudo apt install -y inkscape
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;video&#34;&gt;Video&lt;/h2&gt;
 &lt;h3 id=&#34;handbrake&#34;&gt;HandBrake&lt;/h3&gt;
 &lt;p&gt;&lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://handbrake.fr/&#34;&gt;HandBrake&lt;/a&gt; is a video transcoder. It will do a pretty good job of taking a video file and converting it to another format. It also lets you tweak compression and quality levels.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo add-apt-repository ppa:stebbins/handbrake-releases -y
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo add-apt-repository ppa:stebbins/handbrake-releases -y
 sudo apt-get update
 sudo apt-get install -y handbrake-gtk
 sudo apt-get install -y handbrake-cli
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;cheese&#34;&gt;Cheese&lt;/h3&gt;
 &lt;p&gt;One of the things that my copy of Linux Mint was missing out of the box was a way to take pictures and video recordings using my laptop&amp;rsquo;s camera. &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://wiki.gnome.org/Apps/Cheese&#34;&gt;Cheese&lt;/a&gt; is a snappy little program that provides that functionality.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install cheese
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install cheese
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;kdenlive&#34;&gt;Kdenlive&lt;/h3&gt;
 &lt;p&gt;I like to do a very small amount of video editing. I primarily just edit small clips of my personal records for my &lt;a href=&#34;training_log&#34;&gt;training log&lt;/a&gt;. I paid for a video editing tool that I used on Windows. But&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://kdenlive.org&#34;&gt;Kdenlive&lt;/a&gt; is a free, and one of the most popular, video editing tools available on Linux.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install kdenlive
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install kdenlive
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;youtube-dl&#34;&gt;Youtube-dl&lt;/h3&gt;
 &lt;p&gt;&lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://youtube-dl.org/&#34;&gt;Youtube-dl&lt;/a&gt; is a tool to download clips off of YouTube. I used it recently grab a couple small clips for my post about &lt;a href=&#34;posts/developing-strength-of-character/&#34;&gt;building strength of character&lt;/a&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Since YouTube is constantly changing their website, Youtube-dl needs to be kept as up-to-date as possible in order to work. So, once it&amp;rsquo;s installed, be sure to open a new terminal and run &lt;code&gt;youtube-dl -U&lt;/code&gt; to update it.&lt;/p&gt;
 &lt;p&gt;Also, I had some issues getting this running. I think the fix was to make sure that Python, specifically a &lt;code&gt;python&lt;/code&gt; command, was installed.&lt;/p&gt;
 &lt;h2 id=&#34;programming&#34;&gt;Programming&lt;/h2&gt;
 &lt;h3 id=&#34;python-3&#34;&gt;Python 3&lt;/h3&gt;
 &lt;p&gt;I like my &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://www.python.org/&#34;&gt;Python&lt;/a&gt; with &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://pypi.org/project/pip/&#34;&gt;PIP&lt;/a&gt; and &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://pipenv.pypa.io/&#34;&gt;Pipenv&lt;/a&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install python3
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install python3
 sudo apt-get --assume-yes install python3-pip
 pip3 install --user pipenv
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;javascript&#34;&gt;JavaScript&lt;/h3&gt;
 &lt;p&gt;I like my JavaScript with &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://nodejs.org&#34;&gt;Node&lt;/a&gt; and &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://www.npmjs.com/&#34;&gt;NPM&lt;/a&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install nodejs
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install nodejs
 sudo apt-get install npm
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;go-golang&#34;&gt;Go (Golang)&lt;/h3&gt;
 &lt;p&gt;&lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; isn&amp;rsquo;t quite as straightforward to set up as the previous two. But it&amp;rsquo;s not too bad.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo add-apt-repository ppa:longsleep/golang-backports --yes
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo add-apt-repository ppa:longsleep/golang-backports --yes
 sudo apt-get --assume-yes update
 sudo apt-get --assume-yes install golang-go
 mkdir -p ~/go/{bin,pkg,src}
@@ -526,14 +545,14 @@ echo &#39;export PATH=&amp;quot;$PATH:${GOPATH//://bin:}/bin&amp;quot;&#39; &amp
 &lt;p&gt;The important elements to note are the API Login ID and the Transaction Key. These two pieces of information are used to authenticate your calls into Authorize.net&amp;rsquo;s API to process payments. Keep this information secret. Don&amp;rsquo;t share it with anyone. Don&amp;rsquo;t commit it to Git.&lt;/p&gt;
 &lt;h2 id=&#34;use-the-python-sdk&#34;&gt;Use the Python SDK&lt;/h2&gt;
 &lt;p&gt;Create a new directory for the python project.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ mkdir authnetdemo
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ mkdir authnetdemo
 $ cd authnetdemo
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I&amp;rsquo;m not going to explain Python virtual environments in this article, but feel free to use one for this project if you like.&lt;/p&gt;
 &lt;p&gt;Now install the Authorize.net SDK.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ python3.7 -m pip install authorizenet
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ python3.7 -m pip install authorizenet
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Create file called &amp;ldquo;settings.py&amp;rdquo; for the module that will be responsible for managing the Authorize.net secrets. For now I&amp;rsquo;m going to just place the real values directly in the file, but I don&amp;rsquo;t recommend that for production code, nor for projects that will be committed to source control like Git.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;settings.py&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;def get_transaction_id():
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;def get_transaction_id():
     return &amp;quot;YOUR_TRANSACTION_ID&amp;quot;
 
 def get_api_login_id():
@@ -541,7 +560,7 @@ def get_api_login_id():
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;These values could be retrieved from a database or environment variables. Or they could even be retrieved from a configuration file in xml, json, or your format of choice. I&amp;rsquo;m not going to cover those techniques in this article, but they are all good ways to keep secrets out of the application&amp;rsquo;s source code.&lt;/p&gt;
 &lt;p&gt;Create a &amp;ldquo;models.py&amp;rdquo; file to hold a couple classes that we&amp;rsquo;ll use.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;models.py&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;class CreditCard:
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;class CreditCard:
     number = None
     expiration_date = None
     code = None
@@ -553,7 +572,7 @@ class TransactionResponse:
 &lt;p&gt;Other potential things we could add include things like billing address, name on card, and order information.&lt;/p&gt;
 &lt;p&gt;Create a file called &amp;ldquo;paymentprocessing.py&amp;rdquo; for the module handling credit card tasks.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;paymentprocessing.py&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;from authorizenet import apicontractsv1
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;from authorizenet import apicontractsv1
 from authorizenet.apicontrollers import createTransactionController
 from decimal import Decimal
 import settings
@@ -617,7 +636,7 @@ def response_mapper(api_response):
 &lt;p&gt;The &lt;code&gt;charge_credit_card&lt;/code&gt; function is where the actual money changes hands. First the merchant is identified. Then the card information is set.&lt;/p&gt;
 &lt;p&gt;Create an &lt;code&gt;app.py&lt;/code&gt; file.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;app.py&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;import models
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import models
 import paymentprocessing
 
 amount = &amp;quot;19.99&amp;quot;
@@ -633,7 +652,7 @@ print(response.is_success)
 print(response.messages)
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This is the entry point for our Python script. The amount to charge is specified. The credit card details are specified. Then we attempt to charge the card and print the response.&lt;/p&gt;
 &lt;p&gt;Run &amp;ldquo;app.py&amp;rdquo; without forgeting to add your API Login ID and Transaction ID.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ python3.7 app.py 
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ python3.7 app.py 
 True
 [&#39;Successfully created transaction with Transaction ID: 40051695558&#39;, &#39;Transaction Response Code: 1&#39;, &#39;Message Code: 1&#39;, &#39;Description: This transaction has been approved.&#39;]
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For more details about Authorize.net&amp;rsquo;s testability, take a look at their &lt;a href=&#34;https://developer.authorize.net/hello_world/testing_guide.html&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Testing Guide&lt;/a&gt;.&lt;/p&gt;
@@ -713,17 +732,17 @@ employees and contractors&lt;/li&gt;
 &lt;h3 id=&#34;javascript-arrow-functions&#34;&gt;JavaScript Arrow Functions&lt;/h3&gt;
 &lt;p&gt;Since React apps use a build system to generate the runtime code, we&amp;rsquo;re able to take advantage of ES6 syntax via transpilers without needing to worry about browser support. This gives us access to Arrow Functions syntax which are lambda functions in JavaScript.&lt;/p&gt;
 &lt;p&gt;Before ES6 was available JavaScript had anonymous functions.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var anonFunc = function (name) { return &amp;quot;Hello &amp;quot; + name; }
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;var anonFunc = function (name) { return &amp;quot;Hello &amp;quot; + name; }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Since ES6 is available we can rewrite the anonymous function above as an Arrow function like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const arrowFunc = (name) =&amp;gt; { return &amp;quot;Hello &amp;quot; + name; }
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;const arrowFunc = (name) =&amp;gt; { return &amp;quot;Hello &amp;quot; + name; }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;First thing that&amp;rsquo;s different is you&amp;rsquo;ll notice the &lt;code&gt;const&lt;/code&gt; keyword instead of &lt;code&gt;var&lt;/code&gt;. The &lt;code&gt;const&lt;/code&gt; keyword defines this as a constant value and doesn&amp;rsquo;t allow &lt;code&gt;arrowFunc&lt;/code&gt; to get redefined elsewhere. It&amp;rsquo;s available to us in ES6 and it&amp;rsquo;s usually more appropriate for declaring functions.&lt;/p&gt;
 &lt;p&gt;Next, notice the absence of the &lt;code&gt;function&lt;/code&gt; keyword, and instead we see &lt;code&gt;=&amp;gt;&lt;/code&gt; which is the &amp;lsquo;arrow&amp;rsquo; that indicates an Arrow function. (This should be very familiar to C# programmers because their lambda syntax is very similar.) The function parameters are listed inside paranthesis on the left of the arrow, and the function body is on the right.&lt;/p&gt;
 &lt;p&gt;If there&amp;rsquo;s only one parameter expected, then Arrow function definitions can skip the paranthesis.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const arrowFunc = name =&amp;gt; { return &amp;quot;Hello &amp;quot; + name; }
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;const arrowFunc = name =&amp;gt; { return &amp;quot;Hello &amp;quot; + name; }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Another convenient feature of Arrow functions is the implicit return that occurs if we remove the curly braces.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const arrowFunc = name =&amp;gt; &amp;quot;Hello &amp;quot; + name
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;const arrowFunc = name =&amp;gt; &amp;quot;Hello &amp;quot; + name
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The result is syntax that can be fairly terse and clean, but if you&amp;rsquo;re returning an object literal then you have to add paranthesis around it to ensure it&amp;rsquo;s interpretted as a return value correctly.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// doesn&#39;t work
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// doesn&#39;t work
 const objLiteral = () =&amp;gt; {one: 1}
 
 // returns the object
@@ -731,7 +750,7 @@ const objLiteral = () =&amp;gt; ({one: 1})
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;closures&#34;&gt;Closures&lt;/h3&gt;
 &lt;p&gt;JavaScript has had closures since the beginning. It&amp;rsquo;s one of the most powerful aspects of the language.&lt;/p&gt;
 &lt;p&gt;Essentially, it just means that functions have access to their surrounding scope (i.e. lexical environment.)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;let canSeeMe = true;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;let canSeeMe = true;
 const run = () =&amp;gt; {
   let canSee = true;
   const displayCanSee = () =&amp;gt; {
@@ -745,7 +764,7 @@ run();
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In the example above the &lt;code&gt;displayCanSee&lt;/code&gt; function can see the &lt;code&gt;canSee&lt;/code&gt; and &lt;code&gt;canSeeMe&lt;/code&gt; variables even though they&amp;rsquo;re outside of the scope of the display function.&lt;/p&gt;
 &lt;h3 id=&#34;javascript-object-destructuring&#34;&gt;JavaScript Object Destructuring&lt;/h3&gt;
 &lt;p&gt;This is another JavaScript feature introduced in ES6. The assignment aspect is a useful shortcut for creating named variables using values from objects.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const person = {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;const person = {
   first: &#39;George&#39;,
   last: &#39;Washington&#39;,
 };
@@ -758,7 +777,7 @@ console.log(last); // prints &#39;Washington&#39;
 &lt;h2 id=&#34;key-react-concepts&#34;&gt;Key React Concepts&lt;/h2&gt;
 &lt;p&gt;Programming React components without the class based syntax has been possible for some time. But such function based components were limited from being able to use state. That is, they were until React version 16.8 when a new API was introduced. React hooks allow a function component to be stateful.&lt;/p&gt;
 &lt;p&gt;Here are examples of a function component using the JavaScript features we&amp;rsquo;ve already examined.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// traditional function declaration
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// traditional function declaration
 function Hello(props) {
   return &amp;lt;h1&amp;gt;Hello {props.name}&amp;lt;/h1&amp;gt;
 }
@@ -777,13 +796,13 @@ const Hello = {name} =&amp;gt; &amp;lt;h1&amp;gt;Hello {name}&amp;lt;/h1&amp;gt;
 &lt;h3 id=&#34;the-usestate-hook&#34;&gt;The &lt;code&gt;useState&lt;/code&gt; Hook&lt;/h3&gt;
 &lt;p&gt;State is for values that are displayed to the user which are subject to change. In the coming example we&amp;rsquo;ll be showing a default message to the user and the user will be able to change the message to a word or phrase of their choosing.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;useState&lt;/code&gt; hook can be imported like this.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;import React, { useState } from &#39;react&#39;;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import React, { useState } from &#39;react&#39;;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Its usage looks like this.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const [msg, setMsg] = useState(&#39;Hello world&#39;);
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;const [msg, setMsg] = useState(&#39;Hello world&#39;);
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let&amp;rsquo;s break this down. First, this line is using array destructuring (same principles as object destructuring covered above) to handle the return value from the &lt;code&gt;useState&lt;/code&gt; function call. A default value of &amp;ldquo;Hello world&amp;rdquo; is passed in, and we get two values out. &lt;code&gt;msg&lt;/code&gt; which is set to &amp;ldquo;Hello world&amp;rdquo;, and &lt;code&gt;setMsg&lt;/code&gt; which is a function that we can use to update the value of &lt;code&gt;msg&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;React beginners might wonder why they need the &lt;code&gt;setMsg&lt;/code&gt; function. They could certainly just use an assignment operator to update &lt;code&gt;msg&lt;/code&gt;&#39;s value, but the trick is getting the new value displayed to the user. The new value won&amp;rsquo;t be updated in React unless we use &lt;code&gt;setMsg&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;React beginners might wonder why they need the &lt;code&gt;setMsg&lt;/code&gt; function. They could certainly just use an assignment operator to update &lt;code&gt;msg&lt;/code&gt;&amp;rsquo;s value, but the trick is getting the new value displayed to the user. The new value won&amp;rsquo;t be updated in React unless we use &lt;code&gt;setMsg&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Now, here&amp;rsquo;s how &lt;code&gt;useState&lt;/code&gt; can be used to dynamically update a function component.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const Hello = () =&amp;gt; {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;const Hello = () =&amp;gt; {
   const [msg, setMsg] = useState(&#39;Hello world&#39;);
 
   return (
@@ -801,9 +820,9 @@ const Hello = {name} =&amp;gt; &amp;lt;h1&amp;gt;Hello {name}&amp;lt;/h1&amp;gt;
 &lt;p&gt;&lt;code&gt;useEffect&lt;/code&gt; is for performing side effects whenever a component changes. It&amp;rsquo;s similar to the class based approach that uses &lt;code&gt;componentDidMount&lt;/code&gt;, &lt;code&gt;componentDidUpdate&lt;/code&gt;, and &lt;code&gt;componentWillUnmount&lt;/code&gt; methods. It replaces all three.&lt;/p&gt;
 &lt;p&gt;One of the most common usages of &lt;code&gt;useEffect&lt;/code&gt; is for loading data via API calls.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;useEffect&lt;/code&gt; hook can be imported by adding it to our previous import statement.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;import React, { useState, useEffect } from &#39;react&#39;;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import React, { useState, useEffect } from &#39;react&#39;;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Here&amp;rsquo;s a very simple useage to illustrate a side effect, though not a very useful one.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const Hello = ({ name }) =&amp;gt; {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;const Hello = ({ name }) =&amp;gt; {
   
   const [displayName, setDisplayName] = useState(name);
 
@@ -818,21 +837,21 @@ const Hello = {name} =&amp;gt; &amp;lt;h1&amp;gt;Hello {name}&amp;lt;/h1&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The previous component receives a &lt;code&gt;name&lt;/code&gt; property on the &lt;code&gt;props&lt;/code&gt; object and assigns it to as the default value of &lt;code&gt;displayName&lt;/code&gt; which is what gets shown to the user. But, since we&amp;rsquo;ve create a side effect that always sets &lt;code&gt;displayName&lt;/code&gt; to &amp;ldquo;George&amp;rdquo;, the user will never see any name other than &amp;ldquo;George&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s move on to a more useful example. Side effects are often used to take data from an API call and display it to the user.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s some quick code for calling Bible API.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const api = {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;const api = {
   getPassage: search =&amp;gt; {
     return axios.get(`http://bible-api.com/${search}`).then(r =&amp;gt; r.data);
   }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Our function component will have two variables in state.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  const [passage, setPassage] = useState(&#39;&#39;);
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;  const [passage, setPassage] = useState(&#39;&#39;);
   const [search, setSearch] = useState(&#39;Ephesians 2:8-10&#39;);
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, we have a very simple side effect that calls the API.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  useEffect(() =&amp;gt; {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;  useEffect(() =&amp;gt; {
     api.getPassage(search).then(d =&amp;gt; setPassage(d.text));
   });
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The &lt;code&gt;useEffect&lt;/code&gt; function lets React know about our arrow function that contains the side effect. So whenever this component mounts or is updated, the side effect code will execute.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s the complete code.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;import React, { useState, useEffect } from &#39;react&#39;;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import React, { useState, useEffect } from &#39;react&#39;;
 import axios from &#39;axios&#39;;
 
 const api = {
@@ -972,7 +991,7 @@ export default Hello;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;18&amp;rdquo; Deadlift&lt;/td&gt;
+&lt;td&gt;18&amp;quot; Deadlift&lt;/td&gt;
 &lt;td&gt;495&lt;/td&gt;
 &lt;td&gt;500&lt;/td&gt;
 &lt;td&gt;5&lt;/td&gt;
@@ -1026,7 +1045,7 @@ Until now I avoided this program because I thought for sure it wouldn&amp;rsquo;
 &lt;p&gt;When I decided to look into it again, I was surprised that custom domain SSL&amp;rsquo;s were supported. Pleased as I was to learn this I was also slightly dismayed that I was ignorant for so long about the new GitHub feature.&lt;/p&gt;
 &lt;p&gt;Updating was simple enough. Years ago GitHub Pages had me create A Records pointing to a couple of their IP addresses. That method of setting up the domain is not compatible with the SSL feature they provide now. So I simply had to remove those A Records, and and replace them with a CNAME pointing to quakkels.github.io.&lt;/p&gt;
 &lt;p&gt;I monitored the propogation of those setting with &lt;code&gt;dig&lt;/code&gt;, as GitHub recommends.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ dig quakkels.com +nostats +nocomments +nocmd
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ dig quakkels.com +nostats +nocomments +nocmd
 
 ; &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.11.3-1ubuntu1.11-Ubuntu &amp;lt;&amp;lt;&amp;gt;&amp;gt; quakkels.com +nostats +nocomments +nocmd
 ;; global options: +cmd
@@ -1054,7 +1073,7 @@ quakkels.github.io.	2029	IN	A	185.199.110.153
       <description>&lt;p&gt;As a program ages and receives updates, more and more features are built. Logic is added and the code becomes increasingly more complicated to read and understand. So programmers invent recommended practices to manage the complexity and to preserve the maintainability of their code. The goal being to keep the cognitive load to minimum levels so the programmer can work efficiently.&lt;/p&gt;
 &lt;p&gt;One popular practice is to avoid nested code when possible. The concept that flat is better than nested has been widely adopted by Python programmers who have included it in their &lt;a href= &#34;https://www.python.org/dev/peps/pep-0020/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;guidelines&lt;/a&gt;. Python programmers aren&amp;rsquo;t the only group to adopt this preference. Resharper, a code analysis tool popular among C# programmers, &lt;a href=&#34;https://stackoverflow.com/q/268132&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;recommends coding styles that result in less nested code&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;However, there&amp;rsquo;s another recommended practice called Single Entry Single Exit (SE/SE). When applied in modern languages, it avoids exiting a program early with multiple return statements. This can be in direct opposition to &amp;ldquo;Flatter is Better&amp;rdquo; since an important flattening technique is to return early.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;public bool ValidatePassword(CredentialService credentials, string username, string password)
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;public bool ValidatePassword(CredentialService credentials, string username, string password)
 {
   var isValid = false;
 
@@ -1086,7 +1105,7 @@ quakkels.github.io.	2029	IN	A	185.199.110.153
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The above code is sound. But we can easily see that nested if/else statements quickly become difficult to read. And keep in mind that as this codebase matures it&amp;rsquo;s very likely that additional features, checks, and logging will be required by business rules.&lt;/p&gt;
 &lt;p&gt;Now, consider how easy it is to read the following code which uses multiple early returns to exit.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;public bool ValidatePassword(CredentialService credentials, string username, string password)
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;public bool ValidatePassword(CredentialService credentials, string username, string password)
 {
   if (!credentials.Exists(username))
   {
@@ -1129,7 +1148,7 @@ quakkels.github.io.	2029	IN	A	185.199.110.153
 &lt;p&gt;I&amp;rsquo;ve become convinced that comments are often worth avoiding. Comments aren&amp;rsquo;t subject to a compiler nor to an interpreter. Code may change and the corresponding comment often remains as it was. Except now the comment is misleading. This makes maintaining the code unnecessarily difficult.&lt;/p&gt;
 &lt;h2 id=&#34;use-function-names-to-document-code&#34;&gt;Use Function Names to Document Code&lt;/h2&gt;
 &lt;p&gt;Consider this code that determines the &amp;ldquo;Day of the Programmer&amp;rdquo;. The &lt;code&gt;GetDay&lt;/code&gt; method (method being a function on an object) gets the date that represents the 256th day of the year. And, it accounts for when the calendar changed from Julian to Gregorian.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;public static DayOfTheProgrammer 
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;public static DayOfTheProgrammer 
 {
   public static string GetDay(int year)
   {
@@ -1150,7 +1169,7 @@ quakkels.github.io.	2029	IN	A	185.199.110.153
   }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The above code works. But it is difficult to read. The programmer has considered future maintainers by adding explanations in comments above each &lt;code&gt;if&lt;/code&gt; statement. That is a step in the right direction, however comments are particularly vulnerable to &amp;ldquo;code rot&amp;rdquo; since the compiler (or interpreter) is unaware of their content. As the code is maintained it&amp;rsquo;s easy for neglected comments to have misleading or even false information in them. I prefer using descriptive names in lieu of comments.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;public static class DayOfTheProgrammer
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;public static class DayOfTheProgrammer
 {
   public static string GetDay(int year)
   {
@@ -1183,7 +1202,7 @@ quakkels.github.io.	2029	IN	A	185.199.110.153
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Refactoring the code into functions with meaningful names has eliminated the need for the original comments. The same information is being communicated in both versions of the code. However, the original is vulnerable to comment rot while the refactored code that uses descriptive names is easier to maintain.&lt;/p&gt;
 &lt;p&gt;The programmer may decide to refactor further. The conditional statement in &lt;code&gt;IsLeapYear&lt;/code&gt; is still pretty long and requires effort to read and understand. We can add documentation by using descriptive variable names.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;private static bool IsLeapYear(int year)
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;private static bool IsLeapYear(int year)
 {
   var isGregorianCalendar = year &amp;gt;= 1918;
   var isGregorianLeapYear = year % 400 == 0 || year % 4 == 0 &amp;amp;&amp;amp; year % 100 != 0;
@@ -1229,14 +1248,14 @@ quakkels.github.io.	2029	IN	A	185.199.110.153
 &lt;p&gt;Use these good naming principles and the programmers who follow us will be grateful.&lt;/p&gt;
 &lt;h2 id=&#34;use-names-that-show-intent&#34;&gt;Use Names That Show Intent&lt;/h2&gt;
 &lt;p&gt;Name things so that we can identify them. Consider the variable declared below.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;DateTime z;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DateTime z;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We can clearly see there is a variable. We can tell it&amp;rsquo;s a &lt;code&gt;DateTime&lt;/code&gt;. Though, we can&amp;rsquo;t tell what it&amp;rsquo;s used for from just the name. A programmer may try to add clarity be adding a few more keystrokes to the names.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;DateTime login;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DateTime login;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This improves readability somewhat. But it the programmer still isn&amp;rsquo;t clear about what purpose this variable is intended to serve. The name could be further improved by adding more details.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;DateTime lastLoginUtc;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DateTime lastLoginUtc;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This is a better name because it communicates several things about the intent of the variable. It is intended to hold a UTC date representing the last time there was a login. The original name, &lt;code&gt;z&lt;/code&gt;, communicated none of that intent. The program using &lt;code&gt;z&lt;/code&gt; would have been harder to decipher.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s a slightly more complex example.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;public bool GetResult(Dictionary&amp;lt;string, string&amp;gt; a, string x, string y)
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;public bool GetResult(Dictionary&amp;lt;string, string&amp;gt; a, string x, string y)
 {
   if (!a.ContainsKey(x)) 
   {
@@ -1246,7 +1265,7 @@ quakkels.github.io.	2029	IN	A	185.199.110.153
   return compare(y, a[x]);
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This isn&amp;rsquo;t doing anything complex, but it&amp;rsquo;s not obvious what&amp;rsquo;s happening. See how much cleaner things get when meaningful names are applied.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;public bool ValidatePassword(Dictionary&amp;lt;string, string&amp;gt; credentials, string username, string password)
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;public bool ValidatePassword(Dictionary&amp;lt;string, string&amp;gt; credentials, string username, string password)
 {
   if (!credentials.ContainsKey(username)) 
   {
@@ -1275,7 +1294,7 @@ quakkels.github.io.	2029	IN	A	185.199.110.153
 &lt;p&gt;— Clean Code by Robert C. Martin (pp. 24)&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;I haven&amp;rsquo;t yet decided whether I agree with avoiding member prefixes. Consider this class with member prefixes:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;public class User
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;public class User
 {
   private string _username;
 
@@ -1285,7 +1304,7 @@ quakkels.github.io.	2029	IN	A	185.199.110.153
   }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And compare it to a version without the member prefix:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;public class User
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;public class User
 {
   private string username;
 
@@ -1378,21 +1397,21 @@ quakkels.github.io.	2029	IN	A	185.199.110.153
 &lt;/ul&gt;
 &lt;p&gt;So, now look in your router&amp;rsquo;s connected devices to find your server&amp;rsquo;s IP address on your network.&lt;/p&gt;
 &lt;p&gt;Log in to your server from your main workstation via SSH:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ ssh 192.168.1.11 -l quakkels
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ ssh 192.168.1.11 -l quakkels
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Use your server&amp;rsquo;s local network IP address and your user&amp;rsquo;s username in the command above.&lt;/p&gt;
 &lt;p&gt;The next thing we need to do is install Samba on the server.&lt;/p&gt;
 &lt;h2 id=&#34;install-samba&#34;&gt;Install Samba&lt;/h2&gt;
 &lt;p&gt;I want to be able to access the media folder that&amp;rsquo;s on my server from my laptop. I need Samba installed in Ubuntu to do that.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo apt-get install samba
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo apt-get install samba
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then add a user to Samba. I&amp;rsquo;ll use the &lt;code&gt;quakkels&lt;/code&gt; user.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo smbpasswd -a quakkels
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo smbpasswd -a quakkels
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, create a folder to share.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ cd ~
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cd ~
 $ mkdir library
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now, edit the configuration file with your preferred editor. I&amp;rsquo;m using Nano.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo nano /etc/samba/smb.conf
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo nano /etc/samba/smb.conf
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Scroll down to the end of the file and add these lines.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[library]
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[library]
    path = /home/quakkels/library
    available = yes
    valid users = quakkels
@@ -1403,17 +1422,17 @@ $ mkdir library
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Replace &lt;code&gt;library&lt;/code&gt; with the name of your own shared folder and &lt;code&gt;quakkels&lt;/code&gt; with your own user.&lt;/p&gt;
 &lt;p&gt;Save the file and exit the editor.&lt;/p&gt;
 &lt;p&gt;Restart the smb daemon to apply the configuration changes.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo service smbd restart
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo service smbd restart
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So at this point the share should be working and accessible on your network. Use Windows File Explorer to test it.&lt;/p&gt;
 &lt;p&gt;I navigated to \media\library and logged in with the Samba user &lt;code&gt;quakkels&lt;/code&gt; and placed a file. Test succeeded!&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/plex03-samba-network-share.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;install-the-plex-media-server&#34;&gt;Install the Plex Media Server&lt;/h1&gt;
 &lt;p&gt;Unfortunately, Plex is not available via &lt;code&gt;apt-get&lt;/code&gt; in Ubuntu. But the Plex website does lay out a process for &lt;a href=&#34;https://support.plex.tv/articles/200288586-installation/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;installing the server on Linux&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Start by downloading the &lt;code&gt;.deb&lt;/code&gt; file for Plex. I found the &lt;code&gt;.deb&lt;/code&gt; file available here: &lt;code&gt;https://downloads.plex.tv/plex-media-server-new/1.16.5.1554-1e5ff713d/debian/plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb&lt;/code&gt; and I&amp;rsquo;ll be using that URL with &lt;code&gt;wget&lt;/code&gt; in Ubuntu to download it directly to the server.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ cd ~
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cd ~
 $ wget https://downloads.plex.tv/plex-media-server-new/1.16.5.1554-1e5ff713d/debian/plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, once the &lt;code&gt;.deb&lt;/code&gt; packaged has finished downloading, we can install it with &lt;code&gt;dpkg&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo dpkg -i plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo dpkg -i plexmediaserver_1.16.5.1554-1e5ff713d_amd64.deb
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now you can navigate to the Plex web site from a computer on your network by going to &lt;code&gt;http://{your-servers-ip}:32400/web/&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Plex is now running. You can follow Plex documentation to add Plex repositories for future updates, and for adding your media to Plex libraries.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/plex04-web-site.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -1472,7 +1491,7 @@ $ wget https://downloads.plex.tv/plex-media-server-new/1.16.5.1554-1e5ff713d/deb
 &lt;p&gt;When Visual Studio created the Lavender project, it automatically created a view for us called &lt;code&gt;MainPage.xaml&lt;/code&gt;, and it has &lt;code&gt;MainPage.xaml.cs&lt;/code&gt; behind it. Move those two files into the Views folder by dragging and dropping &lt;code&gt;MainPage.xaml&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;images/xamarin-move-mainpage-into-views-folder.png&#34; alt=&#34;Move MainPage.xaml into Views folder&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Open &lt;code&gt;MainPage.xaml&lt;/code&gt; and give it this code:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot; ?&amp;gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot; ?&amp;gt;
 &amp;lt;ContentPage xmlns=&amp;quot;http://xamarin.com/schemas/2014/forms&amp;quot;
              xmlns:x=&amp;quot;http://schemas.microsoft.com/winfx/2009/xaml&amp;quot;
              xmlns:local=&amp;quot;clr-namespace:Lavender&amp;quot;
@@ -1494,7 +1513,7 @@ To manage your SDK tools, you can find a button for &amp;ldquo;Open Android SDK 
 &lt;p&gt;&lt;img src=&#34;images/xamarin-debug-mobile-project.png&#34; alt=&#34;Debugging a Xamarin project&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;add-data-binding-between-the-view-and-the-view-model&#34;&gt;Add Data Binding Between the View and the View Model&lt;/h2&gt;
 &lt;p&gt;Add a label control that will bind to the &lt;code&gt;Name&lt;/code&gt; attribute of a view model. Update &lt;code&gt;MainPage.xaml&lt;/code&gt; to have this code:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot; ?&amp;gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot; ?&amp;gt;
 &amp;lt;ContentPage xmlns=&amp;quot;http://xamarin.com/schemas/2014/forms&amp;quot;
              xmlns:x=&amp;quot;http://schemas.microsoft.com/winfx/2009/xaml&amp;quot;
              xmlns:local=&amp;quot;clr-namespace:Lavender&amp;quot;
@@ -1509,7 +1528,7 @@ To manage your SDK tools, you can find a button for &amp;ldquo;Open Android SDK 
 &lt;p&gt;It&amp;rsquo;s worth highlighting that these UI changes are being made in the shared library. This is reusable code that both Android and iOS will leverage. The Android and iOS specific projects are &lt;em&gt;not&lt;/em&gt; being modified. Yet, the controls being displayed are the same native controls that you would get if you were building this app for Android using Java or for iOS using Objective-C or Swift. Not only is the code in a shared library, but the executable is &lt;em&gt;not&lt;/em&gt; running in a VM like would be the case for portable JavaScript solutions.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Create a new class in the &lt;code&gt;ViewModels&lt;/code&gt; folder. Call it &lt;code&gt;MainPageViewModel.cs&lt;/code&gt; and put this code inside:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;namespace Lavender.ViewModels
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;namespace Lavender.ViewModels
 {
   public class MainPageViewModel
   {
@@ -1523,7 +1542,7 @@ To manage your SDK tools, you can find a button for &amp;ldquo;Open Android SDK 
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The &lt;code&gt;Name&lt;/code&gt; property is what we&amp;rsquo;ll use for data binding. And, we&amp;rsquo;re setting the value to &lt;code&gt;Anonymous&lt;/code&gt; for now.&lt;/p&gt;
 &lt;p&gt;Then, update the &lt;code&gt;MainPage.xaml.cs&lt;/code&gt; code-behind file to use the &lt;code&gt;MainPageViewModel&lt;/code&gt; class as its binding context.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;using Lavender.ViewModels;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;using Lavender.ViewModels;
 using Xamarin.Forms;
 
 namespace Lavender
@@ -1546,7 +1565,7 @@ namespace Lavender
 &lt;p&gt;Now let&amp;rsquo;s do something with the value entered by the user.&lt;/p&gt;
 &lt;h2 id=&#34;add-form-to-let-the-user-update-their-name&#34;&gt;Add Form to Let the User Update Their Name&lt;/h2&gt;
 &lt;p&gt;Update &lt;code&gt;MainPage.xaml&lt;/code&gt; to add form controls allowing the user to enter and submit their actual name.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot; ?&amp;gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot; ?&amp;gt;
 &amp;lt;ContentPage xmlns=&amp;quot;http://xamarin.com/schemas/2014/forms&amp;quot;
              xmlns:x=&amp;quot;http://schemas.microsoft.com/winfx/2009/xaml&amp;quot;
              xmlns:local=&amp;quot;clr-namespace:Lavender&amp;quot;
@@ -1563,7 +1582,7 @@ namespace Lavender
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;There are two elements that bind to properties that we haven&amp;rsquo;t created yet. &lt;code&gt;&amp;lt;Entry Text=&amp;quot;{Binding NameEntry}&amp;quot; /&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;Button x:Name=&amp;quot;Button&amp;quot; Text=&amp;quot;Submit&amp;quot; Command=&amp;quot;{Binding SubmitCommand}&amp;quot; /&amp;gt;&lt;/code&gt; will require us to change the view model.&lt;/p&gt;
 &lt;p&gt;But, before we make changes to the view model, we need to create a new class that will facilitate notifying the view when the data in the view model changes.&lt;/p&gt;
 &lt;p&gt;Create a new file in the &lt;code&gt;ViewModels&lt;/code&gt; folder and call it &lt;code&gt;ViewModelBase.cs&lt;/code&gt;. Then put this code inside:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;using System;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -1601,7 +1620,7 @@ namespace Lavender.ViewModels
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This abstract class gives us the &lt;code&gt;SetProperty&amp;lt;T&amp;gt;()&lt;/code&gt; method which both changes the property&amp;rsquo;s value, &lt;em&gt;and&lt;/em&gt; it notifies the UI so it knows to display the new value.&lt;/p&gt;
 &lt;p&gt;Now let&amp;rsquo;s update &lt;code&gt;MainPageViewModel.cs&lt;/code&gt; to use this new abstract class. We&amp;rsquo;ll also add the new properties that the view needs for binding.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;using System.Windows.Input;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Lavender.ViewModels
@@ -1645,12 +1664,12 @@ namespace Lavender.ViewModels
 &lt;p&gt;When I first wanted to add arm-over-arm pulls to work my cardio, grip, arms, and back, I looked around and found a &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://www.roguefitness.com/conditioning/strength-equipment/sleds&#34;&gt;few different options&lt;/a&gt;. And some of them were rather economical. However, most are still priced near a hundred dollars and they don&amp;rsquo;t include a rope nor a strap long enough for arm-over-arm pulls, which I&amp;rsquo;d have to purchase separately.&lt;/p&gt;
 &lt;p&gt;There&amp;rsquo;s a simpler and cheaper alternative to those econo sleds. It can be found at the local hardware store.&lt;/p&gt;
 &lt;p&gt;This tow strap cost me just about ten dollars.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/new_tow_strap.png&#34; alt=&#34;20&amp;rsquo; Tow Strap&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/new_tow_strap.png&#34; alt=&#34;20&#39; Tow Strap&#34;&gt;&lt;/p&gt;
 &lt;p&gt;When I combine it with a few of my bumper plates, it does exactly what I need. Ta-da! A &amp;ldquo;sled&amp;rdquo; for my home gym.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/first_sled_experiment.png&#34; alt=&#34;Arm-over-arm pull with a 20&amp;rsquo; tow strap&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/first_sled_experiment.png&#34; alt=&#34;Arm-over-arm pull with a 20&#39; tow strap&#34;&gt;&lt;/p&gt;
 &lt;p&gt;This first experiment was awesome. It was easy to set up and it worked. Though, I did I noticed wear on the strap underneath the bumper plates. At first I thought it was no big deal. But if I had to replace the fraying strap a few times my costs would eventually be comparable with if I had bought an actual post style sled.&lt;/p&gt;
 &lt;p&gt;So to address the wear on the strap, I made a sheath using a an easily replaceable resource I frequently have lying around; a piece of cardboard.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/sled_experiment_with_cardboard_sheeth.png&#34; alt=&#34;A more resilient sled using a 20&amp;rsquo; tow strap&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/sled_experiment_with_cardboard_sheeth.png&#34; alt=&#34;A more resilient sled using a 20&#39; tow strap&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m really happy with this setup. The cardboard works well on my reasonably smooth basement floor. It will eventually wear, but with the amount of online shopping my family does we&amp;rsquo;re never lacking fresh cardboard. Though, if the dragging surface were rougher, I&amp;rsquo;d imagine I&amp;rsquo;d have to use a different solution.&lt;/p&gt;
 &lt;p&gt;Adding useful pieces of equipment to a home gym doesn&amp;rsquo;t have to be expensive or complicated. And, simple additions like this keep workouts engaging and fun.&lt;/p&gt;
 &lt;p&gt;Benefits of sled training with a tow strap are numerous.&lt;/p&gt;
@@ -1689,38 +1708,38 @@ namespace Lavender.ViewModels
 &lt;/ul&gt;
 &lt;h2 id=&#34;create-project&#34;&gt;Create Project&lt;/h2&gt;
 &lt;p&gt;Make the project directory and navigate inside.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;gt; mkdir django-project &amp;amp;&amp;amp; cd django-project
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; mkdir django-project &amp;amp;&amp;amp; cd django-project
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Create a Virtual Environment to isolate project specific dependencies.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;gt; python -m venv django-env
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; python -m venv django-env
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Activate the venv. (This is the Windows command.)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;gt; django-env\Scripts\activate.bat
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; django-env\Scripts\activate.bat
 &lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Once inside an activated venv, you can leave it to work on other things by using the &lt;code&gt;deactivate&lt;/code&gt; command.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Install Django inside the active venv. (You don&amp;rsquo;t want to install packages globally. Make sure that the venv is active.)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; pip install django
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;(django-env)&amp;gt; pip install django
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Use &lt;code&gt;django-admin&lt;/code&gt; to create the new Django application.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; django-admin startproject djangosite
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;(django-env)&amp;gt; django-admin startproject djangosite
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That created a new folder called &lt;code&gt;djangosite&lt;/code&gt; and it placed boilerplate files inside. &lt;code&gt;manage.py&lt;/code&gt; is one of those files and it&amp;rsquo;s what will used from now on to run Django commands.&lt;/p&gt;
 &lt;p&gt;Run the development Django server from inside the site&amp;rsquo;s folder.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; cd djangosite
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;(django-env)&amp;gt; cd djangosite
 (django-env)&amp;gt; python manage.py runserver
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Visit localhost:8000 to verify that it&amp;rsquo;s working. Then exit the server with Ctrl+Break.&lt;/p&gt;
 &lt;p&gt;When the Django server ran, Django automatically created a db.sqlite3 file in the project folder. &lt;a href=&#34;https://docs.djangoproject.com/en/2.2/ref/settings/#databases&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Read more about configuring different database backends&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Use VS Code to open the &lt;code&gt;django-project&lt;/code&gt; folder that houses the virtual environment folder and the Django app folder. This can be done from the terminal, or manually inside VS Code.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;gt; code ..\. 
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; code ..\. 
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Open &lt;code&gt;djangosite\urls.py&lt;/code&gt;. The imports for Django will probably be shown as missing modules because Django was installed in the venv and not globally. to fix this, press &lt;code&gt;ctrl+shift+p&lt;/code&gt; then execute the command &lt;code&gt;Python: Select Interpretter&lt;/code&gt;. Find &lt;code&gt;.\django-env\Scripts\python.exe&lt;/code&gt; from the list and select it. Then VS Code will stop showing the Django imports as errors.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;For more VS Code information visit &lt;a href=&#34;https://code.visualstudio.com/docs/python/python-tutorial&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Getting Started with Python in VS Code&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;add-a-custom-django-view&#34;&gt;Add a Custom Django View&lt;/h2&gt;
 &lt;p&gt;To add a &amp;lsquo;Hello World&amp;rsquo; page, create a new file in &lt;code&gt;django-project\djangosite\djangosite&lt;/code&gt; called &lt;code&gt;views.py&lt;/code&gt;. Add the following code.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;from django.http import HttpResponse
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;from django.http import HttpResponse
 
 def welcome(request):
   return HttpResponse(&amp;quot;Hello, World!&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To tell Django when to execute this welcome view, edit &lt;code&gt;urls.py&lt;/code&gt; so it looks like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;from django.contrib import admin
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;from django.contrib import admin
 from django.urls import path, re_path
 
 from .views import welcome
@@ -1747,16 +1766,16 @@ A migration will update the corresponding database table from previous versions 
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;add-a-custom-django-model&#34;&gt;Add a Custom Django Model&lt;/h2&gt;
 &lt;p&gt;Show migrations&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py showmigrations
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py showmigrations
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Execute those migrations&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py migrate
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py migrate
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now create a new Django app. For this example, it will handle the functionality for a contact form.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py startapp contactform
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py startapp contactform
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Move into the new &lt;code&gt;contactform&lt;/code&gt; directory and notice that Django has created a bunch of boilerplate code for us.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; cd contactform
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;(django-env)&amp;gt; cd contactform
 (django-env)&amp;gt; dir
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Add this new app to the Django site. Open &lt;code&gt;settings.py&lt;/code&gt; in the &lt;code&gt;djangosite&lt;/code&gt; folder, and add the &lt;code&gt;contactform&lt;/code&gt; app to the list of installed apps. &lt;code&gt;INSTALLED_APPS&lt;/code&gt; should look like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;INSTALLED_APPS = [
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;INSTALLED_APPS = [
     &#39;django.contrib.admin&#39;,
     &#39;django.contrib.auth&#39;,
     &#39;django.contrib.contenttypes&#39;,
@@ -1766,7 +1785,7 @@ A migration will update the corresponding database table from previous versions 
     &#39;contactform&#39;
 ]
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, open the &lt;code&gt;models.py&lt;/code&gt; file in the contact form app and add the class that will represent the contact form.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;from django.db import models
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;from django.db import models
 
 class ContactForm(models.Model):
     HOW_DID_YOU_HEAR_ABOUT_US_CHOICES = (
@@ -1784,32 +1803,32 @@ class ContactForm(models.Model):
 &lt;p&gt;More information about Django models can be found &lt;a href=&#34;https://docs.djangoproject.com/en/2.2/topics/db/models/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;After the model is saved, create the new migration script.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py makemigrations
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py makemigrations
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Run the migration.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py migrate
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py migrate
 &lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;p&gt;If you&amp;rsquo;re curious about what the SQLite database tables look like, you can download something like &lt;a href=&#34;https://sqlitebrowser.org/dl/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;DB Browser for SQLite&lt;/a&gt;. Table names will be named after the model with the app name as the prefix. So the table for ContactForm will be called &lt;code&gt;contactform_contactform&lt;/code&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;register-custom-model-in-admin&#34;&gt;Register Custom Model in Admin&lt;/h2&gt;
 &lt;p&gt;To make contact form submissions available to be read by a site administrator, &lt;code&gt;ContactForm&lt;/code&gt; needs to be registered in the admin area.&lt;/p&gt;
 &lt;p&gt;Open &lt;code&gt;contactform\admin.py&lt;/code&gt; and add this code to register the ContactForm model.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;from django.contrib import admin
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;from django.contrib import admin
 from .models import ContactForm
 
 @admin.register(ContactForm)
 class ContactFormAdmin(admin.ModelAdmin):
     list_display = (&#39;name&#39;, &#39;email&#39;)
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Create a super user for logging into the site&amp;rsquo;s admin area.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py createsuperuser
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;(django-env)&amp;gt; python manage.py createsuperuser
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now when the development server runs, you&amp;rsquo;ll be able to view and edit ContactForms in the Admin area by navigating to localhost:8000/admin and using the new super user to log in.&lt;/p&gt;
 &lt;h2 id=&#34;create-a-custom-django-template&#34;&gt;Create a Custom Django Template&lt;/h2&gt;
 &lt;p&gt;Double check the terminal&amp;rsquo;s working directory is the &lt;code&gt;contactform&lt;/code&gt; folder inside of &lt;code&gt;djangosite&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; pwd
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;(django-env)&amp;gt; pwd
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Switch to &lt;code&gt;contactform&lt;/code&gt; if it&amp;rsquo;s not the working directory.&lt;/p&gt;
 &lt;p&gt;Create a new folder for custom templates.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;(django-env)&amp;gt; mdkir templates
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;(django-env)&amp;gt; mdkir templates
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In VS Code, create a file in the new templates folder called &lt;code&gt;contactform.html&lt;/code&gt; for the contact form. Put the following code in the file for now.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
 &amp;lt;html&amp;gt;
     &amp;lt;head&amp;gt;
       &amp;lt;title&amp;gt;Contact Form&amp;lt;/title&amp;gt;
@@ -1819,14 +1838,14 @@ class ContactFormAdmin(admin.ModelAdmin):
     &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Next, update &lt;code&gt;contactform\views.py&lt;/code&gt; with this code.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;from django.shortcuts import render
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;from django.shortcuts import render
 
 def contactform(request):
     return render(request, &amp;quot;contactform.html&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Notice that the &lt;code&gt;render()&lt;/code&gt; function is used here instead of returning &lt;code&gt;HttpResponse()&lt;/code&gt; directly like the &amp;ldquo;Hello, World!&amp;rdquo; view does. The &lt;code&gt;render()&lt;/code&gt; function will use the template for the html.&lt;/p&gt;
 &lt;p&gt;To make the template visible from the browser, we need to route requests to the view based on the URL.&lt;/p&gt;
 &lt;p&gt;Use VS Code to create a &lt;code&gt;urls.py&lt;/code&gt; file inside the &lt;code&gt;contactform&lt;/code&gt; folder. Put this code inside it.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;from django.urls import re_path
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;from django.urls import re_path
 
 from .views import contactform
 
@@ -1835,7 +1854,7 @@ urlpatterns = [
 ]
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The &lt;code&gt;re_path()&lt;/code&gt; method uses a string as a regular expression. The &lt;code&gt;&#39;contactform$&#39;&lt;/code&gt; ensures that it only matches on paths that end in &lt;code&gt;contactform&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Since &lt;code&gt;djangosite\urls.py&lt;/code&gt; is what Django uses to route urls, it needs to be aware of the new &lt;code&gt;contactform\urls.py&lt;/code&gt;. Update it with this code.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;from django.contrib import admin
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;from django.contrib import admin
 from django.urls import path, re_path, include
 
 from .views import welcome
@@ -1848,7 +1867,7 @@ urlpatterns = [
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;&#39;^contactform/&#39;&lt;/code&gt; is a regular expression that makes sure matching paths begin with &lt;code&gt;contactform&lt;/code&gt;. This is a prefix for everything in the contactform app. So the complete matching path will be &lt;code&gt;localhost:8000/contactform/contactform&lt;/code&gt;. For more information read the &lt;a href=&#34;https://docs.djangoproject.com/en/2.2/topics/http/urls/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Django documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;h1 id=&#34;create-a-form&#34;&gt;Create a Form&lt;/h1&gt;
 &lt;p&gt;Create a new file in &lt;code&gt;contactform&lt;/code&gt; called &lt;code&gt;forms.py&lt;/code&gt; and put this code in it.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;from django.forms import ModelForm
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;from django.forms import ModelForm
 from .models import ContactForm
 
 class ContactFormForm(ModelForm):
@@ -1859,7 +1878,7 @@ class ContactFormForm(ModelForm):
 &lt;p&gt;&lt;em&gt;It was at this time that I started regretting how the &lt;code&gt;ContactForm&lt;/code&gt; model was named. To stick with Django conventions, this form class will be the name of the model with &amp;ldquo;Form&amp;rdquo; appended to it. Hence; &lt;code&gt;ContactFormForm&lt;/code&gt;. Future me will not make this mistake.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Update &lt;code&gt;contactform\views.py&lt;/code&gt; so it will send the new form class as an object to the template.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;from django.shortcuts import render
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import ContactFormForm
 from .models import ContactForm
@@ -1872,7 +1891,7 @@ def contactform(request):
 
     return render(request, &amp;quot;contactform.html&amp;quot;, context)
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Update the &lt;code&gt;contactform.html&lt;/code&gt; template to use the &lt;code&gt;form&lt;/code&gt; object in the &lt;code&gt;context&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
 &amp;lt;html&amp;gt;
     &amp;lt;head&amp;gt;
       &amp;lt;title&amp;gt;Contact Form&amp;lt;/title&amp;gt;
@@ -1889,7 +1908,7 @@ def contactform(request):
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can find more details about how to properly use templates &lt;a href=&#34;https://docs.djangoproject.com/en/2.2/ref/templates/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;here&lt;/a&gt;. The code above has much room for improvement.&lt;/p&gt;
 &lt;p&gt;Two things worth noting here are &lt;code&gt;{% csrf_token %}&lt;/code&gt; and &lt;code&gt;{{ form }}&lt;/code&gt;. The code for CSRF Token prevents this page from being vulnerable to cross site request forgery attacks. The &lt;code&gt;form&lt;/code&gt; object is the &lt;code&gt;ContactFrom&lt;/code&gt; model converted to HTML form elements via the &lt;code&gt;ModelForm&lt;/code&gt; class.&lt;/p&gt;
 &lt;p&gt;Update the view to accept and save a Contact Form submission.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;from django.shortcuts import render, redirect
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import ContactFormForm
 from .models import ContactForm
@@ -1945,7 +1964,7 @@ def contactform(request):
 &lt;p&gt;Vim&amp;rsquo;s configuration can be customized with vimrc files. These files are scripts written in Vimscript. They run at initialization when Vim is opened. We can find out more information by using help commands inside Vim.&lt;/p&gt;
 &lt;p&gt;First, open a Git Bash terminal and then open &lt;code&gt;vim&lt;/code&gt;. Then, in &lt;a href=&#34;https://www.howtoforge.com/vim-basics&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;command mode&lt;/a&gt;, open the configuration help information with &lt;code&gt;:help vimrc&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;At this point we can see where Vim will look for custom vimrc files.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  Places for your personal initializations:
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;  Places for your personal initializations:
     Unix            $HOME/.vimrc or $HOME/.vim/vimrc
     OS/2            $HOME/.vimrc, $HOME/vimfiles/vimrc
                     or $VIM/.vimrc (or _vimrc)
@@ -1961,17 +1980,17 @@ def contactform(request):
   $HOME/.vim/ directory ($HOME/vimfiles/ for MS-Windows). That makes it
   easy to copy it to another system.
 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Don&amp;rsquo;t be fooled. Since &lt;a href=&#34;https://github.com/git/git/commit/df5218b4c30b2fa1ba0d1ada4166ad85bc83be26&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Git Bash uses msys2&lt;/a&gt; to imitate a Unixy/Linuxy style system, Vim running inside Git Bash will be following Unix&amp;rsquo;s Conventions, rather than MS-Windows&amp;rsquo;.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Don&amp;rsquo;t be fooled. Since &lt;a href=&#34;https://github.com/git/git/commit/df5218b4c30b2fa1ba0d1ada4166ad85bc83be26&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Git Bash uses msys2&lt;/a&gt; to imitate a Unixy/Linuxy style system, Vim running inside Git Bash will be following Unix&amp;rsquo;s Conventions, rather than MS-Windows&#39;.&lt;/p&gt;
 &lt;p&gt;Also let&amp;rsquo;s follow Vim&amp;rsquo;s recommendation for using the &lt;code&gt;$HOME/.vim/&lt;/code&gt; directory for configuration files.&lt;/p&gt;
 &lt;p&gt;Make the directory:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ mkdir $HOME/.vim
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ mkdir $HOME/.vim
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then create the vimrc file:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ touch $HOME/.vim/vimrc
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ touch $HOME/.vim/vimrc
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;At this point, we have our empty initialization file for Vim. To make sure it&amp;rsquo;s working, I&amp;rsquo;ll add a command to turn on line numbering.&lt;/p&gt;
 &lt;p&gt;Open the vimrc file using Vim:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ vim $HOME/.vim/vimrc
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ vim $HOME/.vim/vimrc
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, enter Insert Mode by pressing &lt;code&gt;i&lt;/code&gt; and enter three lines:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;quot; Custom Vim configuration
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;quot; Custom Vim configuration
 
 set number
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Save these changes by pressing &lt;code&gt;esc&lt;/code&gt; to leave Insert Mode and then enter &lt;code&gt;:wq&lt;/code&gt; to write the changes and then quit Vim.&lt;/p&gt;
@@ -1982,9 +2001,9 @@ set number
 &lt;p&gt;When I execute &lt;code&gt;:scriptnames&lt;/code&gt; in Vim running in Git Bash, I see &lt;code&gt;/etc/vimrc&lt;/code&gt; at the very top of the list. This makes sense since the &lt;code&gt;etc&lt;/code&gt; folder is where Linux systems place a lot of their configuration. However, since this is in Windows, we need to figure out where the &lt;code&gt;etc&lt;/code&gt; folder is. It&amp;rsquo;s not in &lt;code&gt;C:\&lt;/code&gt; nor in the &lt;code&gt;$HOME&lt;/code&gt; directory. But, since Git Bash is mimicking a Linux system, we should be able to find it along with the other Git Bash files.&lt;/p&gt;
 &lt;p&gt;Since I&amp;rsquo;m running the 64 bit version of Git, I found the etc folder in &lt;code&gt;C:\Program Files\Git&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Inside Git Bash, we can get there with:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ cd c\&amp;quot;Program Files&amp;quot;\Git\etc
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cd c\&amp;quot;Program Files&amp;quot;\Git\etc
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, to take a quick peek at &lt;code&gt;vimrc&lt;/code&gt; just execute:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ cat vimrc
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cat vimrc
 &lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; I would &lt;em&gt;not&lt;/em&gt; recommend attempting to change anything in &lt;code&gt;etc&lt;/code&gt;. Instead modify Vim&amp;rsquo;s configuration using files in the &lt;code&gt;$HOME\.vim\&lt;/code&gt; folder.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2009,37 +2028,37 @@ Similar to Learning Vim in 2014, but more recent. Also has Linux specific inform
       <guid>https://quakkels.com/posts/mysql-quick-reference/</guid>
       <description>&lt;h2 id=&#34;shell-commands&#34;&gt;Shell Commands&lt;/h2&gt;
 &lt;h3 id=&#34;set-up-security-requirements&#34;&gt;Set up security requirements:&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo mysql_secure_installation
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo mysql_secure_installation
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;open-the-mysql-cli-client-and-login-using-a-password-and-the-specified-user&#34;&gt;Open the MySQL CLI client and login using a password and the specified user:&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo mysql -u {user} -p
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo mysql -u {user} -p
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;mysql-queries-and-commands&#34;&gt;MySQL Queries and Commands&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Note that MySQL will not execute anything until it encounters a semicolon &lt;code&gt;;&lt;/code&gt; which indicates the end of a statement. This allows us to enter multi-line statements.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;create-user&#34;&gt;Create User&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;USER&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;newuser&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt; IDENTIFIED &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;USER&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;newuser&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt; IDENTIFIED &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;give-user-access-to-a-database&#34;&gt;Give User Access to a Database&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;GRANT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ALL&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;PRIVILEGES&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ON&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; . &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TO&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;newuser&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;GRANT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ALL&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;PRIVILEGES&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ON&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; . &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TO&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;newuser&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;;
 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; FLUSH &lt;span style=&#34;color:#66d9ef&#34;&gt;PRIVILEGES&lt;/span&gt;;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;create-a-database-called-newstore&#34;&gt;Create a database called &lt;code&gt;newStore&lt;/code&gt;:&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;DATABASE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;EXISTS&lt;/span&gt; newStore;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;DATABASE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;EXISTS&lt;/span&gt; newStore;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;create-a-new-table-in-a-database&#34;&gt;Create a new table in a database:&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TABLE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;EXISTS&lt;/span&gt; newTable (
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TABLE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;EXISTS&lt;/span&gt; newTable (
 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;   newTableID INT &lt;span style=&#34;color:#66d9ef&#34;&gt;PRIMARY&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;KEY&lt;/span&gt; AUTO_INCREMENT,
 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;   firstName VARCHAR(&lt;span style=&#34;color:#ae81ff&#34;&gt;255&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;   lastName VARCHAR(&lt;span style=&#34;color:#ae81ff&#34;&gt;255&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;   email VARCHAR(&lt;span style=&#34;color:#ae81ff&#34;&gt;255&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; );
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;list-all-databases&#34;&gt;List all databases:&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;SHOW&lt;/span&gt; DATABASES;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;SHOW&lt;/span&gt; DATABASES;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;connect-to-a-database&#34;&gt;Connect to a database:&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; USE newStore;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; USE newStore;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;list-tables-in-a-database&#34;&gt;List tables in a database&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;SHOW&lt;/span&gt; TABLES;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;SHOW&lt;/span&gt; TABLES;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;list-columns-in-a-table&#34;&gt;List columns in a table&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;SHOW&lt;/span&gt; COLUMNS &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; newTable
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;SHOW&lt;/span&gt; COLUMNS &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; newTable
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;execute-a-sql-script-from-file&#34;&gt;Execute a sql script from file&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;source&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;path&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;to&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;script.&lt;span style=&#34;color:#66d9ef&#34;&gt;sql&lt;/span&gt;;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;source&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;path&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;to&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;script.&lt;span style=&#34;color:#66d9ef&#34;&gt;sql&lt;/span&gt;;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;more-resources&#34;&gt;More Resources&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql&#34;&gt;How To Create a New User and Grant Permissions in MySQL&lt;/a&gt;&lt;/li&gt;
@@ -2058,7 +2077,7 @@ Similar to Learning Vim in 2014, but more recent. Also has Linux specific inform
       <description>&lt;p&gt;In a previous article &lt;a href=&#34;https://quakkels.com/posts/configure-headless-raspberry-pi-for-wifi-and-ssh/&#34;&gt;I configured a headless Raspberry Pi for Wifi and SSH&lt;/a&gt;. Next, I&amp;rsquo;ll set up a personal Gogs server on it.&lt;/p&gt;
 &lt;h2 id=&#34;change-the-password&#34;&gt;Change the Password&lt;/h2&gt;
 &lt;p&gt;First things first, change the password for the &lt;code&gt;pi&lt;/code&gt; user to something different than &lt;code&gt;raspberry&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ passwd
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ passwd
 Changing password for pi.
 (current) UNIX password:
 Enter new UNIX password:
@@ -2067,39 +2086,39 @@ passwd: password updated successfully
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;em&gt;Please tweet your new password to @quakkels /s&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;arrange-the-prerequisites&#34;&gt;Arrange the Prerequisites&lt;/h2&gt;
 &lt;p&gt;Next, I&amp;rsquo;ll make sure the &lt;a href=&#34;https://gogs.io/docs/installation&#34;&gt;prerequisites&lt;/a&gt; are set up. Since Raspbian is based on Debian I can use the Debian/Ubuntu commands. I&amp;rsquo;m skipping the database step because I&amp;rsquo;m happy with this Gogs instance using SQLite3.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo apt-get update
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo apt-get update
 $ sudo apt-get install git
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Before proceeding farther, I&amp;rsquo;m going to create a brand new user specifically for Gogs. This new user will be everything Gogs.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo adduser iamgogs 
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo adduser iamgogs 
 &lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
-&lt;p&gt;Note: If I were a more experienced Gogs administrator I would have created a user named &lt;code&gt;git&lt;/code&gt; since that&amp;rsquo;s Gogs&amp;rsquo; best practice and it&amp;rsquo;s less work later on. Scripts and default configuration use &lt;code&gt;git&lt;/code&gt; as the Gogs user by default.&lt;/p&gt;
+&lt;p&gt;Note: If I were a more experienced Gogs administrator I would have created a user named &lt;code&gt;git&lt;/code&gt; since that&amp;rsquo;s Gogs&#39; best practice and it&amp;rsquo;s less work later on. Scripts and default configuration use &lt;code&gt;git&lt;/code&gt; as the Gogs user by default.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Be prepared to have a password ready for the new &lt;code&gt;iamgogs&lt;/code&gt; user.&lt;/p&gt;
 &lt;p&gt;Add the &lt;code&gt;iamgogs&lt;/code&gt; user to the sudo group.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo usermod -aG sudo iamgogs
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo usermod -aG sudo iamgogs
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now switch to the &lt;code&gt;iamgogs&lt;/code&gt; user with:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ su - iamgogs
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ su - iamgogs
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And test the sudo ability by running any command as sudo:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo pwd
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo pwd
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;install-gogs-from-binary&#34;&gt;Install Gogs from Binary&lt;/h2&gt;
 &lt;p&gt;From here, I could install Go and proceed to install from source. But instead, to keep the number of steps to a minimum, I&amp;rsquo;m going to &lt;a href=&#34;https://gogs.io/docs/installation/install_from_binary&#34;&gt;install from binary&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Being currently logged in as the &lt;code&gt;iamgogs&lt;/code&gt; user, I&amp;rsquo;ll use the &lt;code&gt;wget&lt;/code&gt; command to download the Raspberry PI build from &lt;a href=&#34;https://gogs.io/docs/installation/install_from_binary&#34;&gt;this download page&lt;/a&gt;. Use &lt;code&gt;wget&lt;/code&gt; with the url for the binary built specifically for Raspberry PI.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ wget {raspberrypibinaryurl}
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ wget {raspberrypibinaryurl}
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now that I&amp;rsquo;ve got it downloaded, I can unzip it using the &lt;code&gt;unzip&lt;/code&gt; command.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ unzip {gogszipfilename}
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ unzip {gogszipfilename}
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you run the &lt;code&gt;ls&lt;/code&gt; command you should see the new &lt;code&gt;gogs&lt;/code&gt; folder that was extracted into the &lt;code&gt;iamgogs&lt;/code&gt; home directory.&lt;/p&gt;
 &lt;p&gt;And now for something completely expected&amp;hellip;&lt;/p&gt;
 &lt;h2 id=&#34;configuring-and-running-gogs-on-raspberry-pi&#34;&gt;Configuring and Running Gogs on Raspberry PI&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://gogs.io/docs/installation/configuration_and_run.html&#34;&gt;Running and configuring the Gogs server&lt;/a&gt; is handled by the Gogs install process. There&amp;rsquo;s lots of information online about manually creating and editing custom app.ini configuration file, but it looks like (for the most recent versions of Gogs) all I need to do is run the &lt;code&gt;gogs&lt;/code&gt; executable from the &lt;code&gt;$HOME/gogs&lt;/code&gt; folder with the &lt;code&gt;web&lt;/code&gt; parameter.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ cd $HOME/gogs
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cd $HOME/gogs
 $ ./gogs web
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I saw server information appear in the console. Since my Raspberry Pi is set up for headless operation, I don&amp;rsquo;t have the benefit of being able to access Gogs via a graphical web browser over localhost. So, from my windows machine, I navigated to {IpAddressOfRPi}:3000 and was greeted by a pleasant installation form which I filled out. Upon submitting the form, I had an admin account and a functioning Gogs server.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m nearing the end of this Gogs journey, but I still need to set this up as a service running in the background. Otherwise I&amp;rsquo;m stuck with this SSH session running Gogs forever.&lt;/p&gt;
 &lt;p&gt;I was able to find some &lt;a href=&#34;https://blog.meinside.dev/Gogs-on-Raspberry-Pi/#2-for-systemd&#34;&gt;instructions&lt;/a&gt; for configuring a Gogs service with systemd that seemed straightforward enough.&lt;/p&gt;
 &lt;p&gt;Copy the systemd service file from Gogs to the appropriate folder&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo cp /home/iamgogs/scripts/systemd/gogs.service /lib/systemd/system/gogs.service
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo cp /home/iamgogs/scripts/systemd/gogs.service /lib/systemd/system/gogs.service
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then I edited the new file.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo nano /lib/systemd/system/gogs.service
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo nano /lib/systemd/system/gogs.service
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I updated the values for:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;User&lt;/li&gt;
@@ -2109,11 +2128,11 @@ $ ./gogs web
 &lt;li&gt;Environment&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Since my Gogs user is &lt;code&gt;iamgogs&lt;/code&gt; rather than &lt;code&gt;git&lt;/code&gt; I needed to make sure the paths and users got updated accordingly. Once the file is updated and saved I tested to make sure it was working with:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo systemctl start gogs.service
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo systemctl start gogs.service
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After switching over to my windows machine and confirming the site loads in the browser, I returned to my ssh session to make sure systemd will automatically start the Gogs service on reboot.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo systemctl enable gogs.service
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo systemctl enable gogs.service
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And then a final test to make sure Gogs will start automatically when the RPi boots:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo reboot
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo reboot
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Lo and behold, it works.&lt;/p&gt;
 </description>
     </item>
@@ -2889,7 +2908,7 @@ print(&#39;################\n    Results:\n################\n&#39;, parser.resul
 &lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/insertionSort05.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Now the entire list of game discs has been sorted. We see the process working, but now we need to translate this process into a computer algorithm.&lt;/p&gt;
 &lt;h2 id=&#34;insertion-sort-example-in-javascript&#34;&gt;Insertion Sort Example in JavaScript&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;// set up the array with random values
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// set up the array with random values
 var sortMe = new Array();
 var arrayLength = 5;
 var i = 0;
@@ -2971,7 +2990,7 @@ for(; i &amp;lt; arrayLength; i++) {
 &lt;h2 id=&#34;implement-bubble-sort-in-javascript&#34;&gt;Implement Bubble Sort in JavaScript&lt;/h2&gt;
 &lt;p&gt;Now that we understand the Bubble Sort process from the playing card demonstration, let&amp;rsquo;s implement it. Let&amp;rsquo;s use JavaScript for a simple example.&lt;/p&gt;
 &lt;p&gt;The script begins by creating an array that holds 5 values, and assigning random numbers to the array. Once the array is created and populated, we print the array and values to the console.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var sortMe = new Array();
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;var sortMe = new Array();
 var arrayLength = 5;
 var i = 0;
 for(; i &amp;lt; arrayLength; i++) {
@@ -2985,7 +3004,7 @@ for(; i &amp;lt; arrayLength; i++) {
 }
 console.log(&amp;quot;Starting Values: \t&amp;quot; + logText);
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now we need to sort the array. The sort is done by using two loops and an if statement.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;i = 0;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;i = 0;
 var didSwap = true;
 var temp;
 for(; i &amp;lt; arrayLength &amp;amp;&amp;amp; didSwap; i++) {
@@ -3042,7 +3061,7 @@ New Order:		2, 4, 7, 9, 16,
 &lt;p&gt;That will run the Python script. Though, nothing will happen until we put some code in there.&lt;/p&gt;
 &lt;h2 id=&#34;connecting-to-your-sqlite-database-from-python&#34;&gt;Connecting to Your SQLite Database from Python&lt;/h2&gt;
 &lt;p&gt;To perform CRUD functionality, first we need to establish a connection with the database, and then create what&amp;rsquo;s known as a cursor which will allow us to execute commands.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;import sqlite3
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import sqlite3
 
 conn = sqlite3.connect(&#39;Blog.sqlite&#39;)
 cursor = conn.cursor()
@@ -3060,7 +3079,7 @@ conn.commit()
 &lt;p&gt;It&amp;rsquo;s worth noting here, calling &lt;code&gt;cursor.execute()&lt;/code&gt; will execute the command on the database. But, we need to commit any changes by calling conn.commit(). If we don&amp;rsquo;t call conn.commit() before the connection is closed, then our changes will be undone as if they never happened.&lt;/p&gt;
 &lt;h2 id=&#34;reading-our-new-records&#34;&gt;Reading Our New Records&lt;/h2&gt;
 &lt;p&gt;Now that we have some data inserted into the database table, let&amp;rsquo;s read it out.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cursor.execute(&#39;select * from Posts&#39;)
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cursor.execute(&#39;select * from Posts&#39;)
 
 print(&#39;Current records: &#39;)
 for row in cursor.fetchall():
@@ -3068,7 +3087,7 @@ for row in cursor.fetchall():
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We are using the same &lt;code&gt;cursor.execute()&lt;/code&gt; method to run a select query on the table. Then we can print each row by using &lt;code&gt;cursor.fetchall()&lt;/code&gt; in a for loop.&lt;/p&gt;
 &lt;h2 id=&#34;update-that-first-record&#34;&gt;Update That First Record&lt;/h2&gt;
 &lt;p&gt;Now, let&amp;rsquo;s make some changes to the record we inserted first. This is when the &lt;code&gt;firstPostId&lt;/code&gt; comes in handy.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cursor.execute(&#39;update Posts set Headline=?, Body=? where Id=?&#39;, (&#39;This is my NEW Headline&#39;, &#39;This is the NEW body of my blog post.&#39;, firstPostId))
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cursor.execute(&#39;update Posts set Headline=?, Body=? where Id=?&#39;, (&#39;This is my NEW Headline&#39;, &#39;This is the NEW body of my blog post.&#39;, firstPostId))
 conn.commit()
 
 print(&#39;Records after update: &#39;)
@@ -3172,7 +3191,7 @@ is to Python as ASP.NET MVC is to C#. I was surprised to find that out. My first
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th align=&#34;right&#34;&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;&lt;/th&gt;
 &lt;th&gt;Model&lt;/th&gt;
 &lt;th&gt;View&lt;/th&gt;
 &lt;th&gt;Controller&lt;/th&gt;
@@ -3180,13 +3199,13 @@ is to Python as ASP.NET MVC is to C#. I was surprised to find that out. My first
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;strong&gt;ASP.NET MVC Term&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;strong&gt;ASP.NET MVC Term&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Model&lt;/td&gt;
 &lt;td&gt;View&lt;/td&gt;
 &lt;td&gt;Controller&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;strong&gt;Django Term&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;strong&gt;Django Term&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Model&lt;/td&gt;
 &lt;td&gt;Template&lt;/td&gt;
 &lt;td&gt;View&lt;/td&gt;
@@ -3197,10 +3216,10 @@ is to Python as ASP.NET MVC is to C#. I was surprised to find that out. My first
 &lt;p&gt;When I think of Views in MVC, I think of the presentation layer which consists of markup, CSS, JavaScript, and some server-side scripting for basic display logic. That’s not what Views are in Django. Rather, Django’s Views do the equivalent job of the Controller in ASP.NET MVC.
 Templates are the Real Views&lt;/p&gt;
 &lt;p&gt;ASP.NET MVC uses the term &amp;lsquo;View&amp;rsquo; to describe their presentation layer. HTML markup, css styles and JavaScript come together in a View file with help from Razor. Razor is very powerful and it is easy to pick up because it allows C# syntax directly in the view file to render a complete webpage. In my experience, this can also lead to an unbalanced View that has too much logic embedded in the View file instead of in the controller.&lt;/p&gt;
-&lt;p&gt;Django uses the term “Template&amp;rsquo; to describe their presentation layer. It also brings HTML markup, css styles, and JavaScript together. Though, it uses it’s own template rendering system. Whereas ASP.NET has the power of Razor that leverages C# syntax, Django’s template rendering syntax is unique, and it introduces a steeper learning curve than Razor.&lt;/p&gt;
+&lt;p&gt;Django uses the term “Template&#39; to describe their presentation layer. It also brings HTML markup, css styles, and JavaScript together. Though, it uses it’s own template rendering system. Whereas ASP.NET has the power of Razor that leverages C# syntax, Django’s template rendering syntax is unique, and it introduces a steeper learning curve than Razor.&lt;/p&gt;
 &lt;h2 id=&#34;if-youre-looking-for-partial-views-in-django&#34;&gt;If You’re Looking for Partial Views in Django&amp;hellip;&lt;/h2&gt;
 &lt;p&gt;&amp;hellip;You’re probably not going to find them. There is nothing called &amp;ldquo;Partial Template&amp;rdquo; in Django, though you can accomplish similar functionality.&lt;/p&gt;
-&lt;p&gt;Let’s say you have a data driven navigation bar that you want to display on all your template pages. You don’t want to write all your views to explicitly query that data, create the nav object for the template, and then have the navigation markup located in each template. Rather, you would like to just have located in your template file a reference to a &amp;ldquo;Partial View&amp;rsquo; which would do all that for you and it is independent of View-specific processes. In ASP.NET, this can be accomplished with Partial Views. In Django, this can be accomplished with Template Tags. It seems to me to be more cumbersome than a Partial View concept, but that could just be because I am still relatively new to the Django framework.
+&lt;p&gt;Let’s say you have a data driven navigation bar that you want to display on all your template pages. You don’t want to write all your views to explicitly query that data, create the nav object for the template, and then have the navigation markup located in each template. Rather, you would like to just have located in your template file a reference to a &amp;ldquo;Partial View&#39; which would do all that for you and it is independent of View-specific processes. In ASP.NET, this can be accomplished with Partial Views. In Django, this can be accomplished with Template Tags. It seems to me to be more cumbersome than a Partial View concept, but that could just be because I am still relatively new to the Django framework.
 Models are Pretty Much What You Would Expect&lt;/p&gt;
 &lt;p&gt;Django has its own built in ORM. This allows you to define database tables, fields, validation, and relationships using Python classes. When you make changes to you Model’s classes, Django provides a simple command to sync the database:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ python manage.py syncdb

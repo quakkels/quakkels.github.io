@@ -61,14 +61,14 @@
 <p>The important elements to note are the API Login ID and the Transaction Key. These two pieces of information are used to authenticate your calls into Authorize.net&rsquo;s API to process payments. Keep this information secret. Don&rsquo;t share it with anyone. Don&rsquo;t commit it to Git.</p>
 <h2 id="use-the-python-sdk">Use the Python SDK</h2>
 <p>Create a new directory for the python project.</p>
-<pre><code>$ mkdir authnetdemo
+<pre tabindex="0"><code>$ mkdir authnetdemo
 $ cd authnetdemo
 </code></pre><p>I&rsquo;m not going to explain Python virtual environments in this article, but feel free to use one for this project if you like.</p>
 <p>Now install the Authorize.net SDK.</p>
-<pre><code>$ python3.7 -m pip install authorizenet
+<pre tabindex="0"><code>$ python3.7 -m pip install authorizenet
 </code></pre><p>Create file called &ldquo;settings.py&rdquo; for the module that will be responsible for managing the Authorize.net secrets. For now I&rsquo;m going to just place the real values directly in the file, but I don&rsquo;t recommend that for production code, nor for projects that will be committed to source control like Git.</p>
 <p><strong>settings.py</strong></p>
-<pre><code>def get_transaction_id():
+<pre tabindex="0"><code>def get_transaction_id():
     return &quot;YOUR_TRANSACTION_ID&quot;
 
 def get_api_login_id():
@@ -76,7 +76,7 @@ def get_api_login_id():
 </code></pre><p>These values could be retrieved from a database or environment variables. Or they could even be retrieved from a configuration file in xml, json, or your format of choice. I&rsquo;m not going to cover those techniques in this article, but they are all good ways to keep secrets out of the application&rsquo;s source code.</p>
 <p>Create a &ldquo;models.py&rdquo; file to hold a couple classes that we&rsquo;ll use.</p>
 <p><strong>models.py</strong></p>
-<pre><code>class CreditCard:
+<pre tabindex="0"><code>class CreditCard:
     number = None
     expiration_date = None
     code = None
@@ -88,7 +88,7 @@ class TransactionResponse:
 <p>Other potential things we could add include things like billing address, name on card, and order information.</p>
 <p>Create a file called &ldquo;paymentprocessing.py&rdquo; for the module handling credit card tasks.</p>
 <p><strong>paymentprocessing.py</strong></p>
-<pre><code>from authorizenet import apicontractsv1
+<pre tabindex="0"><code>from authorizenet import apicontractsv1
 from authorizenet.apicontrollers import createTransactionController
 from decimal import Decimal
 import settings
@@ -152,7 +152,7 @@ def response_mapper(api_response):
 <p>The <code>charge_credit_card</code> function is where the actual money changes hands. First the merchant is identified. Then the card information is set.</p>
 <p>Create an <code>app.py</code> file.</p>
 <p><strong>app.py</strong></p>
-<pre><code>import models
+<pre tabindex="0"><code>import models
 import paymentprocessing
 
 amount = &quot;19.99&quot;
@@ -168,7 +168,7 @@ print(response.is_success)
 print(response.messages)
 </code></pre><p>This is the entry point for our Python script. The amount to charge is specified. The credit card details are specified. Then we attempt to charge the card and print the response.</p>
 <p>Run &ldquo;app.py&rdquo; without forgeting to add your API Login ID and Transaction ID.</p>
-<pre><code>$ python3.7 app.py 
+<pre tabindex="0"><code>$ python3.7 app.py 
 True
 ['Successfully created transaction with Transaction ID: 40051695558', 'Transaction Response Code: 1', 'Message Code: 1', 'Description: This transaction has been approved.']
 </code></pre><p>For more details about Authorize.net&rsquo;s testability, take a look at their <a href="https://developer.authorize.net/hello_world/testing_guide.html" target="_blank" rel="noopener noreferrer">Testing Guide</a>.</p>

@@ -51,17 +51,17 @@
 <h3 id="javascript-arrow-functions">JavaScript Arrow Functions</h3>
 <p>Since React apps use a build system to generate the runtime code, we&rsquo;re able to take advantage of ES6 syntax via transpilers without needing to worry about browser support. This gives us access to Arrow Functions syntax which are lambda functions in JavaScript.</p>
 <p>Before ES6 was available JavaScript had anonymous functions.</p>
-<pre><code>var anonFunc = function (name) { return &quot;Hello &quot; + name; }
+<pre tabindex="0"><code>var anonFunc = function (name) { return &quot;Hello &quot; + name; }
 </code></pre><p>Since ES6 is available we can rewrite the anonymous function above as an Arrow function like this:</p>
-<pre><code>const arrowFunc = (name) =&gt; { return &quot;Hello &quot; + name; }
+<pre tabindex="0"><code>const arrowFunc = (name) =&gt; { return &quot;Hello &quot; + name; }
 </code></pre><p>First thing that&rsquo;s different is you&rsquo;ll notice the <code>const</code> keyword instead of <code>var</code>. The <code>const</code> keyword defines this as a constant value and doesn&rsquo;t allow <code>arrowFunc</code> to get redefined elsewhere. It&rsquo;s available to us in ES6 and it&rsquo;s usually more appropriate for declaring functions.</p>
 <p>Next, notice the absence of the <code>function</code> keyword, and instead we see <code>=&gt;</code> which is the &lsquo;arrow&rsquo; that indicates an Arrow function. (This should be very familiar to C# programmers because their lambda syntax is very similar.) The function parameters are listed inside paranthesis on the left of the arrow, and the function body is on the right.</p>
 <p>If there&rsquo;s only one parameter expected, then Arrow function definitions can skip the paranthesis.</p>
-<pre><code>const arrowFunc = name =&gt; { return &quot;Hello &quot; + name; }
+<pre tabindex="0"><code>const arrowFunc = name =&gt; { return &quot;Hello &quot; + name; }
 </code></pre><p>Another convenient feature of Arrow functions is the implicit return that occurs if we remove the curly braces.</p>
-<pre><code>const arrowFunc = name =&gt; &quot;Hello &quot; + name
+<pre tabindex="0"><code>const arrowFunc = name =&gt; &quot;Hello &quot; + name
 </code></pre><p>The result is syntax that can be fairly terse and clean, but if you&rsquo;re returning an object literal then you have to add paranthesis around it to ensure it&rsquo;s interpretted as a return value correctly.</p>
-<pre><code>// doesn't work
+<pre tabindex="0"><code>// doesn't work
 const objLiteral = () =&gt; {one: 1}
 
 // returns the object
@@ -69,7 +69,7 @@ const objLiteral = () =&gt; ({one: 1})
 </code></pre><h3 id="closures">Closures</h3>
 <p>JavaScript has had closures since the beginning. It&rsquo;s one of the most powerful aspects of the language.</p>
 <p>Essentially, it just means that functions have access to their surrounding scope (i.e. lexical environment.)</p>
-<pre><code>let canSeeMe = true;
+<pre tabindex="0"><code>let canSeeMe = true;
 const run = () =&gt; {
   let canSee = true;
   const displayCanSee = () =&gt; {
@@ -83,7 +83,7 @@ run();
 </code></pre><p>In the example above the <code>displayCanSee</code> function can see the <code>canSee</code> and <code>canSeeMe</code> variables even though they&rsquo;re outside of the scope of the display function.</p>
 <h3 id="javascript-object-destructuring">JavaScript Object Destructuring</h3>
 <p>This is another JavaScript feature introduced in ES6. The assignment aspect is a useful shortcut for creating named variables using values from objects.</p>
-<pre><code>const person = {
+<pre tabindex="0"><code>const person = {
   first: 'George',
   last: 'Washington',
 };
@@ -96,7 +96,7 @@ console.log(last); // prints 'Washington'
 <h2 id="key-react-concepts">Key React Concepts</h2>
 <p>Programming React components without the class based syntax has been possible for some time. But such function based components were limited from being able to use state. That is, they were until React version 16.8 when a new API was introduced. React hooks allow a function component to be stateful.</p>
 <p>Here are examples of a function component using the JavaScript features we&rsquo;ve already examined.</p>
-<pre><code>// traditional function declaration
+<pre tabindex="0"><code>// traditional function declaration
 function Hello(props) {
   return &lt;h1&gt;Hello {props.name}&lt;/h1&gt;
 }
@@ -115,13 +115,13 @@ const Hello = {name} =&gt; &lt;h1&gt;Hello {name}&lt;/h1&gt;
 <h3 id="the-usestate-hook">The <code>useState</code> Hook</h3>
 <p>State is for values that are displayed to the user which are subject to change. In the coming example we&rsquo;ll be showing a default message to the user and the user will be able to change the message to a word or phrase of their choosing.</p>
 <p>The <code>useState</code> hook can be imported like this.</p>
-<pre><code>import React, { useState } from 'react';
+<pre tabindex="0"><code>import React, { useState } from 'react';
 </code></pre><p>Its usage looks like this.</p>
-<pre><code>const [msg, setMsg] = useState('Hello world');
+<pre tabindex="0"><code>const [msg, setMsg] = useState('Hello world');
 </code></pre><p>Let&rsquo;s break this down. First, this line is using array destructuring (same principles as object destructuring covered above) to handle the return value from the <code>useState</code> function call. A default value of &ldquo;Hello world&rdquo; is passed in, and we get two values out. <code>msg</code> which is set to &ldquo;Hello world&rdquo;, and <code>setMsg</code> which is a function that we can use to update the value of <code>msg</code>.</p>
-<p>React beginners might wonder why they need the <code>setMsg</code> function. They could certainly just use an assignment operator to update <code>msg</code>'s value, but the trick is getting the new value displayed to the user. The new value won&rsquo;t be updated in React unless we use <code>setMsg</code>.</p>
+<p>React beginners might wonder why they need the <code>setMsg</code> function. They could certainly just use an assignment operator to update <code>msg</code>&rsquo;s value, but the trick is getting the new value displayed to the user. The new value won&rsquo;t be updated in React unless we use <code>setMsg</code>.</p>
 <p>Now, here&rsquo;s how <code>useState</code> can be used to dynamically update a function component.</p>
-<pre><code>const Hello = () =&gt; {
+<pre tabindex="0"><code>const Hello = () =&gt; {
   const [msg, setMsg] = useState('Hello world');
 
   return (
@@ -139,9 +139,9 @@ const Hello = {name} =&gt; &lt;h1&gt;Hello {name}&lt;/h1&gt;
 <p><code>useEffect</code> is for performing side effects whenever a component changes. It&rsquo;s similar to the class based approach that uses <code>componentDidMount</code>, <code>componentDidUpdate</code>, and <code>componentWillUnmount</code> methods. It replaces all three.</p>
 <p>One of the most common usages of <code>useEffect</code> is for loading data via API calls.</p>
 <p>The <code>useEffect</code> hook can be imported by adding it to our previous import statement.</p>
-<pre><code>import React, { useState, useEffect } from 'react';
+<pre tabindex="0"><code>import React, { useState, useEffect } from 'react';
 </code></pre><p>Here&rsquo;s a very simple useage to illustrate a side effect, though not a very useful one.</p>
-<pre><code>const Hello = ({ name }) =&gt; {
+<pre tabindex="0"><code>const Hello = ({ name }) =&gt; {
   
   const [displayName, setDisplayName] = useState(name);
 
@@ -156,21 +156,21 @@ const Hello = {name} =&gt; &lt;h1&gt;Hello {name}&lt;/h1&gt;
 </code></pre><p>The previous component receives a <code>name</code> property on the <code>props</code> object and assigns it to as the default value of <code>displayName</code> which is what gets shown to the user. But, since we&rsquo;ve create a side effect that always sets <code>displayName</code> to &ldquo;George&rdquo;, the user will never see any name other than &ldquo;George&rdquo;.</p>
 <p>Let&rsquo;s move on to a more useful example. Side effects are often used to take data from an API call and display it to the user.</p>
 <p>Here&rsquo;s some quick code for calling Bible API.</p>
-<pre><code>const api = {
+<pre tabindex="0"><code>const api = {
   getPassage: search =&gt; {
     return axios.get(`http://bible-api.com/${search}`).then(r =&gt; r.data);
   }
 }
 </code></pre><p>Our function component will have two variables in state.</p>
-<pre><code>  const [passage, setPassage] = useState('');
+<pre tabindex="0"><code>  const [passage, setPassage] = useState('');
   const [search, setSearch] = useState('Ephesians 2:8-10');
 </code></pre><p>Then, we have a very simple side effect that calls the API.</p>
-<pre><code>  useEffect(() =&gt; {
+<pre tabindex="0"><code>  useEffect(() =&gt; {
     api.getPassage(search).then(d =&gt; setPassage(d.text));
   });
 </code></pre><p>The <code>useEffect</code> function lets React know about our arrow function that contains the side effect. So whenever this component mounts or is updated, the side effect code will execute.</p>
 <p>Here&rsquo;s the complete code.</p>
-<pre><code>import React, { useState, useEffect } from 'react';
+<pre tabindex="0"><code>import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const api = {

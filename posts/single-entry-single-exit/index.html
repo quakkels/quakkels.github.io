@@ -47,7 +47,7 @@
 <p>As a program ages and receives updates, more and more features are built. Logic is added and the code becomes increasingly more complicated to read and understand. So programmers invent recommended practices to manage the complexity and to preserve the maintainability of their code. The goal being to keep the cognitive load to minimum levels so the programmer can work efficiently.</p>
 <p>One popular practice is to avoid nested code when possible. The concept that flat is better than nested has been widely adopted by Python programmers who have included it in their <a href= "https://www.python.org/dev/peps/pep-0020/" target="_blank" rel="noopener noreferrer">guidelines</a>. Python programmers aren&rsquo;t the only group to adopt this preference. Resharper, a code analysis tool popular among C# programmers, <a href="https://stackoverflow.com/q/268132" target="_blank" rel="noopener noreferrer">recommends coding styles that result in less nested code</a>.</p>
 <p>However, there&rsquo;s another recommended practice called Single Entry Single Exit (SE/SE). When applied in modern languages, it avoids exiting a program early with multiple return statements. This can be in direct opposition to &ldquo;Flatter is Better&rdquo; since an important flattening technique is to return early.</p>
-<pre><code>public bool ValidatePassword(CredentialService credentials, string username, string password)
+<pre tabindex="0"><code>public bool ValidatePassword(CredentialService credentials, string username, string password)
 {
   var isValid = false;
 
@@ -79,7 +79,7 @@
 }
 </code></pre><p>The above code is sound. But we can easily see that nested if/else statements quickly become difficult to read. And keep in mind that as this codebase matures it&rsquo;s very likely that additional features, checks, and logging will be required by business rules.</p>
 <p>Now, consider how easy it is to read the following code which uses multiple early returns to exit.</p>
-<pre><code>public bool ValidatePassword(CredentialService credentials, string username, string password)
+<pre tabindex="0"><code>public bool ValidatePassword(CredentialService credentials, string username, string password)
 {
   if (!credentials.Exists(username))
   {
