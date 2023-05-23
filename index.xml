@@ -6,7 +6,36 @@
     <description>Recent content on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How To Use RSS</title>
+      <link>https://quakkels.com/posts/202305_2_how_to_use_rss/</link>
+      <pubDate>Tue, 23 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/posts/202305_2_how_to_use_rss/</guid>
+      <description>&lt;p&gt;Sometimes my readers tell me that my RSS feed is broken. They click on the &amp;ldquo;RSS Feed&amp;rdquo; link expect to be subscribed to my blog. But, instead they just see a bunch of computery gibberish filling their screen.&lt;/p&gt;
+&lt;p&gt;RSS, &lt;a href=&#34;https://quakkels.com/posts/rss-is-wonderful/&#34;&gt;for all its benefits&lt;/a&gt;, isn&amp;rsquo;t as intuitive as a Facebook timeline or Twitter feed. But, with a little explanation, I think anyone can use RSS to build information feeds that are exactly what they want.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-rss&#34;&gt;What is RSS?&lt;/h2&gt;
+&lt;p&gt;At a high level, an RSS has two pieces.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The RSS Feed&lt;/li&gt;
+&lt;li&gt;The RSS Reader&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The blog or website is responsible for providing the RSS feed. That&amp;rsquo;s what you see if you follow &lt;a href=&#34;https://quakkels.com/index.xml&#34;&gt;this link to my RSS Feed&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You, as the person who wants to follow sites, need to choose an RSS Reader that will consume the RSS Feed for you, and tell you when new content gets posted. Two popular RSS Readers are &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://feedly.com&#34;&gt;feedly.com&lt;/a&gt; and &lt;a target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; href=&#34;https://www.inoreader.com&#34;&gt;inoreader.com&lt;/a&gt;. They both offer free acounts and they both will let you subscribe to my blog as well as other sites that have RSS Feeds.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-subscribe-using-feedlycom&#34;&gt;How To Subscribe Using Feedly.com&lt;/h2&gt;
+&lt;p&gt;First, make a free account.&lt;/p&gt;
+&lt;p&gt;Second, on the left hand menu bar, click on the &amp;ldquo;Add RSS Feed&amp;rdquo; button (with the icon pictured below) to add an RSS Feed.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/how_to_use_rss_ADD_FEED.png&#34; alt=&#34;Picture of Add RSS Feed Button&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Then search for &amp;ldquo;quakkels.com&amp;rdquo; and click the &amp;ldquo;Follow&amp;rdquo; button.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/how_to_use_rss_SEARCH_QUAKKELS.png&#34; alt=&#34;Picture of searching for quakkels.com and following&#34;&gt;&lt;/p&gt;
+&lt;p&gt;When you click on the &amp;ldquo;Follow&amp;rdquo; button, Feedly will prompt you to make a folder to help you keep your RSS subscriptions organized. (It&amp;rsquo;s anticipating you&amp;rsquo;ll want to subscribe to a lot of sites.) Just create a folder with a name that makes sense to you.&lt;/p&gt;
+&lt;p&gt;If you choose to use inoreader instead of Feedly, the steps will be very similar but the user inteface will be a little different.&lt;/p&gt;
+&lt;h2 id=&#34;thank-you&#34;&gt;Thank You&lt;/h2&gt;
+&lt;p&gt;For all my readers who subscribe, thank you.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>What Does Superversive Mean?</title>
       <link>https://quakkels.com/posts/202305_1_whatdoessuperversivemean/</link>

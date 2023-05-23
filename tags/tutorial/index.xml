@@ -6,7 +6,17 @@
     <description>Recent content in Tutorial on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://quakkels.com/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://quakkels.com/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How To Use RSS</title>
+      <link>https://quakkels.com/posts/202305_2_how_to_use_rss/</link>
+      <pubDate>Tue, 23 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/posts/202305_2_how_to_use_rss/</guid>
+      <description>Sometimes my readers tell me that my RSS feed is broken. They click on the &amp;ldquo;RSS Feed&amp;rdquo; link expect to be subscribed to my blog. But, instead they just see a bunch of computery gibberish filling their screen.
+RSS, for all its benefits, isn&amp;rsquo;t as intuitive as a Facebook timeline or Twitter feed. But, with a little explanation, I think anyone can use RSS to build information feeds that are exactly what they want.</description>
+    </item>
+    
     <item>
       <title>Develop an ASP.NET Core Site on Linux</title>
       <link>https://quakkels.com/posts/202108_develop_an_aspnetcore_site_on_linux/</link>

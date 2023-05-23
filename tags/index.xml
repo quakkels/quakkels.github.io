@@ -6,7 +6,25 @@
     <description>Recent content in Tags on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://quakkels.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://quakkels.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Computing</title>
+      <link>https://quakkels.com/tags/computing/</link>
+      <pubDate>Tue, 23 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/tags/computing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorial</title>
+      <link>https://quakkels.com/tags/tutorial/</link>
+      <pubDate>Tue, 23 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Philosophy</title>
       <link>https://quakkels.com/tags/philosophy/</link>
@@ -53,29 +71,11 @@
     </item>
     
     <item>
-      <title>Tutorial</title>
-      <link>https://quakkels.com/tags/tutorial/</link>
-      <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://quakkels.com/tags/tutorial/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Hobbies</title>
       <link>https://quakkels.com/tags/hobbies/</link>
       <pubDate>Fri, 12 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>https://quakkels.com/tags/hobbies/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Computing</title>
-      <link>https://quakkels.com/tags/computing/</link>
-      <pubDate>Sun, 07 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://quakkels.com/tags/computing/</guid>
       <description></description>
     </item>
     
