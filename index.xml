@@ -6,7 +6,43 @@
     <description>Recent content on Quakkels.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://quakkels.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simple Fix for Savage Axis Failure to Feed</title>
+      <link>https://quakkels.com/posts/000000_0_simple_fix_for_savage_axis_failure_to_feed/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://quakkels.com/posts/000000_0_simple_fix_for_savage_axis_failure_to_feed/</guid>
+      <description>&lt;p&gt;I bought my first deer rifle in 2021. Friends recommended I try Savage, and I found one. It was a Savage Axis in 30-06 for right around $350 bucks at Cabela&amp;rsquo;s. I felt so lucky because, if you remember, guns were in high demand in 2021. Unfortunately, that lucky feeling was shortly followed by astonishment when I saw all the .308 on the shelves, with nary a box of 30-06 anywhere. Oh well.&lt;/p&gt;
+&lt;p&gt;I eventually scrounged up some 30-06 online, and I was off to the range to zero the thing. I&amp;rsquo;d open the bolt, drop a round in, close the bolt, take aim, fire, adjust, and repeat. Eventually I dialed it in and was able to hit the target with only about an inch of play. I was happy.&lt;/p&gt;
+&lt;p&gt;But, I did not realize that somewhere along the line my rifle was assembled incorrectly. I&amp;rsquo;m probably at fault for this, but it&amp;rsquo;s such an easy mistake to make, I wouldn&amp;rsquo;t put it past anyone. You can only really detect the mistake if you&amp;rsquo;re actually working the bolt to feed rounds from the magazine.&lt;/p&gt;
+&lt;p&gt;For the life of me, I could not get my Savage Axis rifle to feed reliably.&lt;/p&gt;
+&lt;p&gt;At first I assumed I was working the action wrong. I would practice cycling the bolt very deliberately, but it was no use. I tried different dummy rounds, because maybe the rounds themselves were the issue. Nope. They weren&amp;rsquo;t.&lt;/p&gt;
+&lt;p&gt;I was getting disappointed enough to consider selling the gun. But then, I finally found the simple fix I was looking for.&lt;/p&gt;
+&lt;h2 id=&#34;how-i-fixed-my-savage-axis-feeding-problem&#34;&gt;How I Fixed My Savage Axis Feeding Problem&lt;/h2&gt;
+&lt;p&gt;The very first thing to do is a basic safety check. Make sure the rifle is unloaded and the chamber is clear. Make sure there&amp;rsquo;s no ammunition in the room with you.&lt;/p&gt;
+&lt;p&gt;Next, take out the bolt.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Push the bolt all the way forward&lt;/li&gt;
+&lt;li&gt;Set the safety to the &amp;ldquo;fire&amp;rdquo; position&lt;/li&gt;
+&lt;li&gt;Open the bolt and pull it all the way back&lt;/li&gt;
+&lt;li&gt;Press on the thumb sear (on the right-hand side of the gun) and pull the trigger at the same time&lt;/li&gt;
+&lt;li&gt;Pull the bolt back again to remove it completely&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/savage_axis_remove_bolt.png&#34; alt=&#34;Photo showing the Savage Axis bolt being removed.&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Once the bolt is out, take a close look at it. There&amp;rsquo;s a piece on the end that can spin. This spinny piece was the cause for my feeding problems. It needs to be in the correct position.&lt;/p&gt;
+&lt;p&gt;Spin the spin-able piece until it matches the picture.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://quakkels.com/images/savage_axis_bolt.png&#34; alt=&#34;A photo of a correctly aligned Savage Axis bolt, and of an incorrectly aligned bolt.&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Once that&amp;rsquo;s aligned correctly you can reinstall the bolt.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Make sure the thumb sear is still pressed and the trigger is pulled&lt;/li&gt;
+&lt;li&gt;Insert the bolt and push completely forward&lt;/li&gt;
+&lt;li&gt;Close the bolt&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now, if you experienced the same feeding issues as me, then you should be able to cycle through an entire magazine of dummy rounds with no feeding issues.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>The Pilgrim&#39;s Hope</title>
       <link>https://quakkels.com/posts/202305_3_the_pilgrims_hope/</link>

@@ -2,19 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://quakkels.com/tags/hobbies/</loc>
+    <lastmod>2023-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://quakkels.com/posts/</loc>
+    <lastmod>2023-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://quakkels.com/</loc>
+    <lastmod>2023-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://quakkels.com/posts/000000_0_simple_fix_for_savage_axis_failure_to_feed/</loc>
+    <lastmod>2023-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://quakkels.com/tags/</loc>
+    <lastmod>2023-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://quakkels.com/tags/tutorial/</loc>
+    <lastmod>2023-06-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://quakkels.com/tags/book-club/</loc>
     <lastmod>2023-05-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://quakkels.com/posts/</loc>
-    <lastmod>2023-05-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://quakkels.com/</loc>
-    <lastmod>2023-05-31T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://quakkels.com/tags/superversive/</loc>
-    <lastmod>2023-05-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://quakkels.com/tags/</loc>
     <lastmod>2023-05-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://quakkels.com/posts/202305_3_the_pilgrims_hope/</loc>
@@ -27,9 +36,6 @@
     <lastmod>2023-05-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://quakkels.com/posts/202305_2_how_to_use_rss/</loc>
-    <lastmod>2023-05-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://quakkels.com/tags/tutorial/</loc>
     <lastmod>2023-05-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://quakkels.com/tags/philosophy/</loc>
@@ -138,9 +144,6 @@
     <lastmod>2021-03-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://quakkels.com/posts/hand-tool-woodworking/</loc>
-    <lastmod>2021-02-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://quakkels.com/tags/hobbies/</loc>
     <lastmod>2021-02-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://quakkels.com/posts/rss-is-wonderful/</loc>
