@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://quakkels.com/already_subscribed/</loc>
+    <lastmod>2023-06-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://quakkels.com/success/</loc>
+    <lastmod>2023-06-30T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://quakkels.com/subscribe/</loc>
     <lastmod>2023-06-04T00:00:00+00:00</lastmod>
   </url><url>
@@ -40,6 +46,9 @@
   </url><url>
     <loc>https://quakkels.com/posts/202305_2_how_to_use_rss/</loc>
     <lastmod>2023-05-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://quakkels.com/tags/culture/</loc>
+    <lastmod>2023-05-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://quakkels.com/tags/philosophy/</loc>
     <lastmod>2023-05-11T00:00:00+00:00</lastmod>
