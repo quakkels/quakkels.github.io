@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://quakkels.com/tags/book-club/</loc>
+    <lastmod>2023-07-13T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://quakkels.com/dl_202307_maliceatmidnight-2a6b/</loc>
     <lastmod>2023-07-13T00:00:00+00:00</lastmod>
   </url><url>
@@ -34,9 +37,6 @@
   </url><url>
     <loc>https://quakkels.com/tags/tutorial/</loc>
     <lastmod>2023-06-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://quakkels.com/tags/book-club/</loc>
-    <lastmod>2023-05-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://quakkels.com/posts/202305_3_the_pilgrims_hope/</loc>
     <lastmod>2023-05-31T00:00:00+00:00</lastmod>
